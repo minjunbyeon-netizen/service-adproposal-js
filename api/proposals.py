@@ -358,6 +358,13 @@ def export_html(pid):
             pass
     template = "presentation_slide.html" if ver_num >= 6 else "presentation.html"
 
+    # V7+: 섹션에 컨셉 포함되어 있으므로 자동 컨셉 카드 슬라이드 제거
+    if ver_num >= 7:
+        concept_list = []
+        selected_concept = None
+        has_concept = False
+        total_slides = 1 + len(data["sections"]) + 1
+
     return render_template(
         template,
         title=data["title"],
