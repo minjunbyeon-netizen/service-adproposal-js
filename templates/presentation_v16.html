@@ -86,31 +86,50 @@ body{font-family:'Roboto','Noto Sans KR',-apple-system,sans-serif;font-weight:40
 .content-body::-webkit-scrollbar-thumb{background:#D2D2D2;border-radius:2px}
 
 /* ===== 편집 모드 ===== */
-.edit-toolbar{position:fixed;top:12px;left:50%;transform:translateX(-50%);z-index:200;display:flex;gap:8px;background:rgba(0,0,0,.85);padding:8px 16px;border-radius:8px}
-.edit-btn{padding:6px 14px;font-size:12px;font-weight:700;border:none;border-radius:4px;cursor:pointer;font-family:inherit}
+.edit-toolbar{position:fixed;top:12px;left:50%;transform:translateX(-50%);z-index:200;display:flex;gap:6px;background:rgba(0,0,0,.9);padding:8px 12px;border-radius:8px;align-items:center}
+.edit-btn{padding:5px 12px;font-size:11px;font-weight:700;border:none;border-radius:4px;cursor:pointer;font-family:inherit}
 .edit-btn.start{background:#E84E10;color:#fff}
 .edit-btn.done{background:#fff;color:#1A1A1A;display:none}
 body.edit-mode .edit-btn.start{display:none}
 body.edit-mode .edit-btn.done{display:inline-block}
+.edit-sep{width:1px;height:20px;background:rgba(255,255,255,.2);margin:0 4px}
+.edit-btn.fmt{background:rgba(255,255,255,.15);color:#fff;padding:5px 8px;font-size:13px;display:none}
+.edit-btn.fmt:hover{background:rgba(255,255,255,.3)}
+.edit-btn.fmt.active{background:#E84E10}
+body.edit-mode .edit-btn.fmt{display:inline-block}
 
+/* 이미지 */
 body.edit-mode img{cursor:pointer;transition:outline .15s}
 body.edit-mode img:hover{outline:2px solid #E84E10;outline-offset:2px}
 .img-empty{min-height:120px;border:2px dashed #FF3B30;background:#F5F5F5;display:block}
 .img-replaced{width:100%;height:100%;object-fit:contain;display:block}
 
+/* 리사이즈 */
 .resizable{position:relative}
 .resize-handle{display:none;position:absolute;bottom:0;right:0;width:24px;height:24px;cursor:nwse-resize;z-index:10}
 .resize-handle::before{content:'';position:absolute;bottom:3px;right:3px;width:12px;height:12px;border-right:2px solid #E84E10;border-bottom:2px solid #E84E10}
 .resize-handle::after{content:'';position:absolute;bottom:3px;right:3px;width:6px;height:6px;border-right:2px solid #E84E10;border-bottom:2px solid #E84E10}
 body.edit-mode .resize-handle{display:block}
-.resize-dim{display:none;position:absolute;top:4px;left:4px;font-size:10px;font-weight:700;color:#fff;background:#E84E10;padding:2px 6px;z-index:10;pointer-events:none}
+.resize-dim{display:none;position:absolute;top:4px;left:4px;font-size:10px;font-weight:700;color:#fff;background:#E84E10;padding:2px 6px;z-index:10;pointer-events:none;border-radius:2px}
 body.edit-mode .resizing .resize-dim{display:block}
 
-.del-x{display:none;width:24px;height:24px;border:none;background:#FF3B30;color:#fff;font-size:14px;font-weight:700;cursor:pointer;line-height:24px;text-align:center;border-radius:3px;position:absolute;top:4px;right:4px;z-index:10}
+/* 삭제 */
+.del-x{display:none;width:22px;height:22px;border:none;background:#FF3B30;color:#fff;font-size:12px;font-weight:700;cursor:pointer;line-height:22px;text-align:center;border-radius:3px;position:absolute;top:4px;right:4px;z-index:10}
 .del-x:hover{background:#D32F2F}
 body.edit-mode .deletable{position:relative}
 body.edit-mode .deletable>.del-x{display:block}
-body.edit-mode .deletable:hover{outline:2px solid rgba(255,59,48,.4);outline-offset:2px}
+body.edit-mode .deletable:hover{outline:2px solid rgba(255,59,48,.3);outline-offset:2px}
+
+/* 드래그 이동 */
+body.edit-mode .draggable{cursor:grab;position:relative}
+body.edit-mode .draggable.dragging{cursor:grabbing;opacity:.7;z-index:50;outline:2px solid #E84E10!important}
+.drag-handle{display:none;position:absolute;top:4px;left:4px;width:20px;height:20px;cursor:grab;z-index:10;background:rgba(0,0,0,.5);border-radius:3px}
+.drag-handle::before{content:'::';color:#fff;font-size:12px;font-weight:700;line-height:20px;display:block;text-align:center;letter-spacing:1px}
+body.edit-mode .draggable>.drag-handle{display:block}
+
+/* contenteditable */
+body.edit-mode [contenteditable]{outline:1px dashed rgba(232,78,16,.3);outline-offset:2px}
+body.edit-mode [contenteditable]:focus{outline:2px solid #E84E10;outline-offset:2px;background:rgba(232,78,16,.03)}
 
 .edit-count{position:fixed;bottom:40px;right:40px;font-size:11px;color:#6E6E73;z-index:200;display:none}
 body.edit-mode .edit-count{display:block}
@@ -206,7 +225,17 @@ body.edit-mode .edit-count{display:block}
 <div class="edit-toolbar" id="editToolbar">
   <button class="edit-btn start" onclick="toggleEdit(true)">편집</button>
   <button class="edit-btn done" onclick="toggleEdit(false)">편집 완료</button>
-  <button class="edit-btn done" onclick="saveClean()">저장 (HTML)</button>
+  <div class="edit-sep"></div>
+  <button class="edit-btn fmt" onclick="fmtSize(-2)" title="축소">A-</button>
+  <button class="edit-btn fmt" onclick="fmtSize(4)" title="확대">A+</button>
+  <div class="edit-sep"></div>
+  <button class="edit-btn fmt" onclick="fmtAlign('left')" title="좌측">L</button>
+  <button class="edit-btn fmt" onclick="fmtAlign('center')" title="중앙">C</button>
+  <button class="edit-btn fmt" onclick="fmtAlign('right')" title="우측">R</button>
+  <div class="edit-sep"></div>
+  <button class="edit-btn fmt" onclick="fmtBold()" title="굵게">B</button>
+  <div class="edit-sep"></div>
+  <button class="edit-btn done" onclick="saveClean()">저장</button>
 </div>
 <div class="edit-count" id="editCount"></div>
 
@@ -376,6 +405,40 @@ function updateCount(){
   el.textContent=parts.join(' / ');
 }
 
+// --- 텍스트 서식 ---
+function fmtSize(delta){
+  var sel=window.getSelection();
+  if(!sel.rangeCount) return;
+  var node=sel.anchorNode;
+  var block=node.nodeType===3?node.parentElement:node;
+  while(block&&!block.matches('p,h1,h2,h3,li,td,th,blockquote,strong,div')) block=block.parentElement;
+  if(!block) return;
+  var cur=parseFloat(getComputedStyle(block).fontSize);
+  block.style.fontSize=Math.max(10,cur+delta)+'px';
+}
+function fmtAlign(dir){
+  var sel=window.getSelection();
+  if(!sel.rangeCount) return;
+  var node=sel.anchorNode;
+  var block=node.nodeType===3?node.parentElement:node;
+  while(block&&!block.matches('p,h1,h2,h3,li,td,th,blockquote,div,.content-body')) block=block.parentElement;
+  if(!block) return;
+  block.style.textAlign=dir;
+}
+function fmtBold(){
+  document.execCommand('bold',false,null);
+}
+
+// --- contenteditable ---
+function initEditable(){
+  document.querySelectorAll('.slide .content-body p, .slide .content-body h3, .slide .content-body li, .slide .content-body blockquote, .slide .content-header h3, .slide .cover-title, .slide .cover-meta, .slide .divider-title, .slide .end-title, .slide .end-sub').forEach(function(el){
+    if(el._editInit) return;
+    el._editInit=true;
+    el.setAttribute('contenteditable','true');
+  });
+}
+
+// --- 이미지 교체 ---
 function initImageReplace(){
   document.querySelectorAll('.slide img').forEach(function(img){
     if(img._replaceInit) return;
@@ -405,49 +468,48 @@ function initImageReplace(){
   });
 }
 
-function initImageResize(){
-  document.querySelectorAll('.slide img, .slide .img-prompt').forEach(function(el){
-    if(el._resizeInit) return;
-    el._resizeInit=true;
-    var wrap=el;
-    if(el.tagName==='IMG'){
-      // img를 래퍼로 감싸기
-      var w=document.createElement('div');
-      w.style.display='inline-block';w.style.position='relative';
-      el.parentNode.insertBefore(w,el); w.appendChild(el);
-      wrap=w;
+// --- 리사이즈 (img + img-prompt + table + concept-versions) ---
+function addResize(wrap){
+  if(wrap._resizeInit) return;
+  wrap._resizeInit=true;
+  wrap.classList.add('resizable');
+  var handle=document.createElement('div'); handle.className='resize-handle';
+  var dim=document.createElement('div'); dim.className='resize-dim';
+  wrap.appendChild(handle); wrap.appendChild(dim);
+  var sx,sw,sh,ratio;
+  handle.addEventListener('mousedown',function(e){
+    e.preventDefault();e.stopPropagation();
+    sx=e.clientX;sw=wrap.offsetWidth;sh=wrap.offsetHeight;ratio=sh/sw;
+    wrap.classList.add('resizing');
+    function onMove(ev){
+      var nw=Math.max(80,sw+(ev.clientX-sx));
+      var nh=Math.round(nw*ratio);
+      wrap.style.width=nw+'px';wrap.style.height=nh+'px';wrap.style.maxWidth='none';
+      dim.textContent=nw+' x '+nh;
+      var img=wrap.querySelector('img');
+      if(img){img.style.width='100%';img.style.height='100%';img.style.objectFit='contain';}
     }
-    wrap.classList.add('resizable');
-    var handle=document.createElement('div'); handle.className='resize-handle';
-    var dim=document.createElement('div'); dim.className='resize-dim';
-    wrap.appendChild(handle); wrap.appendChild(dim);
-
-    var sx,sy,sw,sh,ratio;
-    handle.addEventListener('mousedown',function(e){
-      e.preventDefault();e.stopPropagation();
-      sx=e.clientX;sy=e.clientY;sw=wrap.offsetWidth;sh=wrap.offsetHeight;
-      ratio=sh/sw;
-      wrap.classList.add('resizing');
-      function onMove(ev){
-        var dx=ev.clientX-sx;
-        var nw=Math.max(80,sw+dx);
-        var nh=Math.round(nw*ratio);
-        wrap.style.width=nw+'px';wrap.style.height=nh+'px';
-        dim.textContent=nw+' x '+nh;
-        var img=wrap.querySelector('img');
-        if(img){img.style.width='100%';img.style.height='100%';img.style.objectFit='contain';}
-      }
-      function onUp(){
-        wrap.classList.remove('resizing');
-        document.removeEventListener('mousemove',onMove);
-        document.removeEventListener('mouseup',onUp);
-      }
-      document.addEventListener('mousemove',onMove);
-      document.addEventListener('mouseup',onUp);
-    });
+    function onUp(){wrap.classList.remove('resizing');document.removeEventListener('mousemove',onMove);document.removeEventListener('mouseup',onUp);}
+    document.addEventListener('mousemove',onMove);
+    document.addEventListener('mouseup',onUp);
+  });
+}
+function initImageResize(){
+  // img 래핑
+  document.querySelectorAll('.slide .content-body img').forEach(function(img){
+    if(img.parentElement.classList.contains('resizable')) return;
+    var w=document.createElement('div');
+    w.style.cssText='display:inline-block;position:relative';
+    img.parentNode.insertBefore(w,img); w.appendChild(img);
+    addResize(w);
+  });
+  // img-prompt, table, concept-versions 직접 리사이즈
+  document.querySelectorAll('.slide .content-body .img-prompt, .slide .content-body table, .slide .content-body .concept-versions').forEach(function(el){
+    addResize(el);
   });
 }
 
+// --- 삭제 ---
 function initDeletable(){
   var sels=['.slide .content-body > p','.slide .content-body > table',
     '.slide .content-body > blockquote','.slide .content-body > h3',
@@ -467,23 +529,60 @@ function initDeletable(){
   });
 }
 
+// --- 드래그 이동 ---
+function initDraggable(){
+  document.querySelectorAll('.slide .content-body > p, .slide .content-body > table, .slide .content-body > .img-prompt, .slide .content-body > .concept-versions, .slide .content-body > blockquote, .slide .content-body > ul, .slide .content-body > ol, .slide .content-body > h3').forEach(function(el){
+    if(el._dragInit) return;
+    el._dragInit=true;
+    el.classList.add('draggable');
+    var handle=document.createElement('div');handle.className='drag-handle';
+    el.appendChild(handle);
+
+    var sx,sy,ox,oy;
+    handle.addEventListener('mousedown',function(e){
+      e.preventDefault();e.stopPropagation();
+      el.classList.add('dragging');
+      // 처음 드래그 시 position relative로 전환
+      if(getComputedStyle(el).position==='static') el.style.position='relative';
+      sx=e.clientX;sy=e.clientY;
+      ox=parseInt(el.style.left||'0');oy=parseInt(el.style.top||'0');
+      function onMove(ev){
+        el.style.left=(ox+ev.clientX-sx)+'px';
+        el.style.top=(oy+ev.clientY-sy)+'px';
+      }
+      function onUp(){
+        el.classList.remove('dragging');
+        document.removeEventListener('mousemove',onMove);
+        document.removeEventListener('mouseup',onUp);
+      }
+      document.addEventListener('mousemove',onMove);
+      document.addEventListener('mouseup',onUp);
+    });
+  });
+}
+
+// --- 토글 ---
 function toggleEdit(on){
   if(on){
-    initDeletable(); initImageReplace(); initImageResize();
+    initEditable(); initDeletable(); initImageReplace(); initImageResize(); initDraggable();
     document.body.classList.add('edit-mode');
   } else {
     document.body.classList.remove('edit-mode');
+    // contenteditable 해제
+    document.querySelectorAll('[contenteditable]').forEach(function(el){el.removeAttribute('contenteditable');});
   }
 }
 
+// --- 클린 저장 ---
 function saveClean(){
   var clone=document.documentElement.cloneNode(true);
   clone.querySelector('body').classList.remove('edit-mode');
-  clone.querySelectorAll('.edit-toolbar,.edit-count,.del-x,.resize-handle,.resize-dim').forEach(function(e){e.remove();});
-  clone.querySelectorAll('.deletable').forEach(function(e){e.classList.remove('deletable');});
-  clone.querySelectorAll('.img-empty').forEach(function(e){e.classList.remove('img-empty');});
-  clone.querySelectorAll('.img-replaced').forEach(function(e){e.classList.remove('img-replaced');});
-  clone.querySelectorAll('.resizable').forEach(function(e){e.classList.remove('resizable');});
+  clone.querySelectorAll('.edit-toolbar,.edit-count,.del-x,.resize-handle,.resize-dim,.drag-handle').forEach(function(e){e.remove();});
+  clone.querySelectorAll('.deletable,.draggable,.resizable,.dragging').forEach(function(e){
+    e.classList.remove('deletable','draggable','resizable','dragging');
+  });
+  clone.querySelectorAll('.img-empty,.img-replaced').forEach(function(e){e.classList.remove('img-empty','img-replaced');});
+  clone.querySelectorAll('[contenteditable]').forEach(function(e){e.removeAttribute('contenteditable');});
   clone.querySelectorAll('script').forEach(function(s){
     if(s.textContent.indexOf('toggleEdit')>-1||s.textContent.indexOf('goTo')>-1) s.remove();
   });
