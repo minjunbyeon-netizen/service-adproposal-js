@@ -348,8 +348,18 @@ def export_html(pid):
     has_concept = selected_concept is not None or len(concept_list) > 0
     total_slides = 1 + len(data["sections"]) + (1 if has_concept else 0) + 1
 
+    # V6+ -> 수평 슬라이딩 GSAP 템플릿
+    version = data.get("version") or ""
+    ver_num = 0
+    if version.startswith("V"):
+        try:
+            ver_num = int(version[1:].split("-")[0])
+        except ValueError:
+            pass
+    template = "presentation_slide.html" if ver_num >= 6 else "presentation.html"
+
     return render_template(
-        "presentation.html",
+        template,
         title=data["title"],
         client=rfp.get("client_name", ""),
         project=rfp.get("project_name", ""),

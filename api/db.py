@@ -162,7 +162,7 @@ def get_proposal_with_concepts(proposal_id: int) -> dict | None:
     conn = get_conn()
     try:
         row = conn.execute(
-            "SELECT id, title, rfp_json, toc_json, selected_concept "
+            "SELECT id, title, version, rfp_json, toc_json, selected_concept "
             "FROM proposals WHERE id=?",
             (proposal_id,),
         ).fetchone()
