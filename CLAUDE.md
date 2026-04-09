@@ -15,7 +15,7 @@
 cd C:\dev\services\adproposal-js
 pip install -r requirements.txt
 python app.py
-# http://localhost:5060
+# http://localhost:8881
 ```
 
 ## 구조

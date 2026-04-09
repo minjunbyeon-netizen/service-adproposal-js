@@ -37,7 +37,9 @@ def call_claude(prompt, system_prompt=None, model="sonnet"):
     if not claude_bin:
         raise RuntimeError("claude CLI가 설치되어 있지 않습니다. PATH 또는 ~/.local/bin 확인 필요")
 
-    cmd = [claude_bin, "-p", prompt, "--model", model]
+    # 프롬프트를 stdin으로 전달 (Windows 명령줄 길이 제한 8191자 회피)
+    # -p는 print 모드 플래그, prompt는 positional arg 대신 stdin으로 전달
+    cmd = [claude_bin, "-p", "--model", model]
     if system_prompt:
         cmd.extend(["--system-prompt", system_prompt])
 
@@ -47,7 +49,13 @@ def call_claude(prompt, system_prompt=None, model="sonnet"):
     env["PYTHONIOENCODING"] = "utf-8"
 
     try:
-        result = subprocess.run(cmd, capture_output=True, timeout=CLAUDE_TIMEOUT, env=env)
+        result = subprocess.run(
+            cmd,
+            input=prompt.encode("utf-8"),
+            capture_output=True,
+            timeout=CLAUDE_TIMEOUT,
+            env=env,
+        )
         stdout = result.stdout.decode("utf-8", errors="replace").strip()
         stderr = result.stderr.decode("utf-8", errors="replace").strip()
 

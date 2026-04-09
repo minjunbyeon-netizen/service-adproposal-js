@@ -2,7 +2,7 @@
 import os
 import logging
 from pathlib import Path
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template, jsonify, send_from_directory
 from dotenv import load_dotenv
 
 load_dotenv(Path(__file__).resolve().parent.parent.parent / ".env")
@@ -36,6 +36,11 @@ def create_app():
     def health():
         return jsonify({"ok": True, "service": "adproposal-js"})
 
+    @app.route("/assets/<path:filename>")
+    def serve_assets(filename):
+        assets_dir = Path(__file__).resolve().parent / "assets"
+        return send_from_directory(assets_dir, filename)
+
     @app.errorhandler(400)
     def bad_request(e):
         return jsonify({"ok": False, "error": "잘못된 요청입니다", "code": "BAD_REQUEST"}), 400
@@ -58,4 +63,4 @@ def create_app():
 if __name__ == "__main__":
     app = create_app()
     port = int(os.environ.get("PORT", 8881))
-    app.run(host="0.0.0.0", port=port, debug=False, threaded=True)
+    app.run(host="0.0.0.0", port=port, debug=True, threaded=True)

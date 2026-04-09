@@ -1,0 +1,60 @@
+{
+  "version": 4,
+  "title": "광고제안서 디벨롭",
+  "date": "2026-04-09",
+  "time": "00:00:00",
+  "change_note": "시안 4개 확정, 상위 컨셉 3개 확정, PT 목차 16장 역순 구조 확정, 팀별 작업 배분 정의",
+  "briefing": "CEO V4 브리핑: 확정 사항, 논의 필요 사항, 팀별 작업 배분 3개 자료 수신",
+  "confirmed": {
+    "creatives": [
+      { "id": 1, "title": "3.6%", "desc": "96.4% 취업률을 탈락률로 뒤집음" },
+      { "id": 2, "title": "심사위원석", "desc": "WACS 심사위원 4명 중 3명이 영산대 교수" },
+      { "id": 3, "title": "Room 1201", "desc": "호텔 복도 25개 문, 전부 총지배인, 전부 같은 학교" },
+      { "id": 4, "title": "1학년 vs 졸업생", "desc": "분할화면. 입학 때 vs 졸업 후" }
+    ],
+    "concepts": [
+      { "id": "A", "slogan": "이름을 가려봐.", "axis": "편견 제거", "desc": "결과만 놓고 대학 이름을 가리면 명문대. 이름 열면 영산대." },
+      { "id": "B", "slogan": "같은 학교.", "axis": "밀도/집중", "desc": "25명 같은 학교, 심사위원 같은 학교. 반복할수록 밀도." },
+      { "id": "C", "slogan": "이 사람은 배우가 아닙니다.", "axis": "진짜 vs 연출", "desc": "매 시안마다 배우 아님 -> 영산대 졸업생 반전." }
+    ],
+    "concept_selected": null,
+    "deliverables": {
+      "pt_html": "GSAP 모핑 기반 HTML. 크리에이티브/시안/영상/캠페인만.",
+      "report_doc": "인쇄용 문서. 회사소개/조직도/실적/재무/인력."
+    },
+    "pt_outline": {
+      "part1": "표지 -> 시안 -> 질문 -> 컨셉 -> 슬로건",
+      "part2": "지면4종 -> 캠페인3단계 -> 영상3종",
+      "part3": "매체예산 -> 회사소개(1장 압축) -> 마무리",
+      "transition": "GSAP 기반, 슬라이드 성격별 차별 전환"
+    },
+    "style_rules": [
+      "클리셰 전면 금지: 학령인구 감소, 글로벌 경쟁력, MZ세대 등",
+      "팩트(숫자, 실적)와 크리에이티브(시안, 슬로건, 영상)에만 집중",
+      "회사소개/환경분석 최소화, 맨 뒤 배치"
+    ],
+    "assets": {
+      "versions_txt": "adproposal-js/docs/versions/ (V1~V4-10 12개 .txt)",
+      "video_storyboard": "adproposal-js/docs/video-storyboard.md",
+      "pt_template": "adproposal-js/templates/presentation.html",
+      "wiseu_ppt": "adproposal-js/assets/ (16:9, 4:3 pptx + 로고)"
+    }
+  },
+  "pending_decisions": [
+    { "id": 1, "item": "상위 컨셉 최종 선택", "options": "A / B / C", "note": "PT 전체 톤, 전환 연출, 슬로건이 여기서 결정됨" },
+    { "id": 2, "item": "PT 템플릿 디자인 방향", "options": "현 presentation.html 확장 vs 컨셉별 신규 제작", "note": "컨셉 A/B/C에 따라 비주얼 톤이 다름" },
+    { "id": 3, "item": "시안 가안(목업) 수준", "options": "텍스트 레이아웃만 vs 이미지 생성(AI) 포함", "note": "지면 시안 4종을 어느 수준까지 만들 것인가" },
+    { "id": 4, "item": "영상 스토리보드 갱신 여부", "options": "기존(V3 증거의 대학) 유지 vs 선택된 컨셉으로 재작성", "note": "현재 스토리보드는 V3 시절 작성됨" },
+    { "id": 5, "item": "보고서 포맷", "options": "HTML 인쇄용 vs Word/PDF 직접 생성", "note": "인쇄 품질, 표지 디자인, 페이지 번호 등" },
+    { "id": 6, "item": "CSS 테마", "options": "와이즈유 브랜드(주황) 반영 vs 현행(검정+흰+파란) 유지", "note": "대학 로고/CI 색상과의 조화" },
+    { "id": 7, "item": "캠페인 3단계 구체화", "options": "Year 1 vs Year 2 구분, 매체별 예산 배분", "note": "목차에는 있으나 내용 미작성" }
+  ],
+  "team_tasks": [
+    { "task": "컨셉 확정 + 슬로건 확정", "owner": "CEO + 참모총장", "input": "컨셉 A/B/C, 시안 4개", "output": "최종 컨셉 1개, 메인 슬로건" },
+    { "task": "PT 템플릿 HTML/CSS/GSAP", "owner": "개발팀장", "input": "확정 컨셉, 목차 16장", "output": "presentation.html 완성본" },
+    { "task": "지면 시안 4종 (가안)", "owner": "크리에이티브팀", "input": "3.6%, 심사위원석, Room 1201, 1학년vs졸업생", "output": "시안 이미지 또는 레이아웃" },
+    { "task": "영상 스토리보드 갱신", "owner": "크리에이티브팀", "input": "확정 컨셉, 기존 video-storyboard.md", "output": "컨셉 통일된 스토리보드" },
+    { "task": "보고서 문서 제작", "owner": "정찰병 + 측량사", "input": "과업지시서 평가항목, V4 버전들", "output": "인쇄용 보고서" },
+    { "task": "매체 전략/예산표", "owner": "측량사", "input": "연 1.25억, 매체 목록", "output": "매체별 예산 배분표" }
+  ]
+}

@@ -81,6 +81,18 @@ body { font-family: 'Roboto', 'Noto Sans KR', sans-serif; color: #1D1D1F; backgr
 .chat-input { display: flex; gap: 8px; }
 .chat-input input { flex: 1; padding: 8px 12px; font-size: 13px; border: 1px solid #d2d2d7; border-radius: 6px; font-family: inherit; }
 
+/* Concept area */
+.concept-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; padding: 8px 0; border-bottom: 1px solid #e0e0e0; }
+.concept-header-title { font-size: 13px; font-weight: 700; color: #1D1D1F; }
+.concept-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-bottom: 16px; }
+.concept-card-mini { padding: 12px; border: 1px solid #e0e0e0; border-radius: 4px; background: #f9f9f9; cursor: pointer; font-size: 12px; }
+.concept-card-mini:hover { border-color: #0071E3; }
+.concept-card-mini.active { border-color: #0071E3; background: #E8F0FE; }
+.concept-tag-mini { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 1px; color: #fff; background: #6E6E73; padding: 2px 8px; border-radius: 2px; margin-bottom: 6px; }
+.concept-card-mini.active .concept-tag-mini { background: #0071E3; }
+.concept-card-title { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+.concept-card-body { font-size: 11px; line-height: 1.6; color: #6E6E73; }
+
 /* Loading */
 .loading { display: inline-block; color: #6E6E73; font-size: 13px; }
 .loading::after { content: ''; animation: dots 1.5s infinite; }

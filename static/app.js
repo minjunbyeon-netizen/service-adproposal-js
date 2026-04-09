@@ -46,6 +46,8 @@ async function selectProposal(id) {
     document.getElementById('rightEmpty').style.display = 'block';
     document.getElementById('rightContent').style.display = 'none';
     document.getElementById('btnExport').disabled = false;
+    var btnPT = document.getElementById('btnPT');
+    if (btnPT) btnPT.disabled = false;
 
     try {
         const res = await fetch('/api/proposals/' + id);
@@ -64,10 +66,13 @@ async function selectProposal(id) {
             renderToc(proposalData.sections);
             document.getElementById('btnAnalyze').textContent = '재분석';
             document.getElementById('btnAutoGen').disabled = false;
+            document.getElementById('conceptArea').style.display = 'block';
+            loadConcepts(id);
         } else {
             document.getElementById('tocTree').innerHTML = '';
             document.getElementById('btnAnalyze').textContent = '분석 시작';
             document.getElementById('btnAutoGen').disabled = true;
+            document.getElementById('conceptArea').style.display = 'none';
         }
 
         loadProposals();
@@ -315,11 +320,87 @@ async function sendChat() {
     }
 }
 
+// ===== Concepts A/B/C =====
+
+async function loadConcepts(pid) {
+    try {
+        var res = await fetch('/api/proposals/' + pid + '/concepts');
+        var json = await res.json();
+        if (!json.ok) return;
+        renderConceptCards(json.data);
+    } catch (e) {
+        console.error('loadConcepts:', e);
+    }
+}
+
+function renderConceptCards(concepts) {
+    var el = document.getElementById('conceptCards');
+    if (!concepts || !concepts.length) {
+        el.innerHTML = '<div style="color:#6E6E73;font-size:12px;padding:8px 0">컨셉이 아직 없습니다. "컨셉 생성" 버튼을 클릭하세요.</div>';
+        return;
+    }
+    var selected = proposalData && proposalData.selected_concept;
+    el.innerHTML = '<div class="concept-grid">' + concepts.map(function(c) {
+        var isActive = c.label === selected;
+        return '<div class="concept-card-mini' + (isActive ? ' active' : '') + '" onclick="selectConcept(\'' + c.label + '\')">' +
+            '<div class="concept-tag-mini">' + esc(c.label) + '</div>' +
+            '<div class="concept-card-title">' + esc(c.title) + '</div>' +
+            '<div class="concept-card-body">' + esc(c.body) + '</div>' +
+            '</div>';
+    }).join('') + '</div>';
+}
+
+async function generateConcepts() {
+    if (!currentProposalId) return;
+    var btn = document.getElementById('btnConceptGen');
+    var loading = document.getElementById('conceptLoading');
+    btn.disabled = true;
+    loading.style.display = 'block';
+
+    try {
+        var res = await fetch('/api/proposals/' + currentProposalId + '/concepts/generate', { method: 'POST' });
+        var json = await res.json();
+        if (!json.ok) { alert(json.error); return; }
+        renderConceptCards(json.data);
+    } catch (e) {
+        alert('컨셉 생성 실패: ' + e.message);
+    } finally {
+        btn.disabled = false;
+        loading.style.display = 'none';
+    }
+}
+
+async function selectConcept(label) {
+    if (!currentProposalId) return;
+    try {
+        var res = await fetch('/api/proposals/' + currentProposalId + '/concepts/select', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ label: label }),
+        });
+        var json = await res.json();
+        if (!json.ok) { alert(json.error); return; }
+        if (proposalData) proposalData.selected_concept = label;
+        loadConcepts(currentProposalId);
+    } catch (e) {
+        alert('컨셉 선택 실패: ' + e.message);
+    }
+}
+
 // ===== Export =====
 
 function exportMd() {
     if (!currentProposalId) return;
     window.location.href = '/api/proposals/' + currentProposalId + '/export';
+}
+
+function openPresentation() {
+    if (!currentProposalId) return;
+    window.open('/api/proposals/' + currentProposalId + '/export-html', '_blank');
+}
+
+function openPT(pid) {
+    window.open('/api/proposals/' + pid + '/export-html', '_blank');
 }
 
 // ===== Init =====

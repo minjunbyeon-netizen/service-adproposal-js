@@ -17,6 +17,20 @@
 <div class="header">
     <h1>adproposal-js</h1>
     <div class="header-actions">
+        <button class="btn btn-secondary btn-sm" onclick="openPT(5)">V1</button>
+        <button class="btn btn-secondary btn-sm" onclick="openPT(7)">V2</button>
+        <button class="btn btn-secondary btn-sm" onclick="openPT(8)">V3</button>
+        <button class="btn btn-primary btn-sm" onclick="openPT(9)">4-1</button>
+        <button class="btn btn-primary btn-sm" onclick="openPT(10)">4-2</button>
+        <button class="btn btn-primary btn-sm" onclick="openPT(11)">4-3</button>
+        <button class="btn btn-primary btn-sm" onclick="openPT(12)">4-4</button>
+        <button class="btn btn-primary btn-sm" onclick="openPT(13)">4-5</button>
+        <button class="btn btn-primary btn-sm" onclick="openPT(14)">4-6</button>
+        <button class="btn btn-primary btn-sm" onclick="openPT(15)">4-7</button>
+        <button class="btn btn-primary btn-sm" onclick="openPT(16)">4-8</button>
+        <button class="btn btn-primary btn-sm" onclick="openPT(17)">4-9</button>
+        <button class="btn btn-primary btn-sm" onclick="openPT(18)">4-10</button>
+        <button class="btn btn-secondary btn-sm" onclick="openPresentation()" id="btnPT" disabled>PT</button>
         <button class="btn btn-secondary btn-sm" onclick="exportMd()" id="btnExport" disabled>Markdown Export</button>
     </div>
 </div>
@@ -50,6 +64,14 @@
                 </div>
             </div>
             <div id="rfpSummary"></div>
+            <div id="conceptArea" style="display:none">
+                <div class="concept-header">
+                    <span class="concept-header-title">컨셉 A/B/C</span>
+                    <button class="btn btn-primary btn-sm" onclick="generateConcepts()" id="btnConceptGen">컨셉 생성</button>
+                </div>
+                <div id="conceptCards"></div>
+                <div id="conceptLoading" style="display:none"><span class="loading">컨셉 생성 중</span></div>
+            </div>
             <div id="tocTree"></div>
             <div id="analysisLoading" style="display:none"><span class="loading">분석 중</span></div>
         </div>
