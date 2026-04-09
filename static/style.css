@@ -32,16 +32,22 @@ body { font-family: 'Roboto', 'Noto Sans KR', sans-serif; color: #1D1D1F; backgr
 .upload-form input[type="file"] { font-size: 12px; margin: 6px 0; }
 .upload-actions { display: flex; gap: 8px; margin-top: 8px; }
 
-.proposal-list { }
-.proposal-item { padding: 10px 12px; border-bottom: 1px solid #e0e0e0; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
-.proposal-item:hover { background: #eaeaec; }
-.proposal-item.active { background: #fff; border-left: 3px solid #0071E3; }
-.proposal-title { font-size: 13px; font-weight: 400; }
-.proposal-status { font-size: 11px; padding: 2px 6px; border-radius: 3px; }
-.proposal-status.draft { background: #e0e0e0; color: #6E6E73; }
-.proposal-status.analyzing { background: #FFF3CD; color: #856404; }
-.proposal-status.ready { background: #D4EDDA; color: #155724; }
-.proposal-status.done { background: #CCE5FF; color: #004085; }
+/* Version tree */
+.version-tree { }
+.vt-item, .vt-sub-item { display: flex; align-items: center; padding: 8px 12px; cursor: pointer; border-bottom: 1px solid #e8e8e8; font-size: 12px; gap: 8px; }
+.vt-item:hover, .vt-sub-item:hover { background: #eaeaec; }
+.vt-item.active, .vt-sub-item.active { background: #fff; border-left: 3px solid #0071E3; }
+.vt-group { display: flex; align-items: center; padding: 8px 12px; cursor: pointer; border-bottom: 1px solid #e8e8e8; font-size: 12px; gap: 8px; font-weight: 700; }
+.vt-group:hover { background: #eaeaec; }
+.vt-arrow { font-size: 9px; color: #6E6E73; width: 12px; flex-shrink: 0; }
+.vt-label { font-weight: 700; color: #0071E3; min-width: 40px; flex-shrink: 0; }
+.vt-sub-label { font-weight: 700; color: #6E6E73; min-width: 24px; flex-shrink: 0; }
+.vt-title { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: #1D1D1F; }
+.vt-count { font-size: 10px; color: #6E6E73; font-weight: 400; }
+.vt-pt { font-size: 10px; font-weight: 700; color: #0071E3; padding: 2px 6px; border: 1px solid #0071E3; border-radius: 3px; flex-shrink: 0; cursor: pointer; }
+.vt-pt:hover { background: #0071E3; color: #fff; }
+.vt-sub { }
+.vt-sub-item { padding-left: 32px; }
 
 /* Center panel */
 .analysis-header { margin-bottom: 16px; display: flex; justify-content: space-between; align-items: center; }

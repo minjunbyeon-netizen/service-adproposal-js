@@ -31,7 +31,7 @@ def list_proposals():
     conn = get_conn()
     try:
         rows = conn.execute(
-            "SELECT id, title, status, created_at FROM proposals ORDER BY id DESC"
+            "SELECT id, title, status, version, created_at FROM proposals ORDER BY id DESC"
         ).fetchall()
         return jsonify({"ok": True, "data": [dict(r) for r in rows]})
     finally:

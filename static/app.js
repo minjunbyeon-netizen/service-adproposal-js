@@ -25,17 +25,89 @@ async function loadProposals() {
 }
 
 function renderProposalList(list) {
-    const el = document.getElementById('proposalList');
+    var el = document.getElementById('proposalList');
     if (!list.length) {
         el.innerHTML = '<div class="empty-state">제안서가 없습니다</div>';
         return;
     }
-    el.innerHTML = list.map(p => `
-        <div class="proposal-item${p.id === currentProposalId ? ' active' : ''}" onclick="selectProposal(${p.id})">
-            <span class="proposal-title">${esc(p.title)}</span>
-            <span class="proposal-status ${p.status}">${p.status}</span>
-        </div>
-    `).join('');
+
+    // 버전별 그룹핑
+    var groups = {};
+    var noVersion = [];
+    list.forEach(function(p) {
+        if (!p.version) { noVersion.push(p); return; }
+        var major = p.version.split('-')[0]; // "V4-1" -> "V4"
+        if (!groups[major]) groups[major] = [];
+        groups[major].push(p);
+    });
+
+    // 메이저 버전 내림차순 정렬
+    var majors = Object.keys(groups).sort(function(a, b) {
+        return parseInt(b.replace('V', '')) - parseInt(a.replace('V', ''));
+    });
+
+    var h = '<div class="version-tree">';
+    majors.forEach(function(major) {
+        var items = groups[major];
+        if (items.length === 1 && items[0].version === major) {
+            // 단독 버전 (V1, V2, V3, V5)
+            var p = items[0];
+            var active = p.id === currentProposalId ? ' active' : '';
+            h += '<div class="vt-item' + active + '" onclick="selectProposal(' + p.id + ')">' +
+                '<span class="vt-label">' + esc(p.version) + '</span>' +
+                '<span class="vt-title">' + esc(p.title) + '</span>' +
+                '<span class="vt-pt" onclick="event.stopPropagation();openPT(' + p.id + ')" title="PT 열기">PT</span>' +
+                '</div>';
+        } else {
+            // 그룹 (V4 -> 4-1, 4-2, ...)
+            var groupOpen = items.some(function(p) { return p.id === currentProposalId; });
+            h += '<div class="vt-group" onclick="toggleVGroup(this)">' +
+                '<span class="vt-arrow">' + (groupOpen ? '&#9660;' : '&#9654;') + '</span>' +
+                '<span class="vt-label">' + esc(major) + '</span>' +
+                '<span class="vt-count">' + items.length + '</span>' +
+                '</div>';
+            h += '<div class="vt-sub" style="display:' + (groupOpen ? 'block' : 'none') + '">';
+            // 서브 아이템 정렬 (V4-1, V4-2, ...)
+            items.sort(function(a, b) {
+                var na = parseInt((a.version.split('-')[1] || '0'));
+                var nb = parseInt((b.version.split('-')[1] || '0'));
+                return na - nb;
+            });
+            items.forEach(function(p) {
+                var sub = p.version.replace(major + '-', '');
+                var active = p.id === currentProposalId ? ' active' : '';
+                h += '<div class="vt-sub-item' + active + '" onclick="selectProposal(' + p.id + ')">' +
+                    '<span class="vt-sub-label">' + esc(sub) + '</span>' +
+                    '<span class="vt-title">' + esc(p.title) + '</span>' +
+                    '<span class="vt-pt" onclick="event.stopPropagation();openPT(' + p.id + ')" title="PT 열기">PT</span>' +
+                    '</div>';
+            });
+            h += '</div>';
+        }
+    });
+
+    // 버전 없는 항목
+    noVersion.forEach(function(p) {
+        var active = p.id === currentProposalId ? ' active' : '';
+        h += '<div class="vt-item' + active + '" onclick="selectProposal(' + p.id + ')">' +
+            '<span class="vt-title" style="flex:1">' + esc(p.title) + '</span>' +
+            '</div>';
+    });
+
+    h += '</div>';
+    el.innerHTML = h;
+}
+
+function toggleVGroup(el) {
+    var sub = el.nextElementSibling;
+    var arrow = el.querySelector('.vt-arrow');
+    if (sub.style.display === 'none') {
+        sub.style.display = 'block';
+        arrow.innerHTML = '&#9660;';
+    } else {
+        sub.style.display = 'none';
+        arrow.innerHTML = '&#9654;';
+    }
 }
 
 async function selectProposal(id) {

@@ -83,6 +83,20 @@ def migrate_db():
             conn.execute("ALTER TABLE proposals ADD COLUMN selected_concept TEXT DEFAULT NULL")
             conn.commit()
             logger.info("migrate: added proposals.selected_concept")
+        if "version" not in cols:
+            conn.execute("ALTER TABLE proposals ADD COLUMN version TEXT DEFAULT NULL")
+            conn.commit()
+            # 기존 제안서 버전 매핑
+            version_map = {
+                5: "V1", 7: "V2", 8: "V3",
+                9: "V4-1", 10: "V4-2", 11: "V4-3", 12: "V4-4",
+                13: "V4-5", 14: "V4-6", 15: "V4-7", 16: "V4-8",
+                17: "V4-9", 18: "V4-10",
+            }
+            for pid, ver in version_map.items():
+                conn.execute("UPDATE proposals SET version=? WHERE id=? AND version IS NULL", (ver, pid))
+            conn.commit()
+            logger.info("migrate: added proposals.version + set known versions")
     finally:
         conn.close()
 
