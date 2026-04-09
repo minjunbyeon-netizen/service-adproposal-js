@@ -32,6 +32,10 @@ def create_app():
     def index():
         return render_template("index.html")
 
+    @app.route("/report")
+    def report():
+        return render_template("report.html")
+
     @app.route("/health")
     def health():
         return jsonify({"ok": True, "service": "adproposal-js"})
