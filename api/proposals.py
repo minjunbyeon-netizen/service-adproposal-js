@@ -356,7 +356,12 @@ def export_html(pid):
             ver_num = int(version[1:].split("-")[0])
         except ValueError:
             pass
-    template = "presentation_slide.html" if ver_num >= 6 else "presentation.html"
+    if ver_num >= 15:
+        template = "presentation_v15.html"
+    elif ver_num >= 6:
+        template = "presentation_slide.html"
+    else:
+        template = "presentation.html"
 
     # V7+: 섹션에 컨셉 포함되어 있으므로 자동 컨셉 카드 슬라이드 제거
     if ver_num >= 7:

@@ -308,38 +308,38 @@ def create(conn, title, version, concept_label, sections_fn, cc, tl, cb, sb):
             (pid, label, ctitle, body))
     return pid
 
-conn = get_conn()
+if __name__ == "__main__":
+  conn = get_conn()
 
-# 컨셉 A 기본으로 V8~V13
-ca_cb, ca_sb = concept_A()
-cc_a, tl_a = "이름을 가려봐.", "이름을 가려도 보이는 대학."
+  # 컨셉 A 기본으로 V8~V13
+  ca_cb, ca_sb = concept_A()
+  cc_a, tl_a = "이름을 가려봐.", "이름을 가려도 보이는 대학."
 
-versions = [
-    ("V8: Cold Open", "V8", v8_sections),
-    ("V9: 질문형 빌드업", "V9", v9_sections),
-    ("V10: 대비 구조", "V10", v10_sections),
-    ("V11: 통합 구조", "V11", v11_sections),
-    ("V12: 콘텐츠 정제", "V12", v12_sections),
-    ("V13: 발표자 톤", "V13", v13_sections),
-]
+  versions = [
+      ("V8: Cold Open", "V8", v8_sections),
+      ("V9: 질문형 빌드업", "V9", v9_sections),
+      ("V10: 대비 구조", "V10", v10_sections),
+      ("V11: 통합 구조", "V11", v11_sections),
+      ("V12: 콘텐츠 정제", "V12", v12_sections),
+      ("V13: 발표자 톤", "V13", v13_sections),
+  ]
 
-for title, ver, fn in versions:
-    pid = create(conn, title, ver, "A", fn, cc_a, tl_a, ca_cb, ca_sb)
-    print(f"{ver}: id={pid}")
+  for title, ver, fn in versions:
+      pid = create(conn, title, ver, "A", fn, cc_a, tl_a, ca_cb, ca_sb)
+      print(f"{ver}: id={pid}")
 
-# V14: 3컨셉
-for label, cc, tl, cfn in [
-    ("A","이름을 가려봐.","이름을 가려도 보이는 대학.", concept_A),
-    ("B","같은 학교.","같은 학교. 영산대학교.", concept_B),
-    ("C","이 사람은 배우가 아닙니다.","이 사람은 배우가 아닙니다.", concept_C),
-]:
-    cb, sb = cfn()
-    pid = create(conn, f"V14-{label[-1]}: {cc}", f"V14-{label[-1]}", label[-1] if label[-1] in "ABC" else label,
-                 v14_sections, cc, tl, cb, sb)
-    # Fix: label for concept selection
-    conn.execute("UPDATE proposals SET selected_concept=? WHERE id=?", (label, pid))
-    print(f"V14-{label[-1]}: id={pid}")
+  # V14: 3컨셉
+  for label, cc, tl, cfn in [
+      ("A","이름을 가려봐.","이름을 가려도 보이는 대학.", concept_A),
+      ("B","같은 학교.","같은 학교. 영산대학교.", concept_B),
+      ("C","이 사람은 배우가 아닙니다.","이 사람은 배우가 아닙니다.", concept_C),
+  ]:
+      cb, sb = cfn()
+      pid = create(conn, f"V14-{label[-1]}: {cc}", f"V14-{label[-1]}", label[-1] if label[-1] in "ABC" else label,
+                   v14_sections, cc, tl, cb, sb)
+      conn.execute("UPDATE proposals SET selected_concept=? WHERE id=?", (label, pid))
+      print(f"V14-{label[-1]}: id={pid}")
 
-conn.commit()
-conn.close()
-print("Done: V8~V14 created.")
+  conn.commit()
+  conn.close()
+  print("Done: V8~V14 created.")
