@@ -311,65 +311,68 @@ S_BACKGROUND = (
     )
 )
 
-# ===== 5. 965,525 (스크립트 추가) =====
+# ===== 5. 기억 테스트 -- "몇 개가 기억나십니까?" =====
 S_NUMBERS = (
-    '<div style="display:flex;justify-content:center;align-items:center;height:100%;min-height:400px">'
-    '<div style="text-align:center">'
-    '<div class="t-display" style="letter-spacing:-2px">965,525</div>'
+    '<div style="padding:var(--s-5) 0;text-align:center">'
+    '<div class="t-overline is-accent" style="margin-bottom:var(--s-4)">TEST</div>'
+    '<div class="t-heading" style="margin-bottom:var(--s-5)">'
+    '2분 전, 당신은<br>영산대학교의 사실을 보셨습니다.</div>'
+    '<div class="t-title" style="margin-bottom:var(--s-5)">'
+    '지금, <span class="is-accent">몇 개가 기억나십니까?</span></div>'
+    '<div class="t-subtitle w-regular is-muted" style="display:inline-block;text-align:left;line-height:2.2;margin-bottom:var(--s-5)">'
+    '·&nbsp;&nbsp;&nbsp;?<br>'
+    '·&nbsp;&nbsp;&nbsp;?<br>'
+    '·&nbsp;&nbsp;&nbsp;?<br>'
+    '·&nbsp;&nbsp;&nbsp;?'
+    '</div>'
+    '<div class="t-body is-muted" style="font-style:italic">'
+    '— 괜찮습니다. 솔직하게 떠올려 보시지요.'
     '</div>'
     '</div>'
     + script(
-        '(이 슬라이드에서 <strong>3초간 아무 말도 하지 않는다.</strong><br>'
-        '평가위원이 "저게 뭐지?" 반응할 시간을 준다.)<br><br>'
-        '"이 숫자가 무엇인지 아십니까?"<br>'
-        '(1초 멈춤, 다음 장으로 넘긴다)'
+        '"2분 전, 저희는 영산대학교의 사실 네 가지를 보여드렸습니다.<br><br>'
+        '지금 이 자리에서, <strong>몇 개가 기억나시는지</strong> 여쭙고 싶습니다.<br>'
+        '(3초 멈춤. 평가위원이 속으로 떠올릴 시간을 준다.)<br><br>'
+        '다 기억나지 않으셔도 괜찮습니다.<br>'
+        '이유는, 다음 장에서 말씀드리겠습니다."'
     )
 )
 
-# ===== 6. 전환 -- 965,525 해체 (중앙 정렬 + 거대 숫자) =====
+# ===== 6. WHY -- 기억나지 않는 이유 =====
 S_TRANSITION = (
-    '<div style="text-align:center;padding:var(--s-3) 0">'
-    # 상단 브리핑
-    '<div class="t-subtitle w-regular is-muted" style="margin-bottom:var(--s-5)">'
-    '방금 보신 <strong class="is-ink">965,525</strong>는<br>'
-    '금액이 아닙니다. 인구수도 아닙니다.<br>'
-    '<strong class="is-ink">세 개의 숫자</strong>입니다.'
+    '<div style="padding:var(--s-4) 0;text-align:center">'
+    '<div class="t-overline is-accent" style="margin-bottom:var(--s-4)">WHY</div>'
+    '<div class="t-heading" style="margin-bottom:var(--s-5)">'
+    '기억나지 않으셨다면,<br>'
+    '그건 <span class="is-accent">당신의 잘못이 아닙니다.</span></div>'
+    # 3가지 이유
+    '<div class="t-body" style="display:inline-block;text-align:left;line-height:2.2;margin-bottom:var(--s-5)">'
+    '<span class="is-accent w-bold">첫째</span>, &nbsp;사실이 네 개나 됩니다. 많았습니다.<br>'
+    '<span class="is-accent w-bold">둘째</span>, &nbsp;모든 대학이 이처럼 비슷한 사실을 말합니다.<br>'
+    '<span class="is-accent w-bold">셋째</span>, &nbsp;나열된 것은 기억에 남지 않습니다.'
     '</div>'
-    # 3개 숫자 - 가로 배치 + 거대 타이포
-    '<div style="display:flex;justify-content:center;gap:var(--s-6);margin-bottom:var(--s-6)">'
-    '<div>'
-    '<div class="t-hero is-accent" style="font-family:Roboto,sans-serif">96</div>'
-    '<div class="t-caption" style="margin-top:var(--s-1);letter-spacing:1px">항공서비스학과 취업률</div>'
-    '<div class="t-subtitle" style="margin-top:4px">96.4%</div>'
-    '</div>'
-    '<div>'
-    '<div class="t-hero is-accent" style="font-family:Roboto,sans-serif">55</div>'
-    '<div class="t-caption" style="margin-top:var(--s-1);letter-spacing:1px">QS 호스피탈리티</div>'
-    '<div class="t-subtitle" style="margin-top:4px">세계 55위</div>'
-    '</div>'
-    '<div>'
-    '<div class="t-hero is-accent" style="font-family:Roboto,sans-serif">25</div>'
-    '<div class="t-caption" style="margin-top:var(--s-1);letter-spacing:1px">호텔 총지배인</div>'
-    '<div class="t-subtitle" style="margin-top:4px">국내 최다 배출</div>'
-    '</div>'
+    # 구분선
+    '<div style="width:60px;height:1px;background:#E8E8E8;margin:0 auto var(--s-4)"></div>'
+    # 회수 리스트
+    '<div class="t-caption" style="display:inline-block;text-align:left;line-height:2;margin-bottom:var(--s-4)">'
+    '· 항공서비스학과 취업률 <strong class="is-ink">96.4%</strong><br>'
+    '· QS 호스피탈리티 부문 <strong class="is-ink">글로벌 55위</strong><br>'
+    '· 호텔 총지배인 국내 최다 동문 <strong class="is-ink">25명</strong><br>'
+    '· 校訓 "<strong class="is-ink">지혜가 실력이다</strong>"'
     '</div>'
     # 결론
-    '<div style="padding-top:var(--s-4);border-top:1px solid #E8E8E8">'
-    '<div class="t-title" style="margin-bottom:var(--s-2)">'
-    '영산대학교입니다.'
-    '</div>'
-    '<div class="t-subtitle w-regular is-muted">'
-    '이 숫자를 몰랐다면, 그것이 <strong class="is-accent">기회</strong>입니다.'
-    '</div>'
+    '<div class="t-subtitle">'
+    '그래서 저희는, 이 사실을 <span class="is-accent w-bold">증명</span>으로 바꾸기로 했습니다.'
     '</div>'
     '</div>'
     + script(
-        '"965,525는 금액이 아닙니다. <strong>세 개의 숫자</strong>입니다.<br>'
-        '96 -- 취업률 96.4%.<br>'
-        '55 -- QS 세계 55위.<br>'
-        '25 -- 호텔 총지배인 25명.<br><br>'
-        '<strong>영산대학교입니다.</strong><br>'
-        '이 숫자를 지금 처음 들으셨다면, 그것이 바로 기회입니다."'
+        '"기억나지 않으셨다면, 당신 잘못이 아닙니다.<br><br>'
+        '이유는 세 가지입니다.<br>'
+        '<strong>첫째,</strong> 사실이 네 개나 됐습니다. 너무 많습니다.<br>'
+        '<strong>둘째,</strong> 모든 대학이 이와 비슷한 사실들을 말합니다.<br>'
+        '<strong>셋째,</strong> 나열된 것은 기억에 남지 않습니다.<br><br>'
+        '그래서 저희가 한 일은, 같은 사실을 <strong>증명</strong>으로 바꾸는 것입니다.<br>'
+        '지금부터 보여드리겠습니다."'
     )
 )
 
@@ -862,11 +865,11 @@ def make_sections():
         (1, "III. 세부 과업 수행 계획", 3, None),
 
         # III. 1 - 소재 발굴 및 콘텐츠 기획 (빌드업 5장 + 컨셉 + 시안 4장 = 10장)
-        (2, T_SOURCE, 4, parent(P_III) + tag("빌드업 · 호기심 갭") + S_NUMBERS),
-        (2, T_SOURCE, 5, parent(P_III) + tag("빌드업 · 해체") + S_TRANSITION),
-        (2, T_SOURCE, 6, parent(P_III) + tag("빌드업 · 칵테일 파티 효과") + S_COCKTAIL),
-        (2, T_SOURCE, 7, parent(P_III) + tag("빌드업 · 손실 회피") + S_LOSS),
-        (2, T_SOURCE, 8, parent(P_III) + tag("빌드업 · 이름을 가리면") + S_BRIDGE),
+        (2, T_SOURCE, 4, parent(P_III) + tag("빌드업 · 기억 테스트") + S_NUMBERS),
+        (2, T_SOURCE, 5, parent(P_III) + tag("빌드업 · 원인 진단") + S_TRANSITION),
+        (2, T_SOURCE, 6, parent(P_III) + tag("빌드업 · 정보 나열의 한계") + S_COCKTAIL),
+        (2, T_SOURCE, 7, parent(P_III) + tag("빌드업 · 소음") + S_LOSS),
+        (2, T_SOURCE, 8, parent(P_III) + tag("빌드업 · 뒤집기") + S_BRIDGE),
         (2, T_SOURCE, 9, parent(P_III) + tag("컨셉 · 슬로건 공개") + S_CONCEPT),
         (2, T_SOURCE, 10, parent(P_III) + tag('시안 1 · "3.6%"') + S_36),
         (2, T_SOURCE, 11, parent(P_III) + tag('시안 2 · "QS 55위"') + S_QS),
