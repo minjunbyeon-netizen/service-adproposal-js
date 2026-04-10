@@ -122,22 +122,17 @@ def make_sections(cc, tl, cb, sb):
         (2, "I. 제안개요", 1, S_OVERVIEW),
         (2, "II. 제안업체 일반", 2, S_COMPANY),
         (1, "III. 세부 과업 수행 계획", 3, None),
-        # 5번: 질문 먼저 (원래 6번)
+        # 빌드업: 질문 -> 전환 -> 심리 -> 컨셉
         (2, "질문", 4, S_QUESTION),
-        # 6번: 3.6% cold open (원래 5번)
-        (2, '"3.6%"', 5, sian_slide(cc, "3.6%",
+        (2, "전환", 5, S_TRANSITION),
+        (2, "손실 회피", 6, S_LOSS),
+        (2, "신호와 소음", 7, S_COCKTAIL),
+        (2, "컨셉 / 슬로건", 8, combined),
+        # 시안 연타: 3.6% -> 심사위원석 -> Room 1201 -> 1학년vs졸업생
+        (2, '"3.6%"', 9, sian_slide(cc, "3.6%",
             "탈락률 3.6%. 영산대 항공서비스학과.",
             "Airport gate, '3.6%' large white typography center, cinematic, 16:9, no people",
             "Airport gate vertical, '3.6%' typography, 9:16 mobile format")),
-        # 7번: 전환
-        (2, "전환", 6, S_TRANSITION),
-        # 8번: 빌드업 -- 손실 회피
-        (2, "손실 회피", 7, S_LOSS),
-        # 9번: 빌드업 -- 칵테일 파티
-        (2, "신호와 소음", 8, S_COCKTAIL),
-        # 10번: 컨셉+슬로건
-        (2, "컨셉 / 슬로건", 9, combined),
-        # 시안
         (2, '"심사위원석"', 10, sian_slide(cc, "심사위원석",
             "WACS 심사위원 4석 중 3석. 영산대 교수.",
             "Judging panel dark auditorium, four chairs, three spotlights, WACS nameplate, 16:9",
