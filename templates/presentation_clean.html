@@ -22,25 +22,37 @@ body{font-family:'Roboto','Noto Sans KR',-apple-system,sans-serif;font-weight:40
 .cover-logo{position:absolute;top:52px;left:100px;height:52px;width:auto;object-fit:contain}
 .cover-agency{position:absolute;top:60px;right:100px;font-size:13px;color:#58595B;letter-spacing:1px}
 .cover-body{padding-bottom:80px}
-.cover-label{font-size:13px;color:#E84E10;letter-spacing:4px;text-transform:uppercase;font-weight:700;margin-bottom:20px}
-.cover-title{font-size:58px;font-weight:700;line-height:1.2;color:#1A1A1A;margin-bottom:24px;word-break:keep-all}
-.cover-meta{font-size:20px;color:#58595B;line-height:1.8}
+.cover-label{font-size:14px;color:#E84E10;letter-spacing:6px;text-transform:uppercase;font-weight:700;margin-bottom:24px}
+.cover-title{font-size:120px;font-weight:700;line-height:0.95;color:#1A1A1A;margin-bottom:36px;word-break:keep-all;letter-spacing:-3px}
+.cover-meta{font-size:18px;color:#58595B;line-height:1.9;letter-spacing:0.5px}
 .cover-bar{position:absolute;bottom:0;left:0;right:0;height:8px;background:#E84E10}
+.cover-pagenum{position:absolute;top:50px;right:100px;font-size:16px;font-weight:700;color:#1A1A1A;letter-spacing:2px}
 
-/* 디바이더 */
-.slide-divider{background:#E84E10;color:#fff;padding:60px 100px;align-items:flex-start;justify-content:center}
+/* 디바이더 -- 흰 프레임 스타일 */
+.slide-divider{background:#E84E10;padding:60px;justify-content:center;align-items:stretch}
+.divider-frame{flex:1;background:#E84E10;border:4px solid #fff;padding:70px 80px;display:flex;flex-direction:column;justify-content:center;position:relative}
 .divider-inner{max-width:900px}
-.divider-num{font-size:13px;letter-spacing:4px;opacity:.7;margin-bottom:20px}
-.divider-deco{width:60px;height:4px;background:rgba(255,255,255,.4);margin-bottom:28px}
-.divider-title{font-size:52px;font-weight:700;line-height:1.3;word-break:keep-all}
+.divider-num{font-size:13px;letter-spacing:6px;color:#fff;opacity:.8;margin-bottom:24px;font-weight:700}
+.divider-deco{width:80px;height:4px;background:rgba(255,255,255,.5);margin-bottom:32px}
+.divider-title{font-size:88px;font-weight:700;line-height:1.1;color:#fff;word-break:keep-all;letter-spacing:-2px}
+.divider-pagenum{position:absolute;top:40px;right:48px;font-size:42px;font-weight:700;color:#fff;letter-spacing:-1px;line-height:1;font-family:Roboto,sans-serif}
+.divider-vrail{position:absolute;top:60px;bottom:60px;right:24px;writing-mode:vertical-rl;transform:rotate(180deg);font-size:12px;font-weight:700;color:#fff;opacity:.7;letter-spacing:4px;text-transform:uppercase;display:flex;align-items:center}
 
 /* 콘텐츠 */
-.slide-content{background:#fff;color:#1A1A1A;padding:50px 340px 50px 80px;justify-content:flex-start}
-.slide-content.no-script{padding:50px 80px}
-.content-header{margin-bottom:20px;padding-bottom:14px;border-bottom:3px solid #E84E10;display:flex;align-items:flex-end;gap:20px;flex-shrink:0}
-.content-header .section-parent{font-size:12px;color:#E84E10;letter-spacing:2px;font-weight:700;white-space:nowrap;padding-bottom:2px}
-.content-header h3{font-size:26px;font-weight:700;line-height:1.3;color:#1A1A1A}
+.slide-content{background:#fff;color:#1A1A1A;padding:50px 380px 50px 80px;justify-content:flex-start}
+.slide-content.no-script{padding:50px 140px 50px 80px}
+.content-header{margin-bottom:22px;padding-bottom:16px;border-bottom:3px solid #E84E10;display:flex;align-items:flex-end;gap:20px;flex-shrink:0;position:relative}
+.content-header .section-parent{font-size:11px;color:#E84E10;letter-spacing:2px;font-weight:700;white-space:nowrap;padding-bottom:3px}
+.content-header h3{font-size:40px;font-weight:700;line-height:1.15;color:#1A1A1A;letter-spacing:-0.5px}
 .content-body{flex:1;overflow:hidden;font-size:16px;line-height:1.7;color:#2D2D2D;padding-right:16px}
+
+/* 대형 페이지 넘버 (우측 상단) */
+.slide-pagenum{position:absolute;top:50px;right:310px;font-size:42px;font-weight:700;color:#1A1A1A;line-height:1;font-family:Roboto,sans-serif;letter-spacing:-1px}
+.slide-content.no-script .slide-pagenum{right:80px}
+
+/* 세로 회전 텍스트 (우측 가장자리) */
+.vertical-rail{position:absolute;top:120px;bottom:80px;right:298px;width:22px;display:flex;align-items:center;justify-content:center;writing-mode:vertical-rl;transform:rotate(180deg);font-size:11px;font-weight:700;color:#58595B;letter-spacing:4px;text-transform:uppercase}
+.slide-content.no-script .vertical-rail{right:40px}
 
 /* 스크립트 사이드 패널 */
 .script-side{position:absolute;top:50px;right:32px;bottom:50px;width:260px;background:#F9F7F4;border-left:3px solid #E84E10;padding:18px 16px;font-size:11px;color:#58595B;line-height:1.65;overflow-y:auto;border-radius:4px}
@@ -174,6 +186,7 @@ body.edit-mode [contenteditable]:focus{outline:2px solid #E84E10;outline-offset:
       {% if duration %} &nbsp;|&nbsp; {{ duration }}{% endif %}
     </div>
   </div>
+  <div class="cover-pagenum">01</div>
   <div class="cover-bar"></div>
 </div>
 
@@ -202,10 +215,14 @@ body.edit-mode [contenteditable]:focus{outline:2px solid #E84E10;outline-offset:
 {% set ns.l1_idx = ns.l1_idx + 1 %}
 {% set ns.l1_title = section.title %}
 <div class="slide slide-divider">
-  <div class="divider-inner">
-    <div class="divider-num">PART {{ '%02d' % ns.l1_idx }}</div>
-    <div class="divider-deco"></div>
-    <div class="divider-title">{{ section.title }}</div>
+  <div class="divider-frame">
+    <div class="divider-inner">
+      <div class="divider-num">PART {{ '%02d' % ns.l1_idx }}</div>
+      <div class="divider-deco"></div>
+      <div class="divider-title">{{ section.title }}</div>
+    </div>
+    <div class="divider-pagenum">{{ '%02d' % (ns.idx + 1) }}</div>
+    <div class="divider-vrail">{{ section.title }}</div>
   </div>
 </div>
 {% set ns.idx = ns.idx + 1 %}
@@ -215,6 +232,8 @@ body.edit-mode [contenteditable]:focus{outline:2px solid #E84E10;outline-offset:
     <span class="section-parent">{% if section.section_parent %}{{ section.section_parent }}{% else %}{{ ns.l1_title }}{% endif %}</span>
     <h3>{{ section.title }}</h3>
   </div>
+  <div class="slide-pagenum">{{ '%02d' % (ns.idx + 1) }}</div>
+  {% if ns.l1_title %}<div class="vertical-rail">{{ ns.l1_title }}</div>{% endif %}
   <div class="content-body">{{ section.html_content | safe }}</div>
   {% if section.script_html %}
   <div class="script-side">
