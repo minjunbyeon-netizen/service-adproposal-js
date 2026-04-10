@@ -17,27 +17,27 @@ migrate_db()
 cb, sb_body = concept_A()
 cc = "이름을 가려봐."
 tl = "이름을 가려도 보이는 대학."
-# 슬라이드 10 -- 중복 숫자 4줄 삭제, 슬로건 한 줄만
+# 슬라이드 10 -- 중앙 정렬 + 거대 타이포
 combined = (
-    '<div style="padding:20px 0">'
+    '<div style="text-align:center;padding:20px 0">'
     # 컨셉 블록
-    '<div style="margin-bottom:48px">'
-    '<div style="font-size:13px;color:#E84E10;font-weight:700;letter-spacing:3px;margin-bottom:16px">'
+    '<div style="margin-bottom:56px">'
+    '<div style="font-size:13px;color:#E84E10;font-weight:700;letter-spacing:4px;margin-bottom:20px">'
     'CONCEPT · 컨셉</div>'
-    '<div style="font-size:64px;font-weight:700;color:#1A1A1A;line-height:1.1;margin-bottom:28px;letter-spacing:-2px">'
+    '<div style="font-size:96px;font-weight:700;color:#1A1A1A;line-height:1;margin-bottom:36px;letter-spacing:-3px">'
     '이름을 가려봐.</div>'
-    '<div style="font-size:22px;color:#58595B;line-height:1.8">'
-    '<strong style="color:#1A1A1A">숫자를 보면 명문대. 이름을 보면 영산대.</strong><br>'
+    '<div style="font-size:26px;color:#58595B;line-height:1.7">'
+    '<strong style="color:#1A1A1A;font-size:30px">숫자를 보면 명문대. 이름을 보면 영산대.</strong><br>'
     '그래서 우리는, 이름을 가립니다.'
     '</div>'
     '</div>'
     # 구분선
-    '<div style="height:1px;background:#E8E8E8;margin:0 0 36px"></div>'
-    # 슬로건 블록 (중복 숫자 없음)
+    '<div style="width:80px;height:3px;background:#E84E10;margin:0 auto 40px"></div>'
+    # 슬로건 블록
     '<div>'
-    '<div style="font-size:13px;color:#E84E10;font-weight:700;letter-spacing:3px;margin-bottom:16px">'
+    '<div style="font-size:13px;color:#E84E10;font-weight:700;letter-spacing:4px;margin-bottom:20px">'
     'SLOGAN · 슬로건</div>'
-    '<div style="font-size:48px;font-weight:700;color:#1A1A1A;line-height:1.15;letter-spacing:-1px">'
+    '<div style="font-size:64px;font-weight:700;color:#1A1A1A;line-height:1.1;letter-spacing:-2px">'
     '이름을 가려도 보이는 대학.</div>'
     '</div>'
     '</div>'
@@ -262,30 +262,41 @@ S_NUMBERS = (
     )
 )
 
-# ===== 6. 전환 -- 965,525 해체 (개선: 착각->정답->브릿지 3초 완결) =====
+# ===== 6. 전환 -- 965,525 해체 (중앙 정렬 + 거대 숫자) =====
 S_TRANSITION = (
-    '<div style="padding:40px 0">'
-    '<div style="font-size:20px;color:#58595B;margin-bottom:32px">'
-    '방금 보신 <strong style="color:#1A1A1A">965,525</strong>는<br>'
+    '<div style="text-align:center;padding:20px 0">'
+    # 상단 브리핑
+    '<div style="font-size:22px;color:#58595B;margin-bottom:40px;line-height:1.8">'
+    '방금 보신 <strong style="color:#1A1A1A;font-size:28px">965,525</strong>는<br>'
     '금액이 아닙니다. 인구수도 아닙니다.<br>'
-    '<strong>세 개의 숫자</strong>입니다.'
+    '<strong style="color:#1A1A1A;font-size:28px">세 개의 숫자</strong>입니다.'
     '</div>'
-    '<div style="font-size:24px;color:#1A1A1A;line-height:2.6">'
-    '<strong style="font-size:48px;color:#E84E10">96</strong>'
-    '<span style="color:#58595B;font-size:18px"> -- 항공서비스학과 취업률 </span>'
-    '<strong>96.4%</strong><br>'
-    '<strong style="font-size:48px;color:#E84E10">55</strong>'
-    '<span style="color:#58595B;font-size:18px"> -- QS 호스피탈리티 세계 </span>'
-    '<strong>55위</strong><br>'
-    '<strong style="font-size:48px;color:#E84E10">25</strong>'
-    '<span style="color:#58595B;font-size:18px"> -- 호텔 총지배인 배출 </span>'
-    '<strong>25명</strong>'
+    # 3개 숫자 - 가로 배치 + 거대 타이포
+    '<div style="display:flex;justify-content:center;gap:60px;margin-bottom:48px">'
+    '<div>'
+    '<div style="font-size:120px;font-weight:700;color:#E84E10;line-height:1;font-family:Roboto,sans-serif;letter-spacing:-4px">96</div>'
+    '<div style="font-size:14px;color:#58595B;margin-top:8px;letter-spacing:1px">항공서비스학과 취업률</div>'
+    '<div style="font-size:20px;font-weight:700;color:#1A1A1A;margin-top:4px">96.4%</div>'
     '</div>'
-    '<div style="margin-top:40px;font-size:28px;font-weight:700;color:#1A1A1A">'
+    '<div>'
+    '<div style="font-size:120px;font-weight:700;color:#E84E10;line-height:1;font-family:Roboto,sans-serif;letter-spacing:-4px">55</div>'
+    '<div style="font-size:14px;color:#58595B;margin-top:8px;letter-spacing:1px">QS 호스피탈리티</div>'
+    '<div style="font-size:20px;font-weight:700;color:#1A1A1A;margin-top:4px">세계 55위</div>'
+    '</div>'
+    '<div>'
+    '<div style="font-size:120px;font-weight:700;color:#E84E10;line-height:1;font-family:Roboto,sans-serif;letter-spacing:-4px">25</div>'
+    '<div style="font-size:14px;color:#58595B;margin-top:8px;letter-spacing:1px">호텔 총지배인</div>'
+    '<div style="font-size:20px;font-weight:700;color:#1A1A1A;margin-top:4px">국내 최다 배출</div>'
+    '</div>'
+    '</div>'
+    # 결론
+    '<div style="padding-top:32px;border-top:1px solid #E8E8E8">'
+    '<div style="font-size:48px;font-weight:700;color:#1A1A1A;letter-spacing:-1px;margin-bottom:14px">'
     '영산대학교입니다.'
     '</div>'
-    '<div style="margin-top:12px;font-size:18px;color:#58595B">'
+    '<div style="font-size:20px;color:#58595B">'
     '이 숫자를 몰랐다면, 그것이 <strong style="color:#E84E10">기회</strong>입니다.'
+    '</div>'
     '</div>'
     '</div>'
     + script(
@@ -298,28 +309,55 @@ S_TRANSITION = (
     )
 )
 
-# ===== 7. 신호와 소음 =====
+# ===== 7. 신호와 소음 -- 중앙 정렬 + 대비 테이블 =====
 S_COCKTAIL = (
-    "**시끄러운 파티장에서도 내 이름은 들립니다.**\n\n"
-    "심리학에서 이것을 **칵테일 파티 효과**라고 합니다.\n"
-    "사람은 자신과 관련된 정보에만 반응합니다.\n\n"
-    "수험생에게 '글로벌 경쟁력 강화'는 소음입니다.\n"
-    "학부모에게 '브랜드 가치 제고'는 소음입니다.\n\n"
-    "하지만,\n\n"
-    "> \"이 학교 졸업생 100명 중 3명은 취업하지 못했습니다.\"\n\n"
-    "이것은 소음이 아닙니다.\n"
-    "내 아이의 미래에 직결되는 **신호**입니다.\n\n"
-    "---\n\n"
-    "우리는 앞서 말한 **빈칸** -- 영산대 = ?\n\n"
-    "이것을 **소음이 아닌 신호**로 채우겠습니다.\n"
-    "정보 전달이 아닌 **IMPACT**로.\n"
-    "기억에 남는 광고로."
+    '<div style="text-align:center;padding:20px 0">'
+    # 상단 선언
+    '<div style="font-size:20px;color:#58595B;margin-bottom:36px;line-height:1.6">'
+    '사람은 시끄러운 곳에서도 <strong style="color:#1A1A1A">자기 이름</strong>만은 듣습니다.'
+    '</div>'
+    # 소음 vs 신호 대비 테이블
+    '<div style="display:flex;justify-content:center;gap:40px;margin-bottom:40px">'
+    # 좌측: 소음
+    '<div style="flex:1;max-width:400px;background:#F5F5F5;border-radius:8px;padding:32px">'
+    '<div style="font-size:12px;color:#6E6E73;letter-spacing:3px;margin-bottom:20px">NOISE · 소음</div>'
+    '<div style="font-size:18px;color:#58595B;line-height:2">'
+    '"글로벌 경쟁력 강화"<br>'
+    '"미래지향적 인재 양성"<br>'
+    '"브랜드 가치 제고"'
+    '</div>'
+    '<div style="margin-top:20px;font-size:13px;color:#6E6E73;font-style:italic">'
+    '(3초 후 잊힌다)'
+    '</div>'
+    '</div>'
+    # 우측: 신호
+    '<div style="flex:1;max-width:400px;background:#1A1A1A;border-radius:8px;padding:32px">'
+    '<div style="font-size:12px;color:#E84E10;letter-spacing:3px;margin-bottom:20px">SIGNAL · 신호</div>'
+    '<div style="font-size:22px;color:#fff;font-weight:700;line-height:1.6">'
+    '"100명 중 3명은<br>'
+    '<span style="color:#E84E10">취업하지 못했습니다.</span>"'
+    '</div>'
+    '<div style="margin-top:20px;font-size:13px;color:#ccc;font-style:italic">'
+    '(멈춘다)'
+    '</div>'
+    '</div>'
+    '</div>'
+    # 결론
+    '<div style="padding-top:28px;border-top:1px solid #E8E8E8">'
+    '<div style="font-size:32px;font-weight:700;color:#1A1A1A;letter-spacing:-0.5px;margin-bottom:12px">'
+    '그래서 우리는, <span style="color:#E84E10">숫자를 말하기로</span> 했습니다.'
+    '</div>'
+    '<div style="font-size:17px;color:#58595B">'
+    '정보 전달이 아닌 IMPACT로. 기억에 남는 광고로.'
+    '</div>'
+    '</div>'
+    '</div>'
     + script(
-        '"학부모가 입시설명회에서 듣는 말의 대부분은 소음입니다.<br>'
+        '"학부모가 입시설명회에서 듣는 말의 대부분은 <strong>소음</strong>입니다.<br>'
         '글로벌 경쟁력, 브랜드 가치, MZ세대. 다 아는 이야기입니다.<br><br>'
-        '하지만 <strong>\'100명 중 3명만 취업 못 했다\'</strong>는 신호입니다.<br>'
+        '하지만 <strong>\'100명 중 3명은 취업 못 했다\'</strong>는 <strong>신호</strong>입니다.<br>'
         '내 아이의 미래에 직결되는 정보이기 때문입니다.<br><br>'
-        '저희는 이 빈칸을 소음이 아닌 신호로 채우겠습니다."'
+        '<strong>그래서 저희는, 숫자를 말하기로 했습니다.</strong>"'
     )
 )
 
@@ -630,19 +668,42 @@ S_SIAN_SUMMARY_V26 = (
 
 # ===== 15. 영상 방향 + 컨셉 연결 보강 =====
 S_VIDEO_INTRO = (
-    "**지면에서 우리는 이름을 가렸습니다.**\n\n"
-    "3.6%, QS 55위, Room 1201. 숫자로 멈추게 하고, 반전으로 기억에 남겼습니다.\n\n"
-    "**영상에서, 그 이름을 다시 불러봅니다.**\n\n"
-    "---\n\n"
-    "## 지혜.\n\n"
-    "영산대학교가 밀고 있는 **WISE YOU**.\n"
-    "이 한 마디를, 사람 이름으로 풀었습니다.\n\n"
-    "비행기 객실에서, 호텔 로비에서, 웨딩홀 주방에서, 뷰티숍 거울 앞에서.\n"
-    "누군가 '지혜'를 부릅니다.\n"
-    "뒤돌아보는 사람은 전부 영산대 졸업생입니다.\n\n"
-    "> **\"지혜를 부르면, 영산대가 대답합니다.\"**\n\n"
-    "지혜를 4번 부르면, 4개 업계 1등이 돌아봅니다.\n"
-    "-- 영산대학교."
+    '<div style="text-align:center;padding:20px 0">'
+    # 상단 대비: 지면 vs 영상
+    '<div style="display:flex;justify-content:center;gap:24px;align-items:center;margin-bottom:40px">'
+    '<div style="flex:1;max-width:340px">'
+    '<div style="font-size:12px;color:#6E6E73;letter-spacing:3px;margin-bottom:12px">PRINT · 지면</div>'
+    '<div style="font-size:26px;font-weight:700;color:#1A1A1A;line-height:1.4">'
+    '우리는 <span style="color:#E84E10">이름을 가렸습니다</span>.</div>'
+    '</div>'
+    '<div style="font-size:32px;color:#E84E10;font-weight:300">→</div>'
+    '<div style="flex:1;max-width:340px">'
+    '<div style="font-size:12px;color:#6E6E73;letter-spacing:3px;margin-bottom:12px">VIDEO · 영상</div>'
+    '<div style="font-size:26px;font-weight:700;color:#1A1A1A;line-height:1.4">'
+    '그 이름을 <span style="color:#E84E10">다시 부릅니다</span>.</div>'
+    '</div>'
+    '</div>'
+    # 중앙: 지혜 거대 타이포
+    '<div style="padding:36px 0;border-top:1px solid #E8E8E8;border-bottom:1px solid #E8E8E8;margin-bottom:36px">'
+    '<div style="font-size:14px;color:#E84E10;font-weight:700;letter-spacing:4px;margin-bottom:14px">WISE YOU</div>'
+    '<div style="font-size:120px;font-weight:700;color:#1A1A1A;line-height:1;letter-spacing:-4px;margin-bottom:16px">'
+    '지혜.</div>'
+    '<div style="font-size:18px;color:#58595B">영산대학교의 이 한 마디를, 사람 이름으로 풀었습니다.</div>'
+    '</div>'
+    # 4개 현장
+    '<div style="font-size:17px;color:#58595B;line-height:1.8;margin-bottom:28px">'
+    '비행기 객실에서 · 호텔 로비에서 · 웨딩홀 주방에서 · 뷰티숍 거울 앞에서<br>'
+    '누군가 <strong style="color:#1A1A1A">\'지혜\'</strong>를 부릅니다.'
+    '</div>'
+    # 핵심 슬로건
+    '<div style="font-size:42px;font-weight:700;color:#1A1A1A;line-height:1.2;letter-spacing:-1px;margin-bottom:18px">'
+    '"지혜를 부르면,<br>'
+    '<span style="color:#E84E10">영산대가 대답합니다.</span>"'
+    '</div>'
+    '<div style="font-size:16px;color:#58595B;margin-top:20px">'
+    '지혜를 4번 부르면, 4개 업계 1등이 돌아봅니다.'
+    '</div>'
+    '</div>'
     + script(
         '"지면에서 저희는 <strong>이름을 가렸습니다</strong>.<br>'
         '3.6%, 55위, Room 1201 -- 숫자로 증명했습니다.<br><br>'
