@@ -219,65 +219,108 @@ S_CONSULT = (
     "- 교내 게시물 디자인 상시 지원"
 )
 
-# ===== 졸업선배 숏폼 (V27: 세로 비디오 3개 가로 나란히) =====
-S_DOCU = (
-    '<div style="display:flex;gap:var(--s-3);align-items:flex-start;padding:var(--s-1) 0">'
-    # 좌측: 3개 세로 비디오 가로 나란히
-    '<div style="display:flex;gap:12px;flex-shrink:0">'
-    # 비디오 1: 9월 · 항공
-    '<div style="position:relative;width:220px;height:391px;background:#000;border-radius:6px;overflow:hidden;border:2px solid #E8E8E8">'
+# ===== 졸업선배 숏폼 #1: 계획 TEXT (V27 분할) =====
+S_DOCU_PLAN = (
+    '<div style="padding:var(--s-2) 0">'
+    # 헤드라인
+    '<div class="t-subtitle" style="margin-bottom:var(--s-1)">'
+    '졸업선배 숏폼 시리즈 (연 4편)</div>'
+    '<div class="t-caption is-muted" style="margin-bottom:var(--s-3)">'
+    '9월~12월 · 입시 시즌 월 1편 공개 · 60초 세로형(9:16) · 인스타 릴스 + 유튜브 쇼츠 + 틱톡 동시 업로드</div>'
+    # 상세 월별 테이블
+    '<table class="t-caption w-regular is-ink" style="width:100%;border-collapse:collapse;margin-bottom:var(--s-3)">'
+    '<thead><tr>'
+    '<th class="w-bold" style="background:#F5F5F5;padding:10px 12px;border-bottom:2px solid #E84E10;text-align:left;width:9%">월</th>'
+    '<th class="w-bold" style="background:#F5F5F5;padding:10px 12px;border-bottom:2px solid #E84E10;text-align:left;width:14%">학과</th>'
+    '<th class="w-bold" style="background:#F5F5F5;padding:10px 12px;border-bottom:2px solid #E84E10;text-align:left;width:14%">촬영 현장</th>'
+    '<th class="w-bold" style="background:#F5F5F5;padding:10px 12px;border-bottom:2px solid #E84E10;text-align:left">핵심 장면</th>'
+    '<th class="w-bold" style="background:#F5F5F5;padding:10px 12px;border-bottom:2px solid #E84E10;text-align:left;width:13%">업로드</th>'
+    '<th class="w-bold" style="background:#F5F5F5;padding:10px 12px;border-bottom:2px solid #E84E10;text-align:left;width:13%">목표 도달</th>'
+    '</tr></thead>'
+    '<tbody>'
+    '<tr><td style="padding:10px 12px;border-bottom:1px solid #E8E8E8"><strong>9월</strong></td>'
+    '<td style="padding:10px 12px;border-bottom:1px solid #E8E8E8">항공서비스</td>'
+    '<td style="padding:10px 12px;border-bottom:1px solid #E8E8E8">기내</td>'
+    '<td style="padding:10px 12px;border-bottom:1px solid #E8E8E8">승무원의 하루 60초 (이륙부터 착륙까지)</td>'
+    '<td style="padding:10px 12px;border-bottom:1px solid #E8E8E8">9월 2주차</td>'
+    '<td style="padding:10px 12px;border-bottom:1px solid #E8E8E8">10,000+ 조회</td></tr>'
+    '<tr><td style="padding:10px 12px;border-bottom:1px solid #E8E8E8"><strong>10월</strong></td>'
+    '<td style="padding:10px 12px;border-bottom:1px solid #E8E8E8">호텔관광</td>'
+    '<td style="padding:10px 12px;border-bottom:1px solid #E8E8E8">호텔 로비 · 룸</td>'
+    '<td style="padding:10px 12px;border-bottom:1px solid #E8E8E8">총지배인 아침 라운드 60초</td>'
+    '<td style="padding:10px 12px;border-bottom:1px solid #E8E8E8">10월 2주차</td>'
+    '<td style="padding:10px 12px;border-bottom:1px solid #E8E8E8">15,000+ 조회</td></tr>'
+    '<tr><td style="padding:10px 12px;border-bottom:1px solid #E8E8E8"><strong>11월</strong></td>'
+    '<td style="padding:10px 12px;border-bottom:1px solid #E8E8E8">경찰행정</td>'
+    '<td style="padding:10px 12px;border-bottom:1px solid #E8E8E8">순찰 현장</td>'
+    '<td style="padding:10px 12px;border-bottom:1px solid #E8E8E8">경위 출근부터 순찰까지 60초</td>'
+    '<td style="padding:10px 12px;border-bottom:1px solid #E8E8E8">11월 2주차</td>'
+    '<td style="padding:10px 12px;border-bottom:1px solid #E8E8E8">8,000+ 조회</td></tr>'
+    '<tr><td style="padding:10px 12px"><strong>12월</strong></td>'
+    '<td style="padding:10px 12px">뷰티디자인</td>'
+    '<td style="padding:10px 12px">본인 매장</td>'
+    '<td style="padding:10px 12px">대표의 첫 손님부터 마감까지 60초</td>'
+    '<td style="padding:10px 12px">12월 1주차</td>'
+    '<td style="padding:10px 12px">12,000+ 조회</td></tr>'
+    '</tbody></table>'
+    # 운영 방침 박스
+    '<div style="background:#F9F7F4;border-left:3px solid #E84E10;padding:12px 16px;margin-bottom:var(--s-2)">'
+    '<div class="t-caption w-bold is-accent" style="margin-bottom:4px;letter-spacing:1px">운영 방침</div>'
+    '<div class="t-caption is-ink" style="line-height:1.9">'
+    '· 출연: 해당 업계 현직 <strong>영산대 졸업생</strong> 섭외 (섭외료 별도)<br>'
+    '· 편집: 인트로 3초 훅 + 본편 50초 + 엔딩 7초 ("지혜가 실력이다")<br>'
+    '· 채널: 인스타 릴스 / 유튜브 쇼츠 / 틱톡 <strong>3개 플랫폼 동시 업로드</strong><br>'
+    '· 피드백: 업로드 후 2주차 성과 리포트 → 다음 편 기획 반영'
+    '</div>'
+    '</div>'
+    '<div class="t-caption is-muted" style="text-align:center;font-style:italic">'
+    '다음 장 → 9월·10월·11월 완성본 미리보기 (12월 편 제작 중)'
+    '</div>'
+    '</div>'
+)
+
+# ===== 졸업선배 숏폼 #2: 완성본 미리보기 (V27 신규) =====
+S_DOCU_VIDEOS = (
+    '<div style="padding:var(--s-1) 0">'
+    # 헤드라인
+    '<div class="t-subtitle" style="text-align:center;margin-bottom:var(--s-1)">'
+    '졸업선배 숏폼 &nbsp;·&nbsp; 완성본 미리보기</div>'
+    '<div class="t-caption is-muted" style="text-align:center;margin-bottom:var(--s-3)">'
+    '9월·10월·11월 편 완성 · 12월 편 제작 중 · 각 60초 세로형 (9:16)</div>'
+    # 3개 비디오 좌/중/우 가로 나란히
+    '<div style="display:flex;justify-content:center;gap:var(--s-4);align-items:flex-start">'
+    # 좌 · 9월 · 항공
+    '<div style="display:flex;flex-direction:column;align-items:center">'
+    '<div style="position:relative;width:340px;height:604px;background:#000;border-radius:8px;overflow:hidden;border:2px solid #E8E8E8">'
     '<video style="width:100%;height:100%;object-fit:cover;background:#000;display:block" '
     'src="/assets/video/KakaoTalk_20260410_151555089.mp4" controls preload="metadata"></video>'
-    '<div class="t-overline" style="position:absolute;top:8px;left:8px;letter-spacing:1px;color:#fff;background:#E84E10;padding:2px 8px;border-radius:2px;pointer-events:none">'
-    '9월 · 항공</div>'
+    '<div class="t-overline" style="position:absolute;top:10px;left:10px;letter-spacing:1px;color:#fff;background:#E84E10;padding:3px 10px;border-radius:2px;pointer-events:none">'
+    '9월</div>'
     '</div>'
-    # 비디오 2: 10월 · 호텔
-    '<div style="position:relative;width:220px;height:391px;background:#000;border-radius:6px;overflow:hidden;border:2px solid #E8E8E8">'
+    '<div class="t-caption w-bold is-ink" style="margin-top:var(--s-2)">항공서비스</div>'
+    '<div class="t-overline is-muted" style="letter-spacing:1px;margin-top:2px">승무원의 하루</div>'
+    '</div>'
+    # 중 · 10월 · 호텔
+    '<div style="display:flex;flex-direction:column;align-items:center">'
+    '<div style="position:relative;width:340px;height:604px;background:#000;border-radius:8px;overflow:hidden;border:2px solid #E8E8E8">'
     '<video style="width:100%;height:100%;object-fit:cover;background:#000;display:block" '
     'src="/assets/video/KakaoTalk_20260410_180358236.mp4" controls preload="metadata"></video>'
-    '<div class="t-overline" style="position:absolute;top:8px;left:8px;letter-spacing:1px;color:#fff;background:#E84E10;padding:2px 8px;border-radius:2px;pointer-events:none">'
-    '10월 · 호텔</div>'
+    '<div class="t-overline" style="position:absolute;top:10px;left:10px;letter-spacing:1px;color:#fff;background:#E84E10;padding:3px 10px;border-radius:2px;pointer-events:none">'
+    '10월</div>'
     '</div>'
-    # 비디오 3: 11월 · 경찰
-    '<div style="position:relative;width:220px;height:391px;background:#000;border-radius:6px;overflow:hidden;border:2px solid #E8E8E8">'
+    '<div class="t-caption w-bold is-ink" style="margin-top:var(--s-2)">호텔관광</div>'
+    '<div class="t-overline is-muted" style="letter-spacing:1px;margin-top:2px">총지배인 아침 라운드</div>'
+    '</div>'
+    # 우 · 11월 · 경찰
+    '<div style="display:flex;flex-direction:column;align-items:center">'
+    '<div style="position:relative;width:340px;height:604px;background:#000;border-radius:8px;overflow:hidden;border:2px solid #E8E8E8">'
     '<video style="width:100%;height:100%;object-fit:cover;background:#000;display:block" '
     'src="/assets/video/KakaoTalk_20260410_182832774.mp4" controls preload="metadata"></video>'
-    '<div class="t-overline" style="position:absolute;top:8px;left:8px;letter-spacing:1px;color:#fff;background:#E84E10;padding:2px 8px;border-radius:2px;pointer-events:none">'
-    '11월 · 경찰</div>'
+    '<div class="t-overline" style="position:absolute;top:10px;left:10px;letter-spacing:1px;color:#fff;background:#E84E10;padding:3px 10px;border-radius:2px;pointer-events:none">'
+    '11월</div>'
     '</div>'
-    '</div>'
-    # 우측: 설명 + 테이블
-    '<div style="flex:1;padding:var(--s-1) 0 0 var(--s-2);min-width:0">'
-    '<div class="t-subtitle" style="margin-bottom:var(--s-2)">'
-    '졸업선배 숏폼 시리즈 (연 4편)</div>'
-    '<div class="t-caption" style="margin-bottom:var(--s-3)">'
-    '9월~12월 · 입시 시즌 월 1편 공개 · 60초 릴스/숏폼 (9:16)</div>'
-    '<table class="t-caption w-regular is-ink" style="width:100%;border-collapse:collapse;margin-bottom:var(--s-3)">'
-    '<thead><tr><th class="w-bold" style="background:#F5F5F5;padding:8px 12px;border-bottom:2px solid #E84E10;text-align:left">월</th>'
-    '<th class="w-bold" style="background:#F5F5F5;padding:8px 12px;border-bottom:2px solid #E84E10;text-align:left">학과</th>'
-    '<th class="w-bold" style="background:#F5F5F5;padding:8px 12px;border-bottom:2px solid #E84E10;text-align:left">현장</th>'
-    '<th class="w-bold" style="background:#F5F5F5;padding:8px 12px;border-bottom:2px solid #E84E10;text-align:left">핵심 장면</th></tr></thead>'
-    '<tbody>'
-    '<tr><td style="padding:8px 12px;border-bottom:1px solid #E8E8E8"><strong>9월</strong></td>'
-    '<td style="padding:8px 12px;border-bottom:1px solid #E8E8E8">항공서비스</td>'
-    '<td style="padding:8px 12px;border-bottom:1px solid #E8E8E8">기내</td>'
-    '<td style="padding:8px 12px;border-bottom:1px solid #E8E8E8">승무원 일상 60초</td></tr>'
-    '<tr><td style="padding:8px 12px;border-bottom:1px solid #E8E8E8"><strong>10월</strong></td>'
-    '<td style="padding:8px 12px;border-bottom:1px solid #E8E8E8">호텔관광</td>'
-    '<td style="padding:8px 12px;border-bottom:1px solid #E8E8E8">호텔 로비</td>'
-    '<td style="padding:8px 12px;border-bottom:1px solid #E8E8E8">지배인 하루 60초</td></tr>'
-    '<tr><td style="padding:8px 12px;border-bottom:1px solid #E8E8E8"><strong>11월</strong></td>'
-    '<td style="padding:8px 12px;border-bottom:1px solid #E8E8E8">경찰행정</td>'
-    '<td style="padding:8px 12px;border-bottom:1px solid #E8E8E8">순찰 현장</td>'
-    '<td style="padding:8px 12px;border-bottom:1px solid #E8E8E8">경위 하루 60초</td></tr>'
-    '<tr><td style="padding:8px 12px"><strong>12월</strong></td>'
-    '<td style="padding:8px 12px">뷰티디자인</td>'
-    '<td style="padding:8px 12px">본인 매장</td>'
-    '<td style="padding:8px 12px">대표 하루 60초</td></tr>'
-    '</tbody></table>'
-    '<div class="t-caption is-muted" style="padding-top:var(--s-2);border-top:1px solid #E8E8E8">'
-    '인스타 릴스 + 유튜브 쇼츠 + 틱톡 <strong class="is-ink">동시 업로드</strong>.<br>'
-    '12월편(뷰티디자인) 현재 제작 중.'
+    '<div class="t-caption w-bold is-ink" style="margin-top:var(--s-2)">경찰행정</div>'
+    '<div class="t-overline is-muted" style="letter-spacing:1px;margin-top:2px">경위의 출근~순찰</div>'
     '</div>'
     '</div>'
     '</div>'
@@ -886,25 +929,26 @@ def make_sections():
         (2, T_VIDEO, 14, parent(P_III) + tag("영상 콘텐츠 방향") + S_VIDEO_INTRO),
         (2, T_VIDEO, 15, parent(P_III) + tag('메인 영상 · "지혜" (60초)') + S_JIHYE),
 
-        # 유튜브 / 인쇄 / 디지털 → 졸업선배 숏폼 → SNS → 언론
+        # 유튜브 / 인쇄 / 디지털 → 졸업선배 숏폼 2장 → SNS → 언론
         (2, T_YOUTUBE, 16, parent(P_III) + tag("인플루언서 섭외") + S_YOUTUBE_V22),
         (2, T_PRINT, 17, parent(P_III) + tag('"3.6%" 중심 배치') + S_PRINT),
         (2, T_DIGITAL, 18, parent(P_III) + tag('"심사위원석" + "Room 1201" A/B 실험') + S_DIGITAL),
-        # 졸업선배 숏폼 (디지털 뒤로 이동)
-        (2, T_VIDEO, 19, parent(P_III) + tag("졸업선배 숏폼 · 9~12월 4편") + S_DOCU),
+        # 졸업선배 숏폼 2장 (계획 + 완성본)
+        (2, T_VIDEO, 19, parent(P_III) + tag("졸업선배 숏폼 · 월별 계획") + S_DOCU_PLAN),
+        (2, T_VIDEO, 20, parent(P_III) + tag("졸업선배 숏폼 · 완성본 미리보기") + S_DOCU_VIDEOS),
         # SNS (더 상세하게 디벨롭)
-        (2, T_SNS, 20, parent(P_III) + tag("3채널 통합 운영 + 월간 캘린더") + S_SNS),
+        (2, T_SNS, 21, parent(P_III) + tag("3채널 통합 운영 + 월간 캘린더") + S_SNS),
         # 언론
-        (2, T_PRESS, 21, parent(P_III) + tag("수시/정시 시기별 매체") + S_PRESS),
+        (2, T_PRESS, 22, parent(P_III) + tag("수시/정시 시기별 매체") + S_PRESS),
         # 사업 관리 계획 (III-2 제거됨)
-        (2, T_MGMT, 22, parent(P_III) + tag("자문 · 효과 측정 · 본교 업무") + S_CONSULT),
+        (2, T_MGMT, 23, parent(P_III) + tag("자문 · 효과 측정 · 본교 업무") + S_CONSULT),
 
         # IV. 1
-        (2, T_IV_1, 23, parent(P_IV) + tag("간트차트 · 수시 80% / 정시 20%") + S_GANTT),
+        (2, T_IV_1, 24, parent(P_IV) + tag("간트차트 · 수시 80% / 정시 20%") + S_GANTT),
         # IV. 2
-        (2, T_IV_2, 24, parent(P_IV) + tag("측정 지표 · 2주 A/B 테스트") + S_FEEDBACK),
+        (2, T_IV_2, 25, parent(P_IV) + tag("측정 지표 · 2주 A/B 테스트") + S_FEEDBACK),
         # IV. 3
-        (2, T_IV_3, 25, parent(P_IV) + tag("운영방안 · 108회 → 40,000회") + S_OPERATION),
+        (2, T_IV_3, 26, parent(P_IV) + tag("운영방안 · 108회 → 40,000회") + S_OPERATION),
 
         # 마무리는 템플릿의 slide-end가 담당 (ANSWER 엔딩)
     ]
