@@ -124,29 +124,29 @@ S_SNS = (
     '3채널 통합 운영 + 참여형 이벤트 '
     '<span class="w-regular is-muted">· 수시 집중기(5~7월) 예산 70%</span></div>'
     # 운영 채널 (compact)
-    '<table class="t-overline w-regular" style="width:100%;border-collapse:collapse;margin-bottom:var(--s-2)">'
+    '<table class="t-caption w-regular is-ink" style="width:100%;border-collapse:collapse;margin-bottom:var(--s-2)">'
     '<thead><tr>'
-    '<th class="w-bold is-ink" style="background:#F5F5F5;padding:var(--s-1) var(--s-2);border-bottom:2px solid #E84E10;text-align:left;width:22%">채널</th>'
-    '<th class="w-bold is-ink" style="background:#F5F5F5;padding:var(--s-1) var(--s-2);border-bottom:2px solid #E84E10;text-align:left">주 콘텐츠</th>'
-    '<th class="w-bold is-ink" style="background:#F5F5F5;padding:var(--s-1) var(--s-2);border-bottom:2px solid #E84E10;text-align:left;width:15%">주기</th>'
-    '<th class="w-bold is-ink" style="background:#F5F5F5;padding:var(--s-1) var(--s-2);border-bottom:2px solid #E84E10;text-align:left;width:20%">목표</th>'
+    '<th class="w-bold" style="background:#F5F5F5;padding:var(--s-1) var(--s-2);border-bottom:2px solid #E84E10;text-align:left;width:22%">채널</th>'
+    '<th class="w-bold" style="background:#F5F5F5;padding:var(--s-1) var(--s-2);border-bottom:2px solid #E84E10;text-align:left">주 콘텐츠</th>'
+    '<th class="w-bold" style="background:#F5F5F5;padding:var(--s-1) var(--s-2);border-bottom:2px solid #E84E10;text-align:left;width:15%">주기</th>'
+    '<th class="w-bold" style="background:#F5F5F5;padding:var(--s-1) var(--s-2);border-bottom:2px solid #E84E10;text-align:left;width:20%">목표</th>'
     '</tr></thead><tbody>'
-    '<tr><td class="is-ink" style="padding:var(--s-1) var(--s-2);border-bottom:1px solid #E8E8E8"><strong>인스타그램</strong></td>'
-    '<td class="is-ink" style="padding:var(--s-1) var(--s-2);border-bottom:1px solid #E8E8E8">시안 이미지 · 릴스 · 스토리</td>'
-    '<td class="is-ink" style="padding:var(--s-1) var(--s-2);border-bottom:1px solid #E8E8E8">주 3회</td>'
-    '<td class="is-ink" style="padding:var(--s-1) var(--s-2);border-bottom:1px solid #E8E8E8">팔로워 +500/월</td></tr>'
-    '<tr><td class="is-ink" style="padding:var(--s-1) var(--s-2);border-bottom:1px solid #E8E8E8"><strong>유튜브 쇼츠</strong></td>'
-    '<td class="is-ink" style="padding:var(--s-1) var(--s-2);border-bottom:1px solid #E8E8E8">숏폼 · 졸업생 인터뷰</td>'
-    '<td class="is-ink" style="padding:var(--s-1) var(--s-2);border-bottom:1px solid #E8E8E8">주 2회</td>'
-    '<td class="is-ink" style="padding:var(--s-1) var(--s-2);border-bottom:1px solid #E8E8E8">조회수 3,000+/편</td></tr>'
-    '<tr><td class="is-ink" style="padding:var(--s-1) var(--s-2);border-bottom:1px solid #E8E8E8"><strong>네이버 블로그</strong></td>'
-    '<td class="is-ink" style="padding:var(--s-1) var(--s-2);border-bottom:1px solid #E8E8E8">팩트 카드뉴스 · 입시 가이드</td>'
-    '<td class="is-ink" style="padding:var(--s-1) var(--s-2);border-bottom:1px solid #E8E8E8">주 2회</td>'
-    '<td class="is-ink" style="padding:var(--s-1) var(--s-2);border-bottom:1px solid #E8E8E8">검색 상위 노출</td></tr>'
+    '<tr><td style="padding:var(--s-1) var(--s-2);border-bottom:1px solid #E8E8E8"><strong>인스타그램</strong></td>'
+    '<td style="padding:var(--s-1) var(--s-2);border-bottom:1px solid #E8E8E8">시안 이미지 · 릴스 · 스토리</td>'
+    '<td style="padding:var(--s-1) var(--s-2);border-bottom:1px solid #E8E8E8">주 3회</td>'
+    '<td style="padding:var(--s-1) var(--s-2);border-bottom:1px solid #E8E8E8">팔로워 +500/월</td></tr>'
+    '<tr><td style="padding:var(--s-1) var(--s-2);border-bottom:1px solid #E8E8E8"><strong>유튜브 쇼츠</strong></td>'
+    '<td style="padding:var(--s-1) var(--s-2);border-bottom:1px solid #E8E8E8">숏폼 · 졸업생 인터뷰</td>'
+    '<td style="padding:var(--s-1) var(--s-2);border-bottom:1px solid #E8E8E8">주 2회</td>'
+    '<td style="padding:var(--s-1) var(--s-2);border-bottom:1px solid #E8E8E8">조회수 3,000+/편</td></tr>'
+    '<tr><td style="padding:var(--s-1) var(--s-2);border-bottom:1px solid #E8E8E8"><strong>네이버 블로그</strong></td>'
+    '<td style="padding:var(--s-1) var(--s-2);border-bottom:1px solid #E8E8E8">팩트 카드뉴스 · 입시 가이드</td>'
+    '<td style="padding:var(--s-1) var(--s-2);border-bottom:1px solid #E8E8E8">주 2회</td>'
+    '<td style="padding:var(--s-1) var(--s-2);border-bottom:1px solid #E8E8E8">검색 상위 노출</td></tr>'
     '</tbody></table>'
     # 월간 캘린더 (compact, 2컬럼 요약)
-    '<div class="t-caption w-bold is-accent" style="margin-bottom:var(--s-1);letter-spacing:1px">월간 콘텐츠 캘린더</div>'
-    '<div class="t-overline w-regular is-ink" style="display:grid;grid-template-columns:1fr 1fr;gap:var(--s-1) var(--s-2);margin-bottom:var(--s-2)">'
+    '<div class="t-caption w-bold is-accent" style="margin-bottom:var(--s-1)">월간 콘텐츠 캘린더</div>'
+    '<div class="t-caption w-regular is-ink" style="display:grid;grid-template-columns:1fr 1fr;gap:var(--s-1) var(--s-2);margin-bottom:var(--s-2)">'
     '<div>· <strong>3~4월</strong> 입학 -- 1학년 브이로그 / 인증샷 해시태그</div>'
     '<div>· <strong>5~6월</strong> 수시 -- 팩트 카드뉴스 / 캠퍼스 투어</div>'
     '<div>· <strong>7월</strong> 마감 -- 카운트다운 / 응원 댓글</div>'
@@ -155,7 +155,7 @@ S_SNS = (
     '<div>· <strong>12월~2월</strong> 합격 -- 축하 콘텐츠 / 멘토 매칭</div>'
     '</div>'
     # 운영 원칙 (한 줄 박스)
-    '<div class="t-overline w-regular is-ink" style="background:#F9F7F4;border-left:3px solid #E84E10;padding:var(--s-2) var(--s-2)">'
+    '<div class="t-caption w-regular is-ink" style="background:#F9F7F4;border-left:3px solid #E84E10;padding:var(--s-2) var(--s-2)">'
     '<strong>운영 원칙:</strong> 참여형 (댓글/해시태그/인증샷) · '
     '경품 대신 <strong class="is-accent">정보 보상</strong> (입시 가이드 DM) · '
     '학과 로테이션 · 월간 리포트 제공'
@@ -360,18 +360,9 @@ S_NUMBERS = (
     '<div style="padding:var(--s-5) 0;text-align:center">'
     '<div class="t-overline is-accent" style="margin-bottom:var(--s-4)">TEST</div>'
     '<div class="t-heading" style="margin-bottom:var(--s-5)">'
-    '2분 전, 당신은<br>영산대학교의 사실을 보셨습니다</div>'
-    '<div class="t-title" style="margin-bottom:var(--s-5)">'
+    '2분 전, 여러분은<br>영산대학교의 사실을 보셨습니다</div>'
+    '<div class="t-title">'
     '지금, <span class="is-accent">몇 개가 기억나십니까?</span></div>'
-    '<div class="t-subtitle w-regular is-muted" style="display:inline-block;text-align:left;line-height:2.2;margin-bottom:var(--s-5)">'
-    '·&nbsp;&nbsp;&nbsp;?<br>'
-    '·&nbsp;&nbsp;&nbsp;?<br>'
-    '·&nbsp;&nbsp;&nbsp;?<br>'
-    '·&nbsp;&nbsp;&nbsp;?'
-    '</div>'
-    '<div class="t-body is-muted" style="font-style:italic">'
-    '— 괜찮습니다 솔직하게 떠올려 보시지요'
-    '</div>'
     '</div>'
     + script(
         '"2분 전, 저희는 영산대학교의 사실 네 가지를 보여드렸습니다<br><br>'
@@ -553,6 +544,18 @@ def sian_image_slide(ref_num, headline_a, headline_b, image_path, caption):
         f'</div>'
     )
 
+# ===== 시안 풀스크린 헬퍼 -- 16:9 이미지만 최대 크기 (헤드라인 제거) =====
+def sian_image_fullscreen(label, headline_a, headline_b, image_path, caption):
+    return (
+        '<div class="sian-full">'
+        '<div class="sian-full__body">'
+        '<div class="sian-full__frame">'
+        f'<img src="{image_path}" alt="{headline_b}">'
+        '</div>'
+        '</div>'
+        '</div>'
+    )
+
 # ===== 시안 1 · "3.6%" 이미지 3장 =====
 SIAN_1_IMAGES = [
     "/assets/image/1/2.jpg",
@@ -577,34 +580,35 @@ SIAN_3_IMAGES = [
     "/assets/image/3/Image_20260410_211835.jpg",
 ]
 
-# ===== 시안 종합 (THREE PROOFS) -- 16:9 3개 이미지 썸네일 =====
-def _sian_thumb(title, image_path, dark=False):
-    bg = "#1A1A1A" if dark else "#F5F5F5"
+# ===== 시안 종합 (THREE PROOFS) -- 모든 이미지 줄별 컴팩트 =====
+def _sian_thumb_small(image_path):
     return (
-        '<div style="display:flex;flex-direction:column;align-items:center;gap:var(--s-2)">'
-        f'<div class="t-caption w-bold is-ink" style="letter-spacing:1px">{title}</div>'
-        f'<div style="width:400px;height:225px;background:{bg};border:1px solid #E8E8E8;'
-        'border-radius:6px;overflow:hidden">'
-        f'<img src="{image_path}" alt="{title}" '
-        'style="width:100%;height:100%;object-fit:cover;display:block">'
+        '<div style="width:200px;height:113px;background:#F5F5F5;border:1px solid #E8E8E8;'
+        'border-radius:4px;overflow:hidden;flex-shrink:0">'
+        f'<img src="{image_path}" style="width:100%;height:100%;object-fit:cover;display:block">'
         '</div>'
+    )
+
+def _sian_row(label, images):
+    thumbs = "".join(_sian_thumb_small(p) for p in images)
+    return (
+        '<div style="display:flex;align-items:center;gap:var(--s-3);padding:var(--s-2) 0">'
+        f'<div class="t-caption w-bold is-ink" style="width:120px;flex-shrink:0;letter-spacing:0">{label}</div>'
+        f'<div style="display:flex;gap:var(--s-2);flex:1">{thumbs}</div>'
         '</div>'
     )
 
 S_SIAN_SUMMARY_V26 = (
-    '<div style="display:flex;justify-content:center;gap:var(--s-4);padding:var(--s-2) 0;align-items:flex-start">'
-    + _sian_thumb("3.6%", SIAN_1_IMAGES[0])
-    + _sian_thumb("글로벌 55위", SIAN_2_IMAGES[0])
-    + _sian_thumb("Room 1201", SIAN_3_IMAGES[0], dark=True)
+    '<div style="padding:var(--s-2) 0;max-width:1600px;margin:0 auto">'
+    + _sian_row("사례 1 · 3.6%", SIAN_1_IMAGES)
+    + '<div style="height:1px;background:#E8E8E8;margin:var(--s-1) 0"></div>'
+    + _sian_row("사례 2 · 55위", SIAN_2_IMAGES)
+    + '<div style="height:1px;background:#E8E8E8;margin:var(--s-1) 0"></div>'
+    + _sian_row("사례 3 · Room 1201", SIAN_3_IMAGES)
     + '</div>'
-    + '<div class="t-body w-bold" style="text-align:center;margin-top:var(--s-4)">'
-      '세 장의 광고 · 세 가지 증명</div>'
-    + '<div class="t-caption w-bold is-accent" style="text-align:center;margin-top:var(--s-1)">'
-      '하나의 결론 -- 영산대는, 이미 증명된 학교였습니다</div>'
     + script(
-        '"세 장의 광고, 세 가지 증명<br>'
-        '3.6%, 글로벌 55위, Room 1201<br><br>'
-        '하나의 결론입니다<br>'
+        '"지금까지 보신 12개의 시안입니다<br>'
+        '세 가지 사실, 세 가지 리프레이밍<br><br>'
         '<strong>영산대는, 이미 증명된 학교였습니다</strong><br>'
         '저희는 그것을, 보이게 만들 뿐입니다"'
     )
@@ -628,7 +632,7 @@ S_VIDEO_INTRO = (
     # VIDEO 컬럼
     '<div style="flex:1;padding:var(--s-4) var(--s-5);text-align:left">'
     '<div class="t-overline" style="margin-bottom:var(--s-3)">VIDEO &nbsp;·&nbsp; 영상</div>'
-    '<div class="t-subtitle w-regular" style="line-height:1.6">풀어낸 한 편의 이야기<br>'
+    '<div class="t-subtitle w-regular" style="line-height:1.6;white-space:nowrap">풀어낸 한 편의 이야기<br>'
     '<span class="is-accent w-bold">스토리텔링</span>으로 증명</div>'
     '</div>'
     '</div>'
@@ -651,16 +655,14 @@ S_VIDEO_INTRO = (
 
 # ===== 15-B. THE PROTAGONIST -- 3갈래 의미 수렴 =====
 S_VIDEO_WHY = (
-    '<div style="padding:var(--s-3) 0;text-align:center">'
-    '<div class="t-overline is-accent" style="margin-bottom:var(--s-3)">THE PROTAGONIST</div>'
-    # 상단 작은 질문
-    '<div class="t-body is-muted" style="margin-bottom:var(--s-3)">왜 \'지혜\'인가?</div>'
+    '<div style="padding:var(--s-4) 0;text-align:center">'
+    '<div class="t-overline is-accent" style="margin-bottom:var(--s-4)">THE PROTAGONIST</div>'
     # 중앙 거대 타이포
     '<div class="t-hero" style="margin-bottom:var(--s-4)">지혜</div>'
     # 주황 short bar
     '<div style="width:60px;height:3px;background:#E84E10;margin:0 auto var(--s-5)"></div>'
     # 3갈래 의미 리스트 (각 줄: overline 고정폭 + 본문)
-    '<div style="display:inline-block;text-align:left;max-width:760px;margin-bottom:var(--s-4)">'
+    '<div style="display:inline-block;text-align:left;max-width:760px">'
     # 1. 校訓
     '<div style="display:flex;align-items:baseline;gap:var(--s-4);padding:var(--s-2) 0;border-bottom:1px solid #E8E8E8">'
     '<div class="t-overline" style="width:130px;flex-shrink:0">① 校訓</div>'
@@ -669,19 +671,13 @@ S_VIDEO_WHY = (
     # 2. 영상 주인공
     '<div style="display:flex;align-items:baseline;gap:var(--s-4);padding:var(--s-2) 0;border-bottom:1px solid #E8E8E8">'
     '<div class="t-overline" style="width:130px;flex-shrink:0">② 영상 주인공</div>'
-    '<div class="t-subtitle w-regular">누군가 부르면, <span class="is-ink w-bold">돌아보는 사람</span>.</div>'
+    '<div class="t-subtitle w-regular">누군가 부르면, <span class="is-ink w-bold">돌아보는 사람</span></div>'
     '</div>'
     # 3. 졸업생 공통
     '<div style="display:flex;align-items:baseline;gap:var(--s-4);padding:var(--s-2) 0">'
     '<div class="t-overline" style="width:130px;flex-shrink:0">③ 졸업생</div>'
-    '<div class="t-subtitle w-regular">항공 · 호텔 · 경찰 · 뷰티 현장, <span class="is-accent w-bold">바로 그 이름</span>.</div>'
+    '<div class="t-subtitle w-regular">항공 · 호텔 · 경찰 · 뷰티 현장, <span class="is-accent w-bold">바로 그 이름</span></div>'
     '</div>'
-    '</div>'
-    # 화살표
-    '<div class="is-muted" style="font-size:32px;line-height:1;margin-bottom:var(--s-3)">↓</div>'
-    # 결론
-    '<div class="t-subtitle">'
-    '한 이름, 세 갈래 <span class="is-accent w-bold">하나의 증명</span>'
     '</div>'
     '</div>'
     + script(
@@ -776,6 +772,32 @@ S_JIHYE = (
     )
 )
 
+# ===== 추가 영상 2 (2.mp4) =====
+S_JIHYE_2 = (
+    '<div style="display:flex;justify-content:center;align-items:center;padding:0">'
+    '<div style="position:relative;width:1440px;height:810px;background:#000;border-radius:6px;'
+    'overflow:hidden;border:1px solid #E8E8E8">'
+    '<video style="width:100%;height:100%;object-fit:contain;background:#000;display:block" '
+    'src="/assets/video/2.mp4" controls preload="metadata"></video>'
+    '<div class="t-overline" style="position:absolute;top:16px;left:16px;letter-spacing:1px;'
+    'color:#fff;background:#E84E10;padding:4px 12px;border-radius:2px;pointer-events:none">'
+    '홍보영상 · 16:9</div>'
+    '</div></div>'
+)
+
+# ===== 추가 영상 3 (3.mp4) =====
+S_JIHYE_3 = (
+    '<div style="display:flex;justify-content:center;align-items:center;padding:0">'
+    '<div style="position:relative;width:1440px;height:810px;background:#000;border-radius:6px;'
+    'overflow:hidden;border:1px solid #E8E8E8">'
+    '<video style="width:100%;height:100%;object-fit:contain;background:#000;display:block" '
+    'src="/assets/video/3.mp4" controls preload="metadata"></video>'
+    '<div class="t-overline" style="position:absolute;top:16px;left:16px;letter-spacing:1px;'
+    'color:#fff;background:#E84E10;padding:4px 12px;border-radius:2px;pointer-events:none">'
+    '홍보영상 · 16:9</div>'
+    '</div></div>'
+)
+
 # ===== 마지막: 빈칸 회수 =====
 S_ENDING = (
     '<div style="padding:var(--s-7) 0;text-align:center">'
@@ -837,18 +859,18 @@ def make_sections():
         (2, T_SOURCE, 8, parent(P_III) + tag("접근법") + S_BRIDGE),
         (2, T_SOURCE, 9, parent(P_III) + tag("컨셉") + S_CONCEPT_ONLY),
         (2, T_SOURCE, 10, parent(P_III) + tag("기법") + S_METHOD_ONLY),
-        (2, T_SOURCE, 11, parent(P_III) + tag("사례 1 · 3.6% (1/3)") + sian_image_slide("1", "96.4%", "3.6%", SIAN_1_IMAGES[0], "성공의 크기가 아닌, 실패의 작음으로")),
-        (2, T_SOURCE, 12, parent(P_III) + tag("사례 1 · 3.6% (2/3)") + sian_image_slide("1", "96.4%", "3.6%", SIAN_1_IMAGES[1], "성공의 크기가 아닌, 실패의 작음으로")),
-        (2, T_SOURCE, 13, parent(P_III) + tag("사례 1 · 3.6% (3/3)") + sian_image_slide("1", "96.4%", "3.6%", SIAN_1_IMAGES[2], "성공의 크기가 아닌, 실패의 작음으로")),
-        (2, T_SOURCE, 14, parent(P_III) + tag("사례 2 · 55위 (1/3)") + sian_image_slide("2", "국내 우수 호스피탈리티", "글로벌 55위 영산대", SIAN_2_IMAGES[0], "대한민국이 아닌, 세계 안에서")),
-        (2, T_SOURCE, 15, parent(P_III) + tag("사례 2 · 55위 (2/3)") + sian_image_slide("2", "국내 우수 호스피탈리티", "글로벌 55위 영산대", SIAN_2_IMAGES[1], "대한민국이 아닌, 세계 안에서")),
-        (2, T_SOURCE, 16, parent(P_III) + tag("사례 2 · 55위 (3/3)") + sian_image_slide("2", "국내 우수 호스피탈리티", "글로벌 55위 영산대", SIAN_2_IMAGES[2], "대한민국이 아닌, 세계 안에서")),
-        (2, T_SOURCE, 17, parent(P_III) + tag("사례 3 · Room 1201 (1/6)") + sian_image_slide("3", "25명의 총지배인", "25개 호텔 · 하나의 대학", SIAN_3_IMAGES[0], "개인이 아닌, 네트워크로")),
-        (2, T_SOURCE, 18, parent(P_III) + tag("사례 3 · Room 1201 (2/6)") + sian_image_slide("3", "25명의 총지배인", "25개 호텔 · 하나의 대학", SIAN_3_IMAGES[1], "개인이 아닌, 네트워크로")),
-        (2, T_SOURCE, 19, parent(P_III) + tag("사례 3 · Room 1201 (3/6)") + sian_image_slide("3", "25명의 총지배인", "25개 호텔 · 하나의 대학", SIAN_3_IMAGES[2], "개인이 아닌, 네트워크로")),
-        (2, T_SOURCE, 20, parent(P_III) + tag("사례 3 · Room 1201 (4/6)") + sian_image_slide("3", "25명의 총지배인", "25개 호텔 · 하나의 대학", SIAN_3_IMAGES[3], "개인이 아닌, 네트워크로")),
-        (2, T_SOURCE, 21, parent(P_III) + tag("사례 3 · Room 1201 (5/6)") + sian_image_slide("3", "25명의 총지배인", "25개 호텔 · 하나의 대학", SIAN_3_IMAGES[4], "개인이 아닌, 네트워크로")),
-        (2, T_SOURCE, 22, parent(P_III) + tag("사례 3 · Room 1201 (6/6)") + sian_image_slide("3", "25명의 총지배인", "25개 호텔 · 하나의 대학", SIAN_3_IMAGES[5], "개인이 아닌, 네트워크로")),
+        (2, T_SOURCE, 11, parent(P_III) + tag("사례 1-1") + sian_image_fullscreen("1-1", "96.4%", "3.6%", SIAN_1_IMAGES[0], "")),
+        (2, T_SOURCE, 12, parent(P_III) + tag("사례 1-2") + sian_image_fullscreen("1-2", "96.4%", "3.6%", SIAN_1_IMAGES[1], "")),
+        (2, T_SOURCE, 13, parent(P_III) + tag("사례 1-3") + sian_image_fullscreen("1-3", "96.4%", "3.6%", SIAN_1_IMAGES[2], "")),
+        (2, T_SOURCE, 14, parent(P_III) + tag("사례 2-1") + sian_image_fullscreen("2-1", "국내 우수 호스피탈리티", "글로벌 55위 영산대", SIAN_2_IMAGES[0], "")),
+        (2, T_SOURCE, 15, parent(P_III) + tag("사례 2-2") + sian_image_fullscreen("2-2", "국내 우수 호스피탈리티", "글로벌 55위 영산대", SIAN_2_IMAGES[1], "")),
+        (2, T_SOURCE, 16, parent(P_III) + tag("사례 2-3") + sian_image_fullscreen("2-3", "국내 우수 호스피탈리티", "글로벌 55위 영산대", SIAN_2_IMAGES[2], "")),
+        (2, T_SOURCE, 17, parent(P_III) + tag("사례 3-1") + sian_image_fullscreen("3-1", "25명의 총지배인", "25개 호텔 · 하나의 대학", SIAN_3_IMAGES[0], "")),
+        (2, T_SOURCE, 18, parent(P_III) + tag("사례 3-2") + sian_image_fullscreen("3-2", "25명의 총지배인", "25개 호텔 · 하나의 대학", SIAN_3_IMAGES[1], "")),
+        (2, T_SOURCE, 19, parent(P_III) + tag("사례 3-3") + sian_image_fullscreen("3-3", "25명의 총지배인", "25개 호텔 · 하나의 대학", SIAN_3_IMAGES[2], "")),
+        (2, T_SOURCE, 20, parent(P_III) + tag("사례 3-4") + sian_image_fullscreen("3-4", "25명의 총지배인", "25개 호텔 · 하나의 대학", SIAN_3_IMAGES[3], "")),
+        (2, T_SOURCE, 21, parent(P_III) + tag("사례 3-5") + sian_image_fullscreen("3-5", "25명의 총지배인", "25개 호텔 · 하나의 대학", SIAN_3_IMAGES[4], "")),
+        (2, T_SOURCE, 22, parent(P_III) + tag("사례 3-6") + sian_image_fullscreen("3-6", "25명의 총지배인", "25개 호텔 · 하나의 대학", SIAN_3_IMAGES[5], "")),
         (2, T_SOURCE, 23, parent(P_III) + tag("종합") + S_SIAN_SUMMARY_V26),
 
         # 대학 공식 홍보영상
@@ -856,24 +878,26 @@ def make_sections():
         (2, T_VIDEO, 25, parent(P_III) + tag("영상 접근법") + S_VIDEO_INTRO),
         (2, T_VIDEO, 26, parent(P_III) + tag("주인공") + S_VIDEO_WHY),
         (2, T_VIDEO, 27, parent(P_III) + tag("본편") + S_JIHYE),
+        (2, T_VIDEO, 28, parent(P_III) + tag("영상 2") + S_JIHYE_2),
+        (2, T_VIDEO, 29, parent(P_III) + tag("영상 3") + S_JIHYE_3),
 
         # 실무 확장 대시보드
-        (2, T_SOURCE, 28, parent(P_III) + tag("확장 개요") + S_EXPANSION),
+        (2, T_SOURCE, 30, parent(P_III) + tag("확장 개요") + S_EXPANSION),
 
         # 매체 전개
-        (2, T_YOUTUBE, 29, parent(P_III) + tag("인플루언서") + S_YOUTUBE_V22),
-        (2, T_PRINT, 30, parent(P_III) + tag("인쇄 매체") + S_PRINT),
-        (2, T_DIGITAL, 31, parent(P_III) + tag("디지털 매체") + S_DIGITAL),
-        (2, T_VIDEO, 32, parent(P_III) + tag("숏폼 기획") + S_DOCU_PLAN),
-        (2, T_VIDEO, 33, parent(P_III) + tag("숏폼 완성본") + S_DOCU_VIDEOS),
-        (2, T_SNS, 34, parent(P_III) + tag("소셜 미디어") + S_SNS),
-        (2, T_PRESS, 35, parent(P_III) + tag("언론 매체") + S_PRESS),
-        (2, T_MGMT, 36, parent(P_III) + tag("운영 지원") + S_CONSULT),
+        (2, T_YOUTUBE, 31, parent(P_III) + tag("인플루언서") + S_YOUTUBE_V22),
+        (2, T_PRINT, 32, parent(P_III) + tag("인쇄 매체") + S_PRINT),
+        (2, T_DIGITAL, 33, parent(P_III) + tag("디지털 매체") + S_DIGITAL),
+        (2, T_VIDEO, 34, parent(P_III) + tag("숏폼 기획") + S_DOCU_PLAN),
+        (2, T_VIDEO, 35, parent(P_III) + tag("숏폼 완성본") + S_DOCU_VIDEOS),
+        (2, T_SNS, 36, parent(P_III) + tag("소셜 미디어") + S_SNS),
+        (2, T_PRESS, 37, parent(P_III) + tag("언론 매체") + S_PRESS),
+        (2, T_MGMT, 38, parent(P_III) + tag("운영 지원") + S_CONSULT),
 
         # IV
-        (2, T_IV_1, 37, parent(P_IV) + tag("예산 배분") + S_GANTT),
-        (2, T_IV_2, 38, parent(P_IV) + tag("성과 측정") + S_FEEDBACK),
-        (2, T_IV_3, 39, parent(P_IV) + tag("확장 계획") + S_OPERATION),
+        (2, T_IV_1, 39, parent(P_IV) + tag("예산 배분") + S_GANTT),
+        (2, T_IV_2, 40, parent(P_IV) + tag("성과 측정") + S_FEEDBACK),
+        (2, T_IV_3, 41, parent(P_IV) + tag("확장 계획") + S_OPERATION),
 
         # 마무리는 템플릿의 slide-end가 담당 (ANSWER 엔딩)
     ]

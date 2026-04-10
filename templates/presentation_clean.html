@@ -45,6 +45,14 @@ body{font-family:'Roboto','Noto Sans KR',-apple-system,sans-serif;font-weight:40
 .content-body .w-regular {font-weight:400}
 .content-body .w-bold    {font-weight:700}
 
+/* 시안 풀스크린 (12~23페이지 시안 슬라이드) */
+.content-body .sian-full{position:fixed;inset:0;background:#fff;z-index:20;display:flex;flex-direction:column;padding:20px 36px}
+.content-body .sian-full__header{flex-shrink:0;margin-bottom:8px}
+.content-body .sian-full__body{flex:1;display:flex;justify-content:center;align-items:center;min-height:0}
+.content-body .sian-full__frame{width:min(100%,calc((100vh - 40px) * 16 / 9));aspect-ratio:16/9;background:#F5F5F5;border:1px solid #E8E8E8;border-radius:6px;overflow:hidden}
+.content-body .sian-full__frame img{width:100%;height:100%;object-fit:cover;display:block}
+.content-body .sian-full__caption{flex-shrink:0;font-size:13px;color:#6E6E73;font-style:italic;text-align:center;margin-top:6px}
+
 .deck{position:relative;width:100vw;height:100vh;overflow:hidden}
 .slide{position:absolute;top:0;left:0;width:100vw;height:100vh;display:flex;flex-direction:column;justify-content:center;overflow:hidden;visibility:hidden;opacity:0}
 .slide.active{visibility:visible;opacity:1}
@@ -300,15 +308,9 @@ body.edit-mode [contenteditable]:focus{outline:2px solid #E84E10;outline-offset:
     <div class="end-overline">ANSWER</div>
     <div class="end-heading">영산대는,<br><span class="is-accent-w">증명된 대학입니다</span></div>
     <div class="end-divider"></div>
-    <div class="end-proofs">
-      <div class="end-proof"><span class="end-fact">취업률 96.4%</span><span class="end-sep">·</span><span class="end-via">실패 3.6%로 증명</span></div>
-      <div class="end-proof"><span class="end-fact">글로벌 55위</span><span class="end-sep">·</span><span class="end-via">QS 호스피탈리티로 증명</span></div>
-      <div class="end-proof"><span class="end-fact">총지배인 25명</span><span class="end-sep">·</span><span class="end-via">Room 1201로 증명</span></div>
-      <div class="end-proof"><span class="end-fact">校訓 "지혜가 실력이다"</span><span class="end-sep">·</span><span class="end-via">영상 &lsquo;지혜&rsquo;로 증명</span></div>
-    </div>
-    <div class="end-divider thin"></div>
     <div class="end-closing">
-      사실은, 이제 <strong>증명이 됩니다</strong>
+      하이브미디어가,<br>
+      영산대학교의 사실을 이제 <strong>증명하겠습니다</strong>
     </div>
   </div>
 </div>
