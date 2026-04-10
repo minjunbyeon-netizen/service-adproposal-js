@@ -533,243 +533,77 @@ S_METHOD_ONLY = (
     )
 )
 
-# ===== 시안 공통 mockup 헬퍼 (V27: 헤드라인+캡션 공간 확보 위해 축소) =====
-# 16:9 가로형(854x480) + 9:16 세로형(270x480) 같은 높이
-def sian_mockups(label, h_content, v_content):
+# ===== 시안 이미지 공통 헬퍼 (V27: 16:9 이미지 1장 + 헤드라인 + 캡션) =====
+def sian_image_slide(ref_num, headline_a, headline_b, image_path, caption):
     return (
-        '<div style="display:flex;justify-content:center;align-items:center;gap:var(--s-3);padding:0">'
-        # 16:9 가로형 (854x480)
-        f'<div style="width:854px;height:480px;background:#F5F5F5;border:1px solid #E8E8E8;'
-        f'border-radius:6px;display:flex;flex-direction:column;justify-content:center;align-items:center;'
-        f'position:relative;overflow:hidden">'
-        f'<div class="t-overline" style="position:absolute;top:10px;left:10px;letter-spacing:1px;'
-        f'color:#fff;background:#58595B;padding:3px 10px;border-radius:2px">16:9 가로형 / {label}</div>'
-        f'{h_content}'
-        f'</div>'
-        # 9:16 세로형 (270x480)
-        f'<div style="width:270px;height:480px;background:#F5F5F5;border:1px solid #E8E8E8;'
-        f'border-radius:6px;display:flex;flex-direction:column;justify-content:center;align-items:center;'
-        f'position:relative;overflow:hidden">'
-        f'<div class="t-overline" style="position:absolute;top:10px;left:10px;letter-spacing:1px;'
-        f'color:#fff;background:#58595B;padding:3px 10px;border-radius:2px">9:16 세로형</div>'
-        f'{v_content}'
-        f'</div>'
+        f'<div class="t-overline is-accent" style="text-align:center;margin-bottom:var(--s-2)">RE-FRAMING &nbsp;#{ref_num}</div>'
+        f'<div class="t-title" style="text-align:center;margin-bottom:var(--s-3);line-height:1.25">'
+        f'"{headline_a}"가 아니라,<br>'
+        f'<span class="is-accent">"{headline_b}"</span>입니다</div>'
+        # 16:9 이미지 프레임 (1067x600 ≈ 16:9)
+        '<div style="display:flex;justify-content:center;padding:0">'
+        '<div style="width:1067px;height:600px;background:#F5F5F5;border:1px solid #E8E8E8;'
+        'border-radius:6px;overflow:hidden">'
+        f'<img src="{image_path}" alt="{headline_b}" '
+        'style="width:100%;height:100%;object-fit:cover;display:block">'
         '</div>'
+        '</div>'
+        f'<div class="t-body is-muted" style="text-align:center;margin-top:var(--s-3);font-style:italic">'
+        f'{caption}'
+        f'</div>'
     )
 
+# ===== 시안 1 · "3.6%" 이미지 3장 =====
+SIAN_1_IMAGES = [
+    "/assets/image/1/2.jpg",
+    "/assets/image/1/Image_20260410_200932.jpg",
+    "/assets/image/1/Image_20260410_210850.jpg",
+]
 
-# ===== 11. 시안 "3.6%" =====
-_h_36 = (
-    '<div class="t-display">3.6%</div>'
-    '<div class="t-body is-muted" style="margin-top:var(--s-3)">떨어질 확률입니다</div>'
-)
-_v_36 = (
-    '<div style="font-size:76px;font-weight:700;color:#1A1A1A;'
-    'letter-spacing:-3px;line-height:1">3.6%</div>'
-    '<div class="t-caption" style="margin-top:var(--s-2);text-align:center;padding:0 var(--s-2)">떨어질 확률입니다</div>'
-)
-S_36 = (
-    '<div class="t-overline is-accent" style="text-align:center;margin-bottom:var(--s-2)">RE-FRAMING &nbsp;#1</div>'
-    '<div class="t-title" style="text-align:center;margin-bottom:var(--s-3);line-height:1.25">'
-    '"96.4%"가 아니라,<br>'
-    '<span class="is-accent">"3.6%"</span>입니다</div>'
-    + sian_mockups("3.6%", _h_36, _v_36)
-    + '<div class="t-body is-muted" style="text-align:center;margin-top:var(--s-3);font-style:italic">'
-      '성공의 크기가 아닌, 실패의 작음으로'
-      '</div>'
-    + script(
-        '<strong>[리프레이밍 #1]</strong><br>'
-        '<strong>96.4%가 아니라, 3.6%입니다</strong><br><br>'
-        '"(3초 침묵 숫자를 보게 둔다)<br><br>'
-        '3.6% 영산대 항공서비스학과에서 <strong>취업에 실패한 사람</strong>의 비율입니다<br>'
-        '나머지 96.4%는 지금 일하고 있습니다<br><br>'
-        '성공을 말하면 자랑이 됩니다<br>'
-        '실패의 작음을 말하면, <strong>증명</strong>이 됩니다"'
-    )
-)
+# ===== 시안 2 · "글로벌 55위" 이미지 3장 =====
+SIAN_2_IMAGES = [
+    "/assets/image/2/Image_20260410_202519.jpg",
+    "/assets/image/2/Image_20260410_202523.jpg",
+    "/assets/image/2/Image_20260410_210840.jpg",
+]
 
-# ===== 12. 시안 "QS 55위" =====
-_h_qs = (
-    '<div style="padding:0 32px;width:100%">'
-    '<div style="font-size:11px;color:#999;line-height:1.8;text-align:center">'
-    '1st MIT / USA<br>2nd Imperial College London / UK<br>3rd Stanford University / USA</div>'
-    '<div style="text-align:center;padding:12px 0;font-size:14px;color:#ccc;letter-spacing:6px">.<br>.<br>.</div>'
-    '<div style="text-align:center">'
-    '<span style="font-size:56px;font-weight:700;color:#1A1A1A">'
-    '55<span style="font-size:28px;color:#58595B">th</span></span>'
-    '<span style="font-size:36px;font-weight:700;color:#E84E10;margin-left:16px">YsU</span>'
-    '<span style="font-size:16px;color:#58595B;margin-left:8px">/ BUSAN</span></div>'
-    '<div style="text-align:center;font-size:10px;color:#bbb;line-height:1.8;margin-top:8px">'
-    '56th Oxford Brookes / UK<br>'
-    '<span style="color:#ccc">57th Lisboa / Portugal</span></div>'
-    '</div>'
-)
-_v_qs = (
-    '<div style="padding:0 10px;width:100%">'
-    '<div style="font-size:8px;color:#999;line-height:1.8;text-align:center">'
-    '1st MIT<br>2nd Imperial<br>3rd Stanford</div>'
-    '<div style="text-align:center;padding:6px 0;font-size:10px;color:#ccc;letter-spacing:4px">.<br>.<br>.</div>'
-    '<div style="text-align:center">'
-    '<div style="font-size:32px;font-weight:700;color:#1A1A1A;line-height:1">'
-    '55<span style="font-size:16px;color:#58595B">th</span></div>'
-    '<div style="font-size:22px;font-weight:700;color:#E84E10;margin-top:4px">YsU</div>'
-    '<div style="font-size:10px;color:#58595B">/ BUSAN</div></div>'
-    '<div style="text-align:center;font-size:8px;color:#bbb;line-height:1.8;margin-top:6px">'
-    '56th Oxford Brookes<br>57th Lisboa</div>'
-    '</div>'
-)
-S_QS = (
-    '<div class="t-overline is-accent" style="text-align:center;margin-bottom:var(--s-2)">RE-FRAMING &nbsp;#2</div>'
-    '<div class="t-title" style="text-align:center;margin-bottom:var(--s-3);line-height:1.25">'
-    '"국내 우수 호스피탈리티"가 아니라,<br>'
-    '<span class="is-accent">"글로벌 55위 영산대"</span>입니다</div>'
-    + sian_mockups("QS 55위", _h_qs, _v_qs)
-    + '<div class="t-body is-muted" style="text-align:center;margin-top:var(--s-3);font-style:italic">'
-      '대한민국이 아닌, 세계 안에서'
-      '</div>'
-    + script(
-        '<strong>[리프레이밍 #2]</strong><br>'
-        '<strong>국내 우수가 아니라, 글로벌 55위입니다</strong><br><br>'
-        '"MIT, Imperial, Stanford<br>'
-        '이 리스트에 <strong>55위, 낯선 이름</strong>이 있습니다<br>'
-        'YsU 부산 <strong>영산대학교입니다</strong><br><br>'
-        'QS 호스피탈리티 부문, <strong>글로벌 55위</strong>.<br>'
-        '대한민국이 아닌, 세계 안에서 증명합니다"'
-    )
-)
+# ===== 시안 3 · "Room 1201" 이미지 6장 =====
+SIAN_3_IMAGES = [
+    "/assets/image/3/Image_20260410_203601.jpg",
+    "/assets/image/3/Image_20260410_205236.jpg",
+    "/assets/image/3/Image_20260410_210136.jpg",
+    "/assets/image/3/Image_20260410_210524.jpg",
+    "/assets/image/3/Image_20260410_210534.jpg",
+    "/assets/image/3/Image_20260410_211835.jpg",
+]
 
-# ===== 13. 시안 "Room 1201" =====
-_h_room = (
-    '<div style="background:#1A1A1A;width:100%;height:100%;padding:24px;display:flex;flex-direction:column">'
-    '<div style="font-size:36px;font-weight:700;color:#fff;letter-spacing:1px;margin-bottom:12px">'
-    'Room 1201</div>'
-    '<div style="font-size:8px;color:#888;line-height:1.6;flex:1;column-count:2;column-gap:12px">'
-    '총지배인 파라다이스 부산<br>총지배인 해운대그랜드<br>총지배인 롯데 부산<br>'
-    '총지배인 힐튼 부산<br>총지배인 웨스틴조선<br>총지배인 시그니엘<br>'
-    '총지배인 파크하얏트<br>총지배인 인터컨티넨탈<br>총지배인 메리어트<br>'
-    '총지배인 쉐라톤 서울<br>총지배인 노보텔<br>총지배인 라마다 서울<br>'
-    '총지배인 베스트웨스턴<br>총지배인 켄싱턴 경주<br>총지배인 한화리조트<br>'
-    '총지배인 롯데리조트<br>총지배인 신라스테이<br>총지배인 포시즌스<br>'
-    '총지배인 반얀트리<br>총지배인 콘래드<br>총지배인 페어몬트<br>'
-    '총지배인 JW메리어트<br>총지배인 그랜드하얏트<br>총지배인 밀레니엄<br>'
-    '총지배인 이비스</div>'
-    '<div style="font-size:16px;font-weight:700;color:#fff;margin-top:8px">'
-    '25개의 이름 <span style="color:#E84E10">한 개의 학교</span></div>'
-    '</div>'
-)
-_v_room = (
-    '<div style="background:#1A1A1A;width:100%;height:100%;padding:16px;display:flex;flex-direction:column">'
-    '<div style="font-size:20px;font-weight:700;color:#fff;letter-spacing:1px;margin-bottom:10px">'
-    'Room 1201</div>'
-    '<div style="font-size:6.5px;color:#888;line-height:1.55;flex:1">'
-    '총지배인 파라다이스<br>총지배인 해운대그랜드<br>총지배인 롯데 부산<br>'
-    '총지배인 힐튼 부산<br>총지배인 웨스틴조선<br>총지배인 시그니엘<br>'
-    '총지배인 파크하얏트<br>총지배인 인터컨티넨탈<br>총지배인 메리어트<br>'
-    '총지배인 쉐라톤<br>총지배인 노보텔<br>총지배인 라마다<br>'
-    '총지배인 베스트웨스턴<br>총지배인 켄싱턴<br>총지배인 한화리조트<br>'
-    '총지배인 롯데리조트<br>총지배인 신라스테이<br>총지배인 포시즌스<br>'
-    '총지배인 반얀트리<br>총지배인 콘래드<br>총지배인 페어몬트<br>'
-    '총지배인 JW메리어트<br>총지배인 그랜드하얏트<br>총지배인 밀레니엄<br>'
-    '총지배인 이비스</div>'
-    '<div style="font-size:10px;font-weight:700;color:#fff;margin-top:6px;line-height:1.3">'
-    '25개의 이름<br><span style="color:#E84E10">한 개의 학교</span></div>'
-    '</div>'
-)
-S_ROOM = (
-    '<div class="t-overline is-accent" style="text-align:center;margin-bottom:var(--s-2)">RE-FRAMING &nbsp;#3</div>'
-    '<div class="t-title" style="text-align:center;margin-bottom:var(--s-3);line-height:1.25">'
-    '"25명의 총지배인"이 아니라,<br>'
-    '<span class="is-accent">"25개 호텔 · 하나의 대학"</span>입니다</div>'
-    + sian_mockups("Room 1201", _h_room, _v_room)
-    + '<div class="t-body is-muted" style="text-align:center;margin-top:var(--s-3);font-style:italic">'
-      '개인이 아닌, 네트워크로'
-      '</div>'
-    + script(
-        '<strong>[리프레이밍 #3]</strong><br>'
-        '<strong>25명이 아니라, 25개 호텔 · 하나의 대학입니다</strong><br><br>'
-        '"(5초 침묵 평가위원이 리스트를 훑을 시간을 준다)<br><br>'
-        '25개의 이름 서로 다른 복도, 서로 다른 호텔<br>'
-        '그런데 <strong>전부 영산대학교 졸업생</strong>입니다<br><br>'
-        '한 명의 성공은 개인 얘기입니다<br>'
-        '25개의 네트워크는, <strong>증명</strong>입니다"'
-    )
-)
-
-# ===== 13. 시안 종합 -- 6개 mockup 그리드 (3컨셉 × 2비율) =====
-def _mini_card(title, h_html, v_html, dark=False):
+# ===== 시안 종합 (THREE PROOFS) -- 16:9 3개 이미지 썸네일 =====
+def _sian_thumb(title, image_path, dark=False):
     bg = "#1A1A1A" if dark else "#F5F5F5"
     return (
-        '<div style="display:flex;flex-direction:column;align-items:center;gap:10px">'
+        '<div style="display:flex;flex-direction:column;align-items:center;gap:var(--s-2)">'
         f'<div class="t-caption w-bold is-ink" style="letter-spacing:1px">{title}</div>'
-        # 16:9 (위) + 9:16 (아래)
-        '<div style="display:flex;flex-direction:column;align-items:center;gap:8px">'
-        f'<div style="width:420px;height:236px;background:{bg};border:1px solid #E8E8E8;'
-        f'border-radius:6px;display:flex;flex-direction:column;justify-content:center;align-items:center;'
-        f'position:relative;overflow:hidden">'
-        f'<div style="position:absolute;top:4px;left:4px;font-size:8px;font-weight:700;letter-spacing:1px;'
-        f'color:#fff;background:#58595B;padding:1px 6px;border-radius:2px">16:9</div>'
-        f'{h_html}'
-        f'</div>'
-        f'<div style="width:160px;height:285px;background:{bg};border:1px solid #E8E8E8;'
-        f'border-radius:6px;display:flex;flex-direction:column;justify-content:center;align-items:center;'
-        f'position:relative;overflow:hidden">'
-        f'<div style="position:absolute;top:4px;left:4px;font-size:8px;font-weight:700;letter-spacing:1px;'
-        f'color:#fff;background:#58595B;padding:1px 6px;border-radius:2px">9:16</div>'
-        f'{v_html}'
-        f'</div>'
+        f'<div style="width:400px;height:225px;background:{bg};border:1px solid #E8E8E8;'
+        'border-radius:6px;overflow:hidden">'
+        f'<img src="{image_path}" alt="{title}" '
+        'style="width:100%;height:100%;object-fit:cover;display:block">'
         '</div>'
         '</div>'
     )
 
-_sum_36_h = '<div style="font-size:80px;font-weight:700;color:#1A1A1A">3.6%</div>'
-_sum_36_v = '<div style="font-size:38px;font-weight:700;color:#1A1A1A">3.6%</div>'
-_sum_qs_h = (
-    '<div style="text-align:center">'
-    '<div style="font-size:10px;color:#999">MIT · Imperial · Stanford</div>'
-    '<div style="font-size:9px;color:#ccc;margin:4px 0">. . .</div>'
-    '<div style="font-size:28px;font-weight:700;color:#1A1A1A">'
-    '55<span style="font-size:14px">th</span> <span style="color:#E84E10">YsU</span></div>'
-    '</div>'
-)
-_sum_qs_v = (
-    '<div style="text-align:center">'
-    '<div style="font-size:7px;color:#999">MIT</div>'
-    '<div style="font-size:7px;color:#ccc">· · ·</div>'
-    '<div style="font-size:18px;font-weight:700;color:#1A1A1A;margin-top:4px">'
-    '55<span style="font-size:10px">th</span></div>'
-    '<div style="font-size:14px;font-weight:700;color:#E84E10">YsU</div>'
-    '</div>'
-)
-_sum_room_h = (
-    '<div style="text-align:center">'
-    '<div style="font-size:24px;font-weight:700;color:#fff;letter-spacing:1px">Room 1201</div>'
-    '<div style="font-size:7px;color:#888;line-height:1.4;margin-top:6px">'
-    '총지배인 파라다이스<br>총지배인 해운대그랜드<br>총지배인 롯데 부산<br>... 25명 ...</div>'
-    '<div style="font-size:10px;color:#fff;font-weight:700;margin-top:6px">25개의 이름 한 개의 학교</div>'
-    '</div>'
-)
-_sum_room_v = (
-    '<div style="text-align:center">'
-    '<div style="font-size:13px;font-weight:700;color:#fff">Room 1201</div>'
-    '<div style="font-size:5px;color:#888;line-height:1.4;margin-top:4px">'
-    '25개 이름</div>'
-    '<div style="font-size:7px;color:#fff;font-weight:700;margin-top:4px;line-height:1.3">한 개의<br>학교</div>'
-    '</div>'
-)
-
 S_SIAN_SUMMARY_V26 = (
-    '<div style="display:flex;justify-content:center;gap:var(--s-3);padding:var(--s-2) 0;align-items:flex-start">'
-    + _mini_card("3.6%", _sum_36_h, _sum_36_v)
-    + _mini_card("QS 55위", _sum_qs_h, _sum_qs_v)
-    + _mini_card("Room 1201", _sum_room_h, _sum_room_v, dark=True)
+    '<div style="display:flex;justify-content:center;gap:var(--s-4);padding:var(--s-2) 0;align-items:flex-start">'
+    + _sian_thumb("3.6%", SIAN_1_IMAGES[0])
+    + _sian_thumb("글로벌 55위", SIAN_2_IMAGES[0])
+    + _sian_thumb("Room 1201", SIAN_3_IMAGES[0], dark=True)
     + '</div>'
-    + '<div class="t-body w-bold" style="text-align:center;margin-top:var(--s-2)">'
-      '세 장의 광고 세 가지 증명</div>'
+    + '<div class="t-body w-bold" style="text-align:center;margin-top:var(--s-4)">'
+      '세 장의 광고 · 세 가지 증명</div>'
     + '<div class="t-caption w-bold is-accent" style="text-align:center;margin-top:var(--s-1)">'
       '하나의 결론 -- 영산대는, 이미 증명된 학교였습니다</div>'
     + script(
-        '"세 장의 광고 세 가지 증명<br>'
-        '3.6%, 글로벌 55위, Room 1201.<br><br>'
+        '"세 장의 광고, 세 가지 증명<br>'
+        '3.6%, 글로벌 55위, Room 1201<br><br>'
         '하나의 결론입니다<br>'
         '<strong>영산대는, 이미 증명된 학교였습니다</strong><br>'
         '저희는 그것을, 보이게 만들 뿐입니다"'
@@ -1003,34 +837,43 @@ def make_sections():
         (2, T_SOURCE, 8, parent(P_III) + tag("접근법") + S_BRIDGE),
         (2, T_SOURCE, 9, parent(P_III) + tag("컨셉") + S_CONCEPT_ONLY),
         (2, T_SOURCE, 10, parent(P_III) + tag("기법") + S_METHOD_ONLY),
-        (2, T_SOURCE, 11, parent(P_III) + tag("사례 1 · 3.6%") + S_36),
-        (2, T_SOURCE, 12, parent(P_III) + tag("사례 2 · 55위") + S_QS),
-        (2, T_SOURCE, 13, parent(P_III) + tag("사례 3 · Room 1201") + S_ROOM),
-        (2, T_SOURCE, 14, parent(P_III) + tag("종합") + S_SIAN_SUMMARY_V26),
+        (2, T_SOURCE, 11, parent(P_III) + tag("사례 1 · 3.6% (1/3)") + sian_image_slide("1", "96.4%", "3.6%", SIAN_1_IMAGES[0], "성공의 크기가 아닌, 실패의 작음으로")),
+        (2, T_SOURCE, 12, parent(P_III) + tag("사례 1 · 3.6% (2/3)") + sian_image_slide("1", "96.4%", "3.6%", SIAN_1_IMAGES[1], "성공의 크기가 아닌, 실패의 작음으로")),
+        (2, T_SOURCE, 13, parent(P_III) + tag("사례 1 · 3.6% (3/3)") + sian_image_slide("1", "96.4%", "3.6%", SIAN_1_IMAGES[2], "성공의 크기가 아닌, 실패의 작음으로")),
+        (2, T_SOURCE, 14, parent(P_III) + tag("사례 2 · 55위 (1/3)") + sian_image_slide("2", "국내 우수 호스피탈리티", "글로벌 55위 영산대", SIAN_2_IMAGES[0], "대한민국이 아닌, 세계 안에서")),
+        (2, T_SOURCE, 15, parent(P_III) + tag("사례 2 · 55위 (2/3)") + sian_image_slide("2", "국내 우수 호스피탈리티", "글로벌 55위 영산대", SIAN_2_IMAGES[1], "대한민국이 아닌, 세계 안에서")),
+        (2, T_SOURCE, 16, parent(P_III) + tag("사례 2 · 55위 (3/3)") + sian_image_slide("2", "국내 우수 호스피탈리티", "글로벌 55위 영산대", SIAN_2_IMAGES[2], "대한민국이 아닌, 세계 안에서")),
+        (2, T_SOURCE, 17, parent(P_III) + tag("사례 3 · Room 1201 (1/6)") + sian_image_slide("3", "25명의 총지배인", "25개 호텔 · 하나의 대학", SIAN_3_IMAGES[0], "개인이 아닌, 네트워크로")),
+        (2, T_SOURCE, 18, parent(P_III) + tag("사례 3 · Room 1201 (2/6)") + sian_image_slide("3", "25명의 총지배인", "25개 호텔 · 하나의 대학", SIAN_3_IMAGES[1], "개인이 아닌, 네트워크로")),
+        (2, T_SOURCE, 19, parent(P_III) + tag("사례 3 · Room 1201 (3/6)") + sian_image_slide("3", "25명의 총지배인", "25개 호텔 · 하나의 대학", SIAN_3_IMAGES[2], "개인이 아닌, 네트워크로")),
+        (2, T_SOURCE, 20, parent(P_III) + tag("사례 3 · Room 1201 (4/6)") + sian_image_slide("3", "25명의 총지배인", "25개 호텔 · 하나의 대학", SIAN_3_IMAGES[3], "개인이 아닌, 네트워크로")),
+        (2, T_SOURCE, 21, parent(P_III) + tag("사례 3 · Room 1201 (5/6)") + sian_image_slide("3", "25명의 총지배인", "25개 호텔 · 하나의 대학", SIAN_3_IMAGES[4], "개인이 아닌, 네트워크로")),
+        (2, T_SOURCE, 22, parent(P_III) + tag("사례 3 · Room 1201 (6/6)") + sian_image_slide("3", "25명의 총지배인", "25개 호텔 · 하나의 대학", SIAN_3_IMAGES[5], "개인이 아닌, 네트워크로")),
+        (2, T_SOURCE, 23, parent(P_III) + tag("종합") + S_SIAN_SUMMARY_V26),
 
-        # III 1 - 대학 공식 홍보영상 (간지)
-        (1, "대학 공식 홍보영상", 15, None),
-        (2, T_VIDEO, 16, parent(P_III) + tag("영상 접근법") + S_VIDEO_INTRO),
-        (2, T_VIDEO, 17, parent(P_III) + tag("주인공") + S_VIDEO_WHY),
-        (2, T_VIDEO, 18, parent(P_III) + tag("본편") + S_JIHYE),
+        # 대학 공식 홍보영상
+        (1, "대학 공식 홍보영상", 24, None),
+        (2, T_VIDEO, 25, parent(P_III) + tag("영상 접근법") + S_VIDEO_INTRO),
+        (2, T_VIDEO, 26, parent(P_III) + tag("주인공") + S_VIDEO_WHY),
+        (2, T_VIDEO, 27, parent(P_III) + tag("본편") + S_JIHYE),
 
-        # 실무 확장 대시보드 (실무 10장 프레이밍)
-        (2, T_SOURCE, 19, parent(P_III) + tag("확장 개요") + S_EXPANSION),
+        # 실무 확장 대시보드
+        (2, T_SOURCE, 28, parent(P_III) + tag("확장 개요") + S_EXPANSION),
 
-        # 유튜브 / 인쇄 / 디지털 → 졸업선배 숏폼 2장 → SNS → 언론
-        (2, T_YOUTUBE, 20, parent(P_III) + tag("인플루언서") + S_YOUTUBE_V22),
-        (2, T_PRINT, 21, parent(P_III) + tag("인쇄 매체") + S_PRINT),
-        (2, T_DIGITAL, 22, parent(P_III) + tag("디지털 매체") + S_DIGITAL),
-        (2, T_VIDEO, 23, parent(P_III) + tag("숏폼 기획") + S_DOCU_PLAN),
-        (2, T_VIDEO, 24, parent(P_III) + tag("숏폼 완성본") + S_DOCU_VIDEOS),
-        (2, T_SNS, 25, parent(P_III) + tag("소셜 미디어") + S_SNS),
-        (2, T_PRESS, 26, parent(P_III) + tag("언론 매체") + S_PRESS),
-        (2, T_MGMT, 27, parent(P_III) + tag("운영 지원") + S_CONSULT),
+        # 매체 전개
+        (2, T_YOUTUBE, 29, parent(P_III) + tag("인플루언서") + S_YOUTUBE_V22),
+        (2, T_PRINT, 30, parent(P_III) + tag("인쇄 매체") + S_PRINT),
+        (2, T_DIGITAL, 31, parent(P_III) + tag("디지털 매체") + S_DIGITAL),
+        (2, T_VIDEO, 32, parent(P_III) + tag("숏폼 기획") + S_DOCU_PLAN),
+        (2, T_VIDEO, 33, parent(P_III) + tag("숏폼 완성본") + S_DOCU_VIDEOS),
+        (2, T_SNS, 34, parent(P_III) + tag("소셜 미디어") + S_SNS),
+        (2, T_PRESS, 35, parent(P_III) + tag("언론 매체") + S_PRESS),
+        (2, T_MGMT, 36, parent(P_III) + tag("운영 지원") + S_CONSULT),
 
-        # IV 1
-        (2, T_IV_1, 28, parent(P_IV) + tag("예산 배분") + S_GANTT),
-        (2, T_IV_2, 29, parent(P_IV) + tag("성과 측정") + S_FEEDBACK),
-        (2, T_IV_3, 30, parent(P_IV) + tag("확장 계획") + S_OPERATION),
+        # IV
+        (2, T_IV_1, 37, parent(P_IV) + tag("예산 배분") + S_GANTT),
+        (2, T_IV_2, 38, parent(P_IV) + tag("성과 측정") + S_FEEDBACK),
+        (2, T_IV_3, 39, parent(P_IV) + tag("확장 계획") + S_OPERATION),
 
         # 마무리는 템플릿의 slide-end가 담당 (ANSWER 엔딩)
     ]
