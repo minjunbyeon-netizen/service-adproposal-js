@@ -356,7 +356,9 @@ def export_html(pid):
             ver_num = int(version[1:].split("-")[0])
         except ValueError:
             pass
-    if ver_num >= 16:
+    if ver_num >= 18:
+        template = "presentation_clean.html"
+    elif ver_num >= 16:
         template = "presentation_v16.html"
     elif ver_num >= 15:
         template = "presentation_v15.html"
