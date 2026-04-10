@@ -40,6 +40,22 @@ def create_app():
     def health():
         return jsonify({"ok": True, "service": "adproposal-js"})
 
+    @app.route("/pt")
+    def pt_latest():
+        """최신 V27 PT로 리다이렉트 -- PT 발표용 단축 URL."""
+        from flask import redirect
+        from api.db import get_conn
+        conn = get_conn()
+        try:
+            row = conn.execute(
+                "SELECT id FROM proposals WHERE version='V27' ORDER BY id DESC LIMIT 1"
+            ).fetchone()
+            if row:
+                return redirect(f"/api/proposals/{row['id']}/export-html")
+            return jsonify({"ok": False, "error": "V27 PT 없음", "code": "NOT_FOUND"}), 404
+        finally:
+            conn.close()
+
     @app.route("/assets/<path:filename>")
     def serve_assets(filename):
         assets_dir = Path(__file__).resolve().parent / "assets"
