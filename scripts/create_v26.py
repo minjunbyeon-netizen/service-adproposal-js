@@ -6,7 +6,7 @@ from api.db import get_conn, init_db, migrate_db
 from scripts.create_v8_to_v14 import RFP, SUMMARY, CONCEPTS, concept_A
 from scripts.create_v18 import grid16x9, grid9x16, S_PRINT, S_DIGITAL, S_SNS, S_PRESS, S_CONSULT, S_FEEDBACK
 from scripts.create_v19 import S_GANTT
-from scripts.create_v20 import S_OPERATION, S_JIHYE
+from scripts.create_v20 import S_OPERATION
 from scripts.create_v21 import S_COMPANY
 from scripts.create_v22 import S_YOUTUBE_V22
 from scripts.create_v23 import S_DOCU
@@ -367,6 +367,47 @@ S_VIDEO_INTRO = (
         'WISE YOU. 우리는 모두 지혜입니다.<br>'
         '각 취업 현장에서 \'지혜\'를 부르면, 영산대 졸업생이 뒤돌아봅니다.<br>'
         '이 슬로건으로 홍보영상을 제작했습니다."'
+    )
+)
+
+# ===== 17. "지혜" 메인 영상 -- 16:9 비디오 플레이스홀더 =====
+S_JIHYE = (
+    '<div style="display:flex;justify-content:center;align-items:center;padding:20px 0">'
+    '<div style="width:960px;height:540px;background:#1A1A1A;border-radius:6px;'
+    'display:flex;flex-direction:column;justify-content:center;align-items:center;'
+    'position:relative;overflow:hidden;border:2px solid #E8E8E8">'
+    # 비율 라벨
+    '<div style="position:absolute;top:12px;left:12px;font-size:10px;font-weight:700;'
+    'letter-spacing:1px;color:#fff;background:#E84E10;padding:3px 10px;border-radius:2px">'
+    '16:9 VIDEO</div>'
+    # 중앙 재생 아이콘
+    '<div style="width:88px;height:88px;border-radius:50%;background:rgba(255,255,255,.12);'
+    'display:flex;justify-content:center;align-items:center;border:2px solid rgba(255,255,255,.5);'
+    'margin-bottom:20px">'
+    '<div style="width:0;height:0;border-left:28px solid #fff;border-top:18px solid transparent;'
+    'border-bottom:18px solid transparent;margin-left:8px"></div>'
+    '</div>'
+    # 제목/슬로건
+    '<div style="font-size:28px;font-weight:700;color:#fff;letter-spacing:1px;margin-bottom:8px">'
+    '"지혜" 메인 영상 (60초)</div>'
+    '<div style="font-size:14px;color:#999;letter-spacing:1px">'
+    'WISE YOU &nbsp;|&nbsp; 우리는 모두 지혜입니다.</div>'
+    # 하단 파일 경로 표시 (실제 파일 대체용)
+    '<div style="position:absolute;bottom:12px;right:12px;font-size:10px;color:#666;font-family:monospace">'
+    '[video file to insert]</div>'
+    '</div></div>'
+    # 간단 씬 요약
+    '<div style="text-align:center;font-size:12px;color:#6E6E73;margin-top:12px;line-height:1.8">'
+    '<strong style="color:#1A1A1A">씬 구성:</strong> '
+    '비행기 "지혜야~" → 호텔 "박지혜 지배인님" → 경찰서 "지혜 경위" → 뷰티 "지혜 선생님" → '
+    '<strong style="color:#E84E10">"우리는 모두 지혜입니다."</strong>'
+    '</div>'
+    + script(
+        '"(영상 재생 -- 60초)<br><br>'
+        '비행기에서, 호텔에서, 경찰서에서, 뷰티 매장에서.<br>'
+        '누군가 <strong>\'지혜야\'</strong>를 부르면,<br>'
+        '뒤돌아보는 사람은 전부 영산대 졸업생입니다.<br><br>'
+        '<strong>우리는 모두 지혜입니다.</strong>"'
     )
 )
 
