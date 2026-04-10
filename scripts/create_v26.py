@@ -15,30 +15,34 @@ init_db()
 migrate_db()
 
 cb, sb_body = concept_A()
-cc = "이름을 가려봐."
-tl = "이름을 가려도 보이는 대학."
-# 슬라이드 10 -- 중앙 정렬 + 거대 타이포
+cc = "증명할게."
+tl = "말하지 않습니다. 증명합니다."
+# 슬라이드 10 -- 컨셉 "증명할게" 공개 + 시안 연결
 combined = (
     '<div style="text-align:center;padding:20px 0">'
     # 컨셉 블록
     '<div style="margin-bottom:56px">'
     '<div style="font-size:13px;color:#E84E10;font-weight:700;letter-spacing:4px;margin-bottom:20px">'
     'CONCEPT · 컨셉</div>'
-    '<div style="font-size:96px;font-weight:700;color:#1A1A1A;line-height:1;margin-bottom:36px;letter-spacing:-3px">'
-    '이름을 가려봐.</div>'
-    '<div style="font-size:26px;color:#58595B;line-height:1.7">'
-    '<strong style="color:#1A1A1A;font-size:30px">숫자를 보면 명문대. 이름을 보면 영산대.</strong><br>'
-    '그래서 우리는, 이름을 가립니다.'
+    '<div style="font-size:110px;font-weight:700;color:#1A1A1A;line-height:1;margin-bottom:36px;letter-spacing:-4px">'
+    '증명할게.</div>'
+    '<div style="font-size:24px;color:#58595B;line-height:1.8">'
+    '<strong style="color:#1A1A1A;font-size:28px">1등이라고 말하지 않습니다. 최고라고 말하지 않습니다.</strong><br>'
+    '증명만 남깁니다.'
     '</div>'
     '</div>'
     # 구분선
     '<div style="width:80px;height:3px;background:#E84E10;margin:0 auto 40px"></div>'
     # 슬로건 블록
-    '<div>'
+    '<div style="margin-bottom:40px">'
     '<div style="font-size:13px;color:#E84E10;font-weight:700;letter-spacing:4px;margin-bottom:20px">'
     'SLOGAN · 슬로건</div>'
-    '<div style="font-size:64px;font-weight:700;color:#1A1A1A;line-height:1.1;letter-spacing:-2px">'
-    '이름을 가려도 보이는 대학.</div>'
+    '<div style="font-size:52px;font-weight:700;color:#1A1A1A;line-height:1.15;letter-spacing:-1.5px">'
+    '말하지 않습니다. <span style="color:#E84E10">증명합니다.</span></div>'
+    '</div>'
+    # 시안 연결 안내
+    '<div style="padding-top:28px;border-top:1px solid #E8E8E8;font-size:15px;color:#6E6E73;font-style:italic">'
+    '지금부터, 3가지 증명을 보여드립니다.'
     '</div>'
     '</div>'
 )
@@ -309,132 +313,128 @@ S_TRANSITION = (
     )
 )
 
-# ===== 7. 신호와 소음 -- 중앙 정렬 + 대비 테이블 =====
+# ===== 7. 기존 대학 광고 = 정보 나열형 =====
 S_COCKTAIL = (
     '<div style="text-align:center;padding:20px 0">'
-    # 상단 선언
-    '<div style="font-size:20px;color:#58595B;margin-bottom:36px;line-height:1.6">'
-    '사람은 시끄러운 곳에서도 <strong style="color:#1A1A1A">자기 이름</strong>만은 듣습니다.'
+    '<div style="font-size:18px;color:#58595B;letter-spacing:2px;margin-bottom:36px">'
+    '지금까지의 대학 광고는,</div>'
+    # 중앙 거대 타이포
+    '<div style="font-size:72px;font-weight:700;color:#1A1A1A;letter-spacing:-2px;line-height:1.1;margin-bottom:48px">'
+    '정보 나열형이었습니다.</div>'
+    # 5개 클리셰 (모든 대학이 하는 말)
+    '<div style="background:#F5F5F5;border-radius:8px;padding:36px 40px;max-width:720px;margin:0 auto">'
+    '<div style="font-size:12px;color:#6E6E73;letter-spacing:3px;margin-bottom:20px">'
+    '모든 대학이 이렇게 말합니다</div>'
+    '<div style="font-size:22px;color:#1A1A1A;line-height:2.2;text-align:left;padding:0 20px">'
+    '· &nbsp;글로벌 경쟁력 1위<br>'
+    '· &nbsp;최고의 교수진<br>'
+    '· &nbsp;미래형 인재 양성<br>'
+    '· &nbsp;4차 산업혁명 선도<br>'
+    '· &nbsp;국내 최고 수준 취업률'
     '</div>'
-    # 소음 vs 신호 대비 테이블
-    '<div style="display:flex;justify-content:center;gap:40px;margin-bottom:40px">'
-    # 좌측: 소음
-    '<div style="flex:1;max-width:400px;background:#F5F5F5;border-radius:8px;padding:32px">'
-    '<div style="font-size:12px;color:#6E6E73;letter-spacing:3px;margin-bottom:20px">NOISE · 소음</div>'
-    '<div style="font-size:18px;color:#58595B;line-height:2">'
-    '"글로벌 경쟁력 강화"<br>'
-    '"미래지향적 인재 양성"<br>'
-    '"브랜드 가치 제고"'
-    '</div>'
-    '<div style="margin-top:20px;font-size:13px;color:#6E6E73;font-style:italic">'
-    '(3초 후 잊힌다)'
-    '</div>'
-    '</div>'
-    # 우측: 신호
-    '<div style="flex:1;max-width:400px;background:#1A1A1A;border-radius:8px;padding:32px">'
-    '<div style="font-size:12px;color:#E84E10;letter-spacing:3px;margin-bottom:20px">SIGNAL · 신호</div>'
-    '<div style="font-size:22px;color:#fff;font-weight:700;line-height:1.6">'
-    '"100명 중 3명은<br>'
-    '<span style="color:#E84E10">취업하지 못했습니다.</span>"'
-    '</div>'
-    '<div style="margin-top:20px;font-size:13px;color:#ccc;font-style:italic">'
-    '(멈춘다)'
-    '</div>'
-    '</div>'
-    '</div>'
-    # 결론
-    '<div style="padding-top:28px;border-top:1px solid #E8E8E8">'
-    '<div style="font-size:32px;font-weight:700;color:#1A1A1A;letter-spacing:-0.5px;margin-bottom:12px">'
-    '그래서 우리는, <span style="color:#E84E10">숫자를 말하기로</span> 했습니다.'
-    '</div>'
-    '<div style="font-size:17px;color:#58595B">'
-    '정보 전달이 아닌 IMPACT로. 기억에 남는 광고로.'
+    '<div style="margin-top:24px;padding-top:20px;border-top:1px solid #E0E0E0;font-size:16px;color:#58595B;font-style:italic">'
+    '어느 대학인지 맞추실 수 있으십니까?'
     '</div>'
     '</div>'
     '</div>'
     + script(
-        '"학부모가 입시설명회에서 듣는 말의 대부분은 <strong>소음</strong>입니다.<br>'
-        '글로벌 경쟁력, 브랜드 가치, MZ세대. 다 아는 이야기입니다.<br><br>'
-        '하지만 <strong>\'100명 중 3명은 취업 못 했다\'</strong>는 <strong>신호</strong>입니다.<br>'
-        '내 아이의 미래에 직결되는 정보이기 때문입니다.<br><br>'
-        '<strong>그래서 저희는, 숫자를 말하기로 했습니다.</strong>"'
+        '"지금까지의 대학 광고는 <strong>정보 나열형</strong>이었습니다.<br><br>'
+        '글로벌 경쟁력 1위, 최고의 교수진, 미래형 인재 양성, 4차 산업혁명 선도...<br>'
+        '모든 대학이 이렇게 말합니다.<br><br>'
+        '어느 대학의 카피인지 <strong>맞출 수 있으십니까?</strong><br>'
+        '아마 못 맞추실 겁니다. 왜냐하면 -- "'
     )
 )
 
-# ===== 8. 같은 숫자, 다른 반응 =====
+# ===== 8. 각인 안 되는 말 = 소음 =====
 S_LOSS = (
-    '<div style="display:flex;gap:40px;padding:20px 0;align-items:stretch">'
-    '<div style="flex:1;background:#F5F5F5;border-radius:8px;padding:40px;text-align:center">'
-    '<div style="font-size:14px;color:#58595B;letter-spacing:2px;margin-bottom:16px">모든 대학이 말하는 방식</div>'
-    '<div style="font-size:72px;font-weight:700;color:#58595B;line-height:1">96.4%</div>'
-    '<div style="font-size:20px;color:#58595B;margin-top:16px">취업률</div>'
-    '<div style="margin-top:32px;font-size:16px;color:#6E6E73;line-height:1.8">'
-    '"좋은 학교네요."<br>(3초 후 잊어버린다)'
-    '</div></div>'
-    '<div style="flex:1;background:#1A1A1A;border-radius:8px;padding:40px;text-align:center">'
-    '<div style="font-size:14px;color:#E84E10;letter-spacing:2px;margin-bottom:16px">우리가 말하는 방식</div>'
-    '<div style="font-size:72px;font-weight:700;color:#fff;line-height:1">3.6%</div>'
-    '<div style="font-size:20px;color:#E84E10;margin-top:16px">탈락률</div>'
-    '<div style="margin-top:32px;font-size:16px;color:#ccc;line-height:1.8">'
-    '"3.6%나 있다고?"<br><strong style="color:#fff">(멈춘다)</strong>'
-    '</div></div></div>'
-    '<div style="text-align:center;margin-top:24px;font-size:18px;color:#58595B">'
-    '같은 숫자. 다른 반응.<br>'
-    '사람은 얻는 것보다 <strong style="color:#E84E10">잃는 것</strong>에 2배 강하게 반응합니다.'
+    '<div style="text-align:center;padding:20px 0">'
+    # 상단 선언
+    '<div style="font-size:20px;color:#58595B;margin-bottom:24px;line-height:1.6">'
+    '모든 대학이 같은 말을 합니다.</div>'
+    # 중앙 거대 타이포
+    '<div style="font-size:84px;font-weight:700;color:#1A1A1A;letter-spacing:-3px;line-height:1;margin-bottom:20px">'
+    '아무것도 <span style="color:#E84E10">남지 않습니다.</span></div>'
+    '<div style="font-size:18px;color:#58595B;line-height:1.8;margin-bottom:48px">'
+    '같은 말 = 지나치는 말<br>'
+    '주장만 하는 말 = 믿지 않는 말'
     '</div>'
-    '<div style="text-align:center;margin-top:16px;font-size:16px;color:#6E6E73;font-style:italic">'
-    '지금 <strong style="color:#E84E10">멈추셨다면</strong>, 학부모도 멈춥니다.'
+    # 핵심 메시지 박스
+    '<div style="background:#1A1A1A;color:#fff;border-radius:8px;padding:40px 48px;max-width:720px;margin:0 auto">'
+    '<div style="font-size:14px;color:#E84E10;letter-spacing:3px;margin-bottom:16px">INSIGHT</div>'
+    '<div style="font-size:28px;font-weight:700;line-height:1.5">'
+    '정보 나열은 광고가 아닙니다.<br>'
+    '<span style="color:#E84E10">그것은 소음입니다.</span>'
+    '</div>'
+    '<div style="margin-top:20px;font-size:15px;color:#ccc;line-height:1.7">'
+    '수험생과 학부모는 하루에 수십 번 "1등"과 "최고"를 듣습니다.<br>'
+    '익숙해진 말은 머리에 박히지 않습니다.'
+    '</div>'
+    '</div>'
     '</div>'
     + script(
-        '"왼쪽은 모든 대학이 하는 방식입니다. 취업률 96.4%.<br>'
-        '오른쪽은 저희가 하는 방식입니다. <strong>탈락률 3.6%.</strong><br><br>'
-        '같은 숫자입니다. 느낌이 다릅니다.<br>'
-        '지금 고개를 끄덕이셨다면, 학부모도 똑같이 반응합니다."'
+        '"-- 모든 대학이 같은 말을 하기 때문입니다.<br><br>'
+        '글로벌 경쟁력 1위를 외치는 순간, 옆에서도 같은 말을 합니다.<br>'
+        '최고를 말하는 순간, 모두가 최고를 말합니다.<br><br>'
+        '정보 나열은 광고가 아닙니다.<br>'
+        '<strong>그것은 소음입니다.</strong><br><br>'
+        '수험생과 학부모는 이미 이 소음에 지쳐 있습니다.<br>'
+        '그래서 저희는, <strong>뒤집었습니다.</strong>"'
     )
 )
 
-# ===== 9. 브릿지 -- 가려진 상태 → 드러난 상태 =====
+# ===== 9. 우리는 뒤집었다 + 3가지 증명 =====
 S_BRIDGE = (
-    '<div style="display:flex;gap:60px;padding:20px 0;align-items:center;justify-content:center">'
-    # 왼쪽: 가린 상태
-    '<div style="text-align:center;flex:1">'
-    '<div style="font-size:12px;color:#6E6E73;letter-spacing:3px;margin-bottom:24px;text-transform:uppercase">'
-    'BEFORE · 이름을 가려본다면</div>'
-    '<div style="font-size:28px;line-height:2.2;color:#1A1A1A;font-weight:700">'
-    '■■대학교 <span style="color:#E84E10">96.4%</span><br>'
-    '■■대학교 <span style="color:#E84E10">96.4%</span><br>'
-    '■■대학교 <span style="color:#E84E10">96.4%</span>'
+    '<div style="text-align:center;padding:20px 0">'
+    # 선언
+    '<div style="font-size:20px;color:#58595B;margin-bottom:16px">'
+    '그래서 우리는,</div>'
+    '<div style="font-size:72px;font-weight:700;color:#1A1A1A;letter-spacing:-2px;line-height:1;margin-bottom:14px">'
+    '한번 <span style="color:#E84E10">뒤집었습니다.</span></div>'
+    '<div style="font-size:17px;color:#58595B;margin-bottom:44px;line-height:1.7">'
+    '정보를 나열하지 않고, 같은 팩트를 <strong style="color:#1A1A1A">광고로 만들었습니다.</strong></div>'
+    # 3개 시안 예고 카드
+    '<div style="display:flex;justify-content:center;gap:20px;max-width:1100px;margin:0 auto">'
+    # 카드 1: 3.6%
+    '<div style="flex:1;border:2px solid #E84E10;border-radius:8px;padding:28px 20px;background:#fff">'
+    '<div style="font-size:11px;color:#6E6E73;letter-spacing:2px;margin-bottom:6px">BEFORE</div>'
+    '<div style="font-size:14px;color:#58595B;margin-bottom:14px">취업률 96.4%</div>'
+    '<div style="font-size:11px;color:#E84E10;letter-spacing:2px;margin-bottom:6px;font-weight:700">AFTER</div>'
+    '<div style="font-size:30px;font-weight:700;color:#1A1A1A;letter-spacing:-1px;line-height:1.2;margin-bottom:8px">3.6%</div>'
+    '<div style="font-size:13px;color:#1A1A1A;line-height:1.5">취업에 <strong>실패한</strong> 비율</div>'
+    '</div>'
+    # 카드 2: 25명
+    '<div style="flex:1;border:2px solid #E84E10;border-radius:8px;padding:28px 20px;background:#fff">'
+    '<div style="font-size:11px;color:#6E6E73;letter-spacing:2px;margin-bottom:6px">BEFORE</div>'
+    '<div style="font-size:14px;color:#58595B;margin-bottom:14px">총지배인 배출 1위</div>'
+    '<div style="font-size:11px;color:#E84E10;letter-spacing:2px;margin-bottom:6px;font-weight:700">AFTER</div>'
+    '<div style="font-size:30px;font-weight:700;color:#1A1A1A;letter-spacing:-1px;line-height:1.2;margin-bottom:8px">25명</div>'
+    '<div style="font-size:13px;color:#1A1A1A;line-height:1.5">모두 <strong>같은 학교</strong>입니다</div>'
+    '</div>'
+    # 카드 3: 55위
+    '<div style="flex:1;border:2px solid #E84E10;border-radius:8px;padding:28px 20px;background:#fff">'
+    '<div style="font-size:11px;color:#6E6E73;letter-spacing:2px;margin-bottom:6px">BEFORE</div>'
+    '<div style="font-size:14px;color:#58595B;margin-bottom:14px">호스피탈리티 우수</div>'
+    '<div style="font-size:11px;color:#E84E10;letter-spacing:2px;margin-bottom:6px;font-weight:700">AFTER</div>'
+    '<div style="font-size:30px;font-weight:700;color:#1A1A1A;letter-spacing:-1px;line-height:1.2;margin-bottom:8px">세계 55위</div>'
+    '<div style="font-size:13px;color:#1A1A1A;line-height:1.5">QS 공식 평가, <strong>부산</strong>입니다</div>'
     '</div>'
     '</div>'
-    # 화살표
-    '<div style="font-size:48px;color:#E84E10;font-weight:300">→</div>'
-    # 오른쪽: 드러난 상태
-    '<div style="text-align:center;flex:1">'
-    '<div style="font-size:12px;color:#6E6E73;letter-spacing:3px;margin-bottom:24px;text-transform:uppercase">'
-    'AFTER · 이름을 열면</div>'
-    '<div style="font-size:28px;line-height:2.2;color:#1A1A1A;font-weight:700">'
-    '서울대 <span style="color:#58595B">96.4%</span><br>'
-    '고려대 <span style="color:#58595B">96.4%</span><br>'
-    '영산대 <span style="color:#58595B">96.4%</span>'
+    # 하단
+    '<div style="margin-top:36px;padding-top:24px;border-top:1px solid #E8E8E8">'
+    '<div style="font-size:20px;color:#1A1A1A;font-weight:700;line-height:1.6">'
+    '주장이 아닌, <span style="color:#E84E10">증명.</span>'
     '</div>'
-    '</div>'
-    '</div>'
-    '<div style="text-align:center;margin-top:48px;padding-top:24px;border-top:1px solid #E8E8E8">'
-    '<div style="font-size:26px;color:#1A1A1A;font-weight:700;line-height:1.5">'
-    '이름을 가리면, 구별이 안 됩니다.'
-    '</div>'
-    '<div style="font-size:18px;color:#58595B;margin-top:14px">'
-    '그런데 왜, 수험생은 <strong style="color:#E84E10">이름만</strong> 봅니다.'
-    '</div>'
-    '<div style="font-size:13px;color:#6E6E73;margin-top:24px;font-style:italic">'
-    '다음 장부터, 이름을 가린 광고 5편을 보여드립니다.'
     '</div>'
     '</div>'
     + script(
-        '"<strong>이름을 가려본다면</strong> -- 서울대도 96.4%, 고려대도 96.4%, 영산대도 96.4%.<br>'
-        '구별이 안 됩니다.<br><br>'
-        '그런데 왜, 수험생은 <strong>이름만</strong> 봅니다.<br><br>'
-        '그래서 저희는, 다음 장부터 <strong>이름을 가린 광고 5편</strong>을 보여드리겠습니다."'
+        '"그래서 저희는, <strong>한번 뒤집었습니다</strong>.<br><br>'
+        '정보를 나열하지 않고, 같은 팩트를 <strong>광고</strong>로 만들었습니다.<br><br>'
+        '취업률 96.4%는 → <strong>3.6%가 실패했다</strong>로.<br>'
+        '총지배인 1위는 → <strong>25명, 모두 같은 학교</strong>로.<br>'
+        '호스피탈리티 우수는 → <strong>부산이 세계 55위</strong>로.<br><br>'
+        '주장이 아닌, <strong>증명</strong>입니다.<br>'
+        '그 증명을, 지금부터 보여드리겠습니다."'
     )
 )
 
