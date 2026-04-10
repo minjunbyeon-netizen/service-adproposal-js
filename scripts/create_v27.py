@@ -312,10 +312,10 @@ S_FACTS = (
     '<div style="width:60px;height:3px;background:#E84E10;margin:0 auto var(--s-5)"></div>'
     # 4줄 팩트 리스트 (주황 bullet)
     '<div class="t-body" style="display:inline-block;text-align:left;line-height:2.4">'
-    '<span style="color:#E84E10">●</span> &nbsp;항공서비스학과 취업률 <strong>96.4%</strong><br>'
-    '<span style="color:#E84E10">●</span> &nbsp;QS 호스피탈리티 부문 <strong>글로벌 55위</strong><br>'
-    '<span style="color:#E84E10">●</span> &nbsp;호텔 총지배인 국내 최다 동문 <strong>25명</strong><br>'
-    '<span style="color:#E84E10">●</span> &nbsp;校訓 "<strong>지혜가 실력이다</strong>"'
+    '<span class="is-accent">●</span> &nbsp;항공서비스학과 취업률 <strong>96.4%</strong><br>'
+    '<span class="is-accent">●</span> &nbsp;QS 호스피탈리티 부문 <strong>글로벌 55위</strong><br>'
+    '<span class="is-accent">●</span> &nbsp;호텔 총지배인 국내 최다 동문 <strong>25명</strong><br>'
+    '<span class="is-accent">●</span> &nbsp;校訓 "<strong>지혜가 실력이다</strong>"'
     '</div>'
     '</div>'
     + script(
@@ -340,7 +340,7 @@ S_PROBLEM = (
     # long divider
     '<div style="width:520px;height:1px;background:#E8E8E8;margin:0 auto var(--s-4)"></div>'
     # 화살표
-    '<div style="font-size:32px;color:#6E6E73;line-height:1;margin-bottom:var(--s-4);font-weight:300">↓</div>'
+    '<div class="is-muted" style="font-size:32px;line-height:1;margin-bottom:var(--s-4)">↓</div>'
     # 미션
     '<div class="t-subtitle w-regular">'
     '사실을 <span class="is-accent w-bold">증명</span>으로 바꾸는 일.<br>'
@@ -395,11 +395,11 @@ S_TRANSITION = (
     '<div style="background:#F5F5F5;border-radius:8px;padding:var(--s-5) var(--s-6);max-width:760px;margin:0 auto">'
     '<div class="t-overline" style="margin-bottom:var(--s-3)">모든 대학이 이렇게 말합니다</div>'
     '<div class="t-body is-ink" style="line-height:2.2;text-align:left;padding:0 var(--s-2)">'
-    '<span style="color:#E84E10">●</span> &nbsp;글로벌 경쟁력 1위<br>'
-    '<span style="color:#E84E10">●</span> &nbsp;최고의 교수진<br>'
-    '<span style="color:#E84E10">●</span> &nbsp;미래형 인재 양성<br>'
-    '<span style="color:#E84E10">●</span> &nbsp;4차 산업혁명 선도<br>'
-    '<span style="color:#E84E10">●</span> &nbsp;국내 최고 수준 취업률'
+    '<span class="is-accent">●</span> &nbsp;글로벌 경쟁력 1위<br>'
+    '<span class="is-accent">●</span> &nbsp;최고의 교수진<br>'
+    '<span class="is-accent">●</span> &nbsp;미래형 인재 양성<br>'
+    '<span class="is-accent">●</span> &nbsp;4차 산업혁명 선도<br>'
+    '<span class="is-accent">●</span> &nbsp;국내 최고 수준 취업률'
     '</div>'
     '<div class="t-caption is-muted" style="margin-top:var(--s-3);padding-top:var(--s-2);border-top:1px solid #E0E0E0;font-style:italic">'
     '— 어느 대학인지 맞추실 수 있으십니까?</div>'
@@ -454,7 +454,7 @@ S_LOSS = (
     '<div class="t-subtitle w-regular is-muted" style="margin-bottom:var(--s-5)">'
     '모든 대학이 같은 말을 하면,</div>'
     # 화살표
-    '<div style="font-size:40px;color:#6E6E73;line-height:1;margin-bottom:var(--s-5);font-weight:300">↓</div>'
+    '<div class="is-muted" style="font-size:32px;line-height:1;margin-bottom:var(--s-5)">↓</div>'
     # 2단: 결과 (거대)
     '<div class="t-display" style="color:#E84E10;margin-bottom:var(--s-5)">소음.</div>'
     # short bar
@@ -564,7 +564,7 @@ _h_36 = (
     '<div class="t-body is-muted" style="margin-top:var(--s-3)">떨어질 확률입니다.</div>'
 )
 _v_36 = (
-    '<div style="font-size:76px;font-weight:700;color:#1A1A1A;font-family:Roboto,sans-serif;'
+    '<div style="font-size:76px;font-weight:700;color:#1A1A1A;'
     'letter-spacing:-3px;line-height:1">3.6%</div>'
     '<div class="t-caption" style="margin-top:var(--s-2);text-align:center;padding:0 var(--s-2)">떨어질 확률입니다.</div>'
 )
@@ -595,7 +595,7 @@ _h_qs = (
     '1st. MIT / USA<br>2nd. Imperial College London / UK<br>3rd. Stanford University / USA</div>'
     '<div style="text-align:center;padding:12px 0;font-size:14px;color:#ccc;letter-spacing:6px">.<br>.<br>.</div>'
     '<div style="text-align:center">'
-    '<span style="font-size:56px;font-weight:700;color:#1A1A1A;font-family:Roboto">'
+    '<span style="font-size:56px;font-weight:700;color:#1A1A1A">'
     '55<span style="font-size:28px;color:#58595B">th</span></span>'
     '<span style="font-size:36px;font-weight:700;color:#E84E10;margin-left:16px">YsU</span>'
     '<span style="font-size:16px;color:#58595B;margin-left:8px">/ BUSAN</span></div>'
@@ -610,7 +610,7 @@ _v_qs = (
     '1st. MIT<br>2nd. Imperial<br>3rd. Stanford</div>'
     '<div style="text-align:center;padding:6px 0;font-size:10px;color:#ccc;letter-spacing:4px">.<br>.<br>.</div>'
     '<div style="text-align:center">'
-    '<div style="font-size:32px;font-weight:700;color:#1A1A1A;font-family:Roboto;line-height:1">'
+    '<div style="font-size:32px;font-weight:700;color:#1A1A1A;line-height:1">'
     '55<span style="font-size:16px;color:#58595B">th</span></div>'
     '<div style="font-size:22px;font-weight:700;color:#E84E10;margin-top:4px">YsU</div>'
     '<div style="font-size:10px;color:#58595B">/ BUSAN</div></div>'
@@ -641,7 +641,7 @@ S_QS = (
 # ===== 13. 시안 "Room 1201" =====
 _h_room = (
     '<div style="background:#1A1A1A;width:100%;height:100%;padding:24px;display:flex;flex-direction:column">'
-    '<div style="font-size:36px;font-weight:700;color:#fff;font-family:Roboto;letter-spacing:1px;margin-bottom:12px">'
+    '<div style="font-size:36px;font-weight:700;color:#fff;letter-spacing:1px;margin-bottom:12px">'
     'Room 1201</div>'
     '<div style="font-size:8px;color:#888;line-height:1.6;flex:1;column-count:2;column-gap:12px">'
     '총지배인 파라다이스 부산<br>총지배인 해운대그랜드<br>총지배인 롯데 부산<br>'
@@ -659,7 +659,7 @@ _h_room = (
 )
 _v_room = (
     '<div style="background:#1A1A1A;width:100%;height:100%;padding:16px;display:flex;flex-direction:column">'
-    '<div style="font-size:20px;font-weight:700;color:#fff;font-family:Roboto;letter-spacing:1px;margin-bottom:10px">'
+    '<div style="font-size:20px;font-weight:700;color:#fff;letter-spacing:1px;margin-bottom:10px">'
     'Room 1201</div>'
     '<div style="font-size:6.5px;color:#888;line-height:1.55;flex:1">'
     '총지배인 파라다이스<br>총지배인 해운대그랜드<br>총지배인 롯데 부산<br>'
@@ -700,7 +700,7 @@ def _mini_card(title, h_html, v_html, dark=False):
     bg = "#1A1A1A" if dark else "#F5F5F5"
     return (
         '<div style="display:flex;flex-direction:column;align-items:center;gap:10px">'
-        f'<div style="font-size:14px;font-weight:700;color:#1A1A1A;letter-spacing:1px">{title}</div>'
+        f'<div class="t-caption w-bold is-ink" style="letter-spacing:1px">{title}</div>'
         # 16:9 (위) + 9:16 (아래)
         '<div style="display:flex;flex-direction:column;align-items:center;gap:8px">'
         f'<div style="width:420px;height:236px;background:{bg};border:1.5px solid #E8E8E8;'
@@ -721,13 +721,13 @@ def _mini_card(title, h_html, v_html, dark=False):
         '</div>'
     )
 
-_sum_36_h = '<div style="font-size:80px;font-weight:700;color:#1A1A1A;font-family:Roboto">3.6%</div>'
-_sum_36_v = '<div style="font-size:38px;font-weight:700;color:#1A1A1A;font-family:Roboto">3.6%</div>'
+_sum_36_h = '<div style="font-size:80px;font-weight:700;color:#1A1A1A">3.6%</div>'
+_sum_36_v = '<div style="font-size:38px;font-weight:700;color:#1A1A1A">3.6%</div>'
 _sum_qs_h = (
     '<div style="text-align:center">'
     '<div style="font-size:10px;color:#999">MIT · Imperial · Stanford</div>'
     '<div style="font-size:9px;color:#ccc;margin:4px 0">. . .</div>'
-    '<div style="font-size:28px;font-weight:700;color:#1A1A1A;font-family:Roboto">'
+    '<div style="font-size:28px;font-weight:700;color:#1A1A1A">'
     '55<span style="font-size:14px">th</span> <span style="color:#E84E10">YsU</span></div>'
     '</div>'
 )
@@ -735,14 +735,14 @@ _sum_qs_v = (
     '<div style="text-align:center">'
     '<div style="font-size:7px;color:#999">MIT</div>'
     '<div style="font-size:7px;color:#ccc">· · ·</div>'
-    '<div style="font-size:18px;font-weight:700;color:#1A1A1A;font-family:Roboto;margin-top:4px">'
+    '<div style="font-size:18px;font-weight:700;color:#1A1A1A;margin-top:4px">'
     '55<span style="font-size:10px">th</span></div>'
     '<div style="font-size:14px;font-weight:700;color:#E84E10">YsU</div>'
     '</div>'
 )
 _sum_room_h = (
     '<div style="text-align:center">'
-    '<div style="font-size:24px;font-weight:700;color:#fff;font-family:Roboto;letter-spacing:1px">Room 1201</div>'
+    '<div style="font-size:24px;font-weight:700;color:#fff;letter-spacing:1px">Room 1201</div>'
     '<div style="font-size:7px;color:#888;line-height:1.4;margin-top:6px">'
     '총지배인 파라다이스<br>총지배인 해운대그랜드<br>총지배인 롯데 부산<br>... 25명 ...</div>'
     '<div style="font-size:10px;color:#fff;font-weight:700;margin-top:6px">25개의 이름. 한 개의 학교.</div>'
@@ -750,7 +750,7 @@ _sum_room_h = (
 )
 _sum_room_v = (
     '<div style="text-align:center">'
-    '<div style="font-size:13px;font-weight:700;color:#fff;font-family:Roboto">Room 1201</div>'
+    '<div style="font-size:13px;font-weight:700;color:#fff">Room 1201</div>'
     '<div style="font-size:5px;color:#888;line-height:1.4;margin-top:4px">'
     '25개 이름</div>'
     '<div style="font-size:7px;color:#fff;font-weight:700;margin-top:4px;line-height:1.3">한 개의<br>학교</div>'
@@ -798,7 +798,7 @@ S_VIDEO_INTRO = (
     '</div>'
     '</div>'
     # 화살표
-    '<div style="font-size:32px;color:#6E6E73;line-height:1;margin-bottom:var(--s-4);font-weight:300">↓</div>'
+    '<div class="is-muted" style="font-size:32px;line-height:1;margin-bottom:var(--s-4)">↓</div>'
     # short bar
     '<div style="width:60px;height:3px;background:#E84E10;margin:0 auto var(--s-4)"></div>'
     # 헤드라인
@@ -842,7 +842,7 @@ S_VIDEO_WHY = (
     '</div>'
     '</div>'
     # 화살표
-    '<div style="font-size:28px;color:#6E6E73;line-height:1;margin-bottom:var(--s-3);font-weight:300">↓</div>'
+    '<div class="is-muted" style="font-size:32px;line-height:1;margin-bottom:var(--s-3)">↓</div>'
     # 결론
     '<div class="t-subtitle">'
     '한 이름, 세 갈래. <span class="is-accent w-bold">하나의 증명.</span>'
