@@ -11,7 +11,14 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{width:100vw;height:100vh;overflow:hidden}
-body{font-family:'Roboto','Noto Sans KR',-apple-system,sans-serif;font-weight:400;background:#1A1A1A}
+body{font-family:'Roboto','Noto Sans KR',-apple-system,sans-serif;font-weight:400;background:#1A1A1A;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility}
+
+/* 텍스트 선택 색상 */
+::selection{background:#E84E10;color:#fff}
+::-moz-selection{background:#E84E10;color:#fff}
+
+/* 숫자 tabular (자리 맞춤) */
+.content-body table td,.content-body table th{font-variant-numeric:tabular-nums}
 
 .deck{position:relative;width:100vw;height:100vh;overflow:hidden}
 .slide{position:absolute;top:0;left:0;width:100vw;height:100vh;display:flex;flex-direction:column;justify-content:center;overflow:hidden;visibility:hidden;opacity:0}
@@ -49,7 +56,7 @@ body{font-family:'Roboto','Noto Sans KR',-apple-system,sans-serif;font-weight:40
 .content-body{flex:1;overflow:hidden;font-size:16px;line-height:1.7;color:#2D2D2D;padding-right:16px}
 
 /* 대형 페이지 넘버 (우측 상단) */
-.slide-pagenum{position:absolute;top:50px;right:310px;font-size:42px;font-weight:700;color:#1A1A1A;line-height:1;font-family:Roboto,sans-serif;letter-spacing:-1px}
+.slide-pagenum{position:absolute;top:50px;right:310px;font-size:42px;font-weight:700;color:#1A1A1A;line-height:1;font-family:Roboto,sans-serif;letter-spacing:-1px;font-variant-numeric:tabular-nums}
 .slide-content.no-script .slide-pagenum{right:80px}
 
 /* 세로 회전 텍스트 (우측 가장자리) */
@@ -168,7 +175,10 @@ body.edit-mode [contenteditable]:focus{outline:2px solid #E84E10;outline-offset:
 @media print{
   .deck{overflow:visible;height:auto}
   .slide{position:relative;visibility:visible!important;opacity:1!important;page-break-after:always;height:auto;min-height:100vh}
-  .nav-bar,.slide-counter,.key-hint,.edit-toolbar,.del-x,.resize-handle,.resize-dim{display:none!important}
+  .slide-content{padding:40px 60px!important}
+  .nav-bar,.slide-counter,.key-hint,.edit-toolbar,.del-x,.resize-handle,.resize-dim,.script-side,.vertical-rail{display:none!important}
+  .slide-content.has-script{padding:40px 60px!important}
+  video{display:none!important}
 }
 </style>
 </head>

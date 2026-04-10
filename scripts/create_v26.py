@@ -151,30 +151,48 @@ S_DIGITAL = (
 
 # ===== SNS 이벤트 (상세 디벨롭) =====
 S_SNS = (
-    "**3채널 통합 운영 + 월 1회 참여형 이벤트**\n\n"
-    "### 운영 채널\n\n"
-    "| 채널 | 주 콘텐츠 | 포스팅 주기 | 목표 지표 |\n"
-    "|------|-----------|------------|----------|\n"
-    "| 인스타그램 | 시안 이미지, 릴스, 스토리 | 주 3회 | 팔로워 +500/월 |\n"
-    "| 유튜브 쇼츠 | 숏폼, 졸업생 인터뷰 | 주 2회 | 조회수 3,000+/편 |\n"
-    "| 네이버 블로그 | 팩트 카드뉴스, 입시 가이드 | 주 2회 | 검색 상위 노출 |\n\n"
-    "### 월간 콘텐츠 캘린더\n\n"
-    "| 월 | 테마 | 콘텐츠 | 이벤트 |\n"
-    "|---|------|--------|--------|\n"
-    "| 3~4월 | 입학 시즌 | 1학년 첫날 브이로그 | 신입생 인증샷 해시태그 |\n"
-    "| 5~6월 | 수시 집중 | 취업률 팩트 카드뉴스 | 캠퍼스 투어 신청 이벤트 |\n"
-    "| 7월 | 수시 마감 | 지원 마감 카운트다운 | 지원자 응원 댓글 |\n"
-    "| 8~9월 | 원서 시즌 | 졸업생 현장 인터뷰 | 합격 기원 릴레이 |\n"
-    "| 10~11월 | 정시 대비 | QS 순위/실적 정리 | 입시 상담 라이브 |\n"
-    "| 12월 | 정시 마감 | 합격자 발표 준비 | 멘토 신청 접수 |\n"
-    "| 1~2월 | 합격 시즌 | 합격 축하 콘텐츠 | 선배 멘토링 매칭 |\n\n"
-    "### 이벤트 운영 원칙\n"
-    "- 전부 **참여형** (댓글/해시태그/인증샷) -- 단순 노출 X\n"
-    "- 경품 대신 **정보 보상** (입시 가이드, 선배 멘토링)\n"
-    "- 수시 집중기(5~7월) **예산 70% 투입**\n"
-    "- 학과별 민원 방지: 학과 로테이션 운영\n\n"
-    "### 성과 측정\n"
-    "월간 리포트 제공 · 분기별 전략 수정 · 연 2회 캠페인 리뷰"
+    '<div style="padding:4px 0">'
+    '<div style="font-size:16px;color:#1A1A1A;font-weight:700;margin-bottom:14px">'
+    '3채널 통합 운영 + 참여형 이벤트 '
+    '<span style="color:#6E6E73;font-weight:400">· 수시 집중기(5~7월) 예산 70%</span></div>'
+    # 운영 채널 (compact)
+    '<table style="width:100%;border-collapse:collapse;font-size:12px;margin-bottom:14px">'
+    '<thead><tr>'
+    '<th style="background:#F5F5F5;padding:6px 10px;border-bottom:2px solid #E84E10;text-align:left;width:22%">채널</th>'
+    '<th style="background:#F5F5F5;padding:6px 10px;border-bottom:2px solid #E84E10;text-align:left">주 콘텐츠</th>'
+    '<th style="background:#F5F5F5;padding:6px 10px;border-bottom:2px solid #E84E10;text-align:left;width:15%">주기</th>'
+    '<th style="background:#F5F5F5;padding:6px 10px;border-bottom:2px solid #E84E10;text-align:left;width:20%">목표</th>'
+    '</tr></thead><tbody>'
+    '<tr><td style="padding:6px 10px;border-bottom:1px solid #E8E8E8"><strong>인스타그램</strong></td>'
+    '<td style="padding:6px 10px;border-bottom:1px solid #E8E8E8">시안 이미지 · 릴스 · 스토리</td>'
+    '<td style="padding:6px 10px;border-bottom:1px solid #E8E8E8">주 3회</td>'
+    '<td style="padding:6px 10px;border-bottom:1px solid #E8E8E8">팔로워 +500/월</td></tr>'
+    '<tr><td style="padding:6px 10px;border-bottom:1px solid #E8E8E8"><strong>유튜브 쇼츠</strong></td>'
+    '<td style="padding:6px 10px;border-bottom:1px solid #E8E8E8">숏폼 · 졸업생 인터뷰</td>'
+    '<td style="padding:6px 10px;border-bottom:1px solid #E8E8E8">주 2회</td>'
+    '<td style="padding:6px 10px;border-bottom:1px solid #E8E8E8">조회수 3,000+/편</td></tr>'
+    '<tr><td style="padding:6px 10px;border-bottom:1px solid #E8E8E8"><strong>네이버 블로그</strong></td>'
+    '<td style="padding:6px 10px;border-bottom:1px solid #E8E8E8">팩트 카드뉴스 · 입시 가이드</td>'
+    '<td style="padding:6px 10px;border-bottom:1px solid #E8E8E8">주 2회</td>'
+    '<td style="padding:6px 10px;border-bottom:1px solid #E8E8E8">검색 상위 노출</td></tr>'
+    '</tbody></table>'
+    # 월간 캘린더 (compact, 2컬럼 요약)
+    '<div style="font-size:14px;font-weight:700;color:#E84E10;margin-bottom:8px;letter-spacing:1px">월간 콘텐츠 캘린더</div>'
+    '<div style="display:grid;grid-template-columns:1fr 1fr;gap:4px 16px;font-size:12px;line-height:1.7;margin-bottom:14px">'
+    '<div>· <strong>3~4월</strong> 입학 -- 1학년 브이로그 / 인증샷 해시태그</div>'
+    '<div>· <strong>5~6월</strong> 수시 -- 팩트 카드뉴스 / 캠퍼스 투어</div>'
+    '<div>· <strong>7월</strong> 마감 -- 카운트다운 / 응원 댓글</div>'
+    '<div>· <strong>8~9월</strong> 원서 -- 졸업생 인터뷰 / 합격 릴레이</div>'
+    '<div>· <strong>10~11월</strong> 정시 -- QS 순위 / 상담 라이브</div>'
+    '<div>· <strong>12월~2월</strong> 합격 -- 축하 콘텐츠 / 멘토 매칭</div>'
+    '</div>'
+    # 운영 원칙 (한 줄 박스)
+    '<div style="background:#F9F7F4;border-left:3px solid #E84E10;padding:10px 14px;font-size:12px;line-height:1.7">'
+    '<strong>운영 원칙:</strong> 참여형 (댓글/해시태그/인증샷) · '
+    '경품 대신 <strong style="color:#E84E10">정보 보상</strong> (입시 가이드 DM) · '
+    '학과 로테이션 · 월간 리포트 제공'
+    '</div>'
+    '</div>'
 )
 
 S_PRESS = (
