@@ -270,28 +270,44 @@ S_DOCU = (
 # 표지 자체는 템플릿이 자동 생성하므로, 첫 콘텐츠 슬라이드에 스크립트 삽입하지 않음.
 # 대신 제안배경 슬라이드에 오프닝 스크립트를 상단에 넣음.
 
-# ===== 2. 제안배경 + 오프닝 스크립트 =====
+# ===== 2. 문제제기 -- "사실은 있었지만, 증명이 아니었다" =====
 S_BACKGROUND = (
-    '<div style="padding:var(--s-7) 0;text-align:center">'
-    '<div class="t-subtitle w-regular is-muted" style="line-height:2.4">'
-    '홍익대 = <strong class="is-ink">미대</strong><br>'
-    '한양대 에리카 = <strong class="is-ink">공대</strong><br>'
-    '동의대 = <strong class="is-ink">한의대</strong>'
+    '<div style="padding:var(--s-5) 0;text-align:center">'
+    # PROBLEM 라벨
+    '<div class="t-overline is-accent" style="margin-bottom:var(--s-4)">PROBLEM</div>'
+    # 첫 헤드라인
+    '<div class="t-heading" style="margin-bottom:var(--s-5)">'
+    '영산대에는,<br>사실이 있었습니다.</div>'
+    # 4줄 팩트 리스트 (긍정형 원본)
+    '<div class="t-body" style="display:inline-block;text-align:left;margin-bottom:var(--s-5);line-height:2.1">'
+    '· 항공서비스학과 취업률 <strong>96.4%</strong><br>'
+    '· QS 호스피탈리티 부문 <strong>글로벌 55위</strong><br>'
+    '· 호텔 총지배인 국내 최다 동문 <strong>25명</strong><br>'
+    '· 校訓 "<strong>지혜가 실력이다</strong>"'
     '</div>'
-    '<div class="t-heading" style="margin-top:var(--s-6)">'
-    '영산대 = <span style="display:inline-block;width:200px;border-bottom:3px solid #E84E10;vertical-align:middle">&nbsp;</span>'
-    '</div>'
-    '<div class="t-subtitle w-regular is-muted" style="margin-top:var(--s-6)">'
-    '이 빈칸을 채우는 것이<br>이번 제안의 전부입니다.'
+    # 구분선
+    '<div style="width:60px;height:1px;background:#E8E8E8;margin:0 auto var(--s-5)"></div>'
+    # 두 번째 헤드라인: 사실 vs 증명
+    '<div class="t-title" style="margin-bottom:var(--s-2)">'
+    '그런데, <span class="is-accent">사실은 증명이 아닙니다.</span></div>'
+    # 중간 한 줄
+    '<div class="t-body is-muted" style="margin-bottom:var(--s-5)">'
+    '— 보이지 않으면, 없는 것과 같습니다.</div>'
+    # 하단 미션 선언
+    '<div class="t-subtitle w-regular" style="font-style:italic">'
+    '사실을 증명으로 바꾸는 일.<br>'
+    '그것이, 이번 제안의 전부입니다.'
     '</div>'
     '</div>'
     + script(
         '(표지가 뜬 상태에서, 인사 생략)<br><br>'
-        '"<strong>영산대학교를 한 단어로 정의해 주십시오.</strong><br>'
-        '-- 지금 떠오르지 않으셨다면, 그것이 이번 제안의 출발점입니다."<br><br>'
-        '(2장으로 넘기며)<br>'
-        '"홍대 하면 미대. 한양 에리카 하면 공대. 동의대 하면 한의대.<br>'
-        '<strong>영산대 하면?</strong> 이 빈칸을 채우는 것이 저희가 하려는 일의 전부입니다."'
+        '"영산대학교에는 이미 <strong>사실</strong>이 있었습니다.<br>'
+        '취업률 96.4%. 글로벌 호스피탈리티 55위. '
+        '호텔 총지배인 25명. 그리고 校訓 <strong>지혜가 실력이다</strong>.<br><br>'
+        '그런데 -- <strong>사실은 증명이 아닙니다</strong>.<br>'
+        '보이지 않으면, 없는 것과 같습니다.<br><br>'
+        '저희가 할 일은, 이 사실을 <strong>증명</strong>으로 바꾸는 것.<br>'
+        '그것이, 이번 제안의 전부입니다."'
     )
 )
 
@@ -882,8 +898,7 @@ def make_sections():
         # IV. 3
         (2, T_IV_3, 26, parent(P_IV) + tag("운영방안 · 108회 → 40,000회") + S_OPERATION),
 
-        # 마무리
-        (2, "", 27, S_ENDING),
+        # 마무리는 템플릿의 slide-end가 담당 (ANSWER 엔딩)
     ]
 
 
