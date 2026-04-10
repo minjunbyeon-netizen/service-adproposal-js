@@ -199,24 +199,24 @@ S_CONCEPT = (
 )
 
 # ===== 시안 공통 mockup 헬퍼 =====
-# 16:9 가로형 + 9:16 세로형 모두 같은 높이(420px)로 화면 중앙 배치
+# 16:9 가로형(1067x600) + 9:16 세로형(338x600) 같은 높이, 화면 거의 꽉 채움
 def sian_mockups(label, h_content, v_content):
     return (
-        '<div style="display:flex;justify-content:center;align-items:center;gap:32px;padding:20px 0">'
-        # 16:9 가로형
-        f'<div style="width:747px;height:420px;background:#F5F5F5;border:2px solid #E8E8E8;'
+        '<div style="display:flex;justify-content:center;align-items:center;gap:24px;padding:8px 0">'
+        # 16:9 가로형 (대형)
+        f'<div style="width:1067px;height:600px;background:#F5F5F5;border:2px solid #E8E8E8;'
         f'border-radius:6px;display:flex;flex-direction:column;justify-content:center;align-items:center;'
         f'position:relative;overflow:hidden">'
-        f'<div style="position:absolute;top:8px;left:8px;font-size:9px;font-weight:700;letter-spacing:1px;'
-        f'color:#fff;background:#58595B;padding:2px 8px;border-radius:2px">16:9 가로형 / {label}</div>'
+        f'<div style="position:absolute;top:10px;left:10px;font-size:10px;font-weight:700;letter-spacing:1px;'
+        f'color:#fff;background:#58595B;padding:3px 10px;border-radius:2px">16:9 가로형 / {label}</div>'
         f'{h_content}'
         f'</div>'
         # 9:16 세로형 (같은 높이)
-        f'<div style="width:236px;height:420px;background:#F5F5F5;border:2px solid #E8E8E8;'
+        f'<div style="width:338px;height:600px;background:#F5F5F5;border:2px solid #E8E8E8;'
         f'border-radius:6px;display:flex;flex-direction:column;justify-content:center;align-items:center;'
         f'position:relative;overflow:hidden">'
-        f'<div style="position:absolute;top:8px;left:8px;font-size:9px;font-weight:700;letter-spacing:1px;'
-        f'color:#fff;background:#58595B;padding:2px 8px;border-radius:2px">9:16 세로형</div>'
+        f'<div style="position:absolute;top:10px;left:10px;font-size:10px;font-weight:700;letter-spacing:1px;'
+        f'color:#fff;background:#58595B;padding:3px 10px;border-radius:2px">9:16 세로형</div>'
         f'{v_content}'
         f'</div>'
         '</div>'
@@ -225,21 +225,20 @@ def sian_mockups(label, h_content, v_content):
 
 # ===== 11. 시안 "3.6%" =====
 _h_36 = (
-    '<div style="font-size:120px;font-weight:700;color:#1A1A1A;font-family:Roboto,sans-serif;'
-    'letter-spacing:-4px;line-height:1">3.6%</div>'
-    '<div style="margin-top:16px;font-size:13px;color:#6E6E73">떨어질 확률입니다.</div>'
+    '<div style="font-size:180px;font-weight:700;color:#1A1A1A;font-family:Roboto,sans-serif;'
+    'letter-spacing:-6px;line-height:1">3.6%</div>'
+    '<div style="margin-top:20px;font-size:18px;color:#6E6E73">떨어질 확률입니다.</div>'
 )
 _v_36 = (
-    '<div style="font-size:56px;font-weight:700;color:#1A1A1A;font-family:Roboto,sans-serif;'
-    'letter-spacing:-2px;line-height:1">3.6%</div>'
-    '<div style="margin-top:12px;font-size:11px;color:#6E6E73;text-align:center;padding:0 16px">떨어질 확률입니다.</div>'
+    '<div style="font-size:76px;font-weight:700;color:#1A1A1A;font-family:Roboto,sans-serif;'
+    'letter-spacing:-3px;line-height:1">3.6%</div>'
+    '<div style="margin-top:16px;font-size:13px;color:#6E6E73;text-align:center;padding:0 16px">떨어질 확률입니다.</div>'
 )
 S_36 = (
     sian_mockups("3.6%", _h_36, _v_36)
-    + '<div style="text-align:center;font-size:13px;color:#58595B;font-style:italic;margin-top:16px;'
-      'padding:8px 0;border-top:1px solid #E8E8E8">'
-      '탈락률 3.6%. 이 숫자가 부서지는 순간, 96.4%가 보입니다.</div>'
     + script(
+        '<strong>[크리에이티브 브리프]</strong><br>'
+        '탈락률 3.6%. 이 숫자가 부서지는 순간, 96.4%가 보입니다.<br><br>'
         '"(3초 침묵. 숫자를 보게 둔다.)<br><br>'
         '3.6%. 영산대 항공서비스학과에서 <strong>취업에 실패한 사람의 비율</strong>입니다.<br>'
         '나머지 96.4%는 지금 일하고 있습니다."'
@@ -278,10 +277,9 @@ _v_qs = (
 )
 S_QS = (
     sian_mockups("QS 55위", _h_qs, _v_qs)
-    + '<div style="text-align:center;font-size:13px;color:#58595B;font-style:italic;margin-top:16px;'
-      'padding:8px 0;border-top:1px solid #E8E8E8">'
-      'MIT 1위, Stanford 3위... 55위에 낯선 이름이 있습니다.</div>'
     + script(
+        '<strong>[크리에이티브 브리프]</strong><br>'
+        'MIT 1위, Stanford 3위... 55위에 낯선 이름이 있습니다.<br><br>'
         '"MIT, Imperial, Stanford.<br>'
         '이 리스트에 <strong>55위, 낯선 이름</strong>이 있습니다.<br>'
         'YsU. 부산. <strong>영산대학교입니다.</strong><br><br>'
@@ -328,20 +326,87 @@ _v_room = (
 )
 S_ROOM = (
     sian_mockups("Room 1201", _h_room, _v_room)
-    + '<div style="text-align:center;font-size:13px;color:#58595B;font-style:italic;margin-top:16px;'
-      'padding:8px 0;border-top:1px solid #E8E8E8">'
-      '복도 끝까지 같은 직함. 같은 학교.</div>'
     + script(
+        '<strong>[크리에이티브 브리프]</strong><br>'
+        '복도 끝까지 같은 직함. 같은 학교.<br><br>'
         '"(5초간 침묵. 평가위원이 리스트를 훑을 시간을 준다.)<br><br>'
         '25명. 국내 호텔 총지배인 최다 배출.<br>'
         '<strong>전부 영산대학교 졸업생입니다.</strong>"'
     )
 )
 
-# ===== 13. 시안 종합 =====
-from scripts.create_v25 import S_SIAN_SUMMARY
+# ===== 13. 시안 종합 -- 6개 mockup 그리드 (3컨셉 × 2비율) =====
+def _mini_card(title, h_html, v_html, dark=False):
+    bg = "#1A1A1A" if dark else "#F5F5F5"
+    return (
+        '<div style="display:flex;flex-direction:column;align-items:center;gap:10px">'
+        f'<div style="font-size:14px;font-weight:700;color:#1A1A1A;letter-spacing:1px">{title}</div>'
+        # 16:9 (위) + 9:16 (아래)
+        '<div style="display:flex;flex-direction:column;align-items:center;gap:8px">'
+        f'<div style="width:420px;height:236px;background:{bg};border:1.5px solid #E8E8E8;'
+        f'border-radius:4px;display:flex;flex-direction:column;justify-content:center;align-items:center;'
+        f'position:relative;overflow:hidden">'
+        f'<div style="position:absolute;top:4px;left:4px;font-size:8px;font-weight:700;letter-spacing:1px;'
+        f'color:#fff;background:#58595B;padding:1px 6px;border-radius:2px">16:9</div>'
+        f'{h_html}'
+        f'</div>'
+        f'<div style="width:160px;height:285px;background:{bg};border:1.5px solid #E8E8E8;'
+        f'border-radius:4px;display:flex;flex-direction:column;justify-content:center;align-items:center;'
+        f'position:relative;overflow:hidden">'
+        f'<div style="position:absolute;top:4px;left:4px;font-size:8px;font-weight:700;letter-spacing:1px;'
+        f'color:#fff;background:#58595B;padding:1px 6px;border-radius:2px">9:16</div>'
+        f'{v_html}'
+        f'</div>'
+        '</div>'
+        '</div>'
+    )
+
+_sum_36_h = '<div style="font-size:80px;font-weight:700;color:#1A1A1A;font-family:Roboto">3.6%</div>'
+_sum_36_v = '<div style="font-size:38px;font-weight:700;color:#1A1A1A;font-family:Roboto">3.6%</div>'
+_sum_qs_h = (
+    '<div style="text-align:center">'
+    '<div style="font-size:10px;color:#999">MIT · Imperial · Stanford</div>'
+    '<div style="font-size:9px;color:#ccc;margin:4px 0">. . .</div>'
+    '<div style="font-size:28px;font-weight:700;color:#1A1A1A;font-family:Roboto">'
+    '55<span style="font-size:14px">th</span> <span style="color:#E84E10">YsU</span></div>'
+    '</div>'
+)
+_sum_qs_v = (
+    '<div style="text-align:center">'
+    '<div style="font-size:7px;color:#999">MIT</div>'
+    '<div style="font-size:7px;color:#ccc">· · ·</div>'
+    '<div style="font-size:18px;font-weight:700;color:#1A1A1A;font-family:Roboto;margin-top:4px">'
+    '55<span style="font-size:10px">th</span></div>'
+    '<div style="font-size:14px;font-weight:700;color:#E84E10">YsU</div>'
+    '</div>'
+)
+_sum_room_h = (
+    '<div style="text-align:center">'
+    '<div style="font-size:24px;font-weight:700;color:#fff;font-family:Roboto;letter-spacing:1px">Room 1201</div>'
+    '<div style="font-size:7px;color:#888;line-height:1.4;margin-top:6px">'
+    '총지배인 파라다이스<br>총지배인 해운대그랜드<br>총지배인 롯데 부산<br>... 25명 ...</div>'
+    '<div style="font-size:9px;color:#fff;font-weight:700;margin-top:6px">전부 같은 학교.</div>'
+    '</div>'
+)
+_sum_room_v = (
+    '<div style="text-align:center">'
+    '<div style="font-size:13px;font-weight:700;color:#fff;font-family:Roboto">Room 1201</div>'
+    '<div style="font-size:5px;color:#888;line-height:1.4;margin-top:4px">'
+    '25명<br>총지배인</div>'
+    '<div style="font-size:7px;color:#fff;font-weight:700;margin-top:4px">같은 학교</div>'
+    '</div>'
+)
+
 S_SIAN_SUMMARY_V26 = (
-    S_SIAN_SUMMARY
+    '<div style="display:flex;justify-content:center;gap:24px;padding:16px 0;align-items:flex-start">'
+    + _mini_card("3.6%", _sum_36_h, _sum_36_v)
+    + _mini_card("QS 55위", _sum_qs_h, _sum_qs_v)
+    + _mini_card("Room 1201", _sum_room_h, _sum_room_v, dark=True)
+    + '</div>'
+    + '<div style="text-align:center;margin-top:12px;font-size:15px;color:#1A1A1A;font-weight:700">'
+      '같은 숫자. 다른 방식. 느끼는 광고.</div>'
+    + '<div style="text-align:center;margin-top:6px;font-size:13px;color:#6E6E73">'
+      '이름을 가려도 보이는 대학. 영산대학교.</div>'
     + script(
         '"3.6%, QS 55위, Room 1201.<br>'
         '같은 숫자를 다른 방식으로 느끼게 만드는 것.<br>'
@@ -373,39 +438,32 @@ S_VIDEO_INTRO = (
     )
 )
 
-# ===== 17. "지혜" 메인 영상 -- 16:9 비디오 플레이스홀더 =====
+# ===== 17. "지혜" 메인 영상 -- 16:9 비디오 플레이스홀더 (대형) =====
 S_JIHYE = (
-    '<div style="display:flex;justify-content:center;align-items:center;padding:20px 0">'
-    '<div style="width:960px;height:540px;background:#1A1A1A;border-radius:6px;'
+    '<div style="display:flex;justify-content:center;align-items:center;padding:0">'
+    '<div style="width:1440px;height:810px;background:#1A1A1A;border-radius:6px;'
     'display:flex;flex-direction:column;justify-content:center;align-items:center;'
     'position:relative;overflow:hidden;border:2px solid #E8E8E8">'
-    # 비율 라벨
-    '<div style="position:absolute;top:12px;left:12px;font-size:10px;font-weight:700;'
-    'letter-spacing:1px;color:#fff;background:#E84E10;padding:3px 10px;border-radius:2px">'
+    '<div style="position:absolute;top:16px;left:16px;font-size:11px;font-weight:700;'
+    'letter-spacing:1px;color:#fff;background:#E84E10;padding:4px 12px;border-radius:2px">'
     '16:9 VIDEO</div>'
-    # 중앙 재생 아이콘
-    '<div style="width:88px;height:88px;border-radius:50%;background:rgba(255,255,255,.12);'
-    'display:flex;justify-content:center;align-items:center;border:2px solid rgba(255,255,255,.5);'
-    'margin-bottom:20px">'
-    '<div style="width:0;height:0;border-left:28px solid #fff;border-top:18px solid transparent;'
-    'border-bottom:18px solid transparent;margin-left:8px"></div>'
+    '<div style="width:120px;height:120px;border-radius:50%;background:rgba(255,255,255,.12);'
+    'display:flex;justify-content:center;align-items:center;border:3px solid rgba(255,255,255,.5);'
+    'margin-bottom:28px">'
+    '<div style="width:0;height:0;border-left:36px solid #fff;border-top:24px solid transparent;'
+    'border-bottom:24px solid transparent;margin-left:10px"></div>'
     '</div>'
-    # 제목/슬로건
-    '<div style="font-size:28px;font-weight:700;color:#fff;letter-spacing:1px;margin-bottom:8px">'
+    '<div style="font-size:40px;font-weight:700;color:#fff;letter-spacing:1px;margin-bottom:12px">'
     '"지혜" 메인 영상 (60초)</div>'
-    '<div style="font-size:14px;color:#999;letter-spacing:1px">'
+    '<div style="font-size:18px;color:#999;letter-spacing:1px">'
     'WISE YOU &nbsp;|&nbsp; 우리는 모두 지혜입니다.</div>'
-    # 하단 파일 경로 표시 (실제 파일 대체용)
-    '<div style="position:absolute;bottom:12px;right:12px;font-size:10px;color:#666;font-family:monospace">'
+    '<div style="position:absolute;bottom:16px;right:16px;font-size:11px;color:#666;font-family:monospace">'
     '[video file to insert]</div>'
     '</div></div>'
-    # 간단 씬 요약
-    '<div style="text-align:center;font-size:12px;color:#6E6E73;margin-top:12px;line-height:1.8">'
-    '<strong style="color:#1A1A1A">씬 구성:</strong> '
-    '비행기 "지혜야~" → 호텔 "박지혜 지배인님" → 경찰서 "지혜 경위" → 뷰티 "지혜 선생님" → '
-    '<strong style="color:#E84E10">"우리는 모두 지혜입니다."</strong>'
-    '</div>'
     + script(
+        '<strong>[씬 구성]</strong><br>'
+        '비행기 "지혜야~" → 호텔 "박지혜 지배인님" → 경찰서 "지혜 경위" → 뷰티 "지혜 선생님" → '
+        '<strong>"우리는 모두 지혜입니다."</strong><br><br>'
         '"(영상 재생 -- 60초)<br><br>'
         '비행기에서, 호텔에서, 경찰서에서, 뷰티 매장에서.<br>'
         '누군가 <strong>\'지혜야\'</strong>를 부르면,<br>'
