@@ -19,21 +19,27 @@ cc = "증명할게."
 tl = "말하지 않습니다. 증명합니다."
 # 슬라이드 10 -- 컨셉 "증명할게" 공개 + 시안 연결
 combined = (
-    '<div style="text-align:center;padding:var(--s-5) 0">'
+    '<div style="text-align:center;padding:var(--s-4) 0">'
     # 컨셉 블록
-    '<div style="margin-bottom:var(--s-6)">'
-    '<div class="t-overline is-accent" style="margin-bottom:var(--s-4)">CONCEPT</div>'
-    '<div class="t-hero" style="margin-bottom:var(--s-5)">증명.</div>'
-    '<div class="t-subtitle w-regular is-muted">'
-    '사실은 이미 있었습니다.<br>'
-    '저희는, 그것이 <span class="is-ink w-bold">증명</span>으로 보이게 합니다.'
-    '</div>'
+    '<div style="margin-bottom:var(--s-5)">'
+    '<div class="t-overline is-accent" style="margin-bottom:var(--s-3)">CONCEPT</div>'
+    '<div class="t-hero" style="margin-bottom:var(--s-3)">증명.</div>'
+    '<div class="t-body is-muted">우리의 이번 광고 컨셉입니다.</div>'
     '</div>'
     # 얇은 구분선
     '<div style="width:60px;height:1px;background:#E8E8E8;margin:0 auto var(--s-5)"></div>'
-    # 시안 연결 안내
+    # 기법 블록
+    '<div style="margin-bottom:var(--s-5)">'
+    '<div class="t-overline is-accent" style="margin-bottom:var(--s-3)">METHOD</div>'
+    '<div class="t-title" style="margin-bottom:var(--s-3)">리프레이밍.</div>'
+    '<div class="t-body is-muted" style="line-height:1.8">'
+    '같은 사실을, 다른 프레임에 놓는 일.<br>'
+    '소음이 아닌, <span class="is-ink w-bold">각인</span>되게 만듭니다.'
+    '</div>'
+    '</div>'
+    # 안내
     '<div class="t-caption" style="font-style:italic">'
-    '지금부터, 3가지 증명을 보여드립니다.'
+    '지금부터, 3가지 리프레이밍입니다.'
     '</div>'
     '</div>'
 )
@@ -440,51 +446,21 @@ S_LOSS = (
     )
 )
 
-# ===== 9. 같은 사실, 다른 언어 -- 1열 3행 세련화 =====
+# ===== 9. 방법론 선언 (예시 없음, 선언만) =====
 S_BRIDGE = (
-    '<div style="padding:var(--s-3) 0;text-align:center">'
-    # 상단 overline
-    '<div class="t-overline is-accent" style="margin-bottom:var(--s-4)">OUR WORK</div>'
-    # 거대 헤드라인
-    '<div class="t-headline" style="margin-bottom:var(--s-5)">'
+    '<div style="padding:var(--s-5) 0;text-align:center">'
+    '<div class="t-overline is-accent" style="margin-bottom:var(--s-6)">OUR METHOD</div>'
+    '<div class="t-headline" style="margin-bottom:var(--s-6)">'
     '같은 사실,<br><span class="is-accent">다른 언어.</span></div>'
-    # 얇은 구분선
-    '<div style="width:60px;height:1px;background:#E8E8E8;margin:0 auto var(--s-5)"></div>'
-    # 3행 세로 리스트 (1열)
-    '<div style="display:flex;flex-direction:column;gap:var(--s-4);max-width:640px;margin:0 auto;text-align:left">'
-    # 1행
-    '<div>'
-    '<div class="t-body is-muted" style="margin-bottom:6px">"취업률 96.4%"</div>'
-    '<div class="t-subtitle">→ &nbsp;<span class="is-accent">탈락률 3.6%</span></div>'
-    '</div>'
-    # 2행
-    '<div>'
-    '<div class="t-body is-muted" style="margin-bottom:6px">"호텔 총지배인 최다 배출"</div>'
-    '<div class="t-subtitle">→ &nbsp;<span class="is-accent">25명 · Room 1201</span></div>'
-    '</div>'
-    # 3행
-    '<div>'
-    '<div class="t-body is-muted" style="margin-bottom:6px">"호스피탈리티 우수 대학"</div>'
-    '<div class="t-subtitle">→ &nbsp;<span class="is-accent">QS 세계 55위 · 부산</span></div>'
-    '</div>'
-    '</div>'
-    # 얇은 구분선
-    '<div style="width:60px;height:1px;background:#E8E8E8;margin:var(--s-5) auto var(--s-4)"></div>'
-    # 하단 정리
-    '<div class="t-body is-muted">'
-    '사실은 바꾸지 않았습니다.<br>'
-    '<span class="is-ink w-bold">보이는 방식</span>을 바꿨습니다.'
-    '</div>'
+    '<div style="width:80px;height:1px;background:#E8E8E8;margin:0 auto var(--s-6)"></div>'
+    '<div class="t-title w-regular is-muted">'
+    '사실이,<br><span class="is-ink w-bold">증명이 되도록.</span></div>'
     '</div>'
     + script(
-        '"저희가 한 일은, 단순합니다.<br>'
-        '같은 사실에 <strong>다른 언어</strong>를 입혔습니다.<br><br>'
-        '취업률 96.4%는 → <strong>탈락률 3.6%</strong>로.<br>'
-        '총지배인 최다 배출은 → <strong>25명, Room 1201</strong>로.<br>'
-        '호스피탈리티 우수는 → <strong>QS 세계 55위, 부산</strong>으로.<br><br>'
-        '사실은 바꾸지 않았습니다.<br>'
-        '<strong>보이는 방식</strong>을 바꿨을 뿐입니다.<br><br>'
-        '이제, 그 방식을 하나씩 보여드리겠습니다."'
+        '"저희가 하는 일은, 단순합니다.<br><br>'
+        '같은 사실에, <strong>다른 언어</strong>를 입힙니다.<br>'
+        '그래서 사실이, 사람에게 <strong>증명</strong>으로 다가가도록 만듭니다.<br><br>'
+        '지금부터, 그 방법의 이름과 세 가지 사례를 보여드리겠습니다."'
     )
 )
 
@@ -502,21 +478,21 @@ S_CONCEPT = (
     )
 )
 
-# ===== 시안 공통 mockup 헬퍼 =====
-# 16:9 가로형(1067x600) + 9:16 세로형(338x600) 같은 높이, 화면 거의 꽉 채움
+# ===== 시안 공통 mockup 헬퍼 (V27: 헤드라인+캡션 공간 확보 위해 축소) =====
+# 16:9 가로형(854x480) + 9:16 세로형(270x480) 같은 높이
 def sian_mockups(label, h_content, v_content):
     return (
-        '<div style="display:flex;justify-content:center;align-items:center;gap:var(--s-3);padding:var(--s-1) 0">'
-        # 16:9 가로형 (대형)
-        f'<div style="width:1067px;height:600px;background:#F5F5F5;border:2px solid #E8E8E8;'
+        '<div style="display:flex;justify-content:center;align-items:center;gap:var(--s-3);padding:0">'
+        # 16:9 가로형 (854x480)
+        f'<div style="width:854px;height:480px;background:#F5F5F5;border:2px solid #E8E8E8;'
         f'border-radius:6px;display:flex;flex-direction:column;justify-content:center;align-items:center;'
         f'position:relative;overflow:hidden">'
         f'<div class="t-overline" style="position:absolute;top:10px;left:10px;letter-spacing:1px;'
         f'color:#fff;background:#58595B;padding:3px 10px;border-radius:2px">16:9 가로형 / {label}</div>'
         f'{h_content}'
         f'</div>'
-        # 9:16 세로형 (같은 높이)
-        f'<div style="width:338px;height:600px;background:#F5F5F5;border:2px solid #E8E8E8;'
+        # 9:16 세로형 (270x480)
+        f'<div style="width:270px;height:480px;background:#F5F5F5;border:2px solid #E8E8E8;'
         f'border-radius:6px;display:flex;flex-direction:column;justify-content:center;align-items:center;'
         f'position:relative;overflow:hidden">'
         f'<div class="t-overline" style="position:absolute;top:10px;left:10px;letter-spacing:1px;'
@@ -538,13 +514,22 @@ _v_36 = (
     '<div class="t-caption" style="margin-top:var(--s-2);text-align:center;padding:0 var(--s-2)">떨어질 확률입니다.</div>'
 )
 S_36 = (
-    sian_mockups("3.6%", _h_36, _v_36)
+    '<div class="t-overline is-accent" style="text-align:center;margin-bottom:var(--s-2)">RE-FRAMING &nbsp;#1</div>'
+    '<div class="t-title" style="text-align:center;margin-bottom:var(--s-3);line-height:1.25">'
+    '"96.4%"가 아니라,<br>'
+    '<span class="is-accent">"3.6%"</span>입니다.</div>'
+    + sian_mockups("3.6%", _h_36, _v_36)
+    + '<div class="t-body is-muted" style="text-align:center;margin-top:var(--s-3);font-style:italic">'
+      '성공의 크기가 아닌, 실패의 작음으로.'
+      '</div>'
     + script(
-        '<strong>[크리에이티브 브리프]</strong><br>'
-        '탈락률 3.6%. 이 숫자가 부서지는 순간, 96.4%가 보입니다.<br><br>'
+        '<strong>[리프레이밍 #1]</strong><br>'
+        '<strong>96.4%가 아니라, 3.6%입니다.</strong><br><br>'
         '"(3초 침묵. 숫자를 보게 둔다.)<br><br>'
-        '3.6%. 영산대 항공서비스학과에서 <strong>취업에 실패한 사람의 비율</strong>입니다.<br>'
-        '나머지 96.4%는 지금 일하고 있습니다."'
+        '3.6%. 영산대 항공서비스학과에서 <strong>취업에 실패한 사람</strong>의 비율입니다.<br>'
+        '나머지 96.4%는 지금 일하고 있습니다.<br><br>'
+        '성공을 말하면 자랑이 됩니다.<br>'
+        '실패의 작음을 말하면, <strong>증명</strong>이 됩니다."'
     )
 )
 
@@ -579,14 +564,22 @@ _v_qs = (
     '</div>'
 )
 S_QS = (
-    sian_mockups("QS 55위", _h_qs, _v_qs)
+    '<div class="t-overline is-accent" style="text-align:center;margin-bottom:var(--s-2)">RE-FRAMING &nbsp;#2</div>'
+    '<div class="t-title" style="text-align:center;margin-bottom:var(--s-3);line-height:1.25">'
+    '"국내 우수 호스피탈리티"가 아니라,<br>'
+    '<span class="is-accent">"글로벌 55위 영산대"</span>입니다.</div>'
+    + sian_mockups("QS 55위", _h_qs, _v_qs)
+    + '<div class="t-body is-muted" style="text-align:center;margin-top:var(--s-3);font-style:italic">'
+      '대한민국이 아닌, 세계 안에서.'
+      '</div>'
     + script(
-        '<strong>[크리에이티브 브리프]</strong><br>'
-        'MIT 1위, Stanford 3위... 55위에 낯선 이름이 있습니다.<br><br>'
+        '<strong>[리프레이밍 #2]</strong><br>'
+        '<strong>국내 우수가 아니라, 글로벌 55위입니다.</strong><br><br>'
         '"MIT, Imperial, Stanford.<br>'
         '이 리스트에 <strong>55위, 낯선 이름</strong>이 있습니다.<br>'
         'YsU. 부산. <strong>영산대학교입니다.</strong><br><br>'
-        'QS 호스피탈리티 부문 세계 55위. 팩트입니다."'
+        'QS 호스피탈리티 부문, <strong>글로벌 55위</strong>.<br>'
+        '대한민국이 아닌, 세계 안에서 증명합니다."'
     )
 )
 
@@ -628,13 +621,22 @@ _v_room = (
     '</div>'
 )
 S_ROOM = (
-    sian_mockups("Room 1201", _h_room, _v_room)
+    '<div class="t-overline is-accent" style="text-align:center;margin-bottom:var(--s-2)">RE-FRAMING &nbsp;#3</div>'
+    '<div class="t-title" style="text-align:center;margin-bottom:var(--s-3);line-height:1.25">'
+    '"25명의 총지배인"이 아니라,<br>'
+    '<span class="is-accent">"25개 호텔 · 하나의 대학"</span>입니다.</div>'
+    + sian_mockups("Room 1201", _h_room, _v_room)
+    + '<div class="t-body is-muted" style="text-align:center;margin-top:var(--s-3);font-style:italic">'
+      '개인이 아닌, 네트워크로.'
+      '</div>'
     + script(
-        '<strong>[크리에이티브 브리프]</strong><br>'
-        '복도 끝까지 같은 직함. 같은 학교.<br><br>'
-        '"(5초간 침묵. 평가위원이 리스트를 훑을 시간을 준다.)<br><br>'
-        '25명. 국내 호텔 총지배인 최다 배출.<br>'
-        '<strong>전부 영산대학교 졸업생입니다.</strong>"'
+        '<strong>[리프레이밍 #3]</strong><br>'
+        '<strong>25명이 아니라, 25개 호텔 · 하나의 대학입니다.</strong><br><br>'
+        '"(5초 침묵. 평가위원이 리스트를 훑을 시간을 준다.)<br><br>'
+        '25개의 이름. 서로 다른 복도, 서로 다른 호텔.<br>'
+        '그런데 <strong>전부 영산대학교 졸업생</strong>입니다.<br><br>'
+        '한 명의 성공은 개인 얘기입니다.<br>'
+        '25개의 네트워크는, <strong>증명</strong>입니다."'
     )
 )
 
