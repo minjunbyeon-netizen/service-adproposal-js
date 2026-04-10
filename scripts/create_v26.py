@@ -195,21 +195,47 @@ S_CONCEPT = (
     )
 )
 
-# ===== 10. 시안 "3.6%" + 브리프 1줄 + 스크립트 =====
+# ===== 시안 공통 mockup 헬퍼 =====
+# 16:9 가로형 + 9:16 세로형 모두 같은 높이(420px)로 화면 중앙 배치
+def sian_mockups(label, h_content, v_content):
+    return (
+        '<div style="display:flex;justify-content:center;align-items:center;gap:32px;padding:20px 0">'
+        # 16:9 가로형
+        f'<div style="width:747px;height:420px;background:#F5F5F5;border:2px solid #E8E8E8;'
+        f'border-radius:6px;display:flex;flex-direction:column;justify-content:center;align-items:center;'
+        f'position:relative;overflow:hidden">'
+        f'<div style="position:absolute;top:8px;left:8px;font-size:9px;font-weight:700;letter-spacing:1px;'
+        f'color:#fff;background:#58595B;padding:2px 8px;border-radius:2px">16:9 가로형 / {label}</div>'
+        f'{h_content}'
+        f'</div>'
+        # 9:16 세로형 (같은 높이)
+        f'<div style="width:236px;height:420px;background:#F5F5F5;border:2px solid #E8E8E8;'
+        f'border-radius:6px;display:flex;flex-direction:column;justify-content:center;align-items:center;'
+        f'position:relative;overflow:hidden">'
+        f'<div style="position:absolute;top:8px;left:8px;font-size:9px;font-weight:700;letter-spacing:1px;'
+        f'color:#fff;background:#58595B;padding:2px 8px;border-radius:2px">9:16 세로형</div>'
+        f'{v_content}'
+        f'</div>'
+        '</div>'
+    )
+
+
+# ===== 11. 시안 "3.6%" =====
+_h_36 = (
+    '<div style="font-size:120px;font-weight:700;color:#1A1A1A;font-family:Roboto,sans-serif;'
+    'letter-spacing:-4px;line-height:1">3.6%</div>'
+    '<div style="margin-top:16px;font-size:13px;color:#6E6E73">떨어질 확률입니다.</div>'
+)
+_v_36 = (
+    '<div style="font-size:56px;font-weight:700;color:#1A1A1A;font-family:Roboto,sans-serif;'
+    'letter-spacing:-2px;line-height:1">3.6%</div>'
+    '<div style="margin-top:12px;font-size:11px;color:#6E6E73;text-align:center;padding:0 16px">떨어질 확률입니다.</div>'
+)
 S_36 = (
-    '<div style="display:flex;flex-direction:column;align-items:flex-start;padding:20px 0;min-height:360px">'
-    '<div style="position:relative;margin-bottom:12px">'
-    '<span style="font-size:200px;font-weight:700;color:#000;font-family:Roboto,sans-serif;letter-spacing:-4px;line-height:1;'
-    'display:inline-block;background:linear-gradient(180deg,#000 60%,rgba(0,0,0,0.15) 100%);'
-    '-webkit-background-clip:text;-webkit-text-fill-color:transparent">3.6%</span></div>'
-    '<div style="font-size:18px;color:#6E6E73;line-height:1.8;margin-bottom:24px">'
-    '항공서비스학과를 졸업하고,<br>취업하지 못한 사람의 비율.</div>'
-    '<div style="font-size:24px;color:#000;font-weight:700;margin-bottom:32px">'
-    '나머지 <span style="color:#E84E10">96.4%</span>는 일하고 있습니다.</div>'
-    '<div style="font-size:14px;color:#6E6E73;letter-spacing:1px">이름을 가려도 보이는 대학.</div>'
-    '</div>'
-    '<div style="font-size:13px;color:#58595B;font-style:italic;margin-top:8px;padding:8px 0;border-top:1px solid #E8E8E8">'
-    '탈락률 3.6%. 이 숫자가 부서지는 순간, 96.4%가 보입니다.</div>'
+    sian_mockups("3.6%", _h_36, _v_36)
+    + '<div style="text-align:center;font-size:13px;color:#58595B;font-style:italic;margin-top:16px;'
+      'padding:8px 0;border-top:1px solid #E8E8E8">'
+      '탈락률 3.6%. 이 숫자가 부서지는 순간, 96.4%가 보입니다.</div>'
     + script(
         '"(3초 침묵. 숫자를 보게 둔다.)<br><br>'
         '3.6%. 영산대 항공서비스학과에서 <strong>취업에 실패한 사람의 비율</strong>입니다.<br>'
@@ -217,25 +243,41 @@ S_36 = (
     )
 )
 
-# ===== 11. 시안 "QS 55위" + 브리프 + 스크립트 =====
-S_QS = (
-    '<div style="max-width:700px;margin:0 auto;padding:20px 0">'
-    '<div style="text-align:center;font-size:15px;color:#999;line-height:2.2">'
+# ===== 12. 시안 "QS 55위" =====
+_h_qs = (
+    '<div style="padding:0 32px;width:100%">'
+    '<div style="font-size:11px;color:#999;line-height:1.8;text-align:center">'
     '1st. MIT / USA<br>2nd. Imperial College London / UK<br>3rd. Stanford University / USA</div>'
-    '<div style="text-align:center;padding:24px 0;font-size:18px;color:#ccc;letter-spacing:8px">.<br>.<br>.</div>'
-    '<div style="text-align:center;padding:20px 0">'
-    '<span style="font-size:72px;font-weight:700;color:#1A1A1A;font-family:Roboto,sans-serif">'
-    '55<span style="font-size:36px;color:#58595B">th</span></span>'
-    '<span style="font-size:48px;font-weight:700;color:#E84E10;margin-left:24px">YsU</span>'
-    '<span style="font-size:24px;color:#58595B;margin-left:12px">/ BUSAN</span></div>'
-    '<div style="text-align:center;font-size:14px;color:#bbb;line-height:2">'
-    '56th. Oxford Brookes University / UK<br>'
-    '<span style="color:#ccc">57th. Universidade de Lisboa / Portugal</span><br>'
-    '<span style="color:#ddd;font-size:13px">58th. Kyung Hee University / Korea</span></div></div>'
-    '<div style="text-align:center;margin-top:16px;font-size:12px;color:#6E6E73">'
-    'QS World University Rankings by Subject 2025: Hospitality &amp; Leisure Management</div>'
-    '<div style="font-size:13px;color:#58595B;font-style:italic;margin-top:16px;padding:8px 0;border-top:1px solid #E8E8E8">'
-    'MIT 1위, Stanford 3위... 55위에 낯선 이름이 있습니다.</div>'
+    '<div style="text-align:center;padding:12px 0;font-size:14px;color:#ccc;letter-spacing:6px">.<br>.<br>.</div>'
+    '<div style="text-align:center">'
+    '<span style="font-size:56px;font-weight:700;color:#1A1A1A;font-family:Roboto">'
+    '55<span style="font-size:28px;color:#58595B">th</span></span>'
+    '<span style="font-size:36px;font-weight:700;color:#E84E10;margin-left:16px">YsU</span>'
+    '<span style="font-size:16px;color:#58595B;margin-left:8px">/ BUSAN</span></div>'
+    '<div style="text-align:center;font-size:10px;color:#bbb;line-height:1.8;margin-top:8px">'
+    '56th. Oxford Brookes / UK<br>'
+    '<span style="color:#ccc">57th. Lisboa / Portugal</span></div>'
+    '</div>'
+)
+_v_qs = (
+    '<div style="padding:0 10px;width:100%">'
+    '<div style="font-size:8px;color:#999;line-height:1.8;text-align:center">'
+    '1st. MIT<br>2nd. Imperial<br>3rd. Stanford</div>'
+    '<div style="text-align:center;padding:6px 0;font-size:10px;color:#ccc;letter-spacing:4px">.<br>.<br>.</div>'
+    '<div style="text-align:center">'
+    '<div style="font-size:32px;font-weight:700;color:#1A1A1A;font-family:Roboto;line-height:1">'
+    '55<span style="font-size:16px;color:#58595B">th</span></div>'
+    '<div style="font-size:22px;font-weight:700;color:#E84E10;margin-top:4px">YsU</div>'
+    '<div style="font-size:10px;color:#58595B">/ BUSAN</div></div>'
+    '<div style="text-align:center;font-size:8px;color:#bbb;line-height:1.8;margin-top:6px">'
+    '56th. Oxford Brookes<br>57th. Lisboa</div>'
+    '</div>'
+)
+S_QS = (
+    sian_mockups("QS 55위", _h_qs, _v_qs)
+    + '<div style="text-align:center;font-size:13px;color:#58595B;font-style:italic;margin-top:16px;'
+      'padding:8px 0;border-top:1px solid #E8E8E8">'
+      'MIT 1위, Stanford 3위... 55위에 낯선 이름이 있습니다.</div>'
     + script(
         '"MIT, Imperial, Stanford.<br>'
         '이 리스트에 <strong>55위, 낯선 이름</strong>이 있습니다.<br>'
@@ -244,43 +286,48 @@ S_QS = (
     )
 )
 
-# ===== 12. 시안 "Room 1201" + 브리프 + 스크립트 =====
-S_ROOM = (
-    '<div style="background:#1A1A1A;color:#fff;padding:40px;border-radius:8px;min-height:360px;position:relative">'
-    '<div style="font-size:72px;font-weight:700;font-family:Roboto,sans-serif;letter-spacing:2px;margin-bottom:32px">'
+# ===== 13. 시안 "Room 1201" =====
+_h_room = (
+    '<div style="background:#1A1A1A;width:100%;height:100%;padding:24px;display:flex;flex-direction:column">'
+    '<div style="font-size:36px;font-weight:700;color:#fff;font-family:Roboto;letter-spacing:1px;margin-bottom:12px">'
     'Room 1201</div>'
-    '<div style="font-size:11px;color:#888;line-height:1.8;margin-bottom:24px;max-width:50%">'
-    '총지배인 &nbsp; 파라다이스호텔 부산<br>'
-    '총지배인 &nbsp; 해운대그랜드호텔<br>'
-    '총지배인 &nbsp; 롯데호텔 부산<br>'
-    '총지배인 &nbsp; 힐튼 부산<br>'
-    '총지배인 &nbsp; 웨스틴조선 부산<br>'
-    '총지배인 &nbsp; 시그니엘 부산<br>'
-    '총지배인 &nbsp; 파크하얏트 부산<br>'
-    '총지배인 &nbsp; 인터컨티넨탈 서울<br>'
-    '총지배인 &nbsp; 메리어트 서울<br>'
-    '총지배인 &nbsp; 쉐라톤 서울<br>'
-    '총지배인 &nbsp; 노보텔 앰배서더<br>'
-    '총지배인 &nbsp; 라마다 서울<br>'
-    '총지배인 &nbsp; 베스트웨스턴 제주<br>'
-    '총지배인 &nbsp; 켄싱턴호텔 경주<br>'
-    '총지배인 &nbsp; 한화리조트 설악<br>'
-    '총지배인 &nbsp; 롯데리조트 속초<br>'
-    '총지배인 &nbsp; 신라스테이 광화문<br>'
-    '총지배인 &nbsp; 포시즌스 서울<br>'
-    '총지배인 &nbsp; 반얀트리 서울<br>'
-    '총지배인 &nbsp; 콘래드 서울<br>'
-    '총지배인 &nbsp; 페어몬트 앰배서더<br>'
-    '총지배인 &nbsp; JW메리어트 서울<br>'
-    '총지배인 &nbsp; 그랜드하얏트 서울<br>'
-    '총지배인 &nbsp; 밀레니엄힐튼 서울<br>'
-    '총지배인 &nbsp; 이비스 앰배서더</div>'
-    '<div style="font-size:28px;font-weight:700;color:#fff;margin-bottom:16px">'
+    '<div style="font-size:8px;color:#888;line-height:1.6;flex:1;column-count:2;column-gap:12px">'
+    '총지배인 파라다이스 부산<br>총지배인 해운대그랜드<br>총지배인 롯데 부산<br>'
+    '총지배인 힐튼 부산<br>총지배인 웨스틴조선<br>총지배인 시그니엘<br>'
+    '총지배인 파크하얏트<br>총지배인 인터컨티넨탈<br>총지배인 메리어트<br>'
+    '총지배인 쉐라톤 서울<br>총지배인 노보텔<br>총지배인 라마다 서울<br>'
+    '총지배인 베스트웨스턴<br>총지배인 켄싱턴 경주<br>총지배인 한화리조트<br>'
+    '총지배인 롯데리조트<br>총지배인 신라스테이<br>총지배인 포시즌스<br>'
+    '총지배인 반얀트리<br>총지배인 콘래드<br>총지배인 페어몬트<br>'
+    '총지배인 JW메리어트<br>총지배인 그랜드하얏트<br>총지배인 밀레니엄<br>'
+    '총지배인 이비스</div>'
+    '<div style="font-size:14px;font-weight:700;color:#fff;margin-top:8px">'
     '25명. 전부 같은 학교.</div>'
-    '<div style="font-size:14px;color:#6E6E73;letter-spacing:1px">'
-    '이름을 가려도 보이는 대학.</div></div>'
-    '<div style="font-size:13px;color:#58595B;font-style:italic;margin-top:16px;padding:8px 0;border-top:1px solid #E8E8E8">'
-    '복도 끝까지 같은 직함. 같은 학교.</div>'
+    '</div>'
+)
+_v_room = (
+    '<div style="background:#1A1A1A;width:100%;height:100%;padding:16px;display:flex;flex-direction:column">'
+    '<div style="font-size:20px;font-weight:700;color:#fff;font-family:Roboto;letter-spacing:1px;margin-bottom:10px">'
+    'Room 1201</div>'
+    '<div style="font-size:6.5px;color:#888;line-height:1.55;flex:1">'
+    '총지배인 파라다이스<br>총지배인 해운대그랜드<br>총지배인 롯데 부산<br>'
+    '총지배인 힐튼 부산<br>총지배인 웨스틴조선<br>총지배인 시그니엘<br>'
+    '총지배인 파크하얏트<br>총지배인 인터컨티넨탈<br>총지배인 메리어트<br>'
+    '총지배인 쉐라톤<br>총지배인 노보텔<br>총지배인 라마다<br>'
+    '총지배인 베스트웨스턴<br>총지배인 켄싱턴<br>총지배인 한화리조트<br>'
+    '총지배인 롯데리조트<br>총지배인 신라스테이<br>총지배인 포시즌스<br>'
+    '총지배인 반얀트리<br>총지배인 콘래드<br>총지배인 페어몬트<br>'
+    '총지배인 JW메리어트<br>총지배인 그랜드하얏트<br>총지배인 밀레니엄<br>'
+    '총지배인 이비스</div>'
+    '<div style="font-size:10px;font-weight:700;color:#fff;margin-top:6px">'
+    '25명. 같은 학교.</div>'
+    '</div>'
+)
+S_ROOM = (
+    sian_mockups("Room 1201", _h_room, _v_room)
+    + '<div style="text-align:center;font-size:13px;color:#58595B;font-style:italic;margin-top:16px;'
+      'padding:8px 0;border-top:1px solid #E8E8E8">'
+      '복도 끝까지 같은 직함. 같은 학교.</div>'
     + script(
         '"(5초간 침묵. 평가위원이 리스트를 훑을 시간을 준다.)<br><br>'
         '25명. 국내 호텔 총지배인 최다 배출.<br>'
