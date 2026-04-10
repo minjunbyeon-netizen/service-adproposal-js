@@ -813,34 +813,47 @@ S_VIDEO_INTRO = (
     )
 )
 
-# ===== 15-B. THE PROTAGONIST (왜 '지혜'인가) =====
+# ===== 15-B. THE PROTAGONIST -- 3갈래 의미 수렴 =====
 S_VIDEO_WHY = (
-    '<div style="padding:var(--s-5) 0;text-align:center">'
-    '<div class="t-overline is-accent" style="margin-bottom:var(--s-5)">THE PROTAGONIST</div>'
-    '<div class="t-heading" style="margin-bottom:var(--s-4)">'
-    '왜 "<span class="is-accent">지혜</span>"인가?</div>'
-    # short bar
+    '<div style="padding:var(--s-3) 0;text-align:center">'
+    '<div class="t-overline is-accent" style="margin-bottom:var(--s-3)">THE PROTAGONIST</div>'
+    # 상단 작은 질문
+    '<div class="t-body is-muted" style="margin-bottom:var(--s-3)">왜 \'지혜\'인가?</div>'
+    # 중앙 거대 타이포
+    '<div class="t-hero" style="margin-bottom:var(--s-4)">지혜.</div>'
+    # 주황 short bar
     '<div style="width:60px;height:3px;background:#E84E10;margin:0 auto var(--s-5)"></div>'
-    # WISE YOU
-    '<div class="t-body is-muted" style="margin-bottom:var(--s-2)">영산대의 한 마디</div>'
-    '<div class="t-title" style="margin-bottom:var(--s-4)">WISE YOU</div>'
+    # 3갈래 의미 리스트 (각 줄: overline 고정폭 + 본문)
+    '<div style="display:inline-block;text-align:left;max-width:760px;margin-bottom:var(--s-4)">'
+    # 1. 校訓
+    '<div style="display:flex;align-items:baseline;gap:var(--s-4);padding:var(--s-2) 0;border-bottom:1px solid #E8E8E8">'
+    '<div class="t-overline" style="width:130px;flex-shrink:0">① 校訓</div>'
+    '<div class="t-subtitle w-regular">"지혜가 실력이다" — 영산대학교</div>'
+    '</div>'
+    # 2. 영상 주인공
+    '<div style="display:flex;align-items:baseline;gap:var(--s-4);padding:var(--s-2) 0;border-bottom:1px solid #E8E8E8">'
+    '<div class="t-overline" style="width:130px;flex-shrink:0">② 영상 주인공</div>'
+    '<div class="t-subtitle w-regular">누군가 부르면, <span class="is-ink w-bold">돌아보는 사람</span>.</div>'
+    '</div>'
+    # 3. 졸업생 공통
+    '<div style="display:flex;align-items:baseline;gap:var(--s-4);padding:var(--s-2) 0">'
+    '<div class="t-overline" style="width:130px;flex-shrink:0">③ 졸업생</div>'
+    '<div class="t-subtitle w-regular">항공 · 호텔 · 경찰 · 뷰티 현장, <span class="is-accent w-bold">바로 그 이름</span>.</div>'
+    '</div>'
+    '</div>'
     # 화살표
-    '<div style="font-size:28px;color:#6E6E73;line-height:1;margin-bottom:var(--s-4);font-weight:300">↓</div>'
-    '<div class="t-subtitle w-regular" style="margin-bottom:var(--s-5)">'
-    '그 \'<span class="is-accent w-bold">지혜</span>\'를 주인공으로 세웠습니다.</div>'
-    # long divider
-    '<div style="width:520px;height:1px;background:#E8E8E8;margin:0 auto var(--s-4)"></div>'
+    '<div style="font-size:28px;color:#6E6E73;line-height:1;margin-bottom:var(--s-3);font-weight:300">↓</div>'
     # 결론
-    '<div class="t-body is-muted">'
-    '각계각층에서 활동 중인 <span class="is-ink w-bold">영산대 졸업생들</span>.<br>'
-    '— 그 자체가 증명입니다.'
+    '<div class="t-subtitle">'
+    '한 이름, 세 갈래. <span class="is-accent w-bold">하나의 증명.</span>'
     '</div>'
     '</div>'
     + script(
-        '"왜 <strong>\'지혜\'</strong>인가요?<br><br>'
-        '영산대의 한 마디는 <strong>WISE YOU</strong>입니다.<br>'
-        '그래서 저희는, \'지혜\'를 주인공으로 세웠습니다.<br><br>'
-        '왜냐하면 각계각층에서 활동 중인 영산대 졸업생들이, 곧 <strong>증명</strong>이기 때문입니다.<br><br>'
+        '"왜 <strong>\'지혜\'</strong>인가요? 세 가지 이유가 한 단어에 있습니다.<br><br>'
+        '<strong>첫째,</strong> 영산대 校訓이 <strong>지혜가 실력이다</strong>입니다.<br>'
+        '<strong>둘째,</strong> 영상 속 주인공의 이름입니다 -- 누군가 부르면 돌아보는 사람.<br>'
+        '<strong>셋째,</strong> 각계각층 영산대 졸업생들이 불리는, 바로 그 이름입니다.<br><br>'
+        '한 이름, 세 갈래의 의미. <strong>하나의 증명</strong>입니다.<br><br>'
         '이제, 실제 영상입니다."'
     )
 )
