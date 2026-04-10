@@ -17,7 +17,31 @@ migrate_db()
 cb, sb_body = concept_A()
 cc = "이름을 가려봐."
 tl = "이름을 가려도 보이는 대학."
-combined = f"**컨셉:** {cc}\n\n{cb}\n\n---\n\n**슬로건:** {tl}\n\n{sb_body}"
+# 슬라이드 10 -- 중복 숫자 4줄 삭제, 슬로건 한 줄만
+combined = (
+    '<div style="padding:20px 0">'
+    # 컨셉 블록
+    '<div style="margin-bottom:48px">'
+    '<div style="font-size:13px;color:#E84E10;font-weight:700;letter-spacing:3px;margin-bottom:16px">'
+    'CONCEPT · 컨셉</div>'
+    '<div style="font-size:64px;font-weight:700;color:#1A1A1A;line-height:1.1;margin-bottom:28px;letter-spacing:-2px">'
+    '이름을 가려봐.</div>'
+    '<div style="font-size:22px;color:#58595B;line-height:1.8">'
+    '<strong style="color:#1A1A1A">숫자를 보면 명문대. 이름을 보면 영산대.</strong><br>'
+    '그래서 우리는, 이름을 가립니다.'
+    '</div>'
+    '</div>'
+    # 구분선
+    '<div style="height:1px;background:#E8E8E8;margin:0 0 36px"></div>'
+    # 슬로건 블록 (중복 숫자 없음)
+    '<div>'
+    '<div style="font-size:13px;color:#E84E10;font-weight:700;letter-spacing:3px;margin-bottom:16px">'
+    'SLOGAN · 슬로건</div>'
+    '<div style="font-size:48px;font-weight:700;color:#1A1A1A;line-height:1.15;letter-spacing:-1px">'
+    '이름을 가려도 보이는 대학.</div>'
+    '</div>'
+    '</div>'
+)
 
 # 스크립트 사이드 패널 헬퍼
 def script(text):
@@ -307,21 +331,21 @@ S_LOSS = (
     '<div style="font-size:72px;font-weight:700;color:#58595B;line-height:1">96.4%</div>'
     '<div style="font-size:20px;color:#58595B;margin-top:16px">취업률</div>'
     '<div style="margin-top:32px;font-size:16px;color:#6E6E73;line-height:1.8">'
-    '"좋은 학교네요."<br>(고개를 끄덕이고 넘긴다)'
+    '"좋은 학교네요."<br>(3초 후 잊어버린다)'
     '</div></div>'
     '<div style="flex:1;background:#1A1A1A;border-radius:8px;padding:40px;text-align:center">'
     '<div style="font-size:14px;color:#E84E10;letter-spacing:2px;margin-bottom:16px">우리가 말하는 방식</div>'
     '<div style="font-size:72px;font-weight:700;color:#fff;line-height:1">3.6%</div>'
     '<div style="font-size:20px;color:#E84E10;margin-top:16px">탈락률</div>'
     '<div style="margin-top:32px;font-size:16px;color:#ccc;line-height:1.8">'
-    '"3.6%밖에 안 돼?"<br><strong style="color:#fff">(멈춘다)</strong>'
+    '"3.6%나 있다고?"<br><strong style="color:#fff">(멈춘다)</strong>'
     '</div></div></div>'
     '<div style="text-align:center;margin-top:24px;font-size:18px;color:#58595B">'
     '같은 숫자. 다른 반응.<br>'
     '사람은 얻는 것보다 <strong style="color:#E84E10">잃는 것</strong>에 2배 강하게 반응합니다.'
     '</div>'
     '<div style="text-align:center;margin-top:16px;font-size:16px;color:#6E6E73;font-style:italic">'
-    '지금 고개를 끄덕이셨다면, 학부모도 똑같이 반응합니다.'
+    '지금 <strong style="color:#E84E10">멈추셨다면</strong>, 학부모도 멈춥니다.'
     '</div>'
     + script(
         '"왼쪽은 모든 대학이 하는 방식입니다. 취업률 96.4%.<br>'
@@ -331,23 +355,48 @@ S_LOSS = (
     )
 )
 
-# ===== 신규: 8.5장 브릿지 (8->9 사이) =====
+# ===== 9. 브릿지 -- 가려진 상태 → 드러난 상태 =====
 S_BRIDGE = (
-    '<div style="padding:60px 0;text-align:center">'
-    '<div style="font-size:28px;color:#58595B;line-height:2.4">'
-    '서울대 취업률 <strong style="color:#1A1A1A">96.4%</strong><br>'
-    '고려대 취업률 <strong style="color:#1A1A1A">96.4%</strong><br>'
-    '영산대 취업률 <strong style="color:#1A1A1A">96.4%</strong>'
+    '<div style="display:flex;gap:60px;padding:20px 0;align-items:center;justify-content:center">'
+    # 왼쪽: 가린 상태
+    '<div style="text-align:center;flex:1">'
+    '<div style="font-size:12px;color:#6E6E73;letter-spacing:3px;margin-bottom:24px;text-transform:uppercase">'
+    'BEFORE · 이름을 가려본다면</div>'
+    '<div style="font-size:28px;line-height:2.2;color:#1A1A1A;font-weight:700">'
+    '■■대학교 <span style="color:#E84E10">96.4%</span><br>'
+    '■■대학교 <span style="color:#E84E10">96.4%</span><br>'
+    '■■대학교 <span style="color:#E84E10">96.4%</span>'
     '</div>'
-    '<div style="margin-top:48px;font-size:24px;color:#1A1A1A;font-weight:700">'
-    '이름을 가리면 구별이 안 됩니다.'
+    '</div>'
+    # 화살표
+    '<div style="font-size:48px;color:#E84E10;font-weight:300">→</div>'
+    # 오른쪽: 드러난 상태
+    '<div style="text-align:center;flex:1">'
+    '<div style="font-size:12px;color:#6E6E73;letter-spacing:3px;margin-bottom:24px;text-transform:uppercase">'
+    'AFTER · 이름을 열면</div>'
+    '<div style="font-size:28px;line-height:2.2;color:#1A1A1A;font-weight:700">'
+    '서울대 <span style="color:#58595B">96.4%</span><br>'
+    '고려대 <span style="color:#58595B">96.4%</span><br>'
+    '영산대 <span style="color:#58595B">96.4%</span>'
+    '</div>'
+    '</div>'
+    '</div>'
+    '<div style="text-align:center;margin-top:48px;padding-top:24px;border-top:1px solid #E8E8E8">'
+    '<div style="font-size:26px;color:#1A1A1A;font-weight:700;line-height:1.5">'
+    '이름을 가리면, 구별이 안 됩니다.'
+    '</div>'
+    '<div style="font-size:18px;color:#58595B;margin-top:14px">'
+    '그런데 왜, 수험생은 <strong style="color:#E84E10">이름만</strong> 봅니다.'
+    '</div>'
+    '<div style="font-size:13px;color:#6E6E73;margin-top:24px;font-style:italic">'
+    '다음 장부터, 이름을 가린 광고 5편을 보여드립니다.'
     '</div>'
     '</div>'
     + script(
-        '"서울대 96.4%, 고려대 96.4%, 영산대 96.4%.<br>'
-        '<strong>이름을 가리면 구별이 안 됩니다.</strong><br><br>'
-        '그래서 저희의 컨셉은 이것입니다."<br>'
-        '(다음 장으로 넘긴다)'
+        '"<strong>이름을 가려본다면</strong> -- 서울대도 96.4%, 고려대도 96.4%, 영산대도 96.4%.<br>'
+        '구별이 안 됩니다.<br><br>'
+        '그런데 왜, 수험생은 <strong>이름만</strong> 봅니다.<br><br>'
+        '그래서 저희는, 다음 장부터 <strong>이름을 가린 광고 5편</strong>을 보여드리겠습니다."'
     )
 )
 
@@ -467,8 +516,8 @@ _h_room = (
     '총지배인 반얀트리<br>총지배인 콘래드<br>총지배인 페어몬트<br>'
     '총지배인 JW메리어트<br>총지배인 그랜드하얏트<br>총지배인 밀레니엄<br>'
     '총지배인 이비스</div>'
-    '<div style="font-size:14px;font-weight:700;color:#fff;margin-top:8px">'
-    '25명. 전부 같은 학교.</div>'
+    '<div style="font-size:16px;font-weight:700;color:#fff;margin-top:8px">'
+    '25개의 이름. <span style="color:#E84E10">한 개의 학교.</span></div>'
     '</div>'
 )
 _v_room = (
@@ -485,8 +534,8 @@ _v_room = (
     '총지배인 반얀트리<br>총지배인 콘래드<br>총지배인 페어몬트<br>'
     '총지배인 JW메리어트<br>총지배인 그랜드하얏트<br>총지배인 밀레니엄<br>'
     '총지배인 이비스</div>'
-    '<div style="font-size:10px;font-weight:700;color:#fff;margin-top:6px">'
-    '25명. 같은 학교.</div>'
+    '<div style="font-size:10px;font-weight:700;color:#fff;margin-top:6px;line-height:1.3">'
+    '25개의 이름.<br><span style="color:#E84E10">한 개의 학교.</span></div>'
     '</div>'
 )
 S_ROOM = (
@@ -550,15 +599,15 @@ _sum_room_h = (
     '<div style="font-size:24px;font-weight:700;color:#fff;font-family:Roboto;letter-spacing:1px">Room 1201</div>'
     '<div style="font-size:7px;color:#888;line-height:1.4;margin-top:6px">'
     '총지배인 파라다이스<br>총지배인 해운대그랜드<br>총지배인 롯데 부산<br>... 25명 ...</div>'
-    '<div style="font-size:9px;color:#fff;font-weight:700;margin-top:6px">전부 같은 학교.</div>'
+    '<div style="font-size:10px;color:#fff;font-weight:700;margin-top:6px">25개의 이름. 한 개의 학교.</div>'
     '</div>'
 )
 _sum_room_v = (
     '<div style="text-align:center">'
     '<div style="font-size:13px;font-weight:700;color:#fff;font-family:Roboto">Room 1201</div>'
     '<div style="font-size:5px;color:#888;line-height:1.4;margin-top:4px">'
-    '25명<br>총지배인</div>'
-    '<div style="font-size:7px;color:#fff;font-weight:700;margin-top:4px">같은 학교</div>'
+    '25개 이름</div>'
+    '<div style="font-size:7px;color:#fff;font-weight:700;margin-top:4px;line-height:1.3">한 개의<br>학교</div>'
     '</div>'
 )
 
@@ -568,10 +617,10 @@ S_SIAN_SUMMARY_V26 = (
     + _mini_card("QS 55위", _sum_qs_h, _sum_qs_v)
     + _mini_card("Room 1201", _sum_room_h, _sum_room_v, dark=True)
     + '</div>'
-    + '<div style="text-align:center;margin-top:12px;font-size:15px;color:#1A1A1A;font-weight:700">'
-      '같은 숫자. 다른 방식. 느끼는 광고.</div>'
-    + '<div style="text-align:center;margin-top:6px;font-size:13px;color:#6E6E73">'
-      '이름을 가려도 보이는 대학. 영산대학교.</div>'
+    + '<div style="text-align:center;margin-top:12px;font-size:17px;color:#1A1A1A;font-weight:700">'
+      '세 장의 광고. 세 가지 증명.</div>'
+    + '<div style="text-align:center;margin-top:6px;font-size:15px;color:#E84E10;font-weight:700">'
+      '하나의 결론 -- 이름을 가려도 영산대입니다.</div>'
     + script(
         '"3.6%, QS 55위, Room 1201.<br>'
         '같은 숫자를 다른 방식으로 느끼게 만드는 것.<br>'
@@ -581,25 +630,26 @@ S_SIAN_SUMMARY_V26 = (
 
 # ===== 15. 영상 방향 + 컨셉 연결 보강 =====
 S_VIDEO_INTRO = (
-    "지면은 **편견을 부순다.**\n"
+    "**지면에서 우리는 이름을 가렸습니다.**\n\n"
     "3.6%, QS 55위, Room 1201. 숫자로 멈추게 하고, 반전으로 기억에 남겼습니다.\n\n"
-    "영상은 **편견 뒤에 있던 사람을 보여준다.**\n\n"
+    "**영상에서, 그 이름을 다시 불러봅니다.**\n\n"
     "---\n\n"
-    "WISE YOU.\n"
-    "지혜로운 너.\n"
-    "영산대학교가 밀고 있는 이 한 마디를,\n"
-    "사람 이름으로 풀었습니다.\n\n"
-    "> **\"우리는 모두 지혜입니다.\"**\n\n"
-    "비행기에서, 호텔에서, 경찰서에서, 뷰티 매장에서.\n"
+    "## 지혜.\n\n"
+    "영산대학교가 밀고 있는 **WISE YOU**.\n"
+    "이 한 마디를, 사람 이름으로 풀었습니다.\n\n"
+    "비행기 객실에서, 호텔 로비에서, 웨딩홀 주방에서, 뷰티숍 거울 앞에서.\n"
     "누군가 '지혜'를 부릅니다.\n"
     "뒤돌아보는 사람은 전부 영산대 졸업생입니다.\n\n"
-    "이 슬로건으로 홍보영상을 제작했습니다."
+    "> **\"지혜를 부르면, 영산대가 대답합니다.\"**\n\n"
+    "지혜를 4번 부르면, 4개 업계 1등이 돌아봅니다.\n"
+    "-- 영산대학교."
     + script(
-        '"지면 시안에서는 팩트의 임팩트로 편견을 부쉈습니다.<br>'
-        '영상에서는 그 편견 뒤에 있던 <strong>사람</strong>을 보여드리겠습니다.<br><br>'
-        'WISE YOU. 우리는 모두 지혜입니다.<br>'
-        '각 취업 현장에서 \'지혜\'를 부르면, 영산대 졸업생이 뒤돌아봅니다.<br>'
-        '이 슬로건으로 홍보영상을 제작했습니다."'
+        '"지면에서 저희는 <strong>이름을 가렸습니다</strong>.<br>'
+        '3.6%, 55위, Room 1201 -- 숫자로 증명했습니다.<br><br>'
+        '영상에서는, 그 <strong>이름을 다시 불러봅니다</strong>.<br>'
+        '비행기, 호텔, 웨딩홀, 뷰티숍 -- 네 번의 현장에서 \'지혜\'를 부르면,<br>'
+        '뒤돌아보는 사람은 전부 영산대 졸업생입니다.<br><br>'
+        '<strong>지혜를 부르면, 영산대가 대답합니다.</strong>"'
     )
 )
 
