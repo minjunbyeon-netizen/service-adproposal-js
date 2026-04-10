@@ -207,17 +207,50 @@ S_CONSULT = (
 
 # ===== 졸업선배 숏폼 (중복 방지) =====
 S_DOCU = (
-    "### 졸업선배 숏폼 시리즈 (연 4편)\n\n"
-    "**9월~12월 -- 입시 시즌에 맞춰 월 1편 공개**\n"
-    "**포맷:** 60초 릴스/숏폼 (9:16)\n\n"
-    "| 월 | 학과 | 현장 | 핵심 장면 |\n"
-    "|---|------|------|----------|\n"
-    "| 9월 | 항공서비스 | 기내 | 승무원 일상 60초 |\n"
-    "| 10월 | 호텔관광 | 호텔 로비 | 지배인 하루 60초 |\n"
-    "| 11월 | 경찰행정 | 순찰 현장 | 경위 하루 60초 |\n"
-    "| 12월 | 뷰티디자인 | 본인 매장 | 대표 하루 60초 |\n\n"
-    "인스타 릴스 + 유튜브 쇼츠 + 틱톡 동시 업로드.\n"
-    "정시 원서 접수 직전까지 4편 완성."
+    '<div style="display:flex;gap:32px;align-items:flex-start;padding:8px 0">'
+    # 좌측: 세로 영상 플레이어 (9:16)
+    '<div style="position:relative;width:456px;height:810px;background:#000;border-radius:6px;overflow:hidden;border:2px solid #E8E8E8;flex-shrink:0">'
+    '<video style="width:100%;height:100%;object-fit:contain;background:#000;display:block" '
+    'src="/assets/video/KakaoTalk_20260410_151555089.mp4" controls preload="metadata"></video>'
+    '<div style="position:absolute;top:14px;left:14px;font-size:10px;font-weight:700;'
+    'letter-spacing:1px;color:#fff;background:#E84E10;padding:3px 10px;border-radius:2px;pointer-events:none">'
+    '숏폼 · 9:16</div>'
+    '</div>'
+    # 우측: 설명
+    '<div style="flex:1;padding:16px 0">'
+    '<div style="font-size:22px;font-weight:700;color:#1A1A1A;margin-bottom:14px">'
+    '졸업선배 숏폼 시리즈 (연 4편)</div>'
+    '<div style="font-size:14px;color:#6E6E73;margin-bottom:24px">'
+    '9월~12월 · 입시 시즌 월 1편 공개 · 60초 릴스/숏폼 (9:16)</div>'
+    '<table style="width:100%;border-collapse:collapse;font-size:13px;margin-bottom:20px">'
+    '<thead><tr><th style="background:#F5F5F5;padding:8px 12px;border-bottom:2px solid #E84E10;text-align:left">월</th>'
+    '<th style="background:#F5F5F5;padding:8px 12px;border-bottom:2px solid #E84E10;text-align:left">학과</th>'
+    '<th style="background:#F5F5F5;padding:8px 12px;border-bottom:2px solid #E84E10;text-align:left">현장</th>'
+    '<th style="background:#F5F5F5;padding:8px 12px;border-bottom:2px solid #E84E10;text-align:left">핵심 장면</th></tr></thead>'
+    '<tbody>'
+    '<tr><td style="padding:8px 12px;border-bottom:1px solid #E8E8E8"><strong>9월</strong></td>'
+    '<td style="padding:8px 12px;border-bottom:1px solid #E8E8E8">항공서비스</td>'
+    '<td style="padding:8px 12px;border-bottom:1px solid #E8E8E8">기내</td>'
+    '<td style="padding:8px 12px;border-bottom:1px solid #E8E8E8">승무원 일상 60초</td></tr>'
+    '<tr><td style="padding:8px 12px;border-bottom:1px solid #E8E8E8"><strong>10월</strong></td>'
+    '<td style="padding:8px 12px;border-bottom:1px solid #E8E8E8">호텔관광</td>'
+    '<td style="padding:8px 12px;border-bottom:1px solid #E8E8E8">호텔 로비</td>'
+    '<td style="padding:8px 12px;border-bottom:1px solid #E8E8E8">지배인 하루 60초</td></tr>'
+    '<tr><td style="padding:8px 12px;border-bottom:1px solid #E8E8E8"><strong>11월</strong></td>'
+    '<td style="padding:8px 12px;border-bottom:1px solid #E8E8E8">경찰행정</td>'
+    '<td style="padding:8px 12px;border-bottom:1px solid #E8E8E8">순찰 현장</td>'
+    '<td style="padding:8px 12px;border-bottom:1px solid #E8E8E8">경위 하루 60초</td></tr>'
+    '<tr><td style="padding:8px 12px"><strong>12월</strong></td>'
+    '<td style="padding:8px 12px">뷰티디자인</td>'
+    '<td style="padding:8px 12px">본인 매장</td>'
+    '<td style="padding:8px 12px">대표 하루 60초</td></tr>'
+    '</tbody></table>'
+    '<div style="font-size:13px;color:#58595B;line-height:1.8;padding-top:12px;border-top:1px solid #E8E8E8">'
+    '인스타 릴스 + 유튜브 쇼츠 + 틱톡 <strong>동시 업로드</strong>.<br>'
+    '정시 원서 접수 직전까지 4편 완성.'
+    '</div>'
+    '</div>'
+    '</div>'
 )
 
 # ===== 1. 표지 (오프닝 스크립트) =====
@@ -714,28 +747,25 @@ S_VIDEO_INTRO = (
     )
 )
 
-# ===== 17. "지혜" 메인 영상 -- 16:9 비디오 플레이스홀더 (대형) =====
+# ===== 비디오 파일 경로 (가로형 / 세로형) =====
+VIDEO_HORIZONTAL = "/assets/video/KakaoTalk_20260410_151606259.mp4"  # 홍보영상 (가로)
+VIDEO_VERTICAL = "/assets/video/KakaoTalk_20260410_151555089.mp4"    # 숏폼 (세로)
+
+# ===== 17. "지혜" 메인 영상 -- 실제 비디오 재생 =====
 S_JIHYE = (
     '<div style="display:flex;justify-content:center;align-items:center;padding:0">'
-    '<div style="width:1440px;height:810px;background:#1A1A1A;border-radius:6px;'
-    'display:flex;flex-direction:column;justify-content:center;align-items:center;'
-    'position:relative;overflow:hidden;border:2px solid #E8E8E8">'
+    '<div style="position:relative;width:1440px;height:810px;background:#000;border-radius:6px;'
+    'overflow:hidden;border:2px solid #E8E8E8">'
+    '<video style="width:100%;height:100%;object-fit:contain;background:#000;display:block" '
+    f'src="{VIDEO_HORIZONTAL}" controls preload="metadata" '
+    'poster=""></video>'
     '<div style="position:absolute;top:16px;left:16px;font-size:11px;font-weight:700;'
-    'letter-spacing:1px;color:#fff;background:#E84E10;padding:4px 12px;border-radius:2px">'
-    '16:9 VIDEO</div>'
-    '<div style="width:120px;height:120px;border-radius:50%;background:rgba(255,255,255,.12);'
-    'display:flex;justify-content:center;align-items:center;border:3px solid rgba(255,255,255,.5);'
-    'margin-bottom:28px">'
-    '<div style="width:0;height:0;border-left:36px solid #fff;border-top:24px solid transparent;'
-    'border-bottom:24px solid transparent;margin-left:10px"></div>'
-    '</div>'
-    '<div style="font-size:40px;font-weight:700;color:#fff;letter-spacing:1px;margin-bottom:12px">'
-    '"지혜" 메인 영상 (60초)</div>'
-    '<div style="font-size:18px;color:#999;letter-spacing:1px">'
-    'WISE YOU &nbsp;|&nbsp; 우리는 모두 지혜입니다.</div>'
-    '<div style="position:absolute;bottom:16px;right:16px;font-size:11px;color:#666;font-family:monospace">'
-    '[video file to insert]</div>'
+    'letter-spacing:1px;color:#fff;background:#E84E10;padding:4px 12px;border-radius:2px;pointer-events:none">'
+    '홍보영상 · 16:9</div>'
     '</div></div>'
+    '<div style="text-align:center;margin-top:14px;font-size:13px;color:#6E6E73">'
+    '<strong style="color:#1A1A1A">"지혜" 메인 영상 (60초)</strong> &nbsp;·&nbsp; WISE YOU · 우리는 모두 지혜입니다.'
+    '</div>'
     + script(
         '<strong>[씬 구성]</strong><br>'
         '비행기 "지혜야~" → 호텔 "박지혜 지배인님" → 경찰서 "지혜 경위" → 뷰티 "지혜 선생님" → '
