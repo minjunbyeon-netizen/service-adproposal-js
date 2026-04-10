@@ -4,12 +4,12 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from api.db import get_conn, init_db, migrate_db
 from scripts.create_v8_to_v14 import RFP, SUMMARY, CONCEPTS, concept_A
-from scripts.create_v18 import grid16x9, grid9x16, S_PRINT, S_DIGITAL, S_SNS, S_PRESS, S_CONSULT, S_FEEDBACK
+from scripts.create_v18 import grid16x9, grid9x16, S_FEEDBACK
+# S_PRINT, S_DIGITAL, S_SNS, S_PRESS, S_CONSULT는 V26에서 재작성
 from scripts.create_v19 import S_GANTT
 from scripts.create_v20 import S_OPERATION
 # S_COMPANY는 V26에서 1~4 번호 구조로 재작성
-from scripts.create_v22 import S_YOUTUBE_V22
-from scripts.create_v23 import S_DOCU
+# S_YOUTUBE, S_DOCU는 V26에서 재작성 (a/b/c/d 기호 제거)
 
 init_db()
 migrate_db()
@@ -31,78 +31,165 @@ def parent(label):
 def tag(label):
     return f'<!--TAG:{label}-->'
 
-# ===== #3 제안업체 일반 -- 1~4 구조 (가상 데이터) =====
+# ===== #3 제안업체 일반 -- 1~4 row 구조 (간격 통일) =====
+def _co_row(num, title, hint, body_html):
+    return (
+        '<div style="display:flex;align-items:flex-start;padding:14px 0;border-bottom:1px solid #E8E8E8;gap:24px">'
+        # 좌측 번호+제목 고정 폭
+        f'<div style="width:220px;flex-shrink:0">'
+        f'<div style="font-size:13px;font-weight:700;color:#E84E10;letter-spacing:1px;line-height:1.4">'
+        f'{num}. {title}</div>'
+        + (f'<div style="font-size:11px;color:#6E6E73;margin-top:3px">{hint}</div>' if hint else '')
+        + '</div>'
+        # 우측 본문
+        f'<div style="flex:1;min-width:0;font-size:13px;line-height:1.8;color:#1A1A1A">{body_html}</div>'
+        '</div>'
+    )
+
 S_COMPANY = (
-    '<div style="display:grid;grid-template-columns:1fr 1fr;gap:24px 32px;padding:8px 0">'
-    # 1. 일반현황
-    '<div>'
-    '<div style="font-size:14px;font-weight:700;color:#E84E10;letter-spacing:1px;margin-bottom:10px">'
-    '1. 일반현황 <span style="color:#6E6E73;font-weight:400">(연혁 · 재무현황 · 매출액)</span></div>'
-    '<table style="width:100%;border-collapse:collapse;font-size:13px">'
-    '<tr><td style="padding:4px 8px;color:#6E6E73;width:60px">상호</td>'
-    '<td style="padding:4px 8px;font-weight:700">(주)하이브미디어</td></tr>'
-    '<tr><td style="padding:4px 8px;color:#6E6E73">설립</td>'
-    '<td style="padding:4px 8px">2018년 3월</td></tr>'
-    '<tr><td style="padding:4px 8px;color:#6E6E73">대표</td>'
-    '<td style="padding:4px 8px">변민준</td></tr>'
-    '<tr><td style="padding:4px 8px;color:#6E6E73">소재지</td>'
-    '<td style="padding:4px 8px">부산 해운대구</td></tr>'
-    '<tr><td style="padding:4px 8px;color:#6E6E73">자본금</td>'
-    '<td style="padding:4px 8px">1억원</td></tr>'
-    '<tr><td style="padding:4px 8px;color:#6E6E73">매출</td>'
-    '<td style="padding:4px 8px">2023년 <strong>6.1억</strong> → 2024년 <strong>7.4억</strong> → 2025년 <strong>8.2억</strong></td></tr>'
-    '</table>'
-    '</div>'
-
-    # 2. 조직 및 인원
-    '<div>'
-    '<div style="font-size:14px;font-weight:700;color:#E84E10;letter-spacing:1px;margin-bottom:10px">'
-    '2. 조직 및 인원 <span style="color:#6E6E73;font-weight:400">(총 12명)</span></div>'
-    '<div style="font-size:13px;line-height:1.9">'
-    '<div>· 총괄 PM <span style="color:#6E6E73">1명</span> (변민준 대표)</div>'
-    '<div>· 크리에이티브팀 <span style="color:#6E6E73">3명</span> (CD, 디자이너, 카피라이터)</div>'
-    '<div>· 매체/디지털팀 <span style="color:#6E6E73">2명</span> (플래너, 퍼포먼스)</div>'
-    '<div>· 영상 PD팀 <span style="color:#6E6E73">3명</span> (PD, 촬영감독, 편집)</div>'
-    '<div>· AE팀 <span style="color:#6E6E73">2명</span> (클라이언트 커뮤니케이션)</div>'
-    '<div>· 재무/운영 <span style="color:#6E6E73">1명</span></div>'
-    '</div>'
-    '</div>'
-
-    # 3. 주요 사업내용
-    '<div>'
-    '<div style="font-size:14px;font-weight:700;color:#E84E10;letter-spacing:1px;margin-bottom:10px">'
-    '3. 주요 사업내용</div>'
-    '<div style="font-size:13px;line-height:1.9">'
-    '· 통합 광고 기획 및 전략 수립<br>'
-    '· 크리에이티브 디자인 · 카피라이팅<br>'
-    '· TV · 옥외 · 디지털 매체 집행<br>'
-    '· 영상 제작 (홍보영상 · 숏폼 · 다큐)<br>'
-    '· SNS 운영 · 인플루언서 협업<br>'
-    '· 브랜드 컨설팅'
-    '</div>'
-    '</div>'
-
-    # 4. 주요 실적
-    '<div>'
-    '<div style="font-size:14px;font-weight:700;color:#E84E10;letter-spacing:1px;margin-bottom:10px">'
-    '4. 주요 실적 <span style="color:#6E6E73;font-weight:400">(사업명 · 기간 · 계약금액 · 발주처)</span></div>'
-    '<table style="width:100%;border-collapse:collapse;font-size:12px">'
-    '<tr><td style="padding:4px 6px;border-bottom:1px solid #E8E8E8"><strong>부산 강서구청 광고대행</strong></td>'
-    '<td style="padding:4px 6px;border-bottom:1px solid #E8E8E8;color:#6E6E73;text-align:right">2024~ / 연 1.5억</td></tr>'
-    '<tr><td style="padding:4px 6px;border-bottom:1px solid #E8E8E8"><strong>OO대학교 입시 홍보</strong></td>'
-    '<td style="padding:4px 6px;border-bottom:1px solid #E8E8E8;color:#6E6E73;text-align:right">2024 / 8천만</td></tr>'
-    '<tr><td style="padding:4px 6px;border-bottom:1px solid #E8E8E8"><strong>부산관광공사 관광영상 3종</strong></td>'
-    '<td style="padding:4px 6px;border-bottom:1px solid #E8E8E8;color:#6E6E73;text-align:right">2023 / 5천만</td></tr>'
-    '<tr><td style="padding:4px 6px;border-bottom:1px solid #E8E8E8"><strong>OO병원 브랜드 리뉴얼</strong></td>'
-    '<td style="padding:4px 6px;border-bottom:1px solid #E8E8E8;color:#6E6E73;text-align:right">2023~24 / 연 6천만</td></tr>'
-    '<tr><td style="padding:4px 6px"><strong>경남 OO시 관광 홍보</strong></td>'
-    '<td style="padding:4px 6px;color:#6E6E73;text-align:right">2022~23 / 연 1억</td></tr>'
-    '</table>'
-    '</div>'
-    '</div>'
-    '<div style="margin-top:16px;font-size:11px;color:#6E6E73;font-style:italic;text-align:center;padding-top:12px;border-top:1px solid #E8E8E8">'
+    '<div style="padding:4px 0;border-top:1px solid #E8E8E8">'
+    + _co_row("1", "일반현황", "연혁 · 재무현황 · 매출액",
+        '<span style="color:#6E6E73">상호</span> <strong>(주)하이브미디어</strong> · '
+        '<span style="color:#6E6E73">설립</span> 2018.03 · '
+        '<span style="color:#6E6E73">대표</span> 변민준 · '
+        '<span style="color:#6E6E73">소재지</span> 부산 해운대구 · '
+        '<span style="color:#6E6E73">자본금</span> 1억<br>'
+        '<span style="color:#6E6E73">매출</span> 2023년 <strong>6.1억</strong> → 2024년 <strong>7.4억</strong> → 2025년 <strong>8.2억</strong>')
+    + _co_row("2", "조직 및 인원", "총 12명",
+        '총괄 PM <strong>1</strong> · 크리에이티브 <strong>3</strong> · '
+        '매체/디지털 <strong>2</strong> · 영상 PD <strong>3</strong> · '
+        'AE <strong>2</strong> · 재무/운영 <strong>1</strong>')
+    + _co_row("3", "주요 사업내용", "",
+        '통합 광고 기획 · 크리에이티브 제작 · 매체 집행 · '
+        '영상 제작 (홍보/숏폼/다큐) · SNS 운영 · 인플루언서 협업 · 브랜드 컨설팅')
+    + _co_row("4", "주요 실적", "사업명 · 기간 · 계약금액 · 발주처",
+        '<table style="width:100%;border-collapse:collapse;font-size:12px">'
+        '<tr><td style="padding:3px 0;width:55%"><strong>부산 강서구청 구정 홍보 광고대행</strong></td>'
+        '<td style="padding:3px 0;color:#6E6E73;text-align:right">2024 ~ · 연 1.5억</td></tr>'
+        '<tr><td style="padding:3px 0"><strong>OO대학교 입시 홍보 캠페인</strong></td>'
+        '<td style="padding:3px 0;color:#6E6E73;text-align:right">2024 · 8천만</td></tr>'
+        '<tr><td style="padding:3px 0"><strong>부산관광공사 관광 영상 3종</strong></td>'
+        '<td style="padding:3px 0;color:#6E6E73;text-align:right">2023 · 5천만</td></tr>'
+        '<tr><td style="padding:3px 0"><strong>OO병원 브랜드 리뉴얼</strong></td>'
+        '<td style="padding:3px 0;color:#6E6E73;text-align:right">2023 ~ 2024 · 연 6천만</td></tr>'
+        '<tr><td style="padding:3px 0"><strong>경남 OO시 관광 홍보</strong></td>'
+        '<td style="padding:3px 0;color:#6E6E73;text-align:right">2022 ~ 2023 · 연 1억</td></tr>'
+        '</table>')
+    + '</div>'
+    '<div style="margin-top:14px;font-size:11px;color:#6E6E73;font-style:italic;text-align:center">'
     '※ 조직도, 재무제표, 투입 인력 상세 프로필은 별도 보고서를 참고해 주십시오.'
     '</div>'
+)
+
+# ===== 재작성 콘텐츠 (a/b/c/d/e 기호 제거) =====
+
+S_YOUTUBE_V22 = (
+    "자체 제작이 아닌 **섭외/협업** 기반.\n\n"
+    "| 인플루언서 | 구독자 | 콘텐츠 | 형식 |\n"
+    "|-----------|--------|--------|------|\n"
+    "| 진로탐구생활 (교육/진로) | 42만 | '숨은 명문대' 시리즈 -- 영산대 편 | 12분 |\n"
+    "| 호텔리어K (호텔업계) | 18만 | '총지배인 25명의 학교' 탐방 | 15분 |\n\n"
+    "섭외 확정 후 상세 기획 진행.\n"
+    "팩트(취업률, QS 순위) 자연 노출 방식."
+)
+
+S_PRINT = (
+    "**핵심 시안: \"3.6%\" 중심 배치**\n\n"
+    "팩트와 임팩트가 가장 강력한 '3.6%' 시안을 인쇄 매체 주력으로.\n\n"
+    "| 매체 | 시안 | 사양 |\n"
+    "|------|------|------|\n"
+    "| 버스쉘터 | 3.6% | 1200x1800mm, 양면 |\n"
+    "| 지하철 역사 | 3.6% | 2400x1200mm |\n"
+    "| 대학 내 현수막 | 3.6% + 슬로건 | 900x2400mm |\n"
+    "| 입시요강 표지 | 3.6% 변형 | A4 |\n"
+    "| 리플렛 | 4종 시안 종합 | 3단 접지 |\n\n"
+    "숫자 '3.6%'의 시각적 충격을 오프라인에서 극대화.\n"
+    "지나가는 사람이 멈추는 광고."
+)
+
+S_DIGITAL = (
+    "**실험적 다품종: \"심사위원석\" + \"Room 1201\" 중심**\n\n"
+    "디지털은 A/B 테스트가 가능. 여러 시안을 동시에 실험.\n\n"
+    "| 플랫폼 | 시안 | 형식 | 목적 |\n"
+    "|--------|------|------|------|\n"
+    "| 유튜브 프리롤 | 심사위원석 | 15초 영상 | 권위 반전 |\n"
+    "| 유튜브 프리롤 | Room 1201 | 15초 영상 | 밀도감 |\n"
+    "| 인스타 피드 | 3.6% | 정방형 이미지 | 숫자 충격 |\n"
+    "| 인스타 스토리 | 1학년 vs 졸업생 | 세로 영상 | 분할 대비 |\n"
+    "| 페이스북 | 4종 캐러셀 | 스와이프 | 시안 순회 |\n"
+    "| 네이버 DA | 3.6% 변형 | 배너 | 검색 연동 |\n\n"
+    "2주 단위 성과 측정 → 상위 시안 예산 집중 배분."
+)
+
+# ===== SNS 이벤트 (상세 디벨롭) =====
+S_SNS = (
+    "**3채널 통합 운영 + 월 1회 참여형 이벤트**\n\n"
+    "### 운영 채널\n\n"
+    "| 채널 | 주 콘텐츠 | 포스팅 주기 | 목표 지표 |\n"
+    "|------|-----------|------------|----------|\n"
+    "| 인스타그램 | 시안 이미지, 릴스, 스토리 | 주 3회 | 팔로워 +500/월 |\n"
+    "| 유튜브 쇼츠 | 숏폼, 졸업생 인터뷰 | 주 2회 | 조회수 3,000+/편 |\n"
+    "| 네이버 블로그 | 팩트 카드뉴스, 입시 가이드 | 주 2회 | 검색 상위 노출 |\n\n"
+    "### 월간 콘텐츠 캘린더\n\n"
+    "| 월 | 테마 | 콘텐츠 | 이벤트 |\n"
+    "|---|------|--------|--------|\n"
+    "| 3~4월 | 입학 시즌 | 1학년 첫날 브이로그 | 신입생 인증샷 해시태그 |\n"
+    "| 5~6월 | 수시 집중 | 취업률 팩트 카드뉴스 | 캠퍼스 투어 신청 이벤트 |\n"
+    "| 7월 | 수시 마감 | 지원 마감 카운트다운 | 지원자 응원 댓글 |\n"
+    "| 8~9월 | 원서 시즌 | 졸업생 현장 인터뷰 | 합격 기원 릴레이 |\n"
+    "| 10~11월 | 정시 대비 | QS 순위/실적 정리 | 입시 상담 라이브 |\n"
+    "| 12월 | 정시 마감 | 합격자 발표 준비 | 멘토 신청 접수 |\n"
+    "| 1~2월 | 합격 시즌 | 합격 축하 콘텐츠 | 선배 멘토링 매칭 |\n\n"
+    "### 이벤트 운영 원칙\n"
+    "- 전부 **참여형** (댓글/해시태그/인증샷) -- 단순 노출 X\n"
+    "- 경품 대신 **정보 보상** (입시 가이드, 선배 멘토링)\n"
+    "- 수시 집중기(5~7월) **예산 70% 투입**\n"
+    "- 학과별 민원 방지: 학과 로테이션 운영\n\n"
+    "### 성과 측정\n"
+    "월간 리포트 제공 · 분기별 전략 수정 · 연 2회 캠페인 리뷰"
+)
+
+S_PRESS = (
+    "| 매체 | 형태 | 시기 | 시안 |\n"
+    "|------|------|------|------|\n"
+    "| 부산일보 | 15단 전면 | 수시 원서 접수 전 (6월) | 3.6% |\n"
+    "| 국제신문 | 5단 통 | 정시 전 (12월) | 슬로건 |\n"
+    "| 대학저널 | 1/2면 | 연 2회 | 4종 시안 종합 |\n"
+    "| 네이버 메인 배너 | DA | 수시 기간 집중 | 심사위원석 |\n"
+    "| 교육 전문 매체 | 기사형 광고 | 분기 1회 | QS 순위 팩트 |\n\n"
+    "인쇄 매체는 '3.6%' 시안의 시각적 충격 극대화.\n"
+    "디지털 배너는 클릭 유도형 카피 적용."
+)
+
+# ===== 사업 관리 (III-2 제거) =====
+S_CONSULT = (
+    "**학과 홍보 자문 및 컨설팅**\n"
+    "- 학과별 차별화 포인트 발굴 자문 (월 1회 정기 미팅)\n"
+    "- 입시 홍보물 카피/디자인 컨설팅\n"
+    "- 학과 SNS 운영 가이드라인 제공\n\n"
+    "**광고 효과 측정 및 경과 분석**\n"
+    "- 매체별 노출/클릭/전환 대시보드 (월 2회 갱신)\n"
+    "- 분기별 종합 리포트 + 전략 수정안\n"
+    "- 입시 지원자 수 변동 추적 (광고 기여도 분석)\n\n"
+    "**본교 요구 업무**\n"
+    "- 긴급 제작물 48시간 내 납품\n"
+    "- 학교 행사(입학식/졸업식/축제) 현장 촬영 지원\n"
+    "- 교내 게시물 디자인 상시 지원"
+)
+
+# ===== 졸업선배 숏폼 (중복 방지) =====
+S_DOCU = (
+    "### 졸업선배 숏폼 시리즈 (연 4편)\n\n"
+    "**9월~12월 -- 입시 시즌에 맞춰 월 1편 공개**\n"
+    "**포맷:** 60초 릴스/숏폼 (9:16)\n\n"
+    "| 월 | 학과 | 현장 | 핵심 장면 |\n"
+    "|---|------|------|----------|\n"
+    "| 9월 | 항공서비스 | 기내 | 승무원 일상 60초 |\n"
+    "| 10월 | 호텔관광 | 호텔 로비 | 지배인 하루 60초 |\n"
+    "| 11월 | 경찰행정 | 순찰 현장 | 경위 하루 60초 |\n"
+    "| 12월 | 뷰티디자인 | 본인 매장 | 대표 하루 60초 |\n\n"
+    "인스타 릴스 + 유튜브 쇼츠 + 틱톡 동시 업로드.\n"
+    "정시 원서 접수 직전까지 4편 완성."
 )
 
 # ===== 1. 표지 (오프닝 스크립트) =====
@@ -596,14 +683,14 @@ def make_sections():
     T_IV_3 = "기타 제안 사항"
 
     return [
-        # I. 제안개요
-        (2, "제안배경", 1, parent(P_I) + S_BACKGROUND),
+        # I. 제안개요 (제목 삭제)
+        (2, "", 1, parent(P_I) + S_BACKGROUND),
         # II. 제안업체 일반
         (2, "제안업체 일반", 2, parent(P_II) + S_COMPANY),
         # III. 세부 과업 수행 계획 (간지)
         (1, "III. 세부 과업 수행 계획", 3, None),
 
-        # III. 1 - 소재 발굴 및 콘텐츠 기획 (빌드업 6장 + 컨셉 + 시안 4장 = 10장)
+        # III. 1 - 소재 발굴 및 콘텐츠 기획 (빌드업 5장 + 컨셉 + 시안 4장 = 10장)
         (2, T_SOURCE, 4, parent(P_III) + tag("빌드업 · 호기심 갭") + S_NUMBERS),
         (2, T_SOURCE, 5, parent(P_III) + tag("빌드업 · 해체") + S_TRANSITION),
         (2, T_SOURCE, 6, parent(P_III) + tag("빌드업 · 칵테일 파티 효과") + S_COCKTAIL),
@@ -619,30 +706,29 @@ def make_sections():
         (1, "대학 공식 홍보영상", 14, None),
         (2, T_VIDEO, 15, parent(P_III) + tag("영상 콘텐츠 방향") + S_VIDEO_INTRO),
         (2, T_VIDEO, 16, parent(P_III) + tag('메인 영상 · "지혜" (60초)') + S_JIHYE),
-        (2, T_VIDEO, 17, parent(P_III) + tag("졸업선배 숏폼 · 9~12월 4편") + S_DOCU),
 
-        # III. 1 - 유튜브
-        (2, T_YOUTUBE, 18, parent(P_III) + tag("인플루언서 섭외") + S_YOUTUBE_V22),
-        # III. 1 - 인쇄
-        (2, T_PRINT, 19, parent(P_III) + tag('"3.6%" 중심 배치') + S_PRINT),
-        # III. 1 - 디지털
-        (2, T_DIGITAL, 20, parent(P_III) + tag('"심사위원석" + "Room 1201" A/B 실험') + S_DIGITAL),
-        # III. 1 - SNS
-        (2, T_SNS, 21, parent(P_III) + tag("월간 콘텐츠 캘린더") + S_SNS),
-        # III. 1 - 언론
+        # 유튜브 / 인쇄 / 디지털 → 졸업선배 숏폼 → SNS → 언론
+        (2, T_YOUTUBE, 17, parent(P_III) + tag("인플루언서 섭외") + S_YOUTUBE_V22),
+        (2, T_PRINT, 18, parent(P_III) + tag('"3.6%" 중심 배치') + S_PRINT),
+        (2, T_DIGITAL, 19, parent(P_III) + tag('"심사위원석" + "Room 1201" A/B 실험') + S_DIGITAL),
+        # 졸업선배 숏폼 (디지털 뒤로 이동)
+        (2, T_VIDEO, 20, parent(P_III) + tag("졸업선배 숏폼 · 9~12월 4편") + S_DOCU),
+        # SNS (더 상세하게 디벨롭)
+        (2, T_SNS, 21, parent(P_III) + tag("3채널 통합 운영 + 월간 캘린더") + S_SNS),
+        # 언론
         (2, T_PRESS, 22, parent(P_III) + tag("수시/정시 시기별 매체") + S_PRESS),
-        # III. 2 - 사업 관리 계획
+        # 사업 관리 계획 (III-2 제거됨)
         (2, T_MGMT, 23, parent(P_III) + tag("자문 · 효과 측정 · 본교 업무") + S_CONSULT),
 
-        # IV. 1 - 광고 운영 및 예산 집행 계획(안)
+        # IV. 1
         (2, T_IV_1, 24, parent(P_IV) + tag("간트차트 · 수시 80% / 정시 20%") + S_GANTT),
-        # IV. 2 - 결과 분석 및 피드백
+        # IV. 2
         (2, T_IV_2, 25, parent(P_IV) + tag("측정 지표 · 2주 A/B 테스트") + S_FEEDBACK),
-        # IV. 3 - 기타 제안 사항
+        # IV. 3
         (2, T_IV_3, 26, parent(P_IV) + tag("운영방안 · 108회 → 40,000회") + S_OPERATION),
 
-        # 마무리: 빈칸 회수
-        (2, "영산대 =", 27, S_ENDING),
+        # 마무리
+        (2, "", 27, S_ENDING),
     ]
 
 

@@ -233,7 +233,7 @@ body.edit-mode [contenteditable]:focus{outline:2px solid #E84E10;outline-offset:
   <div class="content-header">
     <div class="header-text">
       <span class="section-parent">{% if section.section_parent %}{{ section.section_parent }}{% else %}{{ ns.l1_title }}{% endif %}</span>
-      <h3>{{ section.title }}</h3>
+      {% if section.title %}<h3>{{ section.title }}</h3>{% endif %}
       {% if section.slide_tag %}<div class="slide-tag">{{ section.slide_tag }}</div>{% endif %}
     </div>
   </div>
