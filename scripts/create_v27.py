@@ -862,6 +862,55 @@ S_VIDEO_WHY = (
 VIDEO_HORIZONTAL = "/assets/video/KakaoTalk_20260410_151606259.mp4"  # 홍보영상 (가로)
 VIDEO_VERTICAL = "/assets/video/KakaoTalk_20260410_151555089.mp4"    # 숏폼 (세로)
 
+# ===== 20 (신규). 실무 확장 대시보드 -- 10장 프레이밍 =====
+S_EXPANSION = (
+    '<div style="padding:var(--s-4) 0;text-align:center">'
+    '<div class="t-overline is-accent" style="margin-bottom:var(--s-4)">EXPANSION</div>'
+    '<div class="t-heading" style="margin-bottom:var(--s-3)">'
+    '증명을, 이렇게 <span class="is-accent">확장</span>합니다.</div>'
+    # short bar
+    '<div style="width:60px;height:3px;background:#E84E10;margin:0 auto var(--s-5)"></div>'
+    # 6개 매체 리스트 (2열 grid)
+    '<div style="display:grid;grid-template-columns:1fr 1fr;gap:0 var(--s-6);max-width:980px;margin:0 auto var(--s-5);text-align:left">'
+    '<div style="display:flex;align-items:baseline;gap:var(--s-3);padding:var(--s-2) 0;border-bottom:1px solid #E8E8E8">'
+    '<div class="t-overline is-accent" style="width:110px;flex-shrink:0">인플루언서</div>'
+    '<div class="t-body is-muted">교육·호텔 업계 유튜버 협업</div>'
+    '</div>'
+    '<div style="display:flex;align-items:baseline;gap:var(--s-3);padding:var(--s-2) 0;border-bottom:1px solid #E8E8E8">'
+    '<div class="t-overline is-accent" style="width:110px;flex-shrink:0">인쇄 매체</div>'
+    '<div class="t-body is-muted">3.6% 중심 배치 (버스·지하철·현수막)</div>'
+    '</div>'
+    '<div style="display:flex;align-items:baseline;gap:var(--s-3);padding:var(--s-2) 0;border-bottom:1px solid #E8E8E8">'
+    '<div class="t-overline is-accent" style="width:110px;flex-shrink:0">디지털 매체</div>'
+    '<div class="t-body is-muted">심사위원석 + Room 1201 A/B 실험</div>'
+    '</div>'
+    '<div style="display:flex;align-items:baseline;gap:var(--s-3);padding:var(--s-2) 0;border-bottom:1px solid #E8E8E8">'
+    '<div class="t-overline is-accent" style="width:110px;flex-shrink:0">숏폼</div>'
+    '<div class="t-body is-muted">졸업선배 9~12월 연 4편</div>'
+    '</div>'
+    '<div style="display:flex;align-items:baseline;gap:var(--s-3);padding:var(--s-2) 0">'
+    '<div class="t-overline is-accent" style="width:110px;flex-shrink:0">소셜 미디어</div>'
+    '<div class="t-body is-muted">3채널 통합 + 월간 캘린더</div>'
+    '</div>'
+    '<div style="display:flex;align-items:baseline;gap:var(--s-3);padding:var(--s-2) 0">'
+    '<div class="t-overline is-accent" style="width:110px;flex-shrink:0">언론</div>'
+    '<div class="t-body is-muted">수시·정시 시기별 매체 집행</div>'
+    '</div>'
+    '</div>'
+    # 하단 한 줄
+    '<div class="t-subtitle w-regular is-muted">'
+    '— 같은 증명. <span class="is-ink w-bold">다른 채널.</span>'
+    '</div>'
+    '</div>'
+    + script(
+        '"지면과 영상으로 증명을 보여드렸습니다.<br>'
+        '이제 이 증명을, <strong>6개 채널</strong>로 확장하겠습니다.<br><br>'
+        '인플루언서, 인쇄, 디지털, 숏폼, 소셜 미디어, 언론.<br><br>'
+        '같은 <strong>증명</strong>. 다른 <strong>채널</strong>입니다.<br>'
+        '지금부터, 하나씩 설명드리겠습니다."'
+    )
+)
+
 # ===== 17. "지혜" 메인 영상 -- 실제 비디오 재생 =====
 S_JIHYE = (
     '<div style="display:flex;justify-content:center;align-items:center;padding:0">'
@@ -963,20 +1012,23 @@ def make_sections():
         (2, T_VIDEO, 17, parent(P_III) + tag("주인공") + S_VIDEO_WHY),
         (2, T_VIDEO, 18, parent(P_III) + tag("본편") + S_JIHYE),
 
+        # 실무 확장 대시보드 (실무 10장 프레이밍)
+        (2, T_SOURCE, 19, parent(P_III) + tag("확장 개요") + S_EXPANSION),
+
         # 유튜브 / 인쇄 / 디지털 → 졸업선배 숏폼 2장 → SNS → 언론
-        (2, T_YOUTUBE, 19, parent(P_III) + tag("인플루언서") + S_YOUTUBE_V22),
-        (2, T_PRINT, 20, parent(P_III) + tag("인쇄 매체") + S_PRINT),
-        (2, T_DIGITAL, 21, parent(P_III) + tag("디지털 매체") + S_DIGITAL),
-        (2, T_VIDEO, 22, parent(P_III) + tag("숏폼 기획") + S_DOCU_PLAN),
-        (2, T_VIDEO, 23, parent(P_III) + tag("숏폼 완성본") + S_DOCU_VIDEOS),
-        (2, T_SNS, 24, parent(P_III) + tag("소셜 미디어") + S_SNS),
-        (2, T_PRESS, 25, parent(P_III) + tag("언론 매체") + S_PRESS),
-        (2, T_MGMT, 26, parent(P_III) + tag("운영 지원") + S_CONSULT),
+        (2, T_YOUTUBE, 20, parent(P_III) + tag("인플루언서") + S_YOUTUBE_V22),
+        (2, T_PRINT, 21, parent(P_III) + tag("인쇄 매체") + S_PRINT),
+        (2, T_DIGITAL, 22, parent(P_III) + tag("디지털 매체") + S_DIGITAL),
+        (2, T_VIDEO, 23, parent(P_III) + tag("숏폼 기획") + S_DOCU_PLAN),
+        (2, T_VIDEO, 24, parent(P_III) + tag("숏폼 완성본") + S_DOCU_VIDEOS),
+        (2, T_SNS, 25, parent(P_III) + tag("소셜 미디어") + S_SNS),
+        (2, T_PRESS, 26, parent(P_III) + tag("언론 매체") + S_PRESS),
+        (2, T_MGMT, 27, parent(P_III) + tag("운영 지원") + S_CONSULT),
 
         # IV. 1
-        (2, T_IV_1, 27, parent(P_IV) + tag("예산 배분") + S_GANTT),
-        (2, T_IV_2, 28, parent(P_IV) + tag("성과 측정") + S_FEEDBACK),
-        (2, T_IV_3, 29, parent(P_IV) + tag("확장 계획") + S_OPERATION),
+        (2, T_IV_1, 28, parent(P_IV) + tag("예산 배분") + S_GANTT),
+        (2, T_IV_2, 29, parent(P_IV) + tag("성과 측정") + S_FEEDBACK),
+        (2, T_IV_3, 30, parent(P_IV) + tag("확장 계획") + S_OPERATION),
 
         # 마무리는 템플릿의 slide-end가 담당 (ANSWER 엔딩)
     ]
