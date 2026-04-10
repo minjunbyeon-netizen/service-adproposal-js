@@ -34,8 +34,10 @@ def sian_slide(cc, label, desc, prompt_16, prompt_9):
     return (
         f"**{cc}**\n\n"
         f"{desc}\n\n"
-        f'{grid16x9(label, prompt_16)}\n\n'
-        f'{grid9x16(label + " (숏폼)", prompt_9)}\n\n'
+        f'<div class="sian-row">'
+        f'{grid16x9(label, prompt_16)}'
+        f'{grid9x16(label + " (숏폼)", prompt_9)}'
+        f'</div>\n\n'
         f'<div class="img-prompt"><span class="prompt-label">AI PROMPT</span>\n'
         f'<div class="prompt-cmd">{prompt_16}</div></div>'
     )
