@@ -219,18 +219,35 @@ S_CONSULT = (
     "- 교내 게시물 디자인 상시 지원"
 )
 
-# ===== 졸업선배 숏폼 (중복 방지) =====
+# ===== 졸업선배 숏폼 (V27: 세로 비디오 3개 가로 나란히) =====
 S_DOCU = (
-    '<div style="display:flex;gap:var(--s-4);align-items:flex-start;padding:var(--s-1) 0">'
-    # 좌측: 세로 영상 플레이어 (9:16)
-    '<div style="position:relative;width:456px;height:810px;background:#000;border-radius:6px;overflow:hidden;border:2px solid #E8E8E8;flex-shrink:0">'
-    '<video style="width:100%;height:100%;object-fit:contain;background:#000;display:block" '
+    '<div style="display:flex;gap:var(--s-3);align-items:flex-start;padding:var(--s-1) 0">'
+    # 좌측: 3개 세로 비디오 가로 나란히
+    '<div style="display:flex;gap:12px;flex-shrink:0">'
+    # 비디오 1: 9월 · 항공
+    '<div style="position:relative;width:220px;height:391px;background:#000;border-radius:6px;overflow:hidden;border:2px solid #E8E8E8">'
+    '<video style="width:100%;height:100%;object-fit:cover;background:#000;display:block" '
     'src="/assets/video/KakaoTalk_20260410_151555089.mp4" controls preload="metadata"></video>'
-    '<div class="t-overline" style="position:absolute;top:14px;left:14px;letter-spacing:1px;color:#fff;background:#E84E10;padding:3px 10px;border-radius:2px;pointer-events:none">'
-    '숏폼 · 9:16</div>'
+    '<div class="t-overline" style="position:absolute;top:8px;left:8px;letter-spacing:1px;color:#fff;background:#E84E10;padding:2px 8px;border-radius:2px;pointer-events:none">'
+    '9월 · 항공</div>'
     '</div>'
-    # 우측: 설명
-    '<div style="flex:1;padding:var(--s-2) 0">'
+    # 비디오 2: 10월 · 호텔
+    '<div style="position:relative;width:220px;height:391px;background:#000;border-radius:6px;overflow:hidden;border:2px solid #E8E8E8">'
+    '<video style="width:100%;height:100%;object-fit:cover;background:#000;display:block" '
+    'src="/assets/video/KakaoTalk_20260410_180358236.mp4" controls preload="metadata"></video>'
+    '<div class="t-overline" style="position:absolute;top:8px;left:8px;letter-spacing:1px;color:#fff;background:#E84E10;padding:2px 8px;border-radius:2px;pointer-events:none">'
+    '10월 · 호텔</div>'
+    '</div>'
+    # 비디오 3: 11월 · 경찰
+    '<div style="position:relative;width:220px;height:391px;background:#000;border-radius:6px;overflow:hidden;border:2px solid #E8E8E8">'
+    '<video style="width:100%;height:100%;object-fit:cover;background:#000;display:block" '
+    'src="/assets/video/KakaoTalk_20260410_182832774.mp4" controls preload="metadata"></video>'
+    '<div class="t-overline" style="position:absolute;top:8px;left:8px;letter-spacing:1px;color:#fff;background:#E84E10;padding:2px 8px;border-radius:2px;pointer-events:none">'
+    '11월 · 경찰</div>'
+    '</div>'
+    '</div>'
+    # 우측: 설명 + 테이블
+    '<div style="flex:1;padding:var(--s-1) 0 0 var(--s-2);min-width:0">'
     '<div class="t-subtitle" style="margin-bottom:var(--s-2)">'
     '졸업선배 숏폼 시리즈 (연 4편)</div>'
     '<div class="t-caption" style="margin-bottom:var(--s-3)">'
@@ -260,7 +277,7 @@ S_DOCU = (
     '</tbody></table>'
     '<div class="t-caption is-muted" style="padding-top:var(--s-2);border-top:1px solid #E8E8E8">'
     '인스타 릴스 + 유튜브 쇼츠 + 틱톡 <strong class="is-ink">동시 업로드</strong>.<br>'
-    '정시 원서 접수 직전까지 4편 완성.'
+    '12월편(뷰티디자인) 현재 제작 중.'
     '</div>'
     '</div>'
     '</div>'
@@ -719,30 +736,30 @@ S_SIAN_SUMMARY_V26 = (
     )
 )
 
-# ===== 16. 영상 방향 -- 매체 대비 + 컨셉 이어받기 + 지혜 근거 [토큰 샘플] =====
+# ===== 16. 영상 방향 -- 지면(리프레이밍) → 영상(스토리텔링), 같은 '증명' 컨셉 =====
 S_VIDEO_INTRO = (
-    '<div style="padding:8px 0">'
+    '<div style="padding:var(--s-1) 0">'
     # 1단: PRINT vs VIDEO 2칸 대비
     '<div style="display:flex;justify-content:center;gap:60px;align-items:stretch;margin-bottom:var(--s-5)">'
     # PRINT 컬럼
     '<div style="flex:1;max-width:340px">'
-    '<div class="t-overline" style="margin-bottom:var(--s-2)">PRINT &nbsp;·&nbsp; 1장</div>'
+    '<div class="t-overline" style="margin-bottom:var(--s-2)">PRINT &nbsp;·&nbsp; 지면</div>'
     '<div class="t-subtitle w-regular">정제된 한 장면<br>'
-    '<span class="is-accent w-bold">대비</span>로 증명합니다</div>'
+    '<span class="is-accent w-bold">리프레이밍</span>으로 증명합니다</div>'
     '</div>'
     '<div style="width:1px;background:#D8D8D8;align-self:stretch"></div>'
     # VIDEO 컬럼
     '<div style="flex:1;max-width:340px">'
-    '<div class="t-overline" style="margin-bottom:var(--s-2)">VIDEO &nbsp;·&nbsp; 60초</div>'
+    '<div class="t-overline" style="margin-bottom:var(--s-2)">VIDEO &nbsp;·&nbsp; 영상</div>'
     '<div class="t-subtitle w-regular">풀어낸 한 편의 이야기<br>'
     '<span class="is-accent w-bold">스토리텔링</span>으로 증명합니다</div>'
     '</div>'
     '</div>'
-    # 2단: 중앙 클라이맥스 선언
+    # 2단: 중앙 클라이맥스 선언 (같은 컨셉, 다른 풀이)
     '<div style="padding:var(--s-4) 0;border-top:1px solid #E8E8E8;border-bottom:1px solid #E8E8E8;margin-bottom:var(--s-4);text-align:center">'
     '<div class="t-heading">'
-    '같은 컨셉 <span class="is-accent">\'증명할게\'</span>를,<br>'
-    '이번엔 이야기로 풀었습니다.</div>'
+    '같은 컨셉 <span class="is-accent">증명</span>을,<br>'
+    '이번엔 <span class="is-accent">이야기</span>로 풀었습니다.</div>'
     '</div>'
     # 3단: WHY "지혜"
     '<div style="text-align:center;margin-bottom:var(--s-2)">'
@@ -758,11 +775,10 @@ S_VIDEO_INTRO = (
     '</div>'
     '</div>'
     + script(
-        '"지면은 1장입니다.<br>'
-        '정제된 한 순간으로, <strong>대비</strong>를 던져 증명했습니다.<br><br>'
-        '영상은 60초입니다. 이야기를 풀어낼 수 있습니다.<br>'
-        '같은 컨셉 <strong>\'증명할게\'</strong>를, '
-        '이번엔 <strong>이야기</strong>로 풀었습니다.<br><br>'
+        '"지면은, 한 장입니다.<br>'
+        '정제된 한 순간을 <strong>리프레이밍</strong>으로 증명했습니다.<br><br>'
+        '영상은, 60초입니다. 이야기를 풀어낼 수 있습니다.<br>'
+        '같은 컨셉 <strong>증명</strong>을, 이번엔 <strong>스토리텔링</strong>으로 풀었습니다.<br><br>'
         '영산대의 한 마디, <strong>WISE YOU</strong>.<br>'
         '그 <strong>\'지혜\'</strong>를 주인공으로 세웠습니다.<br><br>'
         '왜냐하면 각계각층에서 활동 중인 영산대 졸업생들이, '
