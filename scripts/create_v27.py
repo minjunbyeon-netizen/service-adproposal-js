@@ -472,20 +472,20 @@ S_LOSS = (
     )
 )
 
-# ===== 8. 방법론 선언 (예시 없음, 선언만) =====
+# ===== 8. THE TURN -- 뒤집기 선언 =====
 S_BRIDGE = (
     '<div style="padding:var(--s-5) 0;text-align:center">'
-    '<div class="t-overline is-accent" style="margin-bottom:var(--s-6)">OUR METHOD</div>'
+    '<div class="t-overline is-accent" style="margin-bottom:var(--s-6)">THE TURN</div>'
     '<div class="t-headline" style="margin-bottom:var(--s-6)">'
-    '같은 사실,<br><span class="is-accent">다른 언어.</span></div>'
+    '그래서 우리는,<br><span class="is-accent">뒤집었습니다.</span></div>'
     '<div style="width:80px;height:1px;background:#E8E8E8;margin:0 auto var(--s-6)"></div>'
     '<div class="t-title w-regular is-muted">'
-    '사실이,<br><span class="is-ink w-bold">증명이 되도록.</span></div>'
+    '같은 사실,<br><span class="is-ink w-bold">다른 언어로.</span></div>'
     '</div>'
     + script(
-        '"저희가 하는 일은, 단순합니다.<br><br>'
-        '같은 사실에, <strong>다른 언어</strong>를 입힙니다.<br>'
-        '그래서 사실이, 사람에게 <strong>증명</strong>으로 다가가도록 만듭니다.<br><br>'
+        '"소음에 지친 청중에게, 저희는 똑같이 외칠 수 없었습니다.<br><br>'
+        '그래서 <strong>뒤집었습니다</strong>.<br>'
+        '같은 사실을, <strong>다른 언어</strong>로 옮겨왔습니다.<br><br>'
         '지금부터, 그 방법의 이름과 세 가지 사례를 보여드리겠습니다."'
     )
 )
@@ -765,12 +765,14 @@ S_SIAN_SUMMARY_V26 = (
     + '</div>'
     + '<div class="t-body w-bold" style="text-align:center;margin-top:var(--s-2)">'
       '세 장의 광고. 세 가지 증명.</div>'
-    + '<div class="t-caption w-bold is-accent" style="text-align:center;margin-top:6px">'
-      '하나의 결론 -- 이름을 가려도 영산대입니다.</div>'
+    + '<div class="t-caption w-bold is-accent" style="text-align:center;margin-top:var(--s-1)">'
+      '하나의 결론 -- 영산대는, 이미 증명된 학교였습니다.</div>'
     + script(
-        '"3.6%, QS 55위, Room 1201.<br>'
-        '같은 숫자를 다른 방식으로 느끼게 만드는 것.<br>'
-        '이것이 저희가 준비한 <strong>크리에이티브 시안</strong>입니다."'
+        '"세 장의 광고. 세 가지 증명.<br>'
+        '3.6%, 글로벌 55위, Room 1201.<br><br>'
+        '하나의 결론입니다.<br>'
+        '<strong>영산대는, 이미 증명된 학교였습니다.</strong><br>'
+        '저희는 그것을, 보이게 만들 뿐입니다."'
     )
 )
 
