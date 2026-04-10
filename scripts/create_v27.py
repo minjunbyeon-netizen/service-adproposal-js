@@ -939,38 +939,38 @@ def make_sections():
     return [
         # I. 제안개요 (2페이지 분할: EVIDENCE + PROBLEM)
         (2, "", 1, parent(P_I) + tag("사실") + S_FACTS),
-        (2, "", 2, parent(P_I) + tag("진단 + 미션") + S_PROBLEM),
+        (2, "", 2, parent(P_I) + tag("진단과 미션") + S_PROBLEM),
         # II. 제안업체 일반
         (2, "제안업체 일반", 3, parent(P_II) + S_COMPANY),
         # III. 세부 과업 수행 계획 (간지)
         (1, "III. 세부 과업 수행 계획", 4, None),
 
         # III. 1 - 소재 발굴 및 콘텐츠 기획 (빌드업 4장 + 컨셉 2장 + 시안 4장 = 10장)
-        (2, T_SOURCE, 5, parent(P_III) + tag("TEST · 기억 테스트") + S_NUMBERS),
-        (2, T_SOURCE, 6, parent(P_III) + tag("WHY · 같은 말") + S_TRANSITION),
-        (2, T_SOURCE, 7, parent(P_III) + tag("THE NOISE") + S_LOSS),
-        (2, T_SOURCE, 8, parent(P_III) + tag("OUR METHOD") + S_BRIDGE),
-        (2, T_SOURCE, 9, parent(P_III) + tag("CONCEPT · 증명") + S_CONCEPT_ONLY),
-        (2, T_SOURCE, 10, parent(P_III) + tag("METHOD · 리프레이밍") + S_METHOD_ONLY),
-        (2, T_SOURCE, 11, parent(P_III) + tag('RE-FRAMING #1 · "3.6%"') + S_36),
-        (2, T_SOURCE, 12, parent(P_III) + tag('RE-FRAMING #2 · "QS 55위"') + S_QS),
-        (2, T_SOURCE, 13, parent(P_III) + tag('RE-FRAMING #3 · "Room 1201"') + S_ROOM),
-        (2, T_SOURCE, 14, parent(P_III) + tag("THREE PROOFS") + S_SIAN_SUMMARY_V26),
+        (2, T_SOURCE, 5, parent(P_III) + tag("기억 테스트") + S_NUMBERS),
+        (2, T_SOURCE, 6, parent(P_III) + tag("왜 기억나지 않는가") + S_TRANSITION),
+        (2, T_SOURCE, 7, parent(P_III) + tag("소음") + S_LOSS),
+        (2, T_SOURCE, 8, parent(P_III) + tag("우리의 방법") + S_BRIDGE),
+        (2, T_SOURCE, 9, parent(P_III) + tag("컨셉 · 증명") + S_CONCEPT_ONLY),
+        (2, T_SOURCE, 10, parent(P_III) + tag("기법 · 리프레이밍") + S_METHOD_ONLY),
+        (2, T_SOURCE, 11, parent(P_III) + tag("리프레이밍 1 · 3.6%") + S_36),
+        (2, T_SOURCE, 12, parent(P_III) + tag("리프레이밍 2 · 글로벌 55위") + S_QS),
+        (2, T_SOURCE, 13, parent(P_III) + tag("리프레이밍 3 · Room 1201") + S_ROOM),
+        (2, T_SOURCE, 14, parent(P_III) + tag("세 가지 증명") + S_SIAN_SUMMARY_V26),
 
         # III. 1 - 대학 공식 홍보영상 (간지)
         (1, "대학 공식 홍보영상", 15, None),
-        (2, T_VIDEO, 16, parent(P_III) + tag("OUR METHOD · VIDEO") + S_VIDEO_INTRO),
-        (2, T_VIDEO, 17, parent(P_III) + tag("THE PROTAGONIST") + S_VIDEO_WHY),
-        (2, T_VIDEO, 18, parent(P_III) + tag('THE MAIN FILM · "지혜" (60초)') + S_JIHYE),
+        (2, T_VIDEO, 16, parent(P_III) + tag("영상의 방법") + S_VIDEO_INTRO),
+        (2, T_VIDEO, 17, parent(P_III) + tag("주인공") + S_VIDEO_WHY),
+        (2, T_VIDEO, 18, parent(P_III) + tag("메인 영상 · 지혜 60초") + S_JIHYE),
 
         # 유튜브 / 인쇄 / 디지털 → 졸업선배 숏폼 2장 → SNS → 언론
         (2, T_YOUTUBE, 19, parent(P_III) + tag("인플루언서 섭외") + S_YOUTUBE_V22),
-        (2, T_PRINT, 20, parent(P_III) + tag('"3.6%" 중심 배치') + S_PRINT),
-        (2, T_DIGITAL, 21, parent(P_III) + tag('"심사위원석" + "Room 1201" A/B 실험') + S_DIGITAL),
-        (2, T_VIDEO, 22, parent(P_III) + tag("SHORTS · PLAN") + S_DOCU_PLAN),
-        (2, T_VIDEO, 23, parent(P_III) + tag("SHORTS · PREVIEW") + S_DOCU_VIDEOS),
-        (2, T_SNS, 24, parent(P_III) + tag("SNS · 3채널 + 월간") + S_SNS),
-        (2, T_PRESS, 25, parent(P_III) + tag("수시/정시 시기별 매체") + S_PRESS),
+        (2, T_PRINT, 20, parent(P_III) + tag("3.6% 중심 배치") + S_PRINT),
+        (2, T_DIGITAL, 21, parent(P_III) + tag("심사위원석 + Room 1201 A/B 실험") + S_DIGITAL),
+        (2, T_VIDEO, 22, parent(P_III) + tag("숏폼 · 월별 계획") + S_DOCU_PLAN),
+        (2, T_VIDEO, 23, parent(P_III) + tag("숏폼 · 완성본 미리보기") + S_DOCU_VIDEOS),
+        (2, T_SNS, 24, parent(P_III) + tag("SNS · 3채널 운영") + S_SNS),
+        (2, T_PRESS, 25, parent(P_III) + tag("수시 · 정시 시기별 매체") + S_PRESS),
         (2, T_MGMT, 26, parent(P_III) + tag("자문 · 효과 측정 · 본교 업무") + S_CONSULT),
 
         # IV. 1
