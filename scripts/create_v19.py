@@ -90,27 +90,28 @@ def gantt_bar(left_pct, width_pct, cls, label):
 
 S_GANTT = (
     "### IV-1. 광고 운영 및 예산 집행 계획\n\n"
-    "**2년 간트차트 -- 수시(5,6,7월) 예산 70% 집중 투하**\n\n"
-    "#### 2026년 (Year 1)\n"
+    "**2년 간트차트 -- 수시 80% / 정시 20%**\n\n"
+    "#### 2026년 (Year 1) -- 4월 착수\n"
     '<div class="gantt">'
-    '<div class="gantt-row"><span class="gantt-label">1-2월</span><div class="gantt-track">' + gantt_bar(0,16.6,'normal','기획/합격') + '</div></div>'
-    '<div class="gantt-row"><span class="gantt-label">3-4월</span><div class="gantt-track">' + gantt_bar(16.6,16.6,'normal','제작/촬영/옥외') + '</div></div>'
-    '<div class="gantt-row"><span class="gantt-label">5월</span><div class="gantt-track">' + gantt_bar(33.3,8.3,'peak','수시 집중 25%') + '</div></div>'
-    '<div class="gantt-row"><span class="gantt-label">6월</span><div class="gantt-track">' + gantt_bar(41.6,8.3,'peak','원서 접수 25%') + '</div></div>'
-    '<div class="gantt-row"><span class="gantt-label">7월</span><div class="gantt-track">' + gantt_bar(50,8.3,'peak','수시 마감 20%') + '</div></div>'
-    '<div class="gantt-row"><span class="gantt-label">8-10월</span><div class="gantt-track">' + gantt_bar(58.3,25,'normal','성과 분석/정시 대비') + '</div></div>'
-    '<div class="gantt-row"><span class="gantt-label">11-12월</span><div class="gantt-track">' + gantt_bar(83.3,16.6,'mid','정시 집중 30%') + '</div></div>'
+    '<div class="gantt-row"><span class="gantt-label">4월</span><div class="gantt-track">' + gantt_bar(0,11.1,'normal','협의/기획/킥오프') + '</div></div>'
+    '<div class="gantt-row"><span class="gantt-label">5월</span><div class="gantt-track">' + gantt_bar(11.1,11.1,'peak','수시 집중 30%') + '</div></div>'
+    '<div class="gantt-row"><span class="gantt-label">6월</span><div class="gantt-track">' + gantt_bar(22.2,11.1,'peak','원서 접수 30%') + '</div></div>'
+    '<div class="gantt-row"><span class="gantt-label">7월</span><div class="gantt-track">' + gantt_bar(33.3,11.1,'peak','수시 마감 20%') + '</div></div>'
+    '<div class="gantt-row"><span class="gantt-label">8-9월</span><div class="gantt-track">' + gantt_bar(44.4,22.2,'normal','성과 분석/콘텐츠 제작') + '</div></div>'
+    '<div class="gantt-row"><span class="gantt-label">10-11월</span><div class="gantt-track">' + gantt_bar(66.6,22.2,'mid','정시 집중 20%') + '</div></div>'
+    '<div class="gantt-row"><span class="gantt-label">12월</span><div class="gantt-track">' + gantt_bar(88.8,11.1,'normal','정시 마감/연간 결산') + '</div></div>'
     '</div>\n\n'
     "#### 2027년 (Year 2)\n"
     '<div class="gantt">'
-    '<div class="gantt-row"><span class="gantt-label">1-4월</span><div class="gantt-track">' + gantt_bar(0,33.3,'normal','Year2 수립/리뉴얼') + '</div></div>'
-    '<div class="gantt-row"><span class="gantt-label">5-7월</span><div class="gantt-track">' + gantt_bar(33.3,25,'peak','수시 집중 70%') + '</div></div>'
+    '<div class="gantt-row"><span class="gantt-label">1-3월</span><div class="gantt-track">' + gantt_bar(0,25,'normal','Year2 수립/시안 리뉴얼') + '</div></div>'
+    '<div class="gantt-row"><span class="gantt-label">4월</span><div class="gantt-track">' + gantt_bar(25,8.3,'normal','제작/옥외 교체') + '</div></div>'
+    '<div class="gantt-row"><span class="gantt-label">5-7월</span><div class="gantt-track">' + gantt_bar(33.3,25,'peak','수시 집중 80%') + '</div></div>'
     '<div class="gantt-row"><span class="gantt-label">8-10월</span><div class="gantt-track">' + gantt_bar(58.3,25,'normal','분석/정시 대비') + '</div></div>'
-    '<div class="gantt-row"><span class="gantt-label">11-12월</span><div class="gantt-track">' + gantt_bar(83.3,16.6,'mid','정시/결산') + '</div></div>'
+    '<div class="gantt-row"><span class="gantt-label">11-12월</span><div class="gantt-track">' + gantt_bar(83.3,16.6,'mid','정시 20%/결산') + '</div></div>'
     '</div>\n\n'
     '<div class="gantt-legend">'
-    '<span class="lg-peak">수시 집중 (70%)</span>'
-    '<span class="lg-mid">정시 (30%)</span>'
+    '<span class="lg-peak">수시 집중 (80%)</span>'
+    '<span class="lg-mid">정시 (20%)</span>'
     '<span class="lg-normal">기획/제작/분석</span>'
     '</div>'
 )
