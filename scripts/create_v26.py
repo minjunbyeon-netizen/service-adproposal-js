@@ -19,14 +19,10 @@ cc = "이름을 가려봐."
 tl = "이름을 가려도 보이는 대학."
 combined = f"**컨셉:** {cc}\n\n{cb}\n\n---\n\n**슬로건:** {tl}\n\n{sb_body}"
 
-# 스크립트 박스 헬퍼
+# 스크립트 사이드 패널 헬퍼
+# 콘텐츠 본문과 분리된 우측 사이드바로 렌더링되도록 특수 마커 사용
 def script(text):
-    return (
-        f'\n\n<div style="margin-top:24px;padding:12px 16px;background:#F9F7F4;'
-        f'border-left:3px solid #E84E10;font-size:13px;color:#58595B;line-height:1.8">'
-        f'<span style="font-size:10px;font-weight:700;color:#E84E10;letter-spacing:1px">'
-        f'SCRIPT</span><br>{text}</div>'
-    )
+    return f'<!--SCRIPT_START-->{text}<!--SCRIPT_END-->'
 
 # ===== 1. 표지 (오프닝 스크립트) =====
 # 표지 자체는 템플릿이 자동 생성하므로, 첫 콘텐츠 슬라이드에 스크립트 삽입하지 않음.

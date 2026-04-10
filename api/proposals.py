@@ -329,12 +329,21 @@ def export_html(pid):
     slide_data = []
     for s in data["sections"]:
         html_content = ""
-        if s["content"]:
-            html_content = markdown.markdown(s["content"], extensions=md_ext)
+        script_html = ""
+        raw = s["content"] or ""
+        # 스크립트 마커 분리
+        if "<!--SCRIPT_START-->" in raw and "<!--SCRIPT_END-->" in raw:
+            start = raw.index("<!--SCRIPT_START-->")
+            end = raw.index("<!--SCRIPT_END-->")
+            script_html = raw[start + len("<!--SCRIPT_START-->"):end]
+            raw = raw[:start] + raw[end + len("<!--SCRIPT_END-->"):]
+        if raw:
+            html_content = markdown.markdown(raw, extensions=md_ext)
         slide_data.append({
             "level": s["level"],
             "title": s["title"],
             "html_content": html_content,
+            "script_html": script_html,
         })
 
     # selected concept
