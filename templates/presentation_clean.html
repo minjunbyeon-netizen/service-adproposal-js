@@ -43,7 +43,9 @@ body{font-family:'Roboto','Noto Sans KR',-apple-system,sans-serif;font-weight:40
 .slide-content.no-script{padding:50px 140px 50px 80px}
 .content-header{margin-bottom:22px;padding-bottom:16px;border-bottom:3px solid #E84E10;display:flex;align-items:flex-end;gap:20px;flex-shrink:0;position:relative}
 .content-header .section-parent{font-size:11px;color:#E84E10;letter-spacing:2px;font-weight:700;white-space:nowrap;padding-bottom:3px}
-.content-header h3{font-size:40px;font-weight:700;line-height:1.15;color:#1A1A1A;letter-spacing:-0.5px}
+.content-header h3{font-size:36px;font-weight:700;line-height:1.15;color:#1A1A1A;letter-spacing:-0.5px}
+.content-header .header-text{flex:1;min-width:0}
+.content-header .slide-tag{display:inline-block;margin-top:8px;font-size:13px;color:#E84E10;background:#FFF3EC;padding:4px 12px;border-radius:3px;font-weight:700;letter-spacing:0.5px}
 .content-body{flex:1;overflow:hidden;font-size:16px;line-height:1.7;color:#2D2D2D;padding-right:16px}
 
 /* 대형 페이지 넘버 (우측 상단) */
@@ -229,8 +231,11 @@ body.edit-mode [contenteditable]:focus{outline:2px solid #E84E10;outline-offset:
 {% else %}
 <div class="slide slide-content{% if not section.script_html %} no-script{% endif %}">
   <div class="content-header">
-    <span class="section-parent">{% if section.section_parent %}{{ section.section_parent }}{% else %}{{ ns.l1_title }}{% endif %}</span>
-    <h3>{{ section.title }}</h3>
+    <div class="header-text">
+      <span class="section-parent">{% if section.section_parent %}{{ section.section_parent }}{% else %}{{ ns.l1_title }}{% endif %}</span>
+      <h3>{{ section.title }}</h3>
+      {% if section.slide_tag %}<div class="slide-tag">{{ section.slide_tag }}</div>{% endif %}
+    </div>
   </div>
   <div class="slide-pagenum">{{ '%02d' % (ns.idx + 1) }}</div>
   {% if ns.l1_title %}<div class="vertical-rail">{{ ns.l1_title }}</div>{% endif %}

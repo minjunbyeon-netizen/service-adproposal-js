@@ -332,11 +332,17 @@ def export_html(pid):
         html_content = ""
         script_html = ""
         section_parent = ""
+        slide_tag = ""
         raw = s["content"] or ""
-        # PARENT 마커 분리 (최우선)
+        # PARENT 마커 분리
         m = _re.match(r"<!--PARENT:(.+?)-->", raw)
         if m:
             section_parent = m.group(1).strip()
+            raw = raw[m.end():]
+        # TAG 마커 분리 (h3 아래 작은 서브 라벨)
+        m = _re.match(r"<!--TAG:(.+?)-->", raw)
+        if m:
+            slide_tag = m.group(1).strip()
             raw = raw[m.end():]
         # 스크립트 마커 분리
         if "<!--SCRIPT_START-->" in raw and "<!--SCRIPT_END-->" in raw:
@@ -352,6 +358,7 @@ def export_html(pid):
             "html_content": html_content,
             "script_html": script_html,
             "section_parent": section_parent,
+            "slide_tag": slide_tag,
         })
 
     # selected concept
