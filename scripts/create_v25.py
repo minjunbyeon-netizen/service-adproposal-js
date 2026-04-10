@@ -144,6 +144,64 @@ S_ROOM = (
 )
 
 
+# ===== 시안 3종 종합 =====
+S_SIAN_SUMMARY = (
+    '<div style="display:flex;gap:24px;align-items:flex-start">'
+
+    # 시안 1
+    '<div style="flex:1;text-align:center">'
+    '<div style="font-size:48px;font-weight:700;color:#000;font-family:Roboto,sans-serif;margin-bottom:8px">'
+    '3.6%</div>'
+    '<div style="font-size:13px;color:#6E6E73;line-height:1.6">'
+    '탈락률.<br>100명 중 96명이<br>일하고 있습니다.</div>'
+    '</div>'
+
+    # 시안 2
+    '<div style="flex:1;text-align:center">'
+    '<div style="font-size:36px;font-weight:700;color:#1A1A1A;font-family:Roboto,sans-serif;margin-bottom:8px">'
+    '55<span style="font-size:20px;color:#58595B">th</span>'
+    ' <span style="color:#E84E10;font-size:28px">YsU</span></div>'
+    '<div style="font-size:13px;color:#6E6E73;line-height:1.6">'
+    'QS 호스피탈리티<br>세계 55위.<br>MIT, Stanford와<br>같은 리스트.</div>'
+    '</div>'
+
+    # 시안 3
+    '<div style="flex:1;text-align:center;background:#1A1A1A;border-radius:6px;padding:16px">'
+    '<div style="font-size:28px;font-weight:700;color:#fff;font-family:Roboto,sans-serif;margin-bottom:8px">'
+    'Room 1201</div>'
+    '<div style="font-size:13px;color:#999;line-height:1.6">'
+    '25개의 문.<br>전부 총지배인.<br>전부 같은 학교.</div>'
+    '</div>'
+
+    '</div>\n\n'
+
+    '<div style="text-align:center;margin-top:24px;font-size:16px;color:#1A1A1A;font-weight:700">'
+    '같은 숫자. 다른 방식. 느끼는 광고.'
+    '</div>\n\n'
+    '<div style="text-align:center;margin-top:8px;font-size:14px;color:#6E6E73">'
+    '이름을 가려도 보이는 대학. 영산대학교.'
+    '</div>'
+)
+
+# ===== 영상 콘텐츠 방향 (간지 뒤 첫 장) =====
+S_VIDEO_INTRO = (
+    "지면과 인쇄 시안에서는 **팩트의 임팩트**를 강조했습니다.\n\n"
+    "3.6%, QS 55위, Room 1201.\n"
+    "숫자로 멈추게 하고, 반전으로 기억에 남겼습니다.\n\n"
+    "---\n\n"
+    "영상에서는 **스토리텔링**으로 브랜드 이미지를 만듭니다.\n\n"
+    "WISE YOU.\n"
+    "지혜로운 너.\n"
+    "영산대학교가 밀고 있는 이 한 마디를,\n"
+    "사람 이름으로 풀었습니다.\n\n"
+    "> **\"우리는 모두 지혜입니다.\"**\n\n"
+    "비행기에서, 호텔에서, 경찰서에서, 뷰티 매장에서.\n"
+    "누군가 '지혜'를 부릅니다.\n"
+    "뒤돌아보는 사람은 전부 영산대 졸업생입니다.\n\n"
+    "이 슬로건으로 홍보영상을 제작했습니다."
+)
+
+
 def make_sections():
     return [
         (2, "I. 제안배경", 1, S_BACKGROUND),
@@ -157,17 +215,22 @@ def make_sections():
         (2, '"3.6%"', 9, S_36),
         (2, '"QS 55위"', 10, S_QS_RANKING),
         (2, '"Room 1201"', 11, S_ROOM),
-        (2, '"지혜" 메인 영상', 12, S_JIHYE),
-        (2, "졸업선배 숏폼", 13, S_DOCU),
-        (2, "b. 유튜브 콘텐츠", 14, S_YOUTUBE_V22),
-        (2, "c. 광고 디자인/인쇄", 15, S_PRINT),
-        (2, "d. 디지털 광고", 16, S_DIGITAL),
-        (2, "e. SNS 이벤트", 17, S_SNS),
-        (2, "f. 언론 지면/배너", 18, S_PRESS),
-        (2, "사업 관리", 19, S_CONSULT),
-        (2, "IV-a. 예산 집행 (간트)", 20, S_GANTT),
-        (2, "IV-b. 결과 분석", 21, S_FEEDBACK),
-        (2, "IV-b2. 운영방안", 22, S_OPERATION),
+        # 시안 종합
+        (2, "시안 종합", 12, S_SIAN_SUMMARY),
+        # 홍보영상 간지 + 전환
+        (1, "홍보영상", 13, None),
+        (2, "영상 콘텐츠 방향", 14, S_VIDEO_INTRO),
+        (2, '"지혜" 메인 영상', 15, S_JIHYE),
+        (2, "졸업선배 숏폼", 16, S_DOCU),
+        (2, "b. 유튜브 콘텐츠", 17, S_YOUTUBE_V22),
+        (2, "c. 광고 디자인/인쇄", 18, S_PRINT),
+        (2, "d. 디지털 광고", 19, S_DIGITAL),
+        (2, "e. SNS 이벤트", 20, S_SNS),
+        (2, "f. 언론 지면/배너", 21, S_PRESS),
+        (2, "사업 관리", 22, S_CONSULT),
+        (2, "IV-a. 예산 집행 (간트)", 23, S_GANTT),
+        (2, "IV-b. 결과 분석", 24, S_FEEDBACK),
+        (2, "IV-b2. 운영방안", 25, S_OPERATION),
     ]
 
 
