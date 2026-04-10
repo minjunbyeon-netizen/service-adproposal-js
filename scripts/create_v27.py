@@ -19,22 +19,22 @@ cc = "증명할게."
 tl = "말하지 않습니다. 증명합니다."
 # 슬라이드 10 -- 컨셉 "증명할게" 공개 + 시안 연결
 combined = (
-    '<div style="text-align:center;padding:var(--s-4) 0">'
+    '<div style="text-align:center;padding:var(--s-3) 0">'
     # 컨셉 블록
     '<div style="margin-bottom:var(--s-5)">'
     '<div class="t-overline is-accent" style="margin-bottom:var(--s-3)">CONCEPT</div>'
     '<div class="t-hero" style="margin-bottom:var(--s-3)">증명.</div>'
-    '<div class="t-body is-muted">우리의 이번 광고 컨셉입니다.</div>'
+    '<div class="t-body is-muted">— 주장이 아닌, 사실로 설득하는 일.</div>'
     '</div>'
     # 얇은 구분선
     '<div style="width:60px;height:1px;background:#E8E8E8;margin:0 auto var(--s-5)"></div>'
     # 기법 블록
-    '<div style="margin-bottom:var(--s-5)">'
+    '<div style="margin-bottom:var(--s-4)">'
     '<div class="t-overline is-accent" style="margin-bottom:var(--s-3)">METHOD</div>'
     '<div class="t-title" style="margin-bottom:var(--s-3)">리프레이밍.</div>'
     '<div class="t-body is-muted" style="line-height:1.8">'
-    '같은 사실을, 다른 프레임에 놓는 일.<br>'
-    '소음이 아닌, <span class="is-ink w-bold">각인</span>되게 만듭니다.'
+    '앞 장의 \'다른 언어\'를, 우리는 <span class="is-ink w-bold">리프레이밍</span>이라 부릅니다.<br>'
+    '같은 사실을 다른 프레임에 놓아, 소음이 아닌 <span class="is-ink w-bold">각인</span>이 되게 합니다.'
     '</div>'
     '</div>'
     # 안내
@@ -306,7 +306,7 @@ S_BACKGROUND = (
     '<div style="width:60px;height:1px;background:#E8E8E8;margin:0 auto var(--s-5)"></div>'
     # 두 번째 헤드라인: 사실 vs 증명
     '<div class="t-title" style="margin-bottom:var(--s-2)">'
-    '그런데, <span class="is-accent">사실은 증명이 아닙니다.</span></div>'
+    '그런데, <span class="is-accent">사실만으로는, 아직 증명이 아닙니다.</span></div>'
     # 중간 한 줄
     '<div class="t-body is-muted" style="margin-bottom:var(--s-5)">'
     '— 보이지 않으면, 없는 것과 같습니다.</div>'
@@ -355,41 +355,38 @@ S_NUMBERS = (
     )
 )
 
-# ===== 6. WHY -- 기억나지 않는 이유 =====
+# ===== 6. WHY + 정보 나열 = 소음 (V27 통합) =====
 S_TRANSITION = (
-    '<div style="padding:var(--s-4) 0;text-align:center">'
-    '<div class="t-overline is-accent" style="margin-bottom:var(--s-4)">WHY</div>'
-    '<div class="t-heading" style="margin-bottom:var(--s-5)">'
-    '기억나지 않으셨다면,<br>'
-    '그건 <span class="is-accent">당신의 잘못이 아닙니다.</span></div>'
-    # 3가지 이유
-    '<div class="t-body" style="display:inline-block;text-align:left;line-height:2.2;margin-bottom:var(--s-5)">'
-    '<span class="is-accent w-bold">첫째</span>, &nbsp;사실이 네 개나 됩니다. 많았습니다.<br>'
-    '<span class="is-accent w-bold">둘째</span>, &nbsp;모든 대학이 이처럼 비슷한 사실을 말합니다.<br>'
-    '<span class="is-accent w-bold">셋째</span>, &nbsp;나열된 것은 기억에 남지 않습니다.'
+    '<div style="padding:var(--s-3) 0;text-align:center">'
+    '<div class="t-overline is-accent" style="margin-bottom:var(--s-3)">WHY</div>'
+    # 헤드라인
+    '<div class="t-heading" style="margin-bottom:var(--s-4)">'
+    '사실이 많아서가 아닙니다.<br>'
+    '<span class="is-accent">모든 대학이 같은 말</span>을 하기 때문입니다.</div>'
+    # 클리셰 박스 (7페이지 S_COCKTAIL 흡수)
+    '<div style="background:#F5F5F5;border-radius:8px;padding:var(--s-4) var(--s-5);max-width:760px;margin:0 auto var(--s-4)">'
+    '<div class="t-overline" style="margin-bottom:var(--s-2)">모든 대학이 이렇게 말합니다</div>'
+    '<div class="t-body is-ink" style="line-height:1.9;text-align:left;padding:0 var(--s-2)">'
+    '· 글로벌 경쟁력 1위<br>'
+    '· 최고의 교수진<br>'
+    '· 미래형 인재 양성<br>'
+    '· 4차 산업혁명 선도<br>'
+    '· 국내 최고 수준 취업률'
     '</div>'
-    # 구분선
-    '<div style="width:60px;height:1px;background:#E8E8E8;margin:0 auto var(--s-4)"></div>'
-    # 회수 리스트
-    '<div class="t-caption" style="display:inline-block;text-align:left;line-height:2;margin-bottom:var(--s-4)">'
-    '· 항공서비스학과 취업률 <strong class="is-ink">96.4%</strong><br>'
-    '· QS 호스피탈리티 부문 <strong class="is-ink">글로벌 55위</strong><br>'
-    '· 호텔 총지배인 국내 최다 동문 <strong class="is-ink">25명</strong><br>'
-    '· 校訓 "<strong class="is-ink">지혜가 실력이다</strong>"'
+    '<div class="t-caption is-muted" style="margin-top:var(--s-2);font-style:italic">'
+    '— 어느 대학인지 맞추실 수 있으십니까?</div>'
     '</div>'
-    # 결론
-    '<div class="t-subtitle">'
-    '그래서 저희는, 이 사실을 <span class="is-accent w-bold">증명</span>으로 바꾸기로 했습니다.'
-    '</div>'
+    # 거대 결론
+    '<div class="t-headline">'
+    '정보 나열 &nbsp;=&nbsp; <span class="is-accent">소음.</span></div>'
     '</div>'
     + script(
         '"기억나지 않으셨다면, 당신 잘못이 아닙니다.<br><br>'
-        '이유는 세 가지입니다.<br>'
-        '<strong>첫째,</strong> 사실이 네 개나 됐습니다. 너무 많습니다.<br>'
-        '<strong>둘째,</strong> 모든 대학이 이와 비슷한 사실들을 말합니다.<br>'
-        '<strong>셋째,</strong> 나열된 것은 기억에 남지 않습니다.<br><br>'
-        '그래서 저희가 한 일은, 같은 사실을 <strong>증명</strong>으로 바꾸는 것입니다.<br>'
-        '지금부터 보여드리겠습니다."'
+        '사실이 많아서가 아니라, <strong>모든 대학이 같은 말</strong>을 하기 때문입니다.<br><br>'
+        '글로벌 경쟁력 1위, 최고의 교수진, 미래형 인재 양성, 4차 산업혁명 선도, 국내 최고 수준 취업률.<br>'
+        '이 카피가 어느 대학의 것인지, <strong>맞추실 수 있으십니까?</strong><br><br>'
+        '아마 못 맞추실 겁니다. 왜냐하면, <strong>모든 대학이 이렇게 말하기 때문</strong>입니다.<br><br>'
+        '정보 나열은 광고가 아닙니다. <strong>소음</strong>입니다."'
     )
 )
 
@@ -804,7 +801,8 @@ S_JIHYE = (
     '홍보영상 · 16:9</div>'
     '</div></div>'
     '<div class="t-caption" style="text-align:center;margin-top:var(--s-2)">'
-    '<strong class="is-ink">"지혜" 메인 영상 (60초)</strong> &nbsp;·&nbsp; WISE YOU · 우리는 모두 지혜입니다.'
+    '<strong class="is-ink">"지혜" 메인 영상 (60초)</strong> &nbsp;·&nbsp; WISE YOU &nbsp;·&nbsp; '
+    '<span class="is-accent w-bold">25명의 지혜, 전부 영산대 졸업생입니다.</span>'
     '</div>'
     + script(
         '<strong>[씬 구성]</strong><br>'
@@ -814,7 +812,8 @@ S_JIHYE = (
         '비행기에서, 호텔에서, 경찰서에서, 뷰티 매장에서.<br>'
         '누군가 <strong>\'지혜야\'</strong>를 부르면,<br>'
         '뒤돌아보는 사람은 전부 영산대 졸업생입니다.<br><br>'
-        '<strong>우리는 모두 지혜입니다.</strong>"'
+        '<strong>25명의 지혜. 전부 영산대 졸업생입니다.</strong><br>'
+        '상징이 아닌, 숫자로 증명합니다."'
     )
 )
 
@@ -871,42 +870,41 @@ def make_sections():
         # III. 세부 과업 수행 계획 (간지)
         (1, "III. 세부 과업 수행 계획", 3, None),
 
-        # III. 1 - 소재 발굴 및 콘텐츠 기획 (빌드업 5장 + 컨셉 + 시안 4장 = 10장)
+        # III. 1 - 소재 발굴 및 콘텐츠 기획 (빌드업 4장 + 컨셉 + 시안 4장 = 9장)
         (2, T_SOURCE, 4, parent(P_III) + tag("빌드업 · 기억 테스트") + S_NUMBERS),
-        (2, T_SOURCE, 5, parent(P_III) + tag("빌드업 · 원인 진단") + S_TRANSITION),
-        (2, T_SOURCE, 6, parent(P_III) + tag("빌드업 · 정보 나열의 한계") + S_COCKTAIL),
-        (2, T_SOURCE, 7, parent(P_III) + tag("빌드업 · 소음") + S_LOSS),
-        (2, T_SOURCE, 8, parent(P_III) + tag("같은 사실, 다른 언어") + S_BRIDGE),
-        (2, T_SOURCE, 9, parent(P_III) + tag("컨셉 · 증명") + S_CONCEPT),
-        (2, T_SOURCE, 10, parent(P_III) + tag('시안 1 · "3.6%"') + S_36),
-        (2, T_SOURCE, 11, parent(P_III) + tag('시안 2 · "QS 55위"') + S_QS),
-        (2, T_SOURCE, 12, parent(P_III) + tag('시안 3 · "Room 1201"') + S_ROOM),
-        (2, T_SOURCE, 13, parent(P_III) + tag("시안 종합 (3종 × 2비율)") + S_SIAN_SUMMARY_V26),
+        (2, T_SOURCE, 5, parent(P_III) + tag("빌드업 · 정보 나열 = 소음") + S_TRANSITION),
+        (2, T_SOURCE, 6, parent(P_III) + tag("빌드업 · 소음") + S_LOSS),
+        (2, T_SOURCE, 7, parent(P_III) + tag("OUR METHOD") + S_BRIDGE),
+        (2, T_SOURCE, 8, parent(P_III) + tag("컨셉 · 증명") + S_CONCEPT),
+        (2, T_SOURCE, 9, parent(P_III) + tag('시안 1 · "3.6%"') + S_36),
+        (2, T_SOURCE, 10, parent(P_III) + tag('시안 2 · "QS 55위"') + S_QS),
+        (2, T_SOURCE, 11, parent(P_III) + tag('시안 3 · "Room 1201"') + S_ROOM),
+        (2, T_SOURCE, 12, parent(P_III) + tag("시안 종합 (3종 × 2비율)") + S_SIAN_SUMMARY_V26),
 
         # III. 1 - 대학 공식 홍보영상 (간지)
-        (1, "대학 공식 홍보영상", 14, None),
-        (2, T_VIDEO, 15, parent(P_III) + tag("영상 콘텐츠 방향") + S_VIDEO_INTRO),
-        (2, T_VIDEO, 16, parent(P_III) + tag('메인 영상 · "지혜" (60초)') + S_JIHYE),
+        (1, "대학 공식 홍보영상", 13, None),
+        (2, T_VIDEO, 14, parent(P_III) + tag("영상 콘텐츠 방향") + S_VIDEO_INTRO),
+        (2, T_VIDEO, 15, parent(P_III) + tag('메인 영상 · "지혜" (60초)') + S_JIHYE),
 
         # 유튜브 / 인쇄 / 디지털 → 졸업선배 숏폼 → SNS → 언론
-        (2, T_YOUTUBE, 17, parent(P_III) + tag("인플루언서 섭외") + S_YOUTUBE_V22),
-        (2, T_PRINT, 18, parent(P_III) + tag('"3.6%" 중심 배치') + S_PRINT),
-        (2, T_DIGITAL, 19, parent(P_III) + tag('"심사위원석" + "Room 1201" A/B 실험') + S_DIGITAL),
+        (2, T_YOUTUBE, 16, parent(P_III) + tag("인플루언서 섭외") + S_YOUTUBE_V22),
+        (2, T_PRINT, 17, parent(P_III) + tag('"3.6%" 중심 배치') + S_PRINT),
+        (2, T_DIGITAL, 18, parent(P_III) + tag('"심사위원석" + "Room 1201" A/B 실험') + S_DIGITAL),
         # 졸업선배 숏폼 (디지털 뒤로 이동)
-        (2, T_VIDEO, 20, parent(P_III) + tag("졸업선배 숏폼 · 9~12월 4편") + S_DOCU),
+        (2, T_VIDEO, 19, parent(P_III) + tag("졸업선배 숏폼 · 9~12월 4편") + S_DOCU),
         # SNS (더 상세하게 디벨롭)
-        (2, T_SNS, 21, parent(P_III) + tag("3채널 통합 운영 + 월간 캘린더") + S_SNS),
+        (2, T_SNS, 20, parent(P_III) + tag("3채널 통합 운영 + 월간 캘린더") + S_SNS),
         # 언론
-        (2, T_PRESS, 22, parent(P_III) + tag("수시/정시 시기별 매체") + S_PRESS),
+        (2, T_PRESS, 21, parent(P_III) + tag("수시/정시 시기별 매체") + S_PRESS),
         # 사업 관리 계획 (III-2 제거됨)
-        (2, T_MGMT, 23, parent(P_III) + tag("자문 · 효과 측정 · 본교 업무") + S_CONSULT),
+        (2, T_MGMT, 22, parent(P_III) + tag("자문 · 효과 측정 · 본교 업무") + S_CONSULT),
 
         # IV. 1
-        (2, T_IV_1, 24, parent(P_IV) + tag("간트차트 · 수시 80% / 정시 20%") + S_GANTT),
+        (2, T_IV_1, 23, parent(P_IV) + tag("간트차트 · 수시 80% / 정시 20%") + S_GANTT),
         # IV. 2
-        (2, T_IV_2, 25, parent(P_IV) + tag("측정 지표 · 2주 A/B 테스트") + S_FEEDBACK),
+        (2, T_IV_2, 24, parent(P_IV) + tag("측정 지표 · 2주 A/B 테스트") + S_FEEDBACK),
         # IV. 3
-        (2, T_IV_3, 26, parent(P_IV) + tag("운영방안 · 108회 → 40,000회") + S_OPERATION),
+        (2, T_IV_3, 25, parent(P_IV) + tag("운영방안 · 108회 → 40,000회") + S_OPERATION),
 
         # 마무리는 템플릿의 slide-end가 담당 (ANSWER 엔딩)
     ]
