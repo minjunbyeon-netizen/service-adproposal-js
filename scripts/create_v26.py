@@ -20,9 +20,12 @@ tl = "이름을 가려도 보이는 대학."
 combined = f"**컨셉:** {cc}\n\n{cb}\n\n---\n\n**슬로건:** {tl}\n\n{sb_body}"
 
 # 스크립트 사이드 패널 헬퍼
-# 콘텐츠 본문과 분리된 우측 사이드바로 렌더링되도록 특수 마커 사용
 def script(text):
     return f'<!--SCRIPT_START-->{text}<!--SCRIPT_END-->'
+
+# 섹션 부모 (과업지시서 번호) 헬퍼
+def parent(label):
+    return f'<!--PARENT:{label}-->'
 
 # ===== 1. 표지 (오프닝 스크립트) =====
 # 표지 자체는 템플릿이 자동 생성하므로, 첫 콘텐츠 슬라이드에 스크립트 삽입하지 않음.
@@ -435,34 +438,63 @@ S_ENDING = (
 
 
 def make_sections():
+    # 과업지시서 목차 매핑
+    P_I = "I. 제안개요"
+    P_II = "II. 제안업체 일반"
+    P_III_1_A = "III. 1. 광고 콘텐츠 제작 · 소재 발굴 및 콘텐츠 기획"
+    P_III_1_B = "III. 1. 광고 콘텐츠 제작 · 대학 공식 홍보영상 기획 및 제작"
+    P_III_1_C = "III. 1. 광고 콘텐츠 제작 · 유튜브 콘텐츠 (인플루언서 협업)"
+    P_III_1_D = "III. 1. 광고 콘텐츠 제작 · 대학 광고 디자인 및 광고 제작 (인쇄)"
+    P_III_1_E = "III. 1. 광고 콘텐츠 제작 · 디지털 광고 (유튜브 · 인스타 · 페이스북)"
+    P_III_1_F = "III. 1. 광고 콘텐츠 제작 · SNS 이벤트 및 콘텐츠 활성화"
+    P_III_1_G = "III. 1. 광고 콘텐츠 제작 · 언론 지면 및 배너 광고"
+    P_III_2 = "III. 2. 사업 관리 계획"
+    P_IV_1 = "IV. 1. 광고 운영 및 예산 집행 계획(안)"
+    P_IV_2 = "IV. 2. 광고 결과 분석 및 피드백 적용"
+    P_IV_3 = "IV. 3. 기타 제안 사항"
+
     return [
-        (2, "I. 제안배경", 1, S_BACKGROUND),
-        (2, "II. 제안업체 일반", 2, S_COMPANY),
+        # I. 제안개요
+        (2, "제안배경", 1, parent(P_I) + S_BACKGROUND),
+        # II. 제안업체 일반
+        (2, "제안업체 일반", 2, parent(P_II) + S_COMPANY),
+        # III. 세부 과업 수행 계획 (간지)
         (1, "III. 세부 과업 수행 계획", 3, None),
-        (2, "965,525", 4, S_NUMBERS),
-        (2, "전환", 5, S_TRANSITION),
-        (2, "신호와 소음", 6, S_COCKTAIL),
-        (2, "같은 숫자, 다른 반응", 7, S_LOSS),
-        (2, "이름을 가리면", 8, S_BRIDGE),  # 신규 브릿지
-        (2, "컨셉 / 슬로건", 9, S_CONCEPT),
-        (2, '"3.6%"', 10, S_36),
-        (2, '"QS 55위"', 11, S_QS),
-        (2, '"Room 1201"', 12, S_ROOM),
-        (2, "시안 종합", 13, S_SIAN_SUMMARY_V26),
-        (1, "홍보영상", 14, None),
-        (2, "영상 콘텐츠 방향", 15, S_VIDEO_INTRO),
-        (2, '"지혜" 메인 영상', 16, S_JIHYE),
-        (2, "졸업선배 숏폼", 17, S_DOCU),
-        (2, "b. 유튜브 콘텐츠", 18, S_YOUTUBE_V22),
-        (2, "c. 광고 디자인/인쇄", 19, S_PRINT),
-        (2, "d. 디지털 광고", 20, S_DIGITAL),
-        (2, "e. SNS 이벤트", 21, S_SNS),
-        (2, "f. 언론 지면/배너", 22, S_PRESS),
-        (2, "사업 관리", 23, S_CONSULT),
-        (2, "IV-a. 예산 집행 (간트)", 24, S_GANTT),
-        (2, "IV-b. 결과 분석", 25, S_FEEDBACK),
-        (2, "IV-b2. 운영방안", 26, S_OPERATION),
-        # 마지막: 빈칸 회수 (마무리 대체)
+        # III. 1. 소재 발굴 및 콘텐츠 기획 (빌드업 + 컨셉 + 시안)
+        (2, "965,525", 4, parent(P_III_1_A) + S_NUMBERS),
+        (2, "전환", 5, parent(P_III_1_A) + S_TRANSITION),
+        (2, "신호와 소음", 6, parent(P_III_1_A) + S_COCKTAIL),
+        (2, "같은 숫자, 다른 반응", 7, parent(P_III_1_A) + S_LOSS),
+        (2, "이름을 가리면", 8, parent(P_III_1_A) + S_BRIDGE),
+        (2, "컨셉 / 슬로건", 9, parent(P_III_1_A) + S_CONCEPT),
+        (2, '"3.6%"', 10, parent(P_III_1_A) + S_36),
+        (2, '"QS 55위"', 11, parent(P_III_1_A) + S_QS),
+        (2, '"Room 1201"', 12, parent(P_III_1_A) + S_ROOM),
+        (2, "시안 종합", 13, parent(P_III_1_A) + S_SIAN_SUMMARY_V26),
+        # III. 1. 대학 공식 홍보영상 (간지)
+        (1, "대학 공식 홍보영상", 14, None),
+        (2, "영상 콘텐츠 방향", 15, parent(P_III_1_B) + S_VIDEO_INTRO),
+        (2, '"지혜" 메인 영상', 16, parent(P_III_1_B) + S_JIHYE),
+        (2, "졸업선배 숏폼 4편", 17, parent(P_III_1_B) + S_DOCU),
+        # III. 1. 유튜브 콘텐츠
+        (2, "유튜브 콘텐츠", 18, parent(P_III_1_C) + S_YOUTUBE_V22),
+        # III. 1. 광고 디자인 및 제작 (인쇄)
+        (2, "광고 디자인 및 인쇄 제작", 19, parent(P_III_1_D) + S_PRINT),
+        # III. 1. 디지털 광고
+        (2, "디지털 광고", 20, parent(P_III_1_E) + S_DIGITAL),
+        # III. 1. SNS 이벤트
+        (2, "SNS 이벤트 및 콘텐츠 활성화", 21, parent(P_III_1_F) + S_SNS),
+        # III. 1. 언론 지면 및 배너
+        (2, "언론 지면 및 배너 광고", 22, parent(P_III_1_G) + S_PRESS),
+        # III. 2. 사업 관리 계획
+        (2, "사업 관리 계획", 23, parent(P_III_2) + S_CONSULT),
+        # IV. 1. 광고 운영 및 예산 집행 계획(안)
+        (2, "광고 운영 및 예산 집행 계획(안)", 24, parent(P_IV_1) + S_GANTT),
+        # IV. 2. 광고 결과 분석 및 피드백 적용
+        (2, "광고 결과 분석 및 피드백 적용", 25, parent(P_IV_2) + S_FEEDBACK),
+        # IV. 3. 기타 제안 사항
+        (2, "기타 제안 사항", 26, parent(P_IV_3) + S_OPERATION),
+        # 마무리: 빈칸 회수
         (2, "영산대 =", 27, S_ENDING),
     ]
 

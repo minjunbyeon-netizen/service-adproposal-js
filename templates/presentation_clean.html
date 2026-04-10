@@ -212,7 +212,7 @@ body.edit-mode [contenteditable]:focus{outline:2px solid #E84E10;outline-offset:
 {% else %}
 <div class="slide slide-content{% if not section.script_html %} no-script{% endif %}">
   <div class="content-header">
-    <span class="section-parent">{{ ns.l1_title }}</span>
+    <span class="section-parent">{% if section.section_parent %}{{ section.section_parent }}{% else %}{{ ns.l1_title }}{% endif %}</span>
     <h3>{{ section.title }}</h3>
   </div>
   <div class="content-body">{{ section.html_content | safe }}</div>

@@ -327,10 +327,17 @@ def export_html(pid):
     md_ext = ["tables", "fenced_code", "nl2br"]
 
     slide_data = []
+    import re as _re
     for s in data["sections"]:
         html_content = ""
         script_html = ""
+        section_parent = ""
         raw = s["content"] or ""
+        # PARENT 마커 분리 (최우선)
+        m = _re.match(r"<!--PARENT:(.+?)-->", raw)
+        if m:
+            section_parent = m.group(1).strip()
+            raw = raw[m.end():]
         # 스크립트 마커 분리
         if "<!--SCRIPT_START-->" in raw and "<!--SCRIPT_END-->" in raw:
             start = raw.index("<!--SCRIPT_START-->")
@@ -344,6 +351,7 @@ def export_html(pid):
             "title": s["title"],
             "html_content": html_content,
             "script_html": script_html,
+            "section_parent": section_parent,
         })
 
     # selected concept
