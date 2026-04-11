@@ -598,14 +598,34 @@ def sian_image_slide(ref_num, headline_a, headline_b, image_path, caption):
         f'</div>'
     )
 
-# ===== 시안 풀스크린 헬퍼 -- 16:9 이미지만 최대 크기 (헤드라인 제거) =====
+# ===== 시안 풀스크린 헬퍼 -- 검정 배경 + 모서리 그리드 (갤러리 스타일) =====
 def sian_image_fullscreen(label, headline_a, headline_b, image_path, caption):
+    # label "1-2" -> reframing_num "01", case_num "02"
+    parts = label.split("-")
+    reframing_num = parts[0].zfill(2)
+    case_num = parts[1].zfill(2) if len(parts) > 1 else "01"
+    # 시안별 미션 텍스트
+    reframing_mission = {
+        "1": "96.4% 취업률이 아니라, 3.6% 탈락률",
+        "2": "국내 55위가 아니라, 글로벌 55위 대학교",
+        "3": "25명의 총지배인이 아니라, 1개의 시스템",
+    }.get(parts[0], "")
     return (
         '<div class="sian-full">'
+        '<div class="sian-full__head">'
+        f'<span class="sf-overline">RE-FRAMING &nbsp;#{reframing_num}</span>'
+        f'<span class="sf-headline">{reframing_mission}</span>'
+        '</div>'
         '<div class="sian-full__body">'
         '<div class="sian-full__frame">'
         f'<img src="{image_path}" alt="{headline_b}">'
+        '<div class="corner-tr"></div>'
+        '<div class="corner-bl"></div>'
         '</div>'
+        '</div>'
+        '<div class="sian-full__foot">'
+        f'<span class="sf-label">CASE &nbsp;{reframing_num} · {case_num}</span>'
+        '<span class="sf-mission">REFRAMING BY HIVE MEDIA</span>'
         '</div>'
         '</div>'
     )
