@@ -845,8 +845,8 @@ def make_sections():
 
     return [
         # I. 제안개요 (2페이지 분할: EVIDENCE + PROBLEM)
-        (2, "", 1, parent(P_I) + tag("전제") + S_FACTS),
-        (2, "", 2, parent(P_I) + tag("간극") + S_PROBLEM),
+        (2, "", 1, parent(P_I) + S_FACTS),
+        (2, "", 2, parent(P_I) + S_PROBLEM),
         # II 제안업체 일반
         (2, "제안업체 일반", 3, parent(P_II) + S_COMPANY),
         # III 세부 과업 수행 계획 (간지)
