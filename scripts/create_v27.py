@@ -28,52 +28,45 @@ def parent(label):
 def tag(label):
     return f'<!--TAG:{label}-->'
 
-# ===== #3 제안업체 일반 -- 1~4 row 구조 (간격 통일) =====
-def _co_row(num, title, hint, body_html):
-    return (
-        '<div style="display:flex;align-items:flex-start;padding:var(--s-2) 0;border-bottom:1px solid #E8E8E8;gap:var(--s-3)">'
-        # 좌측 번호+제목 고정 폭
-        f'<div style="width:220px;flex-shrink:0">'
-        f'<div class="t-caption w-bold is-accent" style="letter-spacing:1px">{num}. {title}</div>'
-        + (f'<div class="t-overline w-regular is-muted" style="letter-spacing:0;margin-top:3px">{hint}</div>' if hint else '')
-        + '</div>'
-        # 우측 본문
-        f'<div class="t-caption is-ink" style="flex:1;min-width:0">{body_html}</div>'
-        '</div>'
-    )
-
+# ===== #3 제안업체 일반 (4페이지) -- S_EXPANSION 스타일 통일 =====
 S_COMPANY = (
-    '<div style="padding:4px 0;border-top:1px solid #E8E8E8">'
-    + _co_row("1", "일반현황", "연혁 · 재무현황 · 매출액",
-        '<span class="is-muted">상호</span> <strong>(주)하이브미디어</strong> · '
-        '<span class="is-muted">설립</span> 2018.03 · '
-        '<span class="is-muted">대표</span> 변민준 · '
-        '<span class="is-muted">소재지</span> 부산 해운대구 · '
-        '<span class="is-muted">자본금</span> 1억<br>'
-        '<span class="is-muted">매출</span> 2023년 <strong>6.1억</strong> → 2024년 <strong>7.4억</strong> → 2025년 <strong>8.2억</strong>')
-    + _co_row("2", "조직 및 인원", "총 12명",
-        '총괄 PM <strong>1</strong> · 크리에이티브 <strong>3</strong> · '
-        '매체/디지털 <strong>2</strong> · 영상 PD <strong>3</strong> · '
-        'AE <strong>2</strong> · 재무/운영 <strong>1</strong>')
-    + _co_row("3", "주요 사업내용", "",
-        '통합 광고 기획 · 크리에이티브 제작 · 매체 집행 · '
-        '영상 제작 (홍보/숏폼/다큐) · SNS 운영 · 인플루언서 협업 · 브랜드 컨설팅')
-    + _co_row("4", "주요 실적", "사업명 · 기간 · 계약금액 · 발주처",
-        '<table class="t-overline w-regular" style="width:100%;border-collapse:collapse">'
-        '<tr><td style="padding:3px 0;width:55%"><strong class="is-ink">부산 강서구청 구정 홍보 광고대행</strong></td>'
-        '<td class="is-muted" style="padding:3px 0;text-align:right">2024 ~ · 연 1.5억</td></tr>'
-        '<tr><td style="padding:3px 0"><strong class="is-ink">OO대학교 입시 홍보 캠페인</strong></td>'
-        '<td class="is-muted" style="padding:3px 0;text-align:right">2024 · 8천만</td></tr>'
-        '<tr><td style="padding:3px 0"><strong class="is-ink">부산관광공사 관광 영상 3종</strong></td>'
-        '<td class="is-muted" style="padding:3px 0;text-align:right">2023 · 5천만</td></tr>'
-        '<tr><td style="padding:3px 0"><strong class="is-ink">OO병원 브랜드 리뉴얼</strong></td>'
-        '<td class="is-muted" style="padding:3px 0;text-align:right">2023 ~ 2024 · 연 6천만</td></tr>'
-        '<tr><td style="padding:3px 0"><strong class="is-ink">경남 OO시 관광 홍보</strong></td>'
-        '<td class="is-muted" style="padding:3px 0;text-align:right">2022 ~ 2023 · 연 1억</td></tr>'
-        '</table>')
-    + '</div>'
-    '<div class="t-overline w-regular is-muted" style="letter-spacing:0;margin-top:var(--s-2);font-style:italic;text-align:center">'
-    '※ 조직도, 재무제표, 투입 인력 상세 프로필은 별도 보고서를 참고해 주십시오'
+    '<div style="padding:var(--s-4) 0;text-align:center">'
+    '<div class="t-overline is-accent" style="margin-bottom:var(--s-4)">COMPANY</div>'
+    '<div class="t-heading" style="margin-bottom:var(--s-3)">'
+    '증명을 만드는, <span class="is-accent">하이브미디어</span></div>'
+    # short bar
+    '<div style="width:60px;height:3px;background:#E84E10;margin:0 auto var(--s-5)"></div>'
+    # 2열 grid
+    '<div style="display:grid;grid-template-columns:1fr 1fr;gap:0 var(--s-6);max-width:980px;margin:0 auto var(--s-5);text-align:left">'
+    '<div style="display:flex;align-items:baseline;gap:var(--s-3);padding:var(--s-2) 0;border-bottom:1px solid #E8E8E8">'
+    '<div class="t-overline is-accent" style="width:110px;flex-shrink:0">상호</div>'
+    '<div class="t-body is-muted">(주)하이브미디어 · 2018.03 설립</div>'
+    '</div>'
+    '<div style="display:flex;align-items:baseline;gap:var(--s-3);padding:var(--s-2) 0;border-bottom:1px solid #E8E8E8">'
+    '<div class="t-overline is-accent" style="width:110px;flex-shrink:0">대표</div>'
+    '<div class="t-body is-muted">변민준 · 부산 해운대구 소재</div>'
+    '</div>'
+    '<div style="display:flex;align-items:baseline;gap:var(--s-3);padding:var(--s-2) 0;border-bottom:1px solid #E8E8E8">'
+    '<div class="t-overline is-accent" style="width:110px;flex-shrink:0">조직</div>'
+    '<div class="t-body is-muted">총 12명 · PM·크리에이티브·매체·PD·AE</div>'
+    '</div>'
+    '<div style="display:flex;align-items:baseline;gap:var(--s-3);padding:var(--s-2) 0;border-bottom:1px solid #E8E8E8">'
+    '<div class="t-overline is-accent" style="width:110px;flex-shrink:0">매출</div>'
+    '<div class="t-body is-muted">2023 6.1억 → 2024 7.4억 → 2025 8.2억</div>'
+    '</div>'
+    '<div style="display:flex;align-items:baseline;gap:var(--s-3);padding:var(--s-2) 0">'
+    '<div class="t-overline is-accent" style="width:110px;flex-shrink:0">사업영역</div>'
+    '<div class="t-body is-muted">광고 기획·크리에이티브·매체·영상·SNS</div>'
+    '</div>'
+    '<div style="display:flex;align-items:baseline;gap:var(--s-3);padding:var(--s-2) 0">'
+    '<div class="t-overline is-accent" style="width:110px;flex-shrink:0">주요 실적</div>'
+    '<div class="t-body is-muted">강서구청·OO대학·부산관광공사 외</div>'
+    '</div>'
+    '</div>'
+    # 하단 한 줄
+    '<div class="t-subtitle w-regular is-muted">'
+    '— 조직도·재무제표 상세는 <span class="is-ink w-bold">별도 보고서</span>'
+    '</div>'
     '</div>'
 )
 
