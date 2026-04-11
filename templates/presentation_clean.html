@@ -10,8 +10,13 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%23E84E10'/><text x='16' y='23' text-anchor='middle' fill='white' font-size='16' font-family='sans-serif' font-weight='700'>Y</text></svg>">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-html,body{width:100vw;height:100vh;overflow:hidden}
-body{font-family:'Roboto','Noto Sans KR',-apple-system,sans-serif;font-weight:400;background:#1A1A1A;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility}
+html,body{width:100%;height:100%;overflow:hidden}
+body{font-family:'Roboto','Noto Sans KR',-apple-system,sans-serif;font-weight:400;background:#000;color:#fff;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility;display:flex;align-items:center;justify-content:center}
+
+/* ===== 고정 1920x1080 스테이지 + 스케일 (모바일/태블릿 대응) =====
+   JS가 window 크기에 맞춰 .stage 에 transform:scale() 적용
+   세로 유지, 16:9 유지, 검정 레터박스 자동 */
+.stage{width:1920px;height:1080px;position:relative;flex-shrink:0;transform-origin:center center;background:#fff}
 
 /* 텍스트 선택 색상 */
 ::selection{background:#E84E10;color:#fff}
@@ -47,12 +52,12 @@ body{font-family:'Roboto','Noto Sans KR',-apple-system,sans-serif;font-weight:40
 
 /* 시안 풀스크린 (12~23페이지 시안 슬라이드) */
 /* 시안 풀스크린 -- 검정 배경 + 그리드 프레임 (갤러리 스타일) */
-.content-body .sian-full{position:fixed;inset:0;background:#0A0A0A;z-index:20;display:flex;flex-direction:column;padding:40px 60px}
+.content-body .sian-full{position:absolute;inset:0;background:#0A0A0A;z-index:20;display:flex;flex-direction:column;padding:40px 60px}
 .content-body .sian-full__head{flex-shrink:0;display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}
 .content-body .sian-full__head .sf-overline{font-size:11px;font-weight:700;letter-spacing:4px;color:#E84E10;font-family:Roboto,sans-serif}
 .content-body .sian-full__head .sf-headline{font-size:13px;font-weight:400;color:#8E8E93;letter-spacing:0.5px}
 .content-body .sian-full__body{flex:1;display:flex;justify-content:center;align-items:center;min-height:0;position:relative}
-.content-body .sian-full__frame{width:min(100%,calc((100vh - 180px) * 16 / 9));aspect-ratio:16/9;background:#151515;overflow:hidden;position:relative;box-shadow:0 0 0 1px rgba(255,255,255,0.08)}
+.content-body .sian-full__frame{width:min(100%,calc((1080px - 180px) * 16 / 9));aspect-ratio:16/9;background:#151515;overflow:hidden;position:relative;box-shadow:0 0 0 1px rgba(255,255,255,0.08)}
 .content-body .sian-full__frame img{width:100%;height:100%;object-fit:cover;display:block}
 /* 모서리 마크 (집중 그리드) */
 .content-body .sian-full__frame::before,
@@ -68,8 +73,8 @@ body{font-family:'Roboto','Noto Sans KR',-apple-system,sans-serif;font-weight:40
 .content-body .sian-full__foot .sf-label{font-size:11px;letter-spacing:3px;color:#6E6E73;font-family:Roboto,sans-serif;font-weight:700}
 .content-body .sian-full__foot .sf-mission{font-size:11px;letter-spacing:1px;color:#4A4A4D;font-style:italic}
 
-.deck{position:relative;width:100vw;height:100vh;overflow:hidden}
-.slide{position:absolute;top:0;left:0;width:100vw;height:100vh;display:flex;flex-direction:column;justify-content:center;overflow:hidden;visibility:hidden;opacity:0}
+.deck{position:absolute;inset:0;overflow:hidden}
+.slide{position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;justify-content:center;overflow:hidden;visibility:hidden;opacity:0}
 .slide.active{visibility:visible;opacity:1}
 
 /* 커버 */
@@ -173,10 +178,10 @@ body{font-family:'Roboto','Noto Sans KR',-apple-system,sans-serif;font-weight:40
 .end-signature{font-size:12px;color:#6E6E73;letter-spacing:2px;margin-top:16px}
 
 /* 네비게이션 */
-.nav-bar{position:fixed;bottom:0;left:0;right:0;height:3px;background:rgba(255,255,255,.06);z-index:100}
+.nav-bar{position:absolute;bottom:0;left:0;right:0;height:3px;background:rgba(255,255,255,.06);z-index:100}
 .nav-progress{height:100%;background:#E84E10;transition:width .2s}
-.slide-counter{position:fixed;bottom:20px;right:40px;font-size:12px;color:#6E6E73;z-index:100;letter-spacing:1px}
-.key-hint{position:fixed;bottom:14px;left:50%;transform:translateX(-50%);font-size:11px;color:#6E6E73;z-index:100;opacity:1;transition:opacity 2s;pointer-events:none}
+.slide-counter{position:absolute;bottom:20px;right:40px;font-size:12px;color:#6E6E73;z-index:100;letter-spacing:1px}
+.key-hint{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);font-size:11px;color:#6E6E73;z-index:100;opacity:1;transition:opacity 2s;pointer-events:none}
 
 /* 간트차트 */
 .gantt{margin:16px 0;font-size:13px}
@@ -207,6 +212,7 @@ body{font-family:'Roboto','Noto Sans KR',-apple-system,sans-serif;font-weight:40
 </style>
 </head>
 <body>
+<div class="stage" id="stage">
 <div class="deck" id="deck">
 
 <div class="slide slide-cover active">
@@ -294,9 +300,24 @@ body{font-family:'Roboto','Noto Sans KR',-apple-system,sans-serif;font-weight:40
 <div class="nav-bar"><div class="nav-progress" id="progress"></div></div>
 <div class="slide-counter" id="counter"></div>
 <div class="key-hint" id="keyHint">← → 방향키로 이동</div>
+</div><!-- /.stage -->
 
 <script>
 (function(){
+  /* ===== 스테이지 스케일 (모바일/태블릿 대응) =====
+     1920x1080 고정 캔버스를 window 크기에 맞춰 transform:scale()
+     16:9 유지, 검정 레터박스 */
+  var stage=document.getElementById('stage');
+  function fit(){
+    var sx=window.innerWidth/1920;
+    var sy=window.innerHeight/1080;
+    var s=Math.min(sx,sy);
+    stage.style.transform='scale('+s+')';
+  }
+  fit();
+  window.addEventListener('resize',fit);
+  window.addEventListener('orientationchange',function(){setTimeout(fit,100);});
+
   var slides=document.querySelectorAll('.slide');
   var total=slides.length, current=0, animating=false;
   var prog=document.getElementById('progress');
@@ -325,8 +346,10 @@ body{font-family:'Roboto','Noto Sans KR',-apple-system,sans-serif;font-weight:40
   });
   document.addEventListener('click',function(e){
     if(e.target.closest('button,video')) return;
-    if(e.clientX>window.innerWidth*0.55) goTo(current+1);
-    else if(e.clientX<window.innerWidth*0.45) goTo(current-1);
+    var r=stage.getBoundingClientRect();
+    var mid=r.left+r.width/2;
+    if(e.clientX>mid) goTo(current+1);
+    else goTo(current-1);
   });
   var tx=0;
   document.addEventListener('touchstart',function(e){tx=e.touches[0].clientX;});
