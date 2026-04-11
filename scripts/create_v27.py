@@ -304,18 +304,24 @@ S_DOCU_VIDEOS = (
 
 # ===== 2-A. EVIDENCE: 사실은 이미 있다 =====
 S_FACTS = (
-    '<div style="padding:var(--s-6) 0;text-align:center">'
+    '<div style="padding:var(--s-5) 0;text-align:center">'
     '<div class="t-overline is-accent" style="margin-bottom:var(--s-5)">EVIDENCE</div>'
-    '<div class="t-heading" style="margin-bottom:var(--s-4)">'
-    '영산대에는,<br>사실이 있었습니다</div>'
-    # 주황 short bar
-    '<div style="width:60px;height:3px;background:#E84E10;margin:0 auto var(--s-5)"></div>'
-    # 4줄 팩트 리스트 (주황 bullet)
-    '<div class="t-body" style="display:inline-block;text-align:left;line-height:2.4">'
-    '<span class="is-accent">●</span> &nbsp;항공서비스학과 취업률 <strong>96.4%</strong><br>'
-    '<span class="is-accent">●</span> &nbsp;QS 호스피탈리티 부문 <strong>글로벌 55위</strong><br>'
-    '<span class="is-accent">●</span> &nbsp;호텔 총지배인 국내 최다 동문 <strong>25명</strong><br>'
-    '<span class="is-accent">●</span> &nbsp;校訓 "<strong>지혜가 실력이다</strong>"'
+    # 진단 헤드라인 (page 3와 동일 스케일)
+    '<div class="t-title" style="margin-bottom:var(--s-2)">'
+    '영산대에는,<br>'
+    '이미 <span class="is-accent">사실</span>이 있습니다</div>'
+    '<div class="t-body is-muted" style="margin-bottom:var(--s-5)">'
+    '— 말하지 않아도, 이미 있는 것들입니다</div>'
+    # long divider (page 3 동일)
+    '<div style="width:520px;height:1px;background:#E8E8E8;margin:0 auto var(--s-4)"></div>'
+    # 화살표 (page 3 동일)
+    '<div class="is-muted" style="font-size:32px;line-height:1;margin-bottom:var(--s-4)">↓</div>'
+    # 4개 팩트 (t-subtitle -- page 3 미션과 동일 스케일)
+    '<div class="t-subtitle w-regular" style="line-height:2">'
+    '항공서비스학과 취업률 <span class="is-accent w-bold">96.4%</span><br>'
+    'QS 호스피탈리티 부문 <span class="is-accent w-bold">글로벌 55위</span><br>'
+    '호텔 총지배인 국내 최다 동문 <span class="is-accent w-bold">25명</span><br>'
+    '校訓 <span class="is-accent w-bold">"지혜가 실력이다"</span>'
     '</div>'
     '</div>'
     + script(
