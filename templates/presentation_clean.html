@@ -68,15 +68,11 @@ body{font-family:'Roboto','Noto Sans KR',-apple-system,sans-serif;font-weight:40
 .cover-bar{position:absolute;bottom:0;left:0;right:0;height:8px;background:#E84E10}
 .cover-pagenum{position:absolute;top:50px;right:100px;font-size:16px;font-weight:700;color:#1A1A1A;letter-spacing:2px}
 
-/* 디바이더 -- 흰 프레임 스타일 */
-.slide-divider{background:#E84E10;padding:60px;justify-content:center;align-items:stretch}
-.divider-frame{flex:1;background:#E84E10;border:4px solid #fff;padding:70px 80px;display:flex;flex-direction:column;justify-content:center;position:relative}
-.divider-inner{max-width:900px}
-.divider-num{font-size:13px;letter-spacing:6px;color:#fff;opacity:.8;margin-bottom:24px;font-weight:700}
-.divider-deco{width:80px;height:4px;background:rgba(255,255,255,.5);margin-bottom:32px}
-.divider-title{font-size:88px;font-weight:700;line-height:1.1;color:#fff;word-break:keep-all;letter-spacing:-2px}
-.divider-pagenum{position:absolute;top:40px;right:48px;font-size:42px;font-weight:700;color:#fff;letter-spacing:-1px;line-height:1;font-family:Roboto,sans-serif}
-.divider-vrail{position:absolute;top:60px;bottom:60px;right:24px;writing-mode:vertical-rl;transform:rotate(180deg);font-size:12px;font-weight:700;color:#fff;opacity:.7;letter-spacing:4px;text-transform:uppercase;display:flex;align-items:center}
+/* 디바이더 -- 주황 배경, 텍스트만 */
+.slide-divider{background:#E84E10;padding:0;justify-content:center;align-items:center}
+.divider-frame{flex:1;background:#E84E10;display:flex;align-items:center;justify-content:center;text-align:center}
+.divider-inner{max-width:1200px;padding:0 80px}
+.divider-title{font-size:96px;font-weight:700;line-height:1.1;color:#fff;word-break:keep-all;letter-spacing:-2px}
 
 /* 콘텐츠 */
 .slide-content{background:#fff;color:#1A1A1A;padding:50px 380px 50px 80px;justify-content:flex-start}
@@ -240,12 +236,8 @@ body{font-family:'Roboto','Noto Sans KR',-apple-system,sans-serif;font-weight:40
 <div class="slide slide-divider">
   <div class="divider-frame">
     <div class="divider-inner">
-      <div class="divider-num">PART {{ '%02d' % ns.l1_idx }}</div>
-      <div class="divider-deco"></div>
       <div class="divider-title">{{ section.title }}</div>
     </div>
-    <div class="divider-pagenum">{{ '%02d' % (ns.idx + 1) }}</div>
-    <div class="divider-vrail">{{ section.title }}</div>
   </div>
 </div>
 {% set ns.idx = ns.idx + 1 %}
@@ -274,11 +266,10 @@ body{font-family:'Roboto','Noto Sans KR',-apple-system,sans-serif;font-weight:40
 
 <div class="slide slide-end">
   <div class="end-new-inner">
-    <div class="end-overline">ANSWER</div>
-    <div class="end-divider"></div>
     <div class="end-closing">
-      하이브미디어가,<br>
-      영산대학교의 사실을 이제 <strong>증명하겠습니다</strong>
+      이제, <strong>하이브미디어</strong>가<br>
+      영산대학교의<br>
+      사실을 <strong>증명</strong>하겠습니다
     </div>
   </div>
 </div>

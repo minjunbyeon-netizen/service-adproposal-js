@@ -530,6 +530,54 @@ S_METHOD_ONLY = (
     )
 )
 
+# ===== 브릿지: 3가지 리프레이밍 프리뷰 (소음 -> 각인) =====
+S_REFRAMING_PREVIEW = (
+    '<div style="padding:var(--s-4) 0;text-align:center">'
+    '<div class="t-overline is-accent" style="margin-bottom:var(--s-4)">PREVIEW</div>'
+    '<div class="t-heading" style="margin-bottom:var(--s-2)">'
+    '3가지 리프레이밍</div>'
+    '<div class="t-body is-muted" style="margin-bottom:var(--s-5)">'
+    '— 같은 사실을, 다른 프레임에 놓는 일</div>'
+    # 2-column bridge: 소음 -> 각인
+    '<div style="display:grid;grid-template-columns:1fr 60px 1fr;'
+    'align-items:center;max-width:1100px;margin:0 auto;gap:var(--s-2)">'
+    # 헤더 행
+    '<div class="t-overline is-muted" style="text-align:right">소음</div>'
+    '<div></div>'
+    '<div class="t-overline is-accent" style="text-align:left">각인</div>'
+    # 구분선 행
+    '<div style="height:1px;background:#E8E8E8"></div>'
+    '<div></div>'
+    '<div style="height:1px;background:#E84E10"></div>'
+    # 1. 취업률 -> 탈락률
+    '<div class="t-subtitle w-regular is-muted" style="text-align:right;padding:var(--s-2) var(--s-2)">'
+    '<span class="t-caption is-subtle">01</span> &nbsp;96.4% 취업률</div>'
+    '<div class="t-title is-accent" style="font-size:36px">→</div>'
+    '<div class="t-subtitle w-bold is-ink" style="text-align:left;padding:var(--s-2) var(--s-2)">'
+    '<span class="is-accent w-bold">3.6%</span> 탈락률</div>'
+    # 2. 국내 55위 -> 글로벌 55위
+    '<div class="t-subtitle w-regular is-muted" style="text-align:right;padding:var(--s-2) var(--s-2)">'
+    '<span class="t-caption is-subtle">02</span> &nbsp;국내 55위 대학교</div>'
+    '<div class="t-title is-accent" style="font-size:36px">→</div>'
+    '<div class="t-subtitle w-bold is-ink" style="text-align:left;padding:var(--s-2) var(--s-2)">'
+    '<span class="is-accent w-bold">글로벌 55위</span> 대학교</div>'
+    # 3. 25명의 총지배인 -> 1개의 시스템
+    '<div class="t-subtitle w-regular is-muted" style="text-align:right;padding:var(--s-2) var(--s-2)">'
+    '<span class="t-caption is-subtle">03</span> &nbsp;25명의 총지배인</div>'
+    '<div class="t-title is-accent" style="font-size:36px">→</div>'
+    '<div class="t-subtitle w-bold is-ink" style="text-align:left;padding:var(--s-2) var(--s-2)">'
+    '<span class="is-accent w-bold">1개의 시스템</span> (영산대)</div>'
+    '</div>'
+    '</div>'
+    + script(
+        '"저희가 보여드릴 3가지 리프레이밍입니다<br><br>'
+        '첫째, 96.4% 취업률이 아니라 <strong>3.6% 탈락률</strong><br>'
+        '둘째, 국내 55위가 아니라 <strong>글로벌 55위</strong><br>'
+        '셋째, 25명의 총지배인이 아니라 <strong>1개의 시스템(영산대)</strong>입니다<br><br>'
+        '지금부터, 각 시안으로 보여드리겠습니다"'
+    )
+)
+
 # ===== 시안 이미지 공통 헬퍼 (V27: 16:9 이미지 1장 + 헤드라인 + 캡션) =====
 def sian_image_slide(ref_num, headline_a, headline_b, image_path, caption):
     return (
@@ -856,7 +904,7 @@ def make_sections():
         # II 제안업체 일반
         (2, "제안업체 일반", 3, parent(P_II) + S_COMPANY),
         # III 세부 과업 수행 계획 (간지)
-        (1, "III 세부 과업 수행 계획", 4, None),
+        (1, "세부 과업 수행 계획", 4, None),
 
         # III 1 - 소재 발굴 및 콘텐츠 기획 (빌드업 4장 + 컨셉 2장 + 시안 4장 = 10장)
         (2, T_SOURCE, 5, parent(P_III) + tag("인식의 한계") + S_NUMBERS),
@@ -865,45 +913,46 @@ def make_sections():
         (2, T_SOURCE, 8, parent(P_III) + tag("접근법") + S_BRIDGE),
         (2, T_SOURCE, 9, parent(P_III) + tag("컨셉") + S_CONCEPT_ONLY),
         (2, T_SOURCE, 10, parent(P_III) + tag("기법") + S_METHOD_ONLY),
-        (2, T_SOURCE, 11, parent(P_III) + tag("사례 1-1") + sian_image_fullscreen("1-1", "96.4%", "3.6%", SIAN_1_IMAGES[0], "")),
-        (2, T_SOURCE, 12, parent(P_III) + tag("사례 1-2") + sian_image_fullscreen("1-2", "96.4%", "3.6%", SIAN_1_IMAGES[1], "")),
-        (2, T_SOURCE, 13, parent(P_III) + tag("사례 1-3") + sian_image_fullscreen("1-3", "96.4%", "3.6%", SIAN_1_IMAGES[2], "")),
-        (2, T_SOURCE, 14, parent(P_III) + tag("사례 2-1") + sian_image_fullscreen("2-1", "국내 우수 호스피탈리티", "글로벌 55위 영산대", SIAN_2_IMAGES[0], "")),
-        (2, T_SOURCE, 15, parent(P_III) + tag("사례 2-2") + sian_image_fullscreen("2-2", "국내 우수 호스피탈리티", "글로벌 55위 영산대", SIAN_2_IMAGES[1], "")),
-        (2, T_SOURCE, 16, parent(P_III) + tag("사례 2-3") + sian_image_fullscreen("2-3", "국내 우수 호스피탈리티", "글로벌 55위 영산대", SIAN_2_IMAGES[2], "")),
-        (2, T_SOURCE, 17, parent(P_III) + tag("사례 3-1") + sian_image_fullscreen("3-1", "25명의 총지배인", "25개 호텔 · 하나의 대학", SIAN_3_IMAGES[0], "")),
-        (2, T_SOURCE, 18, parent(P_III) + tag("사례 3-2") + sian_image_fullscreen("3-2", "25명의 총지배인", "25개 호텔 · 하나의 대학", SIAN_3_IMAGES[1], "")),
-        (2, T_SOURCE, 19, parent(P_III) + tag("사례 3-3") + sian_image_fullscreen("3-3", "25명의 총지배인", "25개 호텔 · 하나의 대학", SIAN_3_IMAGES[2], "")),
-        (2, T_SOURCE, 20, parent(P_III) + tag("사례 3-4") + sian_image_fullscreen("3-4", "25명의 총지배인", "25개 호텔 · 하나의 대학", SIAN_3_IMAGES[3], "")),
-        (2, T_SOURCE, 21, parent(P_III) + tag("사례 3-5") + sian_image_fullscreen("3-5", "25명의 총지배인", "25개 호텔 · 하나의 대학", SIAN_3_IMAGES[4], "")),
-        (2, T_SOURCE, 22, parent(P_III) + tag("사례 3-6") + sian_image_fullscreen("3-6", "25명의 총지배인", "25개 호텔 · 하나의 대학", SIAN_3_IMAGES[5], "")),
-        (2, T_SOURCE, 23, parent(P_III) + tag("종합") + S_SIAN_SUMMARY_V26),
+        (2, T_SOURCE, 11, parent(P_III) + tag("프리뷰") + S_REFRAMING_PREVIEW),
+        (2, T_SOURCE, 12, parent(P_III) + tag("사례 1-1") + sian_image_fullscreen("1-1", "96.4%", "3.6%", SIAN_1_IMAGES[0], "")),
+        (2, T_SOURCE, 13, parent(P_III) + tag("사례 1-2") + sian_image_fullscreen("1-2", "96.4%", "3.6%", SIAN_1_IMAGES[1], "")),
+        (2, T_SOURCE, 14, parent(P_III) + tag("사례 1-3") + sian_image_fullscreen("1-3", "96.4%", "3.6%", SIAN_1_IMAGES[2], "")),
+        (2, T_SOURCE, 15, parent(P_III) + tag("사례 2-1") + sian_image_fullscreen("2-1", "국내 우수 호스피탈리티", "글로벌 55위 영산대", SIAN_2_IMAGES[0], "")),
+        (2, T_SOURCE, 16, parent(P_III) + tag("사례 2-2") + sian_image_fullscreen("2-2", "국내 우수 호스피탈리티", "글로벌 55위 영산대", SIAN_2_IMAGES[1], "")),
+        (2, T_SOURCE, 17, parent(P_III) + tag("사례 2-3") + sian_image_fullscreen("2-3", "국내 우수 호스피탈리티", "글로벌 55위 영산대", SIAN_2_IMAGES[2], "")),
+        (2, T_SOURCE, 18, parent(P_III) + tag("사례 3-1") + sian_image_fullscreen("3-1", "25명의 총지배인", "25개 호텔 · 하나의 대학", SIAN_3_IMAGES[0], "")),
+        (2, T_SOURCE, 19, parent(P_III) + tag("사례 3-2") + sian_image_fullscreen("3-2", "25명의 총지배인", "25개 호텔 · 하나의 대학", SIAN_3_IMAGES[1], "")),
+        (2, T_SOURCE, 20, parent(P_III) + tag("사례 3-3") + sian_image_fullscreen("3-3", "25명의 총지배인", "25개 호텔 · 하나의 대학", SIAN_3_IMAGES[2], "")),
+        (2, T_SOURCE, 21, parent(P_III) + tag("사례 3-4") + sian_image_fullscreen("3-4", "25명의 총지배인", "25개 호텔 · 하나의 대학", SIAN_3_IMAGES[3], "")),
+        (2, T_SOURCE, 22, parent(P_III) + tag("사례 3-5") + sian_image_fullscreen("3-5", "25명의 총지배인", "25개 호텔 · 하나의 대학", SIAN_3_IMAGES[4], "")),
+        (2, T_SOURCE, 23, parent(P_III) + tag("사례 3-6") + sian_image_fullscreen("3-6", "25명의 총지배인", "25개 호텔 · 하나의 대학", SIAN_3_IMAGES[5], "")),
+        (2, T_SOURCE, 24, parent(P_III) + tag("종합") + S_SIAN_SUMMARY_V26),
 
         # 대학 공식 홍보영상
-        (1, "대학 공식 홍보영상", 24, None),
-        (2, T_VIDEO, 25, parent(P_III) + tag("영상 접근법") + S_VIDEO_INTRO),
-        (2, T_VIDEO, 26, parent(P_III) + tag("주인공") + S_VIDEO_WHY),
-        (2, T_VIDEO, 27, parent(P_III) + tag("본편") + S_JIHYE),
-        (2, T_VIDEO, 28, parent(P_III) + tag("영상 2") + S_JIHYE_2),
-        (2, T_VIDEO, 29, parent(P_III) + tag("영상 3") + S_JIHYE_3),
+        (1, "대학 공식 홍보영상", 25, None),
+        (2, T_VIDEO, 26, parent(P_III) + tag("영상 접근법") + S_VIDEO_INTRO),
+        (2, T_VIDEO, 27, parent(P_III) + tag("주인공") + S_VIDEO_WHY),
+        (2, T_VIDEO, 28, parent(P_III) + tag("본편") + S_JIHYE),
+        (2, T_VIDEO, 29, parent(P_III) + tag("영상 2") + S_JIHYE_2),
+        (2, T_VIDEO, 30, parent(P_III) + tag("영상 3") + S_JIHYE_3),
 
         # 실무 확장 대시보드
-        (2, T_SOURCE, 30, parent(P_III) + tag("확장 개요") + S_EXPANSION),
+        (2, T_SOURCE, 31, parent(P_III) + tag("확장 개요") + S_EXPANSION),
 
         # 매체 전개
-        (2, T_YOUTUBE, 31, parent(P_III) + tag("인플루언서") + S_YOUTUBE_V22),
-        (2, T_PRINT, 32, parent(P_III) + tag("인쇄 매체") + S_PRINT),
-        (2, T_DIGITAL, 33, parent(P_III) + tag("디지털 매체") + S_DIGITAL),
-        (2, T_VIDEO, 34, parent(P_III) + tag("숏폼 기획") + S_DOCU_PLAN),
-        (2, T_VIDEO, 35, parent(P_III) + tag("숏폼 완성본") + S_DOCU_VIDEOS),
-        (2, T_SNS, 36, parent(P_III) + tag("소셜 미디어") + S_SNS),
-        (2, T_PRESS, 37, parent(P_III) + tag("언론 매체") + S_PRESS),
-        (2, T_MGMT, 38, parent(P_III) + tag("운영 지원") + S_CONSULT),
+        (2, T_YOUTUBE, 32, parent(P_III) + tag("인플루언서") + S_YOUTUBE_V22),
+        (2, T_PRINT, 33, parent(P_III) + tag("인쇄 매체") + S_PRINT),
+        (2, T_DIGITAL, 34, parent(P_III) + tag("디지털 매체") + S_DIGITAL),
+        (2, T_VIDEO, 35, parent(P_III) + tag("숏폼 기획") + S_DOCU_PLAN),
+        (2, T_VIDEO, 36, parent(P_III) + tag("숏폼 완성본") + S_DOCU_VIDEOS),
+        (2, T_SNS, 37, parent(P_III) + tag("소셜 미디어") + S_SNS),
+        (2, T_PRESS, 38, parent(P_III) + tag("언론 매체") + S_PRESS),
+        (2, T_MGMT, 39, parent(P_III) + tag("운영 지원") + S_CONSULT),
 
         # IV
-        (2, T_IV_1, 39, parent(P_IV) + tag("예산 배분") + S_GANTT),
-        (2, T_IV_2, 40, parent(P_IV) + tag("성과 측정") + S_FEEDBACK),
-        (2, T_IV_3, 41, parent(P_IV) + tag("확장 계획") + S_OPERATION),
+        (2, T_IV_1, 40, parent(P_IV) + tag("예산 배분") + S_GANTT),
+        (2, T_IV_2, 41, parent(P_IV) + tag("성과 측정") + S_FEEDBACK),
+        (2, T_IV_3, 42, parent(P_IV) + tag("확장 계획") + S_OPERATION),
 
         # 마무리는 템플릿의 slide-end가 담당 (ANSWER 엔딩)
     ]
