@@ -42,17 +42,19 @@ def create_app():
 
     @app.route("/pt")
     def pt_latest():
-        """최신 V27 PT로 리다이렉트 -- PT 발표용 단축 URL."""
+        """최신 PT로 리다이렉트 -- V28 > V27 순서 폴백."""
         from flask import redirect
         from api.db import get_conn
         conn = get_conn()
         try:
-            row = conn.execute(
-                "SELECT id FROM proposals WHERE version='V27' ORDER BY id DESC LIMIT 1"
-            ).fetchone()
-            if row:
-                return redirect(f"/api/proposals/{row['id']}/export-html")
-            return jsonify({"ok": False, "error": "V27 PT 없음", "code": "NOT_FOUND"}), 404
+            for version in ("V28", "V27"):
+                row = conn.execute(
+                    "SELECT id FROM proposals WHERE version=? ORDER BY id DESC LIMIT 1",
+                    (version,),
+                ).fetchone()
+                if row:
+                    return redirect(f"/api/proposals/{row['id']}/export-html")
+            return jsonify({"ok": False, "error": "PT 없음", "code": "NOT_FOUND"}), 404
         finally:
             conn.close()
 
