@@ -89,7 +89,7 @@ def gantt_bar(left_pct, width_pct, cls, label):
     return f'<div class="gantt-bar {cls}" style="left:{left_pct}%;width:{width_pct}%">{label}</div>'
 
 S_GANTT = (
-    "### IV-1. 광고 운영 및 예산 집행 계획\n\n"
+    "### IV-1 광고 운영 및 예산 집행 계획\n\n"
     "**2년 간트차트 -- 수시 80% / 정시 20%**\n\n"
     "#### 2026년 (Year 1) -- 4월 착수\n"
     '<div class="gantt">'
