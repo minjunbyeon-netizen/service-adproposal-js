@@ -1,4 +1,4 @@
-"""V29: 배점 보강 -- 환경/타깃 분석 2장 + 매체 믹스 전략 1장 + 예산 상세 3장 (총 6장 추가)."""
+"""V29: 배점 보강 -- 환경/타깃 분석 2장 + 매체 믹스 전략 1장 + 예산 상세 3장 (총 6장 추가)"""
 import sys, os
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -47,7 +47,7 @@ S_COMPANY = (
     '</div>'
     '<div style="display:flex;align-items:baseline;gap:var(--s-3);padding:var(--s-2) 0;border-bottom:1px solid #E8E8E8">'
     '<div class="t-caption is-accent w-bold" style="width:110px;flex-shrink:0">개업일</div>'
-    '<div class="t-body is-muted">2006.02.01</div>'
+    '<div class="t-body is-muted">20060201</div>'
     '</div>'
     '<div style="display:flex;align-items:baseline;gap:var(--s-3);padding:var(--s-2) 0;border-bottom:1px solid #E8E8E8">'
     '<div class="t-caption is-accent w-bold" style="width:110px;flex-shrink:0">법인등록</div>'
@@ -76,40 +76,40 @@ S_COMPANY = (
 # ===== 재작성 콘텐츠 (a/b/c/d/e 기호 제거) =====
 
 S_YOUTUBE_V22 = (
-    "자체 제작이 아닌 **섭외/협업** 기반.\n\n"
+    "자체 제작이 아닌 **섭외/협업** 기반\n\n"
     "| 인플루언서 | 구독자 | 콘텐츠 | 형식 |\n"
     "|-----------|--------|--------|------|\n"
     "| 진로탐구생활 (교육/진로) | 42만 | '숨은 명문대' 시리즈 -- 영산대 편 | 12분 |\n"
     "| 호텔리어K (호텔업계) | 18만 | '총지배인 25명의 학교' 탐방 | 15분 |\n\n"
-    "섭외 확정 후 상세 기획 진행.\n"
+    "섭외 확정 후 상세 기획 진행\n"
     "팩트(취업률, QS 순위) 자연 노출 방식"
 )
 
 S_PRINT = (
-    "**핵심 시안: \"3.6%\" 중심 배치**\n\n"
-    "팩트와 임팩트가 가장 강력한 '3.6%' 시안을 인쇄 매체 주력으로.\n\n"
+    "**핵심 시안: \"36%\" 중심 배치**\n\n"
+    "팩트와 임팩트가 가장 강력한 '36%' 시안을 인쇄 매체 주력으로\n\n"
     "| 매체 | 시안 | 사양 |\n"
     "|------|------|------|\n"
-    "| 버스쉘터 | 3.6% | 1200x1800mm, 양면 |\n"
-    "| 지하철 역사 | 3.6% | 2400x1200mm |\n"
-    "| 대학 내 현수막 | 3.6% + 슬로건 | 900x2400mm |\n"
-    "| 입시요강 표지 | 3.6% 변형 | A4 |\n"
+    "| 버스쉘터 | 36% | 1200x1800mm, 양면 |\n"
+    "| 지하철 역사 | 36% | 2400x1200mm |\n"
+    "| 대학 내 현수막 | 36% + 슬로건 | 900x2400mm |\n"
+    "| 입시요강 표지 | 36% 변형 | A4 |\n"
     "| 리플렛 | 4종 시안 종합 | 3단 접지 |\n\n"
-    "숫자 '3.6%'의 시각적 충격을 오프라인에서 극대화.\n"
+    "숫자 '36%'의 시각적 충격을 오프라인에서 극대화\n"
     "지나가는 사람이 멈추는 광고"
 )
 
 S_DIGITAL = (
     "**실험적 다품종: \"심사위원석\" + \"Room 1201\" 중심**\n\n"
-    "디지털은 A/B 테스트가 가능 여러 시안을 동시에 실험.\n\n"
+    "디지털은 A/B 테스트가 가능 여러 시안을 동시에 실험\n\n"
     "| 플랫폼 | 시안 | 형식 | 목적 |\n"
     "|--------|------|------|------|\n"
     "| 유튜브 프리롤 | 심사위원석 | 15초 영상 | 권위 반전 |\n"
     "| 유튜브 프리롤 | Room 1201 | 15초 영상 | 밀도감 |\n"
-    "| 인스타 피드 | 3.6% | 정방형 이미지 | 숫자 충격 |\n"
+    "| 인스타 피드 | 36% | 정방형 이미지 | 숫자 충격 |\n"
     "| 인스타 스토리 | 1학년 vs 졸업생 | 세로 영상 | 분할 대비 |\n"
     "| 페이스북 | 4종 캐러셀 | 스와이프 | 시안 순회 |\n"
-    "| 네이버 DA | 3.6% 변형 | 배너 | 검색 연동 |\n\n"
+    "| 네이버 DA | 36% 변형 | 배너 | 검색 연동 |\n\n"
     "2주 단위 성과 측정 → 상위 시안 예산 집중 배분"
 )
 
@@ -162,12 +162,12 @@ S_SNS = (
 S_PRESS = (
     "| 매체 | 형태 | 시기 | 시안 |\n"
     "|------|------|------|------|\n"
-    "| 부산일보 | 15단 전면 | 수시 원서 접수 전 (6월) | 3.6% |\n"
+    "| 부산일보 | 15단 전면 | 수시 원서 접수 전 (6월) | 36% |\n"
     "| 국제신문 | 5단 통 | 정시 전 (12월) | 슬로건 |\n"
     "| 대학저널 | 1/2면 | 연 2회 | 4종 시안 종합 |\n"
     "| 네이버 메인 배너 | DA | 수시 기간 집중 | 심사위원석 |\n"
     "| 교육 전문 매체 | 기사형 광고 | 분기 1회 | QS 순위 팩트 |\n\n"
-    "인쇄 매체는 '3.6%' 시안의 시각적 충격 극대화.\n"
+    "인쇄 매체는 '36%' 시안의 시각적 충격 극대화\n"
     "디지털 배너는 클릭 유도형 카피 적용"
 )
 
@@ -236,7 +236,7 @@ S_DOCU_PLAN = (
     '<div class="t-caption w-bold is-accent" style="margin-bottom:4px;letter-spacing:1px">운영 방침</div>'
     '<div class="t-caption is-ink">'
     '· 출연: 해당 업계 현직 <strong>영산대 졸업생</strong> 섭외 (섭외료 별도)<br>'
-    '· 편집: 인트로 3초 훅 + 본편 50초 + 엔딩 7초 ("지혜가 실력이다")<br>'
+    '· 편집: 인트로 3초 훅 + 본편 50초 + 엔딩 7초 ("지혜로운 가치를 배우는 대학, 지혜로운 당신을 만드는 대학")<br>'
     '· 채널: 인스타 릴스 / 유튜브 쇼츠 / 틱톡 <strong>3개 플랫폼 동시 업로드</strong><br>'
     '· 피드백: 업로드 후 2주차 성과 리포트 → 다음 편 기획 반영'
     '</div>'
@@ -314,17 +314,17 @@ S_FACTS = (
     '<div class="is-muted" style="font-size:32px;line-height:1;margin-bottom:var(--s-4)">↓</div>'
     # 4개 팩트 (t-subtitle -- page 3 미션과 동일 스케일)
     '<div class="t-subtitle w-regular" style="line-height:2">'
-    '항공서비스학과 취업률 <span class="is-accent w-bold">96.4%</span><br>'
+    '항공서비스학과 취업률 <span class="is-accent w-bold">964%</span><br>'
     'QS 호스피탈리티 부문 <span class="is-accent w-bold">글로벌 55위</span><br>'
     '호텔 총지배인 국내 최다 동문 <span class="is-accent w-bold">25명</span><br>'
-    '校訓 <span class="is-accent w-bold">"지혜가 실력이다"</span>'
+    '校訓 <span class="is-accent w-bold">"지혜로운 가치를 배우는 대학, 지혜로운 당신을 만드는 대학"</span>'
     '</div>'
     '</div>'
     + script(
         '(표지가 뜬 상태에서, 인사 생략)<br><br>'
         '"영산대학교에는 이미 <strong>사실</strong>이 있습니다<br><br>'
-        '항공서비스학과 취업률 96.4% QS 호스피탈리티 부문 글로벌 55위 '
-        '호텔 총지배인 국내 최다 동문 25명 그리고 校訓 <strong>지혜가 실력이다</strong>.<br><br>'
+        '항공서비스학과 취업률 964% QS 호스피탈리티 부문 글로벌 55위 '
+        '호텔 총지배인 국내 최다 동문 25명 그리고 校訓 <strong>지혜로운 가치를 배우는 대학, 지혜로운 당신을 만드는 대학</strong><br><br>'
         '이것들은, 모두 <strong>이미 있는 것들</strong>입니다"'
     )
 )
@@ -350,7 +350,7 @@ S_PROBLEM = (
     '</div>'
     '</div>'
     + script(
-        '"그런데, <strong>사실만으로는 아직 증명이 아닙니다</strong>.<br>'
+        '"그런데, <strong>사실만으로는 아직 증명이 아닙니다</strong><br>'
         '보이지 않으면, 없는 것과 같습니다<br><br>'
         '저희가 할 일은, 이 사실을 <strong>증명</strong>으로 바꾸는 것<br>'
         '그것이, 이번 제안의 전부입니다"'
@@ -387,7 +387,7 @@ S_TRANSITION = (
     # 클리셰 박스
     '<div style="background:#F5F5F5;border-radius:8px;padding:var(--s-5) var(--s-6);max-width:760px;margin:0 auto">'
     '<div class="t-overline" style="margin-bottom:var(--s-3)">모든 대학이 이렇게 말합니다</div>'
-    '<div class="t-body is-ink" style="line-height:2.2;text-align:left;padding:0 var(--s-2)">'
+    '<div class="t-body is-ink" style="line-height:22;text-align:left;padding:0 var(--s-2)">'
     '<span class="is-accent">●</span> &nbsp;글로벌 경쟁력 1위<br>'
     '<span class="is-accent">●</span> &nbsp;최고의 교수진<br>'
     '<span class="is-accent">●</span> &nbsp;미래형 인재 양성<br>'
@@ -418,7 +418,7 @@ S_COCKTAIL = (
     '<div style="background:#F5F5F5;border-radius:8px;padding:var(--s-5) var(--s-5);max-width:720px;margin:0 auto">'
     '<div class="t-overline" style="margin-bottom:var(--s-3)">'
     '모든 대학이 이렇게 말합니다</div>'
-    '<div class="t-subtitle w-regular" style="line-height:2.2;text-align:left;padding:0 var(--s-3)">'
+    '<div class="t-subtitle w-regular" style="line-height:22;text-align:left;padding:0 var(--s-3)">'
     '· &nbsp;글로벌 경쟁력 1위<br>'
     '· &nbsp;최고의 교수진<br>'
     '· &nbsp;미래형 인재 양성<br>'
@@ -432,7 +432,7 @@ S_COCKTAIL = (
     '</div>'
     + script(
         '"지금까지의 대학 광고는 <strong>정보 나열형</strong>이었습니다<br><br>'
-        '글로벌 경쟁력 1위, 최고의 교수진, 미래형 인재 양성, 4차 산업혁명 선도...<br>'
+        '글로벌 경쟁력 1위, 최고의 교수진, 미래형 인재 양성, 4차 산업혁명 선도<br>'
         '모든 대학이 이렇게 말합니다<br><br>'
         '어느 대학의 카피인지 <strong>맞출 수 있으십니까?</strong><br>'
         '아마 못 맞추실 겁니다 왜냐하면 -- "'
@@ -461,7 +461,7 @@ S_LOSS = (
         '"모든 대학이 같은 말을 하면, 결과는 <strong>소음</strong>입니다<br><br>'
         '정보 나열은 광고가 아닙니다<br>'
         '수험생과 학부모는 이미 이 소음에 지쳐 있습니다<br><br>'
-        '그래서 저희는, <strong>뒤집었습니다</strong>."'
+        '그래서 저희는, <strong>뒤집었습니다</strong>"'
     )
 )
 
@@ -477,7 +477,7 @@ S_BRIDGE = (
     '</div>'
     + script(
         '"소음에 지친 청중에게, 저희는 똑같이 외칠 수 없었습니다<br><br>'
-        '그래서 <strong>뒤집었습니다</strong>.<br>'
+        '그래서 <strong>뒤집었습니다</strong><br>'
         '같은 사실을, <strong>다른 언어</strong>로 옮겨왔습니다<br><br>'
         '지금부터, 그 방법의 이름과 세 가지 사례를 보여드리겠습니다"'
     )
@@ -508,7 +508,7 @@ S_METHOD_ONLY = (
     '<div class="t-title" style="margin-bottom:var(--s-4)">리프레이밍</div>'
     # 주황 short bar
     '<div style="width:60px;height:3px;background:#E84E10;margin:0 auto var(--s-5)"></div>'
-    '<div class="t-subtitle w-regular is-muted" style="margin-bottom:var(--s-5);line-height:1.7">'
+    '<div class="t-subtitle w-regular is-muted" style="margin-bottom:var(--s-5);line-height:17">'
     '같은 사실을, 다른 프레임에 놓는 일<br>'
     '소음이 아닌, <span class="is-ink w-bold">각인</span>되게 만듭니다'
     '</div>'
@@ -547,10 +547,10 @@ S_REFRAMING_PREVIEW = (
     '<div style="height:1px;background:#E84E10"></div>'
     # 1. 취업률 -> 탈락률
     '<div class="t-subtitle w-regular is-muted" style="text-align:right;padding:var(--s-2) var(--s-2)">'
-    '<span class="t-caption is-subtle">01</span> &nbsp;96.4% 취업률</div>'
+    '<span class="t-caption is-subtle">01</span> &nbsp;964% 취업률</div>'
     '<div class="t-title is-accent" style="font-size:36px">→</div>'
     '<div class="t-subtitle w-bold is-ink" style="text-align:left;padding:var(--s-2) var(--s-2)">'
-    '<span class="is-accent w-bold">3.6%</span> 탈락률</div>'
+    '<span class="is-accent w-bold">36%</span> 탈락률</div>'
     # 2. 국내 55위 -> 글로벌 55위
     '<div class="t-subtitle w-regular is-muted" style="text-align:right;padding:var(--s-2) var(--s-2)">'
     '<span class="t-caption is-subtle">02</span> &nbsp;국내 55위 대학교</div>'
@@ -567,7 +567,7 @@ S_REFRAMING_PREVIEW = (
     '</div>'
     + script(
         '"저희가 보여드릴 3가지 리프레이밍입니다<br><br>'
-        '첫째, 96.4% 취업률이 아니라 <strong>3.6% 탈락률</strong><br>'
+        '첫째, 964% 취업률이 아니라 <strong>36% 탈락률</strong><br>'
         '둘째, 국내 55위가 아니라 <strong>글로벌 55위</strong><br>'
         '셋째, 25명의 총지배인이 아니라 <strong>1개의 시스템(영산대)</strong>입니다<br><br>'
         '지금부터, 각 시안으로 보여드리겠습니다"'
@@ -578,7 +578,7 @@ S_REFRAMING_PREVIEW = (
 def sian_image_slide(ref_num, headline_a, headline_b, image_path, caption):
     return (
         f'<div class="t-overline is-accent" style="text-align:center;margin-bottom:var(--s-2)">RE-FRAMING &nbsp;#{ref_num}</div>'
-        f'<div class="t-title" style="text-align:center;margin-bottom:var(--s-3);line-height:1.25">'
+        f'<div class="t-title" style="text-align:center;margin-bottom:var(--s-3);line-height:125">'
         f'"{headline_a}"가 아니라,<br>'
         f'<span class="is-accent">"{headline_b}"</span>입니다</div>'
         # 16:9 이미지 프레임 (1067x600 ≈ 16:9)
@@ -602,7 +602,7 @@ def sian_image_fullscreen(label, headline_a, headline_b, image_path, caption):
     case_num = parts[1].zfill(2) if len(parts) > 1 else "01"
     # 시안별 미션 텍스트
     reframing_mission = {
-        "1": "96.4% 취업률이 아니라, 3.6% 탈락률",
+        "1": "964% 취업률이 아니라, 36% 탈락률",
         "2": "국내 55위가 아니라, 글로벌 55위 대학교",
         "3": "25명의 총지배인이 아니라, 1개의 시스템",
     }.get(parts[0], "")
@@ -626,7 +626,7 @@ def sian_image_fullscreen(label, headline_a, headline_b, image_path, caption):
         '</div>'
     )
 
-# ===== 시안 1 · "3.6%" 이미지 3장 =====
+# ===== 시안 1 · "36%" 이미지 3장 =====
 SIAN_1_IMAGES = [
     "/assets/image/1/2.jpg",
     "/assets/image/1/Image_20260410_200932.jpg",
@@ -670,7 +670,7 @@ def _sian_row(label, images):
 
 S_SIAN_SUMMARY_V26 = (
     '<div style="padding:var(--s-2) 0;max-width:1600px;margin:0 auto">'
-    + _sian_row("사례 1 · 3.6%", SIAN_1_IMAGES)
+    + _sian_row("사례 1 · 36%", SIAN_1_IMAGES)
     + '<div style="height:1px;background:#E8E8E8;margin:var(--s-1) 0"></div>'
     + _sian_row("사례 2 · 55위", SIAN_2_IMAGES)
     + '<div style="height:1px;background:#E8E8E8;margin:var(--s-1) 0"></div>'
@@ -694,7 +694,7 @@ S_VIDEO_INTRO = (
     # PRINT 컬럼
     '<div style="flex:1;padding:var(--s-4) var(--s-5);text-align:left">'
     '<div class="t-overline" style="margin-bottom:var(--s-3)">PRINT &nbsp;·&nbsp; 지면</div>'
-    '<div class="t-subtitle w-regular" style="line-height:1.6">정제된 한 장면<br>'
+    '<div class="t-subtitle w-regular" style="line-height:16">정제된 한 장면<br>'
     '<span class="is-accent w-bold">리프레이밍</span>으로 증명</div>'
     '</div>'
     # 중앙 세로선
@@ -702,7 +702,7 @@ S_VIDEO_INTRO = (
     # VIDEO 컬럼
     '<div style="flex:1;padding:var(--s-4) var(--s-5);text-align:left">'
     '<div class="t-overline" style="margin-bottom:var(--s-3)">VIDEO &nbsp;·&nbsp; 영상</div>'
-    '<div class="t-subtitle w-regular" style="line-height:1.6;white-space:nowrap">풀어낸 한 편의 이야기<br>'
+    '<div class="t-subtitle w-regular" style="line-height:16;white-space:nowrap">풀어낸 한 편의 이야기<br>'
     '<span class="is-accent w-bold">스토리텔링</span>으로 증명</div>'
     '</div>'
     '</div>'
@@ -736,7 +736,7 @@ S_VIDEO_WHY = (
     # 1. 校訓
     '<div style="display:flex;align-items:baseline;gap:var(--s-4);padding:var(--s-2) 0;border-bottom:1px solid #E8E8E8">'
     '<div class="t-overline" style="width:130px;flex-shrink:0">① 校訓</div>'
-    '<div class="t-subtitle w-regular">"지혜가 실력이다" — 영산대학교</div>'
+    '<div class="t-subtitle w-regular">"지혜로운 가치를 배우는 대학, 지혜로운 당신을 만드는 대학" — 영산대학교</div>'
     '</div>'
     # 2. 영상 주인공
     '<div style="display:flex;align-items:baseline;gap:var(--s-4);padding:var(--s-2) 0;border-bottom:1px solid #E8E8E8">'
@@ -752,7 +752,7 @@ S_VIDEO_WHY = (
     '</div>'
     + script(
         '"왜 <strong>\'지혜\'</strong>인가요? 세 가지 이유가 한 단어에 있습니다<br><br>'
-        '<strong>첫째,</strong> 영산대 校訓이 <strong>지혜가 실력이다</strong>입니다<br>'
+        '<strong>첫째,</strong> 영산대 校訓이 <strong>지혜로운 가치를 배우는 대학, 지혜로운 당신을 만드는 대학</strong>입니다<br>'
         '<strong>둘째,</strong> 영상 속 주인공의 이름입니다 -- 누군가 부르면 돌아보는 사람<br>'
         '<strong>셋째,</strong> 각계각층 영산대 졸업생들이 불리는, 바로 그 이름입니다<br><br>'
         '한 이름, 세 갈래의 의미 <strong>하나의 증명</strong>입니다<br><br>'
@@ -780,7 +780,7 @@ S_EXPANSION = (
     '</div>'
     '<div style="display:flex;align-items:baseline;gap:var(--s-3);padding:var(--s-2) 0;border-bottom:1px solid #E8E8E8">'
     '<div class="t-overline is-accent" style="width:110px;flex-shrink:0">인쇄 매체</div>'
-    '<div class="t-body is-muted">3.6% 중심 배치 (버스·지하철·현수막)</div>'
+    '<div class="t-body is-muted">36% 중심 배치 (버스·지하철·현수막)</div>'
     '</div>'
     '<div style="display:flex;align-items:baseline;gap:var(--s-3);padding:var(--s-2) 0;border-bottom:1px solid #E8E8E8">'
     '<div class="t-overline is-accent" style="width:110px;flex-shrink:0">디지털 매체</div>'
@@ -808,7 +808,7 @@ S_EXPANSION = (
         '"지면과 영상으로 증명을 보여드렸습니다<br>'
         '이제 이 증명을, <strong>6개 채널</strong>로 확장하겠습니다<br><br>'
         '인플루언서, 인쇄, 디지털, 숏폼, 소셜 미디어, 언론<br><br>'
-        '같은 <strong>증명</strong>. 다른 <strong>채널</strong>입니다<br>'
+        '같은 <strong>증명</strong> 다른 <strong>채널</strong>입니다<br>'
         '지금부터, 하나씩 설명드리겠습니다"'
     )
 )
@@ -831,7 +831,7 @@ S_ENVIRONMENT = (
     '<tr><td style="padding:var(--s-1) var(--s-2);border-bottom:1px solid #E8E8E8"><strong>동의대</strong></td>'
     '<td style="padding:var(--s-1) var(--s-2);border-bottom:1px solid #E8E8E8">한의대 중심 / 전통 이미지</td>'
     '<td style="padding:var(--s-1) var(--s-2);border-bottom:1px solid #E8E8E8">학과 나열형 광고</td>'
-    '<td style="padding:var(--s-1) var(--s-2);border-bottom:1px solid #E8E8E8"><strong class="is-accent">취업률 96.4%</strong> 숫자로 증명</td></tr>'
+    '<td style="padding:var(--s-1) var(--s-2);border-bottom:1px solid #E8E8E8"><strong class="is-accent">취업률 964%</strong> 숫자로 증명</td></tr>'
     '<tr><td style="padding:var(--s-1) var(--s-2);border-bottom:1px solid #E8E8E8"><strong>동서대</strong></td>'
     '<td style="padding:var(--s-1) var(--s-2);border-bottom:1px solid #E8E8E8">영상/IT 특화</td>'
     '<td style="padding:var(--s-1) var(--s-2);border-bottom:1px solid #E8E8E8">캠퍼스 이미지 중심</td>'
@@ -846,7 +846,7 @@ S_ENVIRONMENT = (
     '<td style="padding:var(--s-1) var(--s-2)"><strong class="is-accent">총지배인 25명</strong> 업계 실적 증명</td></tr>'
     '</tbody></table>'
     '<div class="t-caption is-muted" style="font-style:italic">'
-    '— 같은 사실을 가진 대학은 없습니다. 그래서 증명이 가능합니다.</div>'
+    '— 같은 사실을 가진 대학은 없습니다 그래서 증명이 가능합니다</div>'
     '</div>'
 )
 
@@ -862,21 +862,21 @@ S_TARGET = (
     # 수험생
     '<div style="flex:1;border:1px solid #E8E8E8;border-radius:6px;padding:var(--s-4);text-align:left">'
     '<div class="t-overline is-accent" style="margin-bottom:var(--s-2)">수험생 (17~19세)</div>'
-    '<div class="t-body is-ink" style="line-height:1.8">'
+    '<div class="t-body is-ink" style="line-height:18">'
     'SNS 헤비유저<br>15초 안에 판단<br>숫자보다 감각<br>'
     '<strong>채널:</strong> 인스타 / 틱톡 / 유튜브쇼츠</div>'
     '</div>'
     # 학부모
     '<div style="flex:1;border:1px solid #E8E8E8;border-radius:6px;padding:var(--s-4);text-align:left">'
     '<div class="t-overline is-accent" style="margin-bottom:var(--s-2)">학부모 (45~55세)</div>'
-    '<div class="t-body is-ink" style="line-height:1.8">'
+    '<div class="t-body is-ink" style="line-height:18">'
     '취업률/실적 중시<br>신문/검색 의존<br>신뢰 = 팩트<br>'
     '<strong>채널:</strong> 네이버 / 언론 / 인쇄</div>'
     '</div>'
     # 교사
     '<div style="flex:1;border:1px solid #E8E8E8;border-radius:6px;padding:var(--s-4);text-align:left">'
     '<div class="t-overline is-accent" style="margin-bottom:var(--s-2)">교사 / 진학상담사</div>'
-    '<div class="t-body is-ink" style="line-height:1.8">'
+    '<div class="t-body is-ink" style="line-height:18">'
     '입시요강 정독<br>비교 데이터 필요<br>공식자료 신뢰<br>'
     '<strong>채널:</strong> 리플렛 / 공식 홈페이지</div>'
     '</div>'
@@ -911,7 +911,7 @@ S_MEDIA_MIX = (
     '<tr><td style="padding:var(--s-1) var(--s-2);border-bottom:1px solid #E8E8E8"><strong class="is-accent">인지</strong></td>'
     '<td style="padding:var(--s-1) var(--s-2);border-bottom:1px solid #E8E8E8">인쇄 매체 + 언론</td>'
     '<td style="padding:var(--s-1) var(--s-2);border-bottom:1px solid #E8E8E8">학부모 / 교사</td>'
-    '<td style="padding:var(--s-1) var(--s-2);border-bottom:1px solid #E8E8E8">3.6% 시안 -- 시각적 충격</td></tr>'
+    '<td style="padding:var(--s-1) var(--s-2);border-bottom:1px solid #E8E8E8">36% 시안 -- 시각적 충격</td></tr>'
     '<tr><td style="padding:var(--s-1) var(--s-2);border-bottom:1px solid #E8E8E8"><strong class="is-accent">관심</strong></td>'
     '<td style="padding:var(--s-1) var(--s-2);border-bottom:1px solid #E8E8E8">유튜브 인플루언서 + 디지털 DA</td>'
     '<td style="padding:var(--s-1) var(--s-2);border-bottom:1px solid #E8E8E8">수험생 + 학부모</td>'
@@ -935,7 +935,7 @@ S_BUDGET_MEDIA = (
     '<div style="padding:var(--s-4) 0;text-align:center">'
     '<div class="t-overline is-accent" style="margin-bottom:var(--s-4)">BUDGET ALLOCATION</div>'
     '<div class="t-heading" style="margin-bottom:var(--s-3)">'
-    '연 1.25억, 이렇게 <span class="is-accent">씁니다</span></div>'
+    '연 125억, 이렇게 <span class="is-accent">씁니다</span></div>'
     '<div style="width:60px;height:3px;background:#E84E10;margin:0 auto var(--s-5)"></div>'
     # 매체별 예산 테이블 + 비중 바
     '<table class="t-caption w-regular is-ink" style="width:100%;max-width:1100px;margin:0 auto var(--s-4);border-collapse:collapse">'
@@ -1076,7 +1076,7 @@ S_BUDGET_ROI = (
     '<td style="padding:var(--s-1) var(--s-2);border-bottom:1px solid #E8E8E8;text-align:right">—</td>'
     '<td style="padding:var(--s-1) var(--s-2);border-bottom:1px solid #E8E8E8;text-align:right">—</td></tr>'
     '<tr><td style="padding:var(--s-1) var(--s-2);border-bottom:1px solid #E8E8E8"><strong>숏폼 4편</strong></td>'
-    '<td style="padding:var(--s-1) var(--s-2);border-bottom:1px solid #E8E8E8;text-align:right">합산 조회 4.5만</td>'
+    '<td style="padding:var(--s-1) var(--s-2);border-bottom:1px solid #E8E8E8;text-align:right">합산 조회 45만</td>'
     '<td style="padding:var(--s-1) var(--s-2);border-bottom:1px solid #E8E8E8;text-align:right">편당 313만</td>'
     '<td style="padding:var(--s-1) var(--s-2);border-bottom:1px solid #E8E8E8;text-align:right">편당 500만</td>'
     '<td style="padding:var(--s-1) var(--s-2);border-bottom:1px solid #E8E8E8;text-align:right"><strong class="is-accent">-37%</strong></td></tr>'
@@ -1149,7 +1149,7 @@ S_JIHYE_3 = (
 # ===== 마지막: 빈칸 회수 =====
 S_ENDING = (
     '<div style="padding:var(--s-7) 0;text-align:center">'
-    '<div class="t-subtitle w-regular is-muted" style="line-height:2.4">'
+    '<div class="t-subtitle w-regular is-muted" style="line-height:24">'
     '홍익대 = <strong class="is-ink">미대</strong><br>'
     '한양대 에리카 = <strong class="is-ink">공대</strong><br>'
     '동의대 = <strong class="is-ink">한의대</strong>'
@@ -1171,7 +1171,7 @@ S_ENDING = (
 
 def make_sections():
     # section_parent는 메인 로마 섹션만
-    P_I = "I. 제안개요"
+    P_I = "I 제안개요"
     P_II = "II 제안업체 일반"
     P_III = "III 세부 과업 수행 계획"
     P_IV = "IV 사업 관리 계획"
@@ -1212,9 +1212,9 @@ def make_sections():
         (2, T_SOURCE, parent(P_III) + tag("컨셉") + S_CONCEPT_ONLY),
         (2, T_SOURCE, parent(P_III) + tag("기법") + S_METHOD_ONLY),
         (2, T_SOURCE, parent(P_III) + tag("프리뷰") + S_REFRAMING_PREVIEW),
-        (2, T_SOURCE, parent(P_III) + tag("사례 1-1") + sian_image_fullscreen("1-1", "96.4%", "3.6%", SIAN_1_IMAGES[0], "")),
-        (2, T_SOURCE, parent(P_III) + tag("사례 1-2") + sian_image_fullscreen("1-2", "96.4%", "3.6%", SIAN_1_IMAGES[1], "")),
-        (2, T_SOURCE, parent(P_III) + tag("사례 1-3") + sian_image_fullscreen("1-3", "96.4%", "3.6%", SIAN_1_IMAGES[2], "")),
+        (2, T_SOURCE, parent(P_III) + tag("사례 1-1") + sian_image_fullscreen("1-1", "964%", "36%", SIAN_1_IMAGES[0], "")),
+        (2, T_SOURCE, parent(P_III) + tag("사례 1-2") + sian_image_fullscreen("1-2", "964%", "36%", SIAN_1_IMAGES[1], "")),
+        (2, T_SOURCE, parent(P_III) + tag("사례 1-3") + sian_image_fullscreen("1-3", "964%", "36%", SIAN_1_IMAGES[2], "")),
         (2, T_SOURCE, parent(P_III) + tag("사례 2-1") + sian_image_fullscreen("2-1", "국내 우수 호스피탈리티", "글로벌 55위 영산대", SIAN_2_IMAGES[0], "")),
         (2, T_SOURCE, parent(P_III) + tag("사례 2-2") + sian_image_fullscreen("2-2", "국내 우수 호스피탈리티", "글로벌 55위 영산대", SIAN_2_IMAGES[1], "")),
         (2, T_SOURCE, parent(P_III) + tag("사례 2-3") + sian_image_fullscreen("2-3", "국내 우수 호스피탈리티", "글로벌 55위 영산대", SIAN_2_IMAGES[2], "")),
