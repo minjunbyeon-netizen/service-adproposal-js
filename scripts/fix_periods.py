@@ -7,33 +7,23 @@ with open("scripts/create_v29.py", "r", encoding="utf-8") as f:
 # 1) 교훈 수정
 content = content.replace("지혜가 실력이다", "지혜로운 가치를 배우는 대학, 지혜로운 당신을 만드는 대학")
 
-# 2) 문자열 리터럴 안의 마침표 제거
-# 전략: 따옴표 밖(Python 코드)의 . 은 유지, 따옴표 안(HTML/텍스트)의 . 만 제거
-# 단, 파일 확장자(.jpg .mp4 .py 등)는 보호
-
-# 파일 확장자 보호: 임시 치환
-exts = r"\.(jpg|jpeg|png|mp4|py|db|html|css|js|svg|json|toml|md|zip|txt)"
+# 2) 보호 패턴 (임시 치환)
 placeholders = {}
 counter = 0
 
-def protect_ext(m):
+def protect(m):
     global counter
     key = f"\x00EXT{counter}\x00"
     placeholders[key] = m.group(0)
     counter += 1
     return key
 
-content = re.sub(exts, protect_ext, content)
-
-# IP 주소 보호
-def protect_ip(m):
-    global counter
-    key = f"\x00EXT{counter}\x00"
-    placeholders[key] = m.group(0)
-    counter += 1
-    return key
-
-content = re.sub(r"\b\d+\.\d+\.\d+\.\d+\b", protect_ip, content)
+# 파일 확장자
+content = re.sub(r"\.(jpg|jpeg|png|mp4|py|db|html|css|js|svg|json|toml|md|zip|txt)", protect, content)
+# 숫자.숫자 (소수점: 96.4, 3.6, 1.25, 11.1 등)
+content = re.sub(r"\d+\.\d+", protect, content)
+# IP 주소 (이미 숫자.숫자로 보호됨)
+# var(--xxx) 안의 내용은 . 이 없으므로 보호 불필요
 
 # 이제 문자열 리터럴 안의 . 만 제거
 # Python 소스에서 문자열 리터럴을 파싱
