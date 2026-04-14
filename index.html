@@ -83,16 +83,20 @@ body{font-family:'Roboto','Noto Sans KR',-apple-system,sans-serif;font-weight:40
 .slide{position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;justify-content:center;overflow:hidden;visibility:hidden;opacity:0}
 .slide.active{visibility:visible;opacity:1}
 
-/* 커버 */
-.slide-cover{background:#fff;padding:60px 100px;justify-content:flex-end}
+/* 커버 (B안 Half-split) */
+.slide-cover{background:#fff;padding:0;overflow:hidden}
+.cover-split{display:flex;width:100%;height:100%}
+.cover-left{flex:1;padding:80px 100px;display:flex;flex-direction:column;justify-content:flex-end;border-right:1px solid #E84E10;position:relative}
+.cover-right{flex:1;overflow:hidden;background:#F5F5F5}
+.cover-right img{width:100%;height:100%;object-fit:cover;display:block}
 .cover-logo{position:absolute;top:52px;left:100px;height:52px;width:auto;object-fit:contain}
-.cover-agency{position:absolute;top:60px;right:100px;font-size:13px;color:#58595B;letter-spacing:1px}
-.cover-body{padding-bottom:80px}
+.cover-agency{position:absolute;top:60px;left:100px;font-size:13px;color:#58595B;letter-spacing:4px;font-weight:700}
+.cover-body{padding-bottom:40px}
 .cover-label{font-size:14px;color:#E84E10;letter-spacing:6px;text-transform:uppercase;font-weight:700;margin-bottom:24px}
-.cover-title{font-size:120px;font-weight:700;line-height:0.95;color:#1A1A1A;margin-bottom:36px;word-break:keep-all;letter-spacing:-3px}
-.cover-meta{font-size:18px;color:#58595B;line-height:1.9;letter-spacing:0.5px}
-.cover-bar{position:absolute;bottom:0;left:0;right:0;height:8px;background:#E84E10}
-.cover-pagenum{position:absolute;top:50px;right:100px;font-size:16px;font-weight:700;color:#1A1A1A;letter-spacing:2px}
+.cover-title{font-size:96px;font-weight:700;line-height:0.95;color:#1A1A1A;margin-bottom:36px;word-break:keep-all;letter-spacing:-3px}
+.cover-meta{font-size:17px;color:#58595B;line-height:1.9;letter-spacing:0.3px}
+.cover-bar{position:absolute;bottom:0;left:0;right:0;height:8px;background:#E84E10;z-index:10}
+.cover-pagenum{position:absolute;bottom:30px;right:40px;font-size:12px;font-weight:700;color:#fff;letter-spacing:3px;z-index:10;background:rgba(0,0,0,0.3);padding:4px 10px;border-radius:2px}
 
 /* 디바이더 -- 주황 배경, 텍스트만 */
 .slide-divider{background:#E84E10;padding:0;justify-content:center;align-items:center}
@@ -273,14 +277,22 @@ body{font-family:'Roboto','Noto Sans KR',-apple-system,sans-serif;font-weight:40
 <div class="deck" id="deck">
 
 <div class="slide slide-cover active">
-  <div class="cover-body">
-    <div class="cover-label">광고제안서</div>
-    <div class="cover-title">V30</div>
-    <div class="cover-meta">
-      영산대학교(와이즈유)
-       &nbsp;|&nbsp; 2026~2027학년도 광고대행사 선정
-      <br>예산 연 1.25억 (2년 2.5억, VAT 별도)
-       &nbsp;|&nbsp; 2년 (2026~2027학년도)
+  <div class="cover-split">
+    <div class="cover-left">
+      <div class="cover-agency">HIVE MEDIA</div>
+      <div class="cover-body">
+        <div class="cover-label">광고제안서</div>
+        <div class="cover-title">V30</div>
+        <div class="cover-meta">
+          영산대학교(와이즈유)
+           &nbsp;|&nbsp; 2026~2027학년도 광고대행사 선정
+          <br>예산 연 1.25억 (2년 2.5억, VAT 별도)
+           &nbsp;|&nbsp; 2년 (2026~2027학년도)
+        </div>
+      </div>
+    </div>
+    <div class="cover-right">
+      <img src="assets/image/new/graduate.png" alt="영산대 졸업생">
     </div>
   </div>
   <div class="cover-pagenum">01</div>
