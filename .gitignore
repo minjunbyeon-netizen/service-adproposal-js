@@ -7,3 +7,7 @@ data/
 *.db
 .claude/
 scripts/*.png
+
+
+# 큰 zip 파일 (GitHub Pages 배포에서 제외)
+assets/logo/seedance2_*.zip
