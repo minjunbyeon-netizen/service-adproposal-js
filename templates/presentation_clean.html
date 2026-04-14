@@ -83,21 +83,15 @@ body{font-family:'Roboto','Noto Sans KR',-apple-system,sans-serif;font-weight:40
 .slide{position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;justify-content:center;overflow:hidden;visibility:hidden;opacity:0}
 .slide.active{visibility:visible;opacity:1}
 
-/* 커버 (B안 Half-split) */
-.slide-cover{background:#fff;padding:0;overflow:hidden}
-.cover-split{display:flex;width:100%;height:100%}
-.cover-left{flex:1;padding:80px 100px;display:flex;flex-direction:column;justify-content:flex-end;border-right:1px solid #E84E10;position:relative}
-.cover-right{flex:1;overflow:hidden;background:#F5F5F5}
-.cover-right img{width:100%;height:100%;object-fit:cover;display:block}
-.cover-logo{position:absolute;top:52px;left:100px;height:52px;width:auto;object-fit:contain}
-.cover-agency{position:absolute;top:60px;left:100px;font-size:13px;color:#58595B;letter-spacing:4px;font-weight:700}
-.cover-body{padding-bottom:40px}
-.cover-label{font-size:13px;color:#6E6E73;letter-spacing:5px;text-transform:uppercase;font-weight:700;margin-bottom:20px}
-.cover-title{font-size:180px;font-weight:700;line-height:0.9;color:#1A1A1A;margin-bottom:44px;word-break:keep-all;letter-spacing:-6px}
-.cover-title .accent-dot{color:#E84E10}
-.cover-meta{font-size:16px;color:#58595B;line-height:1.9;letter-spacing:0.3px}
+/* 커버 — 9645525 코드 (수미상관 셋업) */
+.slide-cover{background:#fff;padding:80px 120px;overflow:hidden;justify-content:space-between}
+.cover-body{display:flex;flex-direction:column;flex:1;justify-content:center;padding:0}
+.cover-label{font-size:13px;color:#6E6E73;letter-spacing:5px;text-transform:uppercase;font-weight:700;position:absolute;top:80px;left:120px}
+.cover-title{font-size:240px;font-weight:700;line-height:0.95;color:#E0E0E0;letter-spacing:-10px;font-family:'Roboto',sans-serif;font-variant-numeric:tabular-nums}
+.cover-meta{font-size:16px;color:#58595B;line-height:1.9;letter-spacing:0.3px;position:absolute;bottom:60px;left:120px}
+.cover-agency{position:absolute;top:80px;right:120px;font-size:13px;color:#1A1A1A;letter-spacing:4px;font-weight:700}
 .cover-bar{position:absolute;bottom:0;left:0;right:0;height:8px;background:#E84E10;z-index:10}
-.cover-pagenum{position:absolute;bottom:30px;right:40px;font-size:12px;font-weight:700;color:#fff;letter-spacing:3px;z-index:10;background:rgba(0,0,0,0.3);padding:4px 10px;border-radius:2px}
+.cover-pagenum{position:absolute;bottom:28px;right:40px;font-size:12px;font-weight:700;color:#6E6E73;letter-spacing:3px}
 
 /* 디바이더 -- 주황 배경, 텍스트만 */
 .slide-divider{background:#E84E10;padding:0;justify-content:center;align-items:center}
@@ -278,23 +272,16 @@ body{font-family:'Roboto','Noto Sans KR',-apple-system,sans-serif;font-weight:40
 <div class="deck" id="deck">
 
 <div class="slide slide-cover active">
-  <div class="cover-split">
-    <div class="cover-left">
-      <div class="cover-agency">HIVE MEDIA</div>
-      <div class="cover-body">
-        <div class="cover-label">제안서</div>
-        <div class="cover-title">증명<span class="accent-dot">.</span></div>
-        <div class="cover-meta">
-          {% if client %}{{ client }}{% endif %}
-          {% if project %}<br>{{ project }}{% endif %}
-          {% if budget %}<br>예산 {{ budget }}{% endif %}
-          {% if duration %} &nbsp;·&nbsp; {{ duration }}{% endif %}
-        </div>
-      </div>
-    </div>
-    <div class="cover-right">
-      <img src="/assets/image/new/graduate.png" alt="영산대 졸업생">
-    </div>
+  <div class="cover-label">제안서</div>
+  <div class="cover-agency">HIVE MEDIA</div>
+  <div class="cover-body">
+    <div class="cover-title">9645525</div>
+  </div>
+  <div class="cover-meta">
+    {% if client %}{{ client }}{% endif %}
+    {% if project %}<br>{{ project }}{% endif %}
+    {% if budget %}<br>예산 {{ budget }}{% endif %}
+    {% if duration %} &nbsp;·&nbsp; {{ duration }}{% endif %}
   </div>
   <div class="cover-pagenum">01</div>
   <div class="cover-bar"></div>
