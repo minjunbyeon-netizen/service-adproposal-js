@@ -1,71 +1,103 @@
-# V30~V50 버전 맵
+# V30~V60 버전 맵 (30개 버전)
 
-각 버전은 사이드패널(localhost:8881) 또는 DB `proposals` 테이블에서 접근.
-**GitHub Pages에는 V30(기준)**이 배포됨: https://minjunbyeon-netizen.github.io/service-adproposal-js/
+**GitHub Pages 공개 = V30 기준**: https://minjunbyeon-netizen.github.io/service-adproposal-js/
+**로컬 사이드패널**: V31~V60 전부 PT 버튼으로 접근 가능
 
-## V30 (기준)
-전체 대화를 통해 정제된 최종 기준 버전.
+---
+
+## V30 (기준 · 대화를 통해 완성된 정본)
 - 표지 9645525 코드 (360px)
 - P4 4단계 morph
-- P5/P6 "들리다" 선언·답
-- 본편 "숫자가 들리게 하는 행위" 키워드 체인
-- FX v3 (Material easing, bounce 제거)
-- 시안 이미지 6장 (airport, hotel, keys, graduate, plane-window, subway-billboard)
+- P5/P6 "들리다" 키워드 체인
+- FX v3 (Material easing, subtle)
+- 시안 이미지 6장 (airport·hotel·keys·graduate·plane-window·subway-billboard)
 
 ---
 
-## V31~V40: 점진적 개선 (각 버전이 이전 버전을 base로)
+## V31~V40 — 점진적 UI 개선 (누적)
 
-| 버전 | proposal_id | 개선 포인트 |
+| V | id | 개선 포인트 |
 |---|---|---|
-| V31 | 139 | 표지 기준 snapshot (reference) |
-| V32 | 140 | P2 경쟁사 대학명 `<strong>` 처리 — 리듬 |
-| V33 | 141 | P5 "들리지 않았을까요?" 하단 오렌지 밑줄 |
-| V34 | 142 | P6 "전부" 단어 오렌지 accent로 강조 |
-| V35 | 143 | P12 Before/After 카드 폰트 +6px |
-| V36 | 144 | P14 "증명" t-hero 140px 초대형 |
-| V37 | 145 | P15 PREVIEW 화살표 letter-spacing |
-| V38 | 146 | P31 슬로건 88 → 96px 확대 |
-| V39 | 147 | P33 퍼널 단계별 전환율 100%·25%·8%·3% |
-| V40 | 148 | P46 대시보드 캡션 "측정되지 않는 것은 증명되지 않습니다" |
+| V31 | 139 | reference snapshot |
+| V32 | 140 | P2 경쟁사 대학명 `<strong>` bold |
+| V33 | 141 | P5 "들리지 않았을까요?" 밑줄 |
+| V34 | 142 | P6 "전부" 오렌지 accent |
+| V35 | 143 | P12 Before/After 폰트 +6px |
+| V36 | 144 | P14 "증명" 140px 초대형 |
+| V37 | 145 | P15 화살표 tuning |
+| V38 | 146 | P31 슬로건 96px |
+| V39 | 147 | P33 퍼널 전환율 % |
+| V40 | 148 | P46 캡션 재카피 |
 
-V40이 V31~V40 누적 최종.
-
----
-
-## V41~V50: 참신한 방향 실험 (각 버전 V30 독립 base)
-
-| 버전 | proposal_id | 방향성 |
-|---|---|---|
-| V41 | 149 | **Monochrome** — accent #E84E10 제거, 순수 흑백 |
-| V42 | 150 | **Poster-style** — t-title 88px / t-heading 68px 대형 |
-| V43 | 151 | **KR/EN Hybrid** — 주요 제목 위 영문 overline 삽입 |
-| V44 | 152 | **슬로건 변주** — "지혜로 증명" → "**숫자로 말합니다**" |
-| V45 | 153 | **Editorial Serif** — 대형 제목 Noto Serif KR 교체 |
-| V46 | 154 | **Asymmetric** — text-align center → left 전체 |
-| V47 | 155 | **Dark mode** — 배경 #0A0A0A 반전 |
-| V48 | 156 | **Question-driven** — 모든 t-heading 앞 "QUESTION" 태그 |
-| V49 | 157 | **Editorial guidebook** — 좌우 여백 확대 (책 느낌) |
-| V50 | 158 | **Minimalist manifesto** — 보조 카피 opacity 0.3으로 흐림 |
+→ V40이 V31~V40 누적 최종.
 
 ---
 
-## 사용 방법
+## V41~V50 — **페르소나 Round 1** (RFP·발표·크리에이티브 축)
 
-1. **로컬**: `localhost:8881` 접속 → 사이드패널에서 V## PT 버튼 클릭
-2. **GitHub Pages**: V30만 공개 → https://minjunbyeon-netizen.github.io/service-adproposal-js/
-3. 각 버전은 **독립적으로 렌더링** — 원본 V30 훼손 없음
+각 페르소나가 V30을 자신의 관점으로 review → 약점 지적 → **내용 기반 개선** 적용.
 
-## 개선 방향 체크리스트 (RFP 대응)
+| V | id | 페르소나 | 핵심 개선 |
+|---|---|---|---|
+| V41 | 159 | **심사위원** (RFP 평가자) | "심사 100점 전부 커버합니다" 매핑 페이지 추가 |
+| V42 | 160 | **발표자** (Daniel 맥킨지) | P3/P4/P8/P14 SCRIPT에 [침묵 타이밍] 명시 |
+| V43 | 161 | **크리에이티브** 담당자 | 시안 10장 `sf-mission`에 감정 훅 카피 추가 |
+| V44 | 162 | **광고주** (영산대) | P4 校訓 box 강조 + 엔딩 직전 校訓 단독 페이지 |
+| V45 | 163 | **CMO** (마케팅 디렉터) | P46 Attribution(UTM+GA4+Meta Pixel) 명시 |
+| V46 | 164 | **디자이너** | 타이포 7단계 시스템 페이지 추가 |
+| V47 | 165 | **카피라이터** | 시안→영상 내러티브 브릿지 페이지 |
+| V48 | 166 | **타깃** (수험생·학부모) | 가상 수험생·학부모 보이스 4개 인용 페이지 |
+| V49 | 167 | **경쟁 PT 비교자** | 타 대행사 vs 하이브 5축 매트릭스 페이지 |
+| V50 | 168 | **CFO** (예산 심사자) | P43/P45 단가 산출 근거·벤치마크 출처 명시 |
 
-- 정량 평가 30점 (실적·인력·재무) → P6 하이브미디어 페이지
-- 정성 평가 70점:
-  - 홍보 전략·환경·타깃·참신성 20점 → P2-P6 · P8-P14
-  - 크리에이티브 창의성 30점 → P15-P27 (시안) · P28-P31 (영상)
-  - 매체 전략·예산 20점 → P32-P49 (확장·퍼널·예산·측정·리스크)
+---
 
-## 복원 방법
+## V51~V60 — **페르소나 Round 2** (전문 영역·깊이 축)
 
-특정 버전으로 돌아가려면:
-1. 사이드패널에서 해당 V## PT 클릭
-2. 필요시 해당 버전을 새로운 base로 clone 후 작업 지속
+V30 base 각자 독립 개선. 추가 전문 페르소나.
+
+| V | id | 페르소나 | 핵심 개선 |
+|---|---|---|---|
+| V51 | 169 | **Senior Brand Strategist** | 영산대 브랜드 포지셔닝 선언 페이지 |
+| V52 | 170 | **UX Researcher** | 수험생 12개월 저니맵 (심리·터치포인트·메시지) |
+| V53 | 171 | **PR/언론 전문가** | 언론 4대 이슈 앵글 배치 페이지 |
+| V54 | 172 | **행동경제학자** | Kahneman·Heath·Cialdini 3대 이론 근거 페이지 |
+| V55 | 173 | **영상 PD** | "지혜" 60초 5-shot 스토리보드 페이지 |
+| V56 | 174 | **퍼포먼스 마케터** | P45 Meta CBO·Google Smart Bidding 자동화 스택 |
+| V57 | 175 | **고등교육 카테고리 전문가** | 지방 사립대 2025/2026/2030 위기 데이터 |
+| V58 | 176 | **법무/윤리 점검자** | 광고 윤리 4중 안전장치 (출처·검수·심의·법무) |
+| V59 | 177 | **인터뷰어** | 졸업생 4인 실제 인터뷰 프리뷰 페이지 |
+| V60 | 178 | **Senior Partner** | Executive Summary 1장 요약 |
+
+---
+
+## 페르소나별 권장 활용
+
+| 상황 | 추천 버전 |
+|---|---|
+| 최종 PT (디폴트) | **V30** |
+| 심사점수 극대화 | V41 + V49 + V50 |
+| 발표 리허설 | V42 |
+| 영산대 관계자 사전 공유 | V44 + V59 |
+| 임원진 1장 브리핑 | **V60** Executive Summary |
+| 수험생 인사이트 강조 | V48 + V52 |
+| 학술적 뒷받침 요구 | V54 (행동경제학) |
+| 크리에이티브 팀 리뷰 | V43 + V55 |
+
+---
+
+## 복원·확장 방법
+
+1. **사이드패널 선택**: localhost:8881 → 해당 V## PT 클릭
+2. **여러 버전 결합**: 특정 버전을 base로 삼아 새 clone → 다른 버전의 페이지 import
+3. **GitHub Pages 교체**: `scripts/regen_pt.py`에서 PID 변경 → regen → push
+
+---
+
+## 요약
+
+**총 30개 버전 (V30~V60)**, 모두 DB에 영구 저장.
+- V30: 정본 (GitHub Pages)
+- V31~V40: 점진 UI 개선 (누적 V40 최종)
+- V41~V50: 페르소나 10축 — 심사·발표·광고주·예산 등
+- V51~V60: 페르소나 10축 — 브랜드·UX·PR·행동경제학 등
