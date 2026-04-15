@@ -6,7 +6,7 @@
 <title>{{ title }}</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Roboto:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%23E84E10'/><text x='16' y='23' text-anchor='middle' fill='white' font-size='16' font-family='sans-serif' font-weight='700'>Y</text></svg>">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -83,13 +83,14 @@ body{font-family:'Roboto','Noto Sans KR',-apple-system,sans-serif;font-weight:40
 .slide{position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;justify-content:center;overflow:hidden;visibility:hidden;opacity:0}
 .slide.active{visibility:visible;opacity:1}
 
-/* 커버 — 9645525 코드 (극단 미니멀) */
+/* 커버 — 9645525 시리얼 코드 (monospace, 의미 없어 보이게) */
 .slide-cover{background:#fff;padding:0;overflow:hidden;justify-content:center;align-items:center}
-.cover-body{display:flex;flex-direction:column;width:100%;justify-content:center;align-items:center;padding:0}
-.cover-title{font-size:360px;font-weight:700;line-height:0.9;color:#E0E0E0;letter-spacing:-16px;font-family:'Roboto',sans-serif;font-variant-numeric:tabular-nums;text-align:center}
-.cover-agency{position:absolute;top:80px;right:120px;font-size:13px;color:#1A1A1A;letter-spacing:4px;font-weight:700}
+.cover-body{display:flex;flex-direction:column;width:100%;justify-content:center;align-items:center;padding:0;position:relative}
+.cover-serial-label{position:absolute;top:-68px;left:50%;transform:translateX(-50%);font-size:13px;color:#A0A0A5;letter-spacing:8px;font-weight:700;font-family:'Roboto Mono','Courier New',monospace;white-space:nowrap}
+.cover-title{font-size:300px;font-weight:700;line-height:0.9;color:#D0D0D0;letter-spacing:-4px;font-family:'Roboto Mono','Courier New',monospace;font-variant-numeric:tabular-nums;text-align:center}
+.cover-agency{position:absolute;top:80px;right:120px;font-size:13px;color:#1A1A1A;letter-spacing:4px;font-weight:700;font-family:'Roboto Mono','Courier New',monospace}
 .cover-bar{position:absolute;bottom:0;left:0;right:0;height:8px;background:#E84E10;z-index:10}
-.cover-pagenum{position:absolute;bottom:28px;right:40px;font-size:12px;font-weight:700;color:#6E6E73;letter-spacing:3px}
+.cover-pagenum{position:absolute;bottom:28px;right:40px;font-size:12px;font-weight:700;color:#6E6E73;letter-spacing:3px;font-family:'Roboto Mono','Courier New',monospace}
 
 /* 디바이더 -- 주황 배경, 텍스트만 */
 .slide-divider{background:#E84E10;padding:0;justify-content:center;align-items:center}
@@ -283,6 +284,7 @@ body{font-family:'Roboto','Noto Sans KR',-apple-system,sans-serif;font-weight:40
 <div class="slide slide-cover active">
   <div class="cover-agency">HIVE MEDIA</div>
   <div class="cover-body">
+    <div class="cover-serial-label">SERIAL NO.</div>
     <div class="cover-title">9645525</div>
   </div>
   <div class="cover-pagenum">01</div>
