@@ -26,4 +26,4 @@ EXPOSE 8080
 
 # 시작 시: V29 PT 데이터 생성 후 gunicorn 실행
 # --workers 1 (SQLite 동시 쓰기 제약), --timeout 120
-CMD sh -c "python scripts/create_v29.py && gunicorn 'app:create_app()' --bind 0.0.0.0:${PORT:-8080} --workers 1 --timeout 120 --keep-alive 5 --access-logfile -"
+CMD sh -c "python scripts/seed_v101.py && gunicorn 'app:create_app()' --bind 0.0.0.0:${PORT:-8080} --workers 1 --timeout 120 --keep-alive 5 --access-logfile -"

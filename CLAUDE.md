@@ -37,6 +37,12 @@ static/
   app.js
 ```
 
+## PT 슬라이드 규칙 (presentation_clean.html)
+- slide-tag: 표지/마지막장 제외 모든 페이지에 존재. RFP 목차 구조 영어로 표기.
+- 모든 콘텐츠 슬라이드: 우상단 HIVE MEDIA (top:80px;right:120px) 템플릿 자동 적용
+- 서브스텝 슬라이드: #morphWrap + .expanded 클래스 토글 방식 사용
+- **자간(letter-spacing) 늘리지 말 것**. 영문 라벨이라도 letter-spacing은 기본값 유지. 한글/한자 콘텐츠 모두 적용.
+
 ## 핵심 워크플로우
 1. 파일 업로드 (PDF/DOCX) + 텍스트 직접 입력
 2. RFP 교차분석 -> 과업요구사항 추출 + 목차 자동 생성
