@@ -796,9 +796,20 @@ body{font-family:'Noto Sans KR',-apple-system,sans-serif;font-weight:400;backgro
   </div>
   <div style="position:absolute;top:80px;right:120px;font-size:14px;color:#1A1A1A;font-weight:700;z-index:2">HIVE MEDIA</div>
   <div class="slide-pagenum">18</div>
-  <div class="content-body"><div style="height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:var(--s-5) 0;text-align:center">
+  <div class="content-body"><style>
+@keyframes p18Strike{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.morph-wrap.expanded .p18-strike{animation:p18Strike .6s ease .3s forwards}
+</style>
+<div style="height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:var(--s-5) 0;text-align:center">
+<div class="morph-wrap" id="morphWrap">
+
 <div class="t-headline">왜 <span style="color:#E84E10">기억</span>되지 않을까요?</div>
-<div class="t-headline" style="margin-top:var(--s-3)">모두 같은 숫자만 말하기 때문입니다</div>
+
+<div class="p18-strike" style="opacity:0;margin-top:var(--s-3)">
+<div class="t-headline" style="text-decoration:line-through;text-decoration-style:double;text-decoration-color:#1A1A1A;text-decoration-thickness:3px;color:#6E6E73">모두 같은 숫자만 말하기 때문입니다</div>
+</div>
+
+</div>
 </div></div>
 </div>
 
@@ -1043,7 +1054,7 @@ body{font-family:'Noto Sans KR',-apple-system,sans-serif;font-weight:400;backgro
 
 </div>
 
-<div style="position:absolute;bottom:25%;right:40px;max-width:40%;text-align:right;z-index:20;text-shadow:0 2px 12px rgba(0,0,0,0.85)">
+<div style="position:absolute;bottom:25%;left:5%;max-width:55%;text-align:left;z-index:20;text-shadow:0 2px 12px rgba(0,0,0,0.85)">
 <div style="font-size:20px;color:#DDD;line-height:1.7;font-weight:400">대한항공, 아시아나, 제주항공, 진에어, 에어부산.<br>동남권에서 가장 많은 승무원이 같은 대학에서 출발했습니다.<br>김해공항의 유니폼은, 영산에서 시작됩니다.</div>
 </div>
 
@@ -1359,7 +1370,7 @@ body{font-family:'Noto Sans KR',-apple-system,sans-serif;font-weight:400;backgro
 
 
 
-<div style="display:flex;flex-direction:column;gap:32px">
+<div style="display:flex;flex-direction:column;gap:32px;align-items:center;text-align:center">
 
 <div>
 <div style="margin-bottom:16px">
