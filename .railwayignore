@@ -1,0 +1,17 @@
+scripts/*.png
+scripts/local_shots/
+scripts/mobile_shots/
+scripts/rw_shots/
+scripts/v28_shots/
+scripts/diff_shots.py
+scripts/check_errors*.py
+scripts/verify_*.py
+assets/logo/
+assets/logo/seedance2_Video_20260410_223350.zip
+data/
+__pycache__/
+*.pyc
+.git/
+.gitignore
+CLAUDE.md
+docs/
