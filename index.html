@@ -430,14 +430,21 @@ body{font-family:'Noto Sans KR',-apple-system,sans-serif;font-weight:400;backgro
   </div>
   <div style="position:absolute;top:80px;right:120px;font-size:14px;color:#1A1A1A;font-weight:700;z-index:2">HIVE MEDIA</div>
   <div class="slide-pagenum">07</div>
-  <div class="content-body"><div style="height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:var(--s-5) 0">
+  <div class="content-body"><style>
+@keyframes p7FadeIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.morph-wrap.expanded .p7-answer{animation:p7FadeIn .8s ease .3s forwards}
+</style>
+<div style="height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:var(--s-5) 0">
+<div class="morph-wrap" id="morphWrap">
 
-<div style="font-size:48px;font-weight:700;color:#1A1A1A;line-height:1.4;margin-bottom:var(--s-4)">그럼, <span style="color:#E84E10">호텔관광?</span> 이라고<br>물었을 때는요?</div>
+<div style="font-size:48px;font-weight:700;color:#1A1A1A;line-height:1.4;margin-bottom:var(--s-5)">그럼, <span style="color:#E84E10">호텔관광</span> 이라고<br>물어보시면 어떤 대답이 떠오르시나요?</div>
 
-<div style="font-size:32px;font-weight:400;color:#6E6E73;line-height:1.6;margin-bottom:var(--s-5)">선뜻 영산대학교라고<br>바로 나오지는 않았을 겁니다.</div>
+<div class="p7-answer" style="opacity:0">
+<div style="font-size:32px;font-weight:400;color:#6E6E73;line-height:1.6;margin-bottom:var(--s-5)">즉시 영산대학교 라고<br>대답하지는 못하셨을 겁니다.</div>
+<div style="font-size:24px;font-weight:400;color:#1A1A1A;line-height:1.6">단순 브랜드인지도 제고가 아닙니다.<br><span style="color:#E84E10;font-weight:700">브랜드 리콜 제고</span>가 될 수 있도록</div>
+</div>
 
-<div style="font-size:24px;font-weight:400;color:#1A1A1A;line-height:1.6">단순 브랜드인지도 제고가 아닌<br><span style="color:#E84E10;font-weight:700">브랜드 리콜 제고</span>가 될 때까지.</div>
-
+</div>
 </div></div>
 </div>
 
