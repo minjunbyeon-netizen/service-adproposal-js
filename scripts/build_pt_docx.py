@@ -87,15 +87,24 @@ def add_table(doc, headers, rows, col_widths=None):
 
 
 # ============================================================
-# 문서 1: 발표 시나리오 30분
+# helper
 # ============================================================
-def build_scenario():
+def _new_doc(margins=(2, 2, 2.2, 2.2)):
     doc = Document()
     for section in doc.sections:
-        section.top_margin = Cm(2)
-        section.bottom_margin = Cm(2)
-        section.left_margin = Cm(2.2)
-        section.right_margin = Cm(2.2)
+        section.top_margin = Cm(margins[0])
+        section.bottom_margin = Cm(margins[1])
+        section.left_margin = Cm(margins[2])
+        section.right_margin = Cm(margins[3])
+    return doc
+
+
+# ============================================================
+# 문서 1: 발표 시나리오 30분
+# ============================================================
+def build_scenario(doc=None, do_save=True):
+    if doc is None:
+        doc = _new_doc((2, 2, 2.2, 2.2))
 
     # 제목
     title = doc.add_paragraph()
@@ -261,21 +270,19 @@ def build_scenario():
     add_bullet(doc, "P50 Budget 1.25억 — 1:10")
     add_bullet(doc, "P53 Bookend (침묵 5초) — 1:20")
 
-    out = OUT_DIR / "02_발표시나리오_30분.docx"
-    doc.save(str(out))
-    print(f"OK: {out}")
+    if do_save:
+        out = OUT_DIR / "02_발표시나리오_30분.docx"
+        doc.save(str(out))
+        print(f"OK: {out}")
+    return doc
 
 
 # ============================================================
 # 문서 2: 강조포인트 + Q&A
 # ============================================================
-def build_emphasis():
-    doc = Document()
-    for section in doc.sections:
-        section.top_margin = Cm(2)
-        section.bottom_margin = Cm(2)
-        section.left_margin = Cm(2.2)
-        section.right_margin = Cm(2.2)
+def build_emphasis(doc=None, do_save=True):
+    if doc is None:
+        doc = _new_doc((2, 2, 2.2, 2.2))
 
     title = doc.add_paragraph()
     run = title.add_run("영산대 광고대행사 선정 PT — 강조 포인트 + Q&A")
@@ -562,21 +569,19 @@ def build_emphasis():
         col_widths=[5.0, 5.5, 6.5],
     )
 
-    out = OUT_DIR / "03_강조포인트_QnA.docx"
-    doc.save(str(out))
-    print(f"OK: {out}")
+    if do_save:
+        out = OUT_DIR / "03_강조포인트_QnA.docx"
+        doc.save(str(out))
+        print(f"OK: {out}")
+    return doc
 
 
 # ============================================================
 # 문서 3: 단상 컨닝 페이퍼 (A4 1장)
 # ============================================================
-def build_cheatsheet():
-    doc = Document()
-    for section in doc.sections:
-        section.top_margin = Cm(1.2)
-        section.bottom_margin = Cm(1.2)
-        section.left_margin = Cm(1.5)
-        section.right_margin = Cm(1.5)
+def build_cheatsheet(doc=None, do_save=True):
+    if doc is None:
+        doc = _new_doc((1.2, 1.2, 1.5, 1.5))
 
     title = doc.add_paragraph()
     run = title.add_run("영산대 PT — 단상 컨닝 페이퍼 (목표 종료 28:45)")
@@ -638,21 +643,19 @@ def build_cheatsheet():
         col_widths=[3.5, 12.0],
     )
 
-    out = OUT_DIR / "05_컨닝페이퍼_A4.docx"
-    doc.save(str(out))
-    print(f"OK: {out}")
+    if do_save:
+        out = OUT_DIR / "05_컨닝페이퍼_A4.docx"
+        doc.save(str(out))
+        print(f"OK: {out}")
+    return doc
 
 
 # ============================================================
 # 문서 4: 첫 90초 + 마지막 90초 암기 카드
 # ============================================================
-def build_memorize():
-    doc = Document()
-    for section in doc.sections:
-        section.top_margin = Cm(2)
-        section.bottom_margin = Cm(2)
-        section.left_margin = Cm(2.2)
-        section.right_margin = Cm(2.2)
+def build_memorize(doc=None, do_save=True, out_name="04_암기카드_첫90초_마지막90초.docx"):
+    if doc is None:
+        doc = _new_doc((2, 2, 2.2, 2.2))
 
     title = doc.add_paragraph()
     run = title.add_run("암기 카드 — 첫 90초 + 마지막 90초")
@@ -723,21 +726,19 @@ def build_memorize():
     add_bullet(doc, "P19 '0825503' 선언 후 침묵 5초 — 1001~1005 천천히.")
     add_bullet(doc, "P53 진입 침묵 5초 — 같은 방법.")
 
-    out = OUT_DIR / "06_암기카드_첫90초_마지막90초.docx"
-    doc.save(str(out))
-    print(f"OK: {out}")
+    if do_save:
+        out = OUT_DIR / out_name
+        doc.save(str(out))
+        print(f"OK: {out}")
+    return doc
 
 
 # ============================================================
 # 문서 5: 위기 대응 1장
 # ============================================================
-def build_crisis():
-    doc = Document()
-    for section in doc.sections:
-        section.top_margin = Cm(1.5)
-        section.bottom_margin = Cm(1.5)
-        section.left_margin = Cm(2)
-        section.right_margin = Cm(2)
+def build_crisis(doc=None, do_save=True):
+    if doc is None:
+        doc = _new_doc((1.5, 1.5, 2, 2))
 
     title = doc.add_paragraph()
     run = title.add_run("위기 대응 — 발표 중 5가지 시나리오")
@@ -779,18 +780,62 @@ def build_crisis():
         bold=True,
     )
 
-    out = OUT_DIR / "07_위기대응_1장.docx"
+    if do_save:
+        out = OUT_DIR / "07_위기대응_1장.docx"
+        doc.save(str(out))
+        print(f"OK: {out}")
+    return doc
+
+
+# ============================================================
+# 통합 문서 A: 정독용 (시나리오 + 강조포인트 + Q&A)
+# ============================================================
+def build_combined_reading():
+    doc = _new_doc((2, 2, 2.2, 2.2))
+    build_scenario(doc=doc, do_save=False)
+    doc.add_page_break()
+    build_emphasis(doc=doc, do_save=False)
+    out = OUT_DIR / "02_정독용_시나리오_강조_QnA.docx"
     doc.save(str(out))
     print(f"OK: {out}")
 
 
+# ============================================================
+# 통합 문서 B: 단상용 (컨닝페이퍼 + 위기대응)
+# ============================================================
+def build_combined_dais():
+    doc = _new_doc((1.2, 1.2, 1.5, 1.5))
+    build_cheatsheet(doc=doc, do_save=False)
+    doc.add_page_break()
+    build_crisis(doc=doc, do_save=False)
+    out = OUT_DIR / "03_단상용_컨닝페이퍼_위기대응.docx"
+    doc.save(str(out))
+    print(f"OK: {out}")
+
+
+def cleanup_old():
+    """이전 8파일 구조의 잔존 파일 제거."""
+    olds = [
+        "02_발표시나리오_30분.docx",
+        "03_강조포인트_QnA.docx",
+        "04_PT_URL.txt",
+        "05_컨닝페이퍼_A4.docx",
+        "06_암기카드_첫90초_마지막90초.docx",
+        "07_위기대응_1장.docx",
+    ]
+    for old in olds:
+        p = OUT_DIR / old
+        if p.exists():
+            p.unlink()
+            print(f"REMOVED: {old}")
+
+
 if __name__ == "__main__":
     OUT_DIR.mkdir(parents=True, exist_ok=True)
-    build_scenario()
-    build_emphasis()
-    build_cheatsheet()
-    build_memorize()
-    build_crisis()
+    cleanup_old()
+    build_combined_reading()
+    build_combined_dais()
+    build_memorize()  # 04_암기카드_첫90초_마지막90초.docx
     print("\nDONE.")
     for f in sorted(OUT_DIR.iterdir()):
         print(f"  {f.name}")
