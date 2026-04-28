@@ -555,10 +555,230 @@ def build_emphasis():
     print(f"OK: {out}")
 
 
+# ============================================================
+# 문서 3: 단상 컨닝 페이퍼 (A4 1장)
+# ============================================================
+def build_cheatsheet():
+    doc = Document()
+    for section in doc.sections:
+        section.top_margin = Cm(1.2)
+        section.bottom_margin = Cm(1.2)
+        section.left_margin = Cm(1.5)
+        section.right_margin = Cm(1.5)
+
+    title = doc.add_paragraph()
+    run = title.add_run("영산대 PT — 단상 컨닝 페이퍼 (목표 종료 28:45)")
+    set_font(run, size=16, bold=True)
+    title.alignment = WD_ALIGN_PARAGRAPH.CENTER
+
+    add_para(doc, "5/7(목) 14:00 / 해운대 D동 / 1번째 발표 / 발표 30분 + Q&A 10분", size=10).alignment = WD_ALIGN_PARAGRAPH.CENTER
+
+    # Part 시간
+    add_heading(doc, "Part 시간 (손목시계 기준)", level=2, size=12)
+    add_table(
+        doc,
+        ["체크 시각", "도달 페이지", "남은 시간"],
+        [
+            ["6:45", "P11 끝 (Part 1 완료)", "23:15"],
+            ["12:45", "P20 끝 (컨셉 선언 후)", "17:15"],
+            ["18:55", "P36 끝 (Part 2 완료)", "11:05"],
+            ["25:50", "P50 끝 (예산 완료)", "4:55"],
+            ["28:00", "P53 진입 (클로징)", "2:00"],
+            ["28:45", "P54 인사 (목표 종료)", "0:00"],
+        ],
+        col_widths=[3.5, 8.5, 3.5],
+    )
+
+    # 사수 6장
+    add_heading(doc, "사수 6장 — 시간 절대 단축 금지", level=2, size=12)
+    add_table(
+        doc,
+        ["페이지", "시간", "한 줄 핵심"],
+        [
+            ["P8 SERIAL 0825503", "1:20", "08—25—55—03 한 숫자씩 1초 정지"],
+            ["P9 Memory Challenge", "1:10", "'몇 개 기억하십니까?' → 손 들기 → 3초 침묵"],
+            ["P14 Ad Sample", "1:10", "'학교명 가렸습니다. 맞추시겠습니까?' → 침묵 → 웃음"],
+            ["P19 컨셉 선언", "1:10", "'0825503' 선언 후 침묵 5초 (이 5초가 가장 비싸다)"],
+            ["P50 Budget 1.25억", "1:10", "'타겟이 있는 곳을 따라간 겁니다' + CPE 320원"],
+            ["P53 Bookend", "1:20", "(침묵 5초) → '처음으로 돌아갑니다'"],
+        ],
+        col_widths=[5.5, 1.5, 8.5],
+    )
+
+    # Q&A 키워드 매칭
+    add_heading(doc, "Q&A 키워드 매칭 (질문 들으면 즉시 매칭)", level=2, size=12)
+    add_table(
+        doc,
+        ["키워드", "답변 첫 문장"],
+        [
+            ["예산 적정성", "Q1 → '부울경 평균 1~2억 중 중간값. CPE 효율 상위 20% 목표'"],
+            ["숫자 광고 사례", "Q2 → '국내 18개월/3330, 해외 BMW M/Air 180. 재인률 2.3배'"],
+            ["수험생 감소", "Q3 → '파이 줄수록 점유율 싸움. 3트랙 + 유학생 블루오션'"],
+            ["인플루언서 신뢰", "Q4 → 'CPE 기반. 졸업생 현직자 우선. 협찬 표기 의무'"],
+            ["수도권 경쟁", "Q5 → '경쟁 구도 재설정. 호텔관광 카테고리 1위 싸움'"],
+            ["전담 인력", "Q6 → 'CD 1·AE 1·퍼포먼스 1. 인하우스. 사이클 4주→2주'"],
+            ["QS 55위 근거", "Q7 → 'Subject 2024 Hospitality 분야. 출처 표기 의무화'"],
+            ["차별점", "Q8 → 'Memory Test 고유 포맷. 데이터 기반 수치 포지셔닝'"],
+            ["일정 촉박", "Q9 → '5개월 리드타임. 4주 내 첫 시안 납기'"],
+            ["PT vs 실제", "Q10 → '실측 단가 역산. 월별 KPI 수치 합의 + 대시보드'"],
+            ["모르는 질문", "→ '확인 후 24시간 이내 서면 답변 드리겠습니다'"],
+        ],
+        col_widths=[3.5, 12.0],
+    )
+
+    out = OUT_DIR / "05_컨닝페이퍼_A4.docx"
+    doc.save(str(out))
+    print(f"OK: {out}")
+
+
+# ============================================================
+# 문서 4: 첫 90초 + 마지막 90초 암기 카드
+# ============================================================
+def build_memorize():
+    doc = Document()
+    for section in doc.sections:
+        section.top_margin = Cm(2)
+        section.bottom_margin = Cm(2)
+        section.left_margin = Cm(2.2)
+        section.right_margin = Cm(2.2)
+
+    title = doc.add_paragraph()
+    run = title.add_run("암기 카드 — 첫 90초 + 마지막 90초")
+    set_font(run, size=18, bold=True)
+    title.alignment = WD_ALIGN_PARAGRAPH.CENTER
+
+    add_para(
+        doc,
+        "이 두 부분은 절대 종이 보지 않고 외운다. 발표 당일 들고 가지 않음 (리허설 전용).",
+        size=10,
+        bold=True,
+    ).alignment = WD_ALIGN_PARAGRAPH.CENTER
+
+    # 첫 90초
+    add_heading(doc, "첫 90초 (P1~P9, 발표 시작 ~ 6:15)", level=1)
+
+    add_para(doc, "P1 — 표지 (0:00~0:20)", size=11, bold=True)
+    add_para(doc, "'안녕하십니까. 하이브미디어입니다. 광고대행사 선정은 두 개로 압축됩니다.'", size=11, indent=0.5)
+
+    add_para(doc, "P2 — Evaluation Axis (0:20~1:05)", size=11, bold=True)
+    add_para(doc, "'무엇을 기억시킬 것인가. 어떻게 많이 팔 것인가. 나머지는 수단입니다.'", size=11, indent=0.5)
+
+    add_para(doc, "P3~P7 — 진단 (1:05~3:45)", size=11, bold=True)
+    add_para(doc, "'모든 대학은 지금 생존의 시대입니다. 같은 무대에서 각자의 무기로 싸우고 있습니다.'", size=11, indent=0.5)
+    add_para(doc, "'그래서, 영산대학교의 무기는 무엇입니까? — 호텔관광 특성화 대학입니다.'", size=11, indent=0.5)
+    add_para(doc, "'호텔관광 하면 떠오르시나요? 즉시 영산대학교라고는 못하셨을 겁니다.'", size=11, indent=0.5)
+
+    add_para(doc, "P8 — SERIAL 0825503 (3:45~5:05) ★ 가장 느리게", size=11, bold=True)
+    add_para(doc, "'그래서 영산대학교의 무기를 숫자로 정리해봤습니다.'", size=11, indent=0.5)
+    add_para(doc, "'공팔 — (1초) — 이공오 — (1초) — 오오 — (1초) — 공삼.'", size=11, indent=0.5)
+    add_para(doc, "'08 연구력 세계 8위. 25 호텔 총지배인 25명. 55 QS 세계 55위. 03 한국 TOP 3.'", size=11, indent=0.5)
+    add_para(doc, "'이 숫자들은 영산대학교가 이미 갖고 있는 것들입니다. 광고가 발명하는 게 아닙니다. 꺼내는 겁니다.'", size=11, indent=0.5)
+
+    add_para(doc, "P9 — Memory Challenge (5:05~6:15) ★ 체험 hook", size=11, bold=True)
+    add_para(doc, "'방금 보여드린 숫자, 몇 개나 기억하십니까?'", size=11, indent=0.5)
+    add_para(doc, "(2초 침묵)", size=10, indent=0.5, color=RGBColor(0x88, 0x88, 0x88))
+    add_para(doc, "'08, 25, 55, 03. 이 네 숫자를 전부 기억하신 분, 손 들어주시겠습니까?'", size=11, indent=0.5)
+    add_para(doc, "(3초 기다림 — 손 적게 올라와도 OK)", size=10, indent=0.5, color=RGBColor(0x88, 0x88, 0x88))
+    add_para(doc, "'감사합니다. 저희가 오늘 해드릴 일은 딱 하나입니다.'", size=11, indent=0.5)
+    add_para(doc, "'영산대학교의 수험생이, 학부모가, 그리고 유학생이 — 이 숫자를 기억하게 만드는 것입니다.'", size=11, indent=0.5)
+
+    # 마지막 90초
+    add_heading(doc, "마지막 90초 (P53~P54, 28:00 ~ 28:45)", level=1)
+
+    add_para(doc, "P53 — Bookend 진입 (28:00~28:05) ★ 침묵 5초 사수", size=11, bold=True)
+    add_para(doc, "(P52 종료 후 P53 띄우자마자 5초 침묵 — 평가위원이 'P2다'를 인식하는 시간)", size=10, indent=0.5, color=RGBColor(0x88, 0x88, 0x88))
+
+    add_para(doc, "P53 — 본 클로징 (28:05~28:45)", size=11, bold=True)
+    add_para(doc, "'처음으로 돌아갑니다.'", size=11, indent=0.5)
+    add_para(doc, "'무엇을 기억시킬 것인가. 어떻게 많이 팔 것인가.'", size=11, indent=0.5)
+    add_para(doc, "(2초 침묵)", size=10, indent=0.5, color=RGBColor(0x88, 0x88, 0x88))
+    add_para(doc, "'저희의 답은 변하지 않았습니다.'", size=11, indent=0.5)
+    add_para(doc, "'0825503. 이 숫자를 부산 수험생이 먼저 기억하게 만들겠습니다.'", size=11, indent=0.5)
+    add_para(doc, "'수험생에게, 학부모에게, 그리고 유학생에게.'", size=11, indent=0.5)
+    add_para(doc, "'Social Proof로. Insight Translation으로. Imprinting으로.'", size=11, indent=0.5)
+    add_para(doc, "'그래서, 이견 없는 영산대학교가 되도록 만들겠습니다.'", size=11, indent=0.5)
+
+    add_para(doc, "P54 — 인사 (28:45)", size=11, bold=True)
+    add_para(doc, "'감사합니다.'", size=11, indent=0.5, bold=True)
+    add_para(doc, "(인사 후 1초 멈춤 → 평가위원 한 명씩 시선 → 단상 정리)", size=10, indent=0.5, color=RGBColor(0x88, 0x88, 0x88))
+
+    # 리허설 가이드
+    add_heading(doc, "리허설 방법", level=1)
+    add_bullet(doc, "혼자 큰 소리로 첫 90초 5회, 마지막 90초 5회 반복.")
+    add_bullet(doc, "스마트폰 녹음 → 실제 시간 측정. 각각 90초 ±5초 안에 들어와야 함.")
+    add_bullet(doc, "거울 앞에서 시선 처리 연습 — 슬라이드와 청중 사이 50:50.")
+    add_bullet(doc, "P9 '손 들어주시겠습니까?' 후 침묵 3초 — 시계 보지 말고 마음속으로 1001~1003.")
+    add_bullet(doc, "P19 '0825503' 선언 후 침묵 5초 — 1001~1005 천천히.")
+    add_bullet(doc, "P53 진입 침묵 5초 — 같은 방법.")
+
+    out = OUT_DIR / "06_암기카드_첫90초_마지막90초.docx"
+    doc.save(str(out))
+    print(f"OK: {out}")
+
+
+# ============================================================
+# 문서 5: 위기 대응 1장
+# ============================================================
+def build_crisis():
+    doc = Document()
+    for section in doc.sections:
+        section.top_margin = Cm(1.5)
+        section.bottom_margin = Cm(1.5)
+        section.left_margin = Cm(2)
+        section.right_margin = Cm(2)
+
+    title = doc.add_paragraph()
+    run = title.add_run("위기 대응 — 발표 중 5가지 시나리오")
+    set_font(run, size=16, bold=True)
+    title.alignment = WD_ALIGN_PARAGRAPH.CENTER
+
+    add_para(doc, "단상에 펴놓되 보지 않을 자료. 그러나 1번이라도 읽어두면 당황하지 않는다.", size=10).alignment = WD_ALIGN_PARAGRAPH.CENTER
+
+    add_heading(doc, "1. 시간 5분 지연 (25분 시점에 P40 미만)", level=2)
+    add_bullet(doc, "P42~P47 STEP 6개 통째로 0:30 안에 채널명만 호명: '유튜브—숏폼—인쇄—DA—SNS—언론'.")
+    add_bullet(doc, "P48~P49 합쳐 0:30. 'P50으로 바로 가겠습니다'.")
+    add_bullet(doc, "P50·P53만 시간 사수. 나머지 압축 OK.")
+
+    add_heading(doc, "2. 영상 재생 오류 (P35)", level=2)
+    add_bullet(doc, "당황하지 말고 30초 구술로 대체: '한 학생이 부산 영산대를 졸업하고, 두바이 호텔 총지배인이 됩니다. 그 길이 25명에게 이미 열렸습니다.'")
+    add_bullet(doc, "다음 슬라이드 P36으로 자연스럽게 넘어가며 '영상이 재생되지 않는군요. 다음 장으로 가겠습니다'.")
+    add_bullet(doc, "사후에 '영상 본 자료는 별도 송부 드리겠습니다' 구두 약속.")
+
+    add_heading(doc, "3. P9에서 평가위원이 손 들지 않음", level=2)
+    add_bullet(doc, "절대 당황하지 말 것. 손 안 올라오는 게 더 좋다 (메시지 강화).")
+    add_bullet(doc, "'그렇죠. 그게 광고의 현실입니다. 그래서 저희가 이 자리에 있습니다.'")
+    add_bullet(doc, "곧바로 P10으로 넘어가며 침묵 없이 진행.")
+
+    add_heading(doc, "4. 시간초과 임박 (29:30 도달)", level=2)
+    add_bullet(doc, "P53 침묵 5초 → 즉시 0초로 단축. 슬라이드 뜨면 바로 '처음으로 돌아갑니다'.")
+    add_bullet(doc, "P53 본문도 압축: '0825503. 수험생·학부모·유학생. 이견 없는 영산대학교. 감사합니다.'")
+    add_bullet(doc, "29:55에는 무조건 '감사합니다' 발화. 정시 인사가 시간초과보다 낫다.")
+
+    add_heading(doc, "5. Q&A 모르는 질문", level=2)
+    add_bullet(doc, "절대 '글쎄요' / '잘 모르겠는데요' 금지.")
+    add_bullet(doc, "정형 멘트: '좋은 질문 감사드립니다. 정확한 데이터 확인 후 24시간 이내 서면으로 답변 드리겠습니다.'")
+    add_bullet(doc, "그 후 즉시 다음 질문 받기. 답변 시도 절대 금지 (틀리면 더 큰 손해).")
+
+    add_para(doc, "")
+    add_para(
+        doc,
+        "마지막 원칙: 어떤 위기든 표정·자세 변화 없이 진행. 평가위원은 '발표자가 위기를 어떻게 다루는가'도 평가한다.",
+        size=10,
+        bold=True,
+    )
+
+    out = OUT_DIR / "07_위기대응_1장.docx"
+    doc.save(str(out))
+    print(f"OK: {out}")
+
+
 if __name__ == "__main__":
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     build_scenario()
     build_emphasis()
-    print("\n완료 — 발표키트 폴더 확인:")
+    build_cheatsheet()
+    build_memorize()
+    build_crisis()
+    print("\nDONE.")
     for f in sorted(OUT_DIR.iterdir()):
         print(f"  {f.name}")
