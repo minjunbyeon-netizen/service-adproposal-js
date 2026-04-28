@@ -108,6 +108,12 @@ def build_scenario():
         "2026-05-07(목) 14:00 / 해운대캠퍼스 D동 1층 대회의실 / 30분 발표 + Q&A 10분 / 2개사 중 1번째",
         size=10,
     ).alignment = WD_ALIGN_PARAGRAPH.CENTER
+    add_para(
+        doc,
+        "발표자: 하이브미디어 진성희 차장",
+        size=10,
+        bold=True,
+    ).alignment = WD_ALIGN_PARAGRAPH.CENTER
 
     # 1. 시간 배정 총괄
     add_heading(doc, "1. 시간 배정 총괄", level=1)
@@ -130,7 +136,7 @@ def build_scenario():
         doc,
         ["페이지", "시간", "누적", "키 메시지"],
         [
-            ["P1 표지 0825503", "0:20", "0:20", "'광고대행사 선정은 두 개로 압축됩니다'"],
+            ["P1 표지 0825503", "0:20", "0:20", "'안녕하십니까. 하이브미디어 진성희입니다. 광고대행사 선정은 두 개로 압축됩니다.'"],
             ["P2 Evaluation Axis", "0:45", "1:05", "'무엇을 기억시킬 것인가. 어떻게 많이 팔 것인가'"],
             ["P3 Market Status", "0:25", "1:30", "'모든 대학은 지금 생존의 시대'"],
             ["P4 Competitive Map", "0:40", "2:10", "'같은 무대에서 각자의 무기로'"],
@@ -281,6 +287,12 @@ def build_emphasis():
         "30분 발표 + Q&A 10분 / 2026-05-07(목) 14:00 / 해운대 D동 / 2개사 중 1번째",
         size=10,
     ).alignment = WD_ALIGN_PARAGRAPH.CENTER
+    add_para(
+        doc,
+        "발표자: 하이브미디어 진성희 차장",
+        size=10,
+        bold=True,
+    ).alignment = WD_ALIGN_PARAGRAPH.CENTER
 
     # 강조 7장 한눈 보기
     add_heading(doc, "강조 7장 한눈 보기", level=1)
@@ -407,7 +419,7 @@ def build_emphasis():
                 "'0825503. 이 숫자를 부산 수험생이 먼저 기억하게 만들겠습니다.'",
                 "'수험생에게, 학부모에게, 그리고 유학생에게.'",
                 "'Social Proof로. Insight Translation으로. Imprinting으로.'",
-                "'그래서, 이견 없는 영산대학교가 되도록 만들겠습니다.'",
+                "'그래서, 이견없는 영산대학교가 되도록 만들겠습니다.'",
             ],
             "q": "'수미상관 구조가 인상적이긴 한데, 실제 광고 집행 후 측정 지표는 무엇입니까?'",
             "a": "P48 관리 계획에 명시되어 있습니다. 브랜드 서베이 인지도, 원서 접수 전환율, 채널별 CPE — 세 가지 지표를 월별로 보고드립니다. 숫자로 시작했으니 숫자로 결과를 보여드리겠습니다. 분기마다 평가회를 통해 미달성 항목은 다음 분기에 공식 보완 계획서로 제출하겠습니다.",
@@ -571,7 +583,7 @@ def build_cheatsheet():
     set_font(run, size=16, bold=True)
     title.alignment = WD_ALIGN_PARAGRAPH.CENTER
 
-    add_para(doc, "5/7(목) 14:00 / 해운대 D동 / 1번째 발표 / 발표 30분 + Q&A 10분", size=10).alignment = WD_ALIGN_PARAGRAPH.CENTER
+    add_para(doc, "5/7(목) 14:00 / 해운대 D동 / 1번째 발표 / 30분 + Q&A 10분 / 발표자 진성희 차장", size=10).alignment = WD_ALIGN_PARAGRAPH.CENTER
 
     # Part 시간
     add_heading(doc, "Part 시간 (손목시계 기준)", level=2, size=12)
@@ -658,7 +670,7 @@ def build_memorize():
     add_heading(doc, "첫 90초 (P1~P9, 발표 시작 ~ 6:15)", level=1)
 
     add_para(doc, "P1 — 표지 (0:00~0:20)", size=11, bold=True)
-    add_para(doc, "'안녕하십니까. 하이브미디어입니다. 광고대행사 선정은 두 개로 압축됩니다.'", size=11, indent=0.5)
+    add_para(doc, "'안녕하십니까. 하이브미디어 진성희입니다. 광고대행사 선정은 두 개로 압축됩니다.'", size=11, indent=0.5)
 
     add_para(doc, "P2 — Evaluation Axis (0:20~1:05)", size=11, bold=True)
     add_para(doc, "'무엇을 기억시킬 것인가. 어떻게 많이 팔 것인가. 나머지는 수단입니다.'", size=11, indent=0.5)
@@ -696,7 +708,7 @@ def build_memorize():
     add_para(doc, "'0825503. 이 숫자를 부산 수험생이 먼저 기억하게 만들겠습니다.'", size=11, indent=0.5)
     add_para(doc, "'수험생에게, 학부모에게, 그리고 유학생에게.'", size=11, indent=0.5)
     add_para(doc, "'Social Proof로. Insight Translation으로. Imprinting으로.'", size=11, indent=0.5)
-    add_para(doc, "'그래서, 이견 없는 영산대학교가 되도록 만들겠습니다.'", size=11, indent=0.5)
+    add_para(doc, "'그래서, 이견없는 영산대학교가 되도록 만들겠습니다.'", size=11, indent=0.5)
 
     add_para(doc, "P54 — 인사 (28:45)", size=11, bold=True)
     add_para(doc, "'감사합니다.'", size=11, indent=0.5, bold=True)
@@ -740,7 +752,7 @@ def build_crisis():
     add_bullet(doc, "P50·P53만 시간 사수. 나머지 압축 OK.")
 
     add_heading(doc, "2. 영상 재생 오류 (P35)", level=2)
-    add_bullet(doc, "당황하지 말고 30초 구술로 대체: '한 학생이 부산 영산대를 졸업하고, 두바이 호텔 총지배인이 됩니다. 그 길이 25명에게 이미 열렸습니다.'")
+    add_bullet(doc, "당황하지 말고 30초 구술로 대체: '한 학생이 부산 영산대를 졸업하고, 세계 호텔 체인의 총지배인이 됩니다. 그 길이 이미 25명에게 열려 있습니다.'")
     add_bullet(doc, "다음 슬라이드 P36으로 자연스럽게 넘어가며 '영상이 재생되지 않는군요. 다음 장으로 가겠습니다'.")
     add_bullet(doc, "사후에 '영상 본 자료는 별도 송부 드리겠습니다' 구두 약속.")
 
@@ -751,7 +763,7 @@ def build_crisis():
 
     add_heading(doc, "4. 시간초과 임박 (29:30 도달)", level=2)
     add_bullet(doc, "P53 침묵 5초 → 즉시 0초로 단축. 슬라이드 뜨면 바로 '처음으로 돌아갑니다'.")
-    add_bullet(doc, "P53 본문도 압축: '0825503. 수험생·학부모·유학생. 이견 없는 영산대학교. 감사합니다.'")
+    add_bullet(doc, "P53 본문도 압축: '0825503. 수험생·학부모·유학생. 이견없는 영산대학교. 감사합니다.'")
     add_bullet(doc, "29:55에는 무조건 '감사합니다' 발화. 정시 인사가 시간초과보다 낫다.")
 
     add_heading(doc, "5. Q&A 모르는 질문", level=2)
