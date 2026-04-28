@@ -798,6 +798,43 @@ def build_crisis(doc=None, do_save=True):
 # ============================================================
 def build_combined_reading():
     doc = _new_doc((2, 2, 2.2, 2.2))
+
+    # 표지
+    title = doc.add_paragraph()
+    run = title.add_run("영산대 광고대행사 선정 PT")
+    set_font(run, size=22, bold=True)
+    title.alignment = WD_ALIGN_PARAGRAPH.CENTER
+
+    sub = doc.add_paragraph()
+    run = sub.add_run("정독용 — 시나리오 + 강조포인트 + Q&A")
+    set_font(run, size=14, bold=True)
+    sub.alignment = WD_ALIGN_PARAGRAPH.CENTER
+
+    add_para(doc, "")
+    add_para(doc, "2026-05-07(목) 14:00 / 해운대캠퍼스 D동 1층 대회의실", size=11).alignment = WD_ALIGN_PARAGRAPH.CENTER
+    add_para(doc, "30분 발표 + Q&A 10분 / 2개사 중 1번째", size=11).alignment = WD_ALIGN_PARAGRAPH.CENTER
+    add_para(doc, "발표자: 하이브미디어 진성희 차장", size=11, bold=True).alignment = WD_ALIGN_PARAGRAPH.CENTER
+
+    add_para(doc, "")
+    add_para(doc, "이 문서의 구성", size=12, bold=True)
+    add_table(
+        doc,
+        ["섹션", "내용"],
+        [
+            ["1부 발표 시나리오 30분", "Part 1~4 시간배정 + 페이지별 키 메시지 + 시간 점검 신호"],
+            ["2부 강조포인트 7장", "P8·P9·P14·P19·P36·P50·P53 — 발표 멘트 + 예상 의문 답변"],
+            ["3부 Q&A 11개", "예산·사례·수험생감소·인플루언서·수도권·인력·QS·차별점·일정·실행정합성·정시"],
+        ],
+        col_widths=[6.0, 10.0],
+    )
+
+    add_para(doc, "")
+    add_para(doc, "사용 시점", size=12, bold=True)
+    add_bullet(doc, "발표 전 1회 정독용. 인쇄 후 클립으로 묶어 가방에 보관.")
+    add_bullet(doc, "당일 단상에는 03 단상용 docx를 사용 (이 문서는 단상에서 못 봄).")
+    add_bullet(doc, "리허설 시 04 암기카드와 함께 사용.")
+
+    doc.add_page_break()
     build_scenario(doc=doc, do_save=False)
     doc.add_page_break()
     build_emphasis(doc=doc, do_save=False)
@@ -811,6 +848,19 @@ def build_combined_reading():
 # ============================================================
 def build_combined_dais():
     doc = _new_doc((1.2, 1.2, 1.5, 1.5))
+
+    # 표지 (간소)
+    title = doc.add_paragraph()
+    run = title.add_run("영산대 PT — 단상용")
+    set_font(run, size=18, bold=True)
+    title.alignment = WD_ALIGN_PARAGRAPH.CENTER
+
+    add_para(doc, "5/7(목) 14:00 / 해운대 D동 / 1번째 / 발표자 진성희 차장", size=10).alignment = WD_ALIGN_PARAGRAPH.CENTER
+
+    add_para(doc, "")
+    add_para(doc, "양면 인쇄 권장 — 1면 컨닝페이퍼 / 2면 위기대응", size=10, bold=True).alignment = WD_ALIGN_PARAGRAPH.CENTER
+
+    doc.add_page_break()
     build_cheatsheet(doc=doc, do_save=False)
     doc.add_page_break()
     build_crisis(doc=doc, do_save=False)
