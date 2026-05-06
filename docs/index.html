@@ -828,15 +828,23 @@ body{font-family:'Noto Sans KR',-apple-system,sans-serif;font-weight:400;backgro
   </div>
   <div style="position:absolute;top:80px;right:120px;font-size:14px;color:#1A1A1A;font-weight:700;z-index:2">HIVE MEDIA</div>
   <div class="slide-pagenum">19</div>
-  <div class="content-body"><div style="height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:var(--s-5) 0">
+  <div class="content-body"><style>
+@keyframes p19Fade{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.morph-wrap.expanded .p19-step1{animation:p19Fade .55s ease .1s forwards}
+.morph-wrap.expanded2 .p19-step2{animation:p19Fade .65s ease .1s forwards}
+.morph-wrap.expanded2 .p19-headline{opacity:.45;transition:opacity .4s ease}
+.morph-wrap.expanded2 .p19-step1{opacity:.45 !important;transition:opacity .4s ease}
+</style>
+<div class="morph-wrap" id="morphWrap" data-phases="2" style="height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:var(--s-5) 0;gap:36px">
 
-<div style="font-size:22px;font-weight:400;color:#6E6E73;letter-spacing:1px">숫자</div>
-<div style="width:1px;height:40px;background:#D2D2D2;margin:16px 0"></div>
-<div style="font-size:22px;font-weight:400;color:#6E6E73;letter-spacing:1px">4계층 레이어</div>
-<div style="width:1px;height:40px;background:#D2D2D2;margin:16px 0"></div>
-<div style="font-size:14px;font-weight:700;color:#6E6E73;letter-spacing:4px;margin-bottom:16px">최종 컨셉</div>
+<div class="p19-headline" style="font-size:52px;font-weight:400;color:#1A1A1A;line-height:1.4">영산대학교의 장점은 <span style="color:#E84E10;font-weight:700">숫자</span>입니다</div>
 
-<div style="font-size:180px;font-weight:700;color:#E84E10;line-height:0.85;letter-spacing:-6px">각인</div>
+<div class="p19-step1" style="opacity:0;font-size:38px;font-weight:400;color:#6E6E73;line-height:1.5">우리가 제안하는 <span style="color:#1A1A1A;font-weight:700">4계층 레이어</span>를 통해</div>
+
+<div class="p19-step2" style="opacity:0;display:flex;flex-direction:column;align-items:center;gap:14px;margin-top:8px">
+<div style="font-size:14px;font-weight:700;color:#6E6E73">최종 컨셉</div>
+<div style="font-size:260px;font-weight:700;color:#E84E10;line-height:0.85;letter-spacing:-12px">각인</div>
+</div>
 
 </div></div>
 </div>
