@@ -4,6 +4,7 @@ __pycache__/
 venv/
 uploads/
 data/
+exports/
 *.db
 .claude/
 scripts/*.png
