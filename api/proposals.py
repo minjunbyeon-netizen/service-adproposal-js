@@ -5,6 +5,10 @@ import logging
 import markdown
 from pathlib import Path
 from datetime import datetime
+from zoneinfo import ZoneInfo
+
+KST = ZoneInfo("Asia/Seoul")
+
 from flask import Blueprint, request, jsonify, send_file, render_template
 from werkzeug.utils import secure_filename
 from api.db import (
@@ -173,7 +177,7 @@ def analyze_proposal(pid):
                 (json.dumps(rfp_json, ensure_ascii=False),
                  rfp_summary,
                  json.dumps(toc_json, ensure_ascii=False),
-                 datetime.now().isoformat(),
+                 datetime.now(KST).isoformat(),
                  pid),
             )
 

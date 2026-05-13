@@ -2,6 +2,10 @@
 import json
 import logging
 from datetime import datetime
+from zoneinfo import ZoneInfo
+
+KST = ZoneInfo("Asia/Seoul")
+
 from flask import Blueprint, request, jsonify
 from api.db import get_conn
 
@@ -33,7 +37,7 @@ def generate_section(sid):
         conn = get_conn()
         conn.execute(
             "UPDATE sections SET status='generating', updated_at=? WHERE id=?",
-            (datetime.now().isoformat(), sid),
+            (datetime.now(KST).isoformat(), sid),
         )
         conn.commit()
         conn.close()
@@ -48,7 +52,7 @@ def generate_section(sid):
         try:
             conn.execute(
                 "UPDATE sections SET content=?, status='done', updated_at=? WHERE id=?",
-                (content, datetime.now().isoformat(), sid),
+                (content, datetime.now(KST).isoformat(), sid),
             )
             # assistant 메시지 저장
             conn.execute(
@@ -65,7 +69,7 @@ def generate_section(sid):
         conn = get_conn()
         conn.execute(
             "UPDATE sections SET status='pending', updated_at=? WHERE id=?",
-            (datetime.now().isoformat(), sid),
+            (datetime.now(KST).isoformat(), sid),
         )
         conn.commit()
         conn.close()
@@ -128,7 +132,7 @@ def post_message(sid):
             # 섹션 내용 업데이트
             conn.execute(
                 "UPDATE sections SET content=?, status='done', updated_at=? WHERE id=?",
-                (reply, datetime.now().isoformat(), sid),
+                (reply, datetime.now(KST).isoformat(), sid),
             )
             conn.commit()
             return jsonify({"ok": True, "data": {"content": reply}})
@@ -164,7 +168,7 @@ def update_section(sid):
     try:
         conn.execute(
             "UPDATE sections SET content=?, status='done', updated_at=? WHERE id=?",
-            (data["content"], datetime.now().isoformat(), sid),
+            (data["content"], datetime.now(KST).isoformat(), sid),
         )
         conn.commit()
         return jsonify({"ok": True})
