@@ -30,8 +30,8 @@ def init_db():
                 rfp_summary  TEXT,
                 rfp_json     TEXT,
                 toc_json     TEXT,
-                created_at   TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                updated_at   TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                created_at   TIMESTAMP DEFAULT (datetime('now','+9 hours')),
+                updated_at   TIMESTAMP DEFAULT (datetime('now','+9 hours'))
             );
 
             CREATE TABLE IF NOT EXISTS sections (
@@ -42,8 +42,8 @@ def init_db():
                 order_idx    INTEGER NOT NULL,
                 content      TEXT,
                 status       TEXT    NOT NULL DEFAULT 'pending',
-                created_at   TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                updated_at   TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                created_at   TIMESTAMP DEFAULT (datetime('now','+9 hours')),
+                updated_at   TIMESTAMP DEFAULT (datetime('now','+9 hours'))
             );
 
             CREATE TABLE IF NOT EXISTS messages (
@@ -51,7 +51,7 @@ def init_db():
                 section_id   INTEGER NOT NULL REFERENCES sections(id) ON DELETE CASCADE,
                 role         TEXT    NOT NULL,
                 content      TEXT    NOT NULL,
-                created_at   TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                created_at   TIMESTAMP DEFAULT (datetime('now','+9 hours'))
             );
 
             CREATE TABLE IF NOT EXISTS concepts (
@@ -60,7 +60,7 @@ def init_db():
                 label       TEXT    NOT NULL CHECK(label IN ('A','B','C')),
                 title       TEXT    NOT NULL,
                 body        TEXT    NOT NULL DEFAULT '',
-                created_at  TEXT    NOT NULL DEFAULT (datetime('now')),
+                created_at  TEXT    NOT NULL DEFAULT (datetime('now','+9 hours')),
                 UNIQUE(proposal_id, label)
             );
 
